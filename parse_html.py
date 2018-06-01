@@ -12,6 +12,7 @@ class TracHTMLParser():
         return url_response.read().decode(codec)
 
 
+# This is for test purpose
 ticket_url = "https://devel.rtems.org/ticket/2988"
 thp = TracHTMLParser()
 bs = thp.parse_page(url=ticket_url)
