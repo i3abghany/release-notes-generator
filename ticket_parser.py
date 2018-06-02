@@ -77,7 +77,7 @@ class TicketParser():
             comments.append({"id": i + 1, "commenter": commenter, "time": time, "comments": comment})
         return comments
 
-
+# This is for test purpose
 tp = TicketParser()
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
