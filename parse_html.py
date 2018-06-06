@@ -1,5 +1,6 @@
 import urllib.request
 from bs4 import BeautifulSoup
+from retry import retry
 
 
 class TracHTMLParser():
@@ -7,6 +8,7 @@ class TracHTMLParser():
         page_str = self._read_html_page(url)
         return BeautifulSoup(page_str, "html.parser")
 
+    @retry(exceptions=(ConnectionError, TimeoutError), delay=1, tries=6, backoff=2)
     def _read_html_page(self, url, codec="utf-8"):
         url_response = urllib.request.urlopen(url)
         return url_response.read().decode(codec)
