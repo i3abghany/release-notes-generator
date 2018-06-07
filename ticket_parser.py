@@ -2,15 +2,20 @@ from parse_html import TracHTMLParser
 
 
 class TicketParser():
-    def get_ticket_meta(self, ticket_id):
+    def __init__(self, ticket_id, rtems_url_base="https://devel.rtems.org", ticket="ticket"):
+        self.ticket_id = ticket_id
+        self.rtems_url_base = rtems_url_base
+        self.ticket = ticket
+
+    def get_ticket_meta(self):
         # store ticket id, summary, owner, type, priority, compnonent, version etc to a dict
         ticket_meta = {}
-        ticket_url = "https://devel.rtems.org/ticket/" + ticket_id
+        ticket_url = "/".join([self.rtems_url_base, self.ticket, self.ticket_id])
 
         trac_html_parser = TracHTMLParser()
         bs = trac_html_parser.parse_page(ticket_url)
         # parse html to get ticket id, summary, owner, type etc and save them in ticket_meta dict
-        ticket_meta["id"] = ticket_id
+        ticket_meta["id"] = self.ticket_id
 
         status_tag = bs.find(name="span", attrs={"class": "trac-status"}).find(name="a")
         ticket_meta["status"] = None if status_tag is None else status_tag.string
@@ -61,6 +66,7 @@ class TicketParser():
         ticket_meta["description"] = None if description_tag is None else description_tag.getText()
 
         ticket_meta["comments"] = self._parse_ticket_comments(bs)
+        ticket_meta["attachments"] = self._parse_ticket_attachments(bs)
         return ticket_meta
 
     def _parse_ticket_comments(self, bs):
@@ -77,8 +83,16 @@ class TicketParser():
             comments.append({"id": i + 1, "commenter": commenter, "time": time, "comments": comment})
         return comments
 
+    def _parse_ticket_attachments(self, bs):
+        attachments_urls = []
+        attachments_list_tag = bs.find_all(name="dl", attrs={"class": "attachments"})
+        for attachment_tag in attachments_list_tag:
+            attachments_urls.append(self.rtems_url_base + attachment_tag.find(name="dt").find(name="a")["href"])
+        return attachments_urls
+
+
 # This is for test purpose
-tp = TicketParser()
+tp = TicketParser(ticket_id="2802")
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
-pp.pprint(tp.get_ticket_meta(ticket_id="2988"))
+pp.pprint(tp.get_ticket_meta())
