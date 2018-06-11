@@ -1,0 +1,47 @@
+{
+    "progress_overall": {
+        "total": 47,
+        "closed": 47,
+        "open": 0,
+        "new": 0,
+        "progress": "100%"
+    },
+    "progress_by_cols": {
+        "type": {
+            "infra": "1/1",
+            "enhancement": "3/3",
+            "defect": "42/42",
+            "project": "1/1"
+        },
+        "priority": {
+            "highest": "3/3",
+            "low": "1/1",
+            "normal": "40/40",
+            "high": "3/3"
+        },
+        "component": {
+            "config": "1/1",
+            "tool/gcc": "5/5",
+            "arch/arm": "2/2",
+            "shell": "1/1",
+            "lib/block": "1/1",
+            "fs/fat": "5/5",
+            "score": "5/5",
+            "tool/rsb": "13/13",
+            "doc": "6/6",
+            "tool": "3/3",
+            "lib/dl": "2/2",
+            "build": "3/3"
+        },
+        "version": {
+            "": "3/3",
+            "4.11": "44/44"
+        },
+        "severity": {
+            "critical": "1/1",
+            "blocker": "6/6",
+            "minor": "1/1",
+            "normal": "39/39"
+        }
+    }
+}

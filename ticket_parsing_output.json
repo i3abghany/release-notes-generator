@@ -1,0 +1,142 @@
+{
+    "csv": {
+        "id": "2802",
+        "summary": "Test \"libdl (RTL) 5\" fails on SPARC targets",
+        "reporter": "Sebastian Huber",
+        "owner": "Chris Johns",
+        "description": "On GR740 I get:\r\n{{{\r\nrtl: RELOC_32 0x60ae8 @ 0x86edc in /dl-o5.o\r\nrtl: relocation: .rela.eh_frame, syms:.symtab\r\nrtl: rela: sym:__gxx_personality_v0(20)=00001dec type:3  off:00000013 addend:0\r\n\r\nCPU 0:  IU in error mode (tt = 0x07, mem address not aligned)\r\n        0x0001fa9c: c4040000  ld  [%l0], %g2  <rtems_rtl_elf_relocate_rela+204>\r\nCPU 1:  Power down mode\r\nCPU 2:  Power down mode\r\nCPU 3:  Power down mode\r\n}}}\r\n\r\nOn GR712RC I get:\r\n{{{\r\nrtl: WDISP_30 0x7ffe2ccd @ 0x40087108 in /dl-o5.o\r\nrtl: relocation: .rela.gcc_except_table.exception_dl, syms:.symtab\r\nrtl: rela: sym:_ZTISt9exception(32)=40060ae8 type:3  off:00000034 addend:0\r\nrtl: RELOC_32 0x40060ae8 @ 0x400871b4 in /dl-o5.o\r\nrtl: relocation: .rela.eh_frame, syms:.symtab\r\nrtl: rela: sym:__gxx_personality_v0(20)=40001dec type:3  off:00000013 addend:0\r\n}}}\r\nTarget resets now.",
+        "type": "defect",
+        "status": "closed",
+        "priority": "normal",
+        "milestone": "5.1",
+        "component": "lib/dl",
+        "version": "5",
+        "severity": "normal",
+        "resolution": "fixed",
+        "keywords": "",
+        "cc": "",
+        "blockedby": "",
+        "blocking": ""
+    },
+    "rss": {
+        "title": "RTEMS Project: Ticket #2802: Test \"libdl (RTL) 5\" fails on SPARC targets",
+        "link": "https://devel.rtems.org/ticket/2802",
+        "description": "On GR740 I get: rtl: RELOC_32 0x60ae8 @ 0x86edc in /dl-o5.o rtl: relocation: .rela.eh_frame, syms:.symtab rtl: rela: sym:__gxx_personality_v0(20)=00001dec type:3 off:00000013 addend:0 CPU 0: IU in error mode (tt = 0x07, mem address not aligned) 0x0001fa9c: c4040000 ld [%l0], %g2 <rtems_rtl_elf_relocate_rela+204> CPU 1: Power down mode CPU 2: Power down mode CPU 3: Power down mode On GR712RC I get: rtl: WDISP_30 0x7ffe2ccd @ 0x40087108 in /dl-o5.o rtl: relocation: .rela.gcc_except_table.exception_dl, syms:.symtab rtl: rela: sym:_ZTISt9exception(32)=40060ae8 type:3 off:00000034 addend:0 rtl: RELOC_32 0x40060ae8 @ 0x400871b4 in /dl-o5.o rtl: relocation: .rela.eh_frame, syms:.symtab rtl: rela: sym:__gxx_personality_v0(20)=40001dec type:3 off:00000013 addend:0 Target resets now.",
+        "generator": "Trac 1.2.1.dev0",
+        "comments": {
+            "comments": [
+                {
+                    "creator": "Chris Johns",
+                    "pubDate": "Thu, 10 Nov 2016 05:39:59 GMT",
+                    "title": "",
+                    "link": "https://devel.rtems.org/ticket/2802#comment:1",
+                    "guid": "https://devel.rtems.org/ticket/2802#comment:1",
+                    "description": "This is due to the following relocation record: Relocation section '.rela.eh_frame' at offset 0x5fe8 contains 3 entries: Offset Info Type Sym.Value Sym. Name + Addend 00000013 00001403 R_SPARC_32 00000000 __gxx_personality_v0 + 0 The type is R_SPARC_32 is declared as being aligned however the offset is 0x13 and this causes a misaligned access.",
+                    "category": "Ticket"
+                },
+                {
+                    "creator": "Sebastian Huber",
+                    "pubDate": "Thu, 10 Nov 2016 07:32:09 GMT",
+                    "title": "",
+                    "link": "https://devel.rtems.org/ticket/2802#comment:2",
+                    "guid": "https://devel.rtems.org/ticket/2802#comment:2",
+                    "description": "Is this a bug in the tool chain or the libdl?",
+                    "category": "Ticket"
+                },
+                {
+                    "creator": "Chris Johns",
+                    "pubDate": "Thu, 10 Nov 2016 07:46:01 GMT",
+                    "title": "",
+                    "link": "https://devel.rtems.org/ticket/2802#comment:3",
+                    "guid": "https://devel.rtems.org/ticket/2802#comment:3",
+                    "description": "I am investigating. At this stage it looks like a bug in gas. Binutils contain code that checks the lower bits of the address and selects either R_SPARC_32 or UA32. I am looking to make a suitable test case so I can see what is happening.",
+                    "category": "Ticket"
+                },
+                {
+                    "creator": "Chris Johns",
+                    "pubDate": "Fri, 11 Nov 2016 05:50:10 GMT",
+                    "title": "",
+                    "link": "https://devel.rtems.org/ticket/2802#comment:4",
+                    "guid": "https://devel.rtems.org/ticket/2802#comment:4",
+                    "description": "\u200bhttps://sourceware.org/bugzilla/show_bug.cgi?id=20803",
+                    "category": "Ticket"
+                },
+                {
+                    "creator": "Chris Johns",
+                    "pubDate": "Fri, 11 Nov 2016 06:10:48 GMT",
+                    "title": "",
+                    "link": "https://devel.rtems.org/ticket/2802#comment:5",
+                    "guid": "https://devel.rtems.org/ticket/2802#comment:5",
+                    "description": "I have attached a work-around which allows dl05 to run and fail in the expected manner. We can review the status of this patch once we get some feedback from the binutil's community.",
+                    "category": "Ticket"
+                },
+                {
+                    "author": "Jiri Gaisler <jiri@\u2026>",
+                    "pubDate": "Mon, 14 Nov 2016 14:24:08 GMT",
+                    "title": "",
+                    "link": "https://devel.rtems.org/ticket/2802#comment:6",
+                    "guid": "https://devel.rtems.org/ticket/2802#comment:6",
+                    "description": "In 316da9356ad7b612f6df6ed1e47b62268450438e/rtems: rtl-mdreloc-sparc.c: Do not print unaligned pointer and cause unaligned access. updates #2802.",
+                    "category": "Ticket"
+                },
+                {
+                    "creator": "Sebastian Huber",
+                    "pubDate": "Tue, 22 Nov 2016 06:41:39 GMT",
+                    "title": "",
+                    "link": "https://devel.rtems.org/ticket/2802#comment:7",
+                    "guid": "https://devel.rtems.org/ticket/2802#comment:7",
+                    "description": "Now the test terminates with rtl: UA_32 0x8c6d8 @ 0x8c755 in /dl-o5.o rtl: alloc: del: SYMBOL addr=0x8c780 rtl: alloc: new: OBJECT addr=0x8c7e8 size=132 rtl: linkmap_add rtl: unresolv: global resolve dlopen: dlsym: exception_base called exception_dl: throwing terminate called after throwing an instance of 'std::runtime_error' what(): exception_dl throw",
+                    "category": "Ticket"
+                },
+                {
+                    "creator": "Chris Johns",
+                    "pubDate": "Tue, 22 Nov 2016 21:26:11 GMT",
+                    "title": "",
+                    "link": "https://devel.rtems.org/ticket/2802#comment:8",
+                    "guid": "https://devel.rtems.org/ticket/2802#comment:8",
+                    "description": "This error is the expected result of the test. It does not pass. See #2767 for the original issue that raised the problem.",
+                    "category": "Ticket"
+                },
+                {
+                    "creator": "Sebastian Huber",
+                    "pubDate": "Wed, 23 Nov 2016 06:04:02 GMT",
+                    "title": "status changed; resolution set",
+                    "link": "https://devel.rtems.org/ticket/2802#comment:9",
+                    "guid": "https://devel.rtems.org/ticket/2802#comment:9",
+                    "description": "status changed from new to closed resolution set to fixed",
+                    "category": "Ticket"
+                },
+                {
+                    "creator": "Sebastian Huber",
+                    "pubDate": "Thu, 11 May 2017 07:31:02 GMT",
+                    "title": "milestone changed",
+                    "link": "https://devel.rtems.org/ticket/2802#comment:10",
+                    "guid": "https://devel.rtems.org/ticket/2802#comment:10",
+                    "description": "milestone changed from 4.12 to 4.12.0",
+                    "category": "Ticket"
+                },
+                {
+                    "creator": "Sebastian Huber",
+                    "pubDate": "Thu, 09 Nov 2017 06:27:14 GMT",
+                    "title": "milestone changed",
+                    "link": "https://devel.rtems.org/ticket/2802#comment:11",
+                    "guid": "https://devel.rtems.org/ticket/2802#comment:11",
+                    "description": "milestone changed from 4.12.0 to 5.1 Milestone renamed",
+                    "category": "Ticket"
+                }
+            ],
+            "attachments": [
+                {
+                    "creator": "Chris Johns",
+                    "pubDate": "Fri, 11 Nov 2016 06:09:35 GMT",
+                    "title": "attachment set",
+                    "link": "https://devel.rtems.org/ticket/2802",
+                    "guid": "https://devel.rtems.org/ticket/2802",
+                    "description": "attachment set to libdl-sparc-R_SPARC_32-missaligned.patch Miss-aligned R_SPARC_32 offset work around.",
+                    "category": "Ticket",
+                    "attachment_link": "https://devel.rtems.org/attachment/ticket/2802/libdl-sparc-R_SPARC_32-missaligned.patch"
+                }
+            ]
+        }
+    }
+}
