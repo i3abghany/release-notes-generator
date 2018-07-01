@@ -33,17 +33,19 @@ class markdown():
     def __init__(self):
         self.content = ''
 
+    def gen_bullet_point(self, text):
+        self.content += '* ' + text + '\n'
+
     def gen_line(self, text):
         self.content += str(text) + '\n'
 
     def gen_heading(self, text, level):
         self.content += '#' * level + ' ' + str(text)
 
-    def gen_table(self, header, rows, col_width = 80, align ='center'):
+    def gen_table(self, header, rows, align ='center'):
         num_columns = len(header)
-        header = [self._insert_newline(h, col_width) for h in header]
-        rows = [[self._insert_newline(str(r) or ' ', col_width) for r in row]
-                for row in rows]
+        header = [str(h) for h in header]
+        rows = [[str(r) or ' ' for r in row] for row in rows]
 
         header_str = '|' + '|'.join(header) + '|'
         column_format = '---'
@@ -59,11 +61,13 @@ class markdown():
         rows_str = '\n'.join(['|' + '|'.join(row) + '|' for row in rows])
         self.content += '\n'.join([header_str, split_line, rows_str])
 
-    @classmethod
-    def _insert_newline(cls, line, col_width):
-        newline = '<br>'
-        if len(line) > col_width > len(newline):
-            line = line[:col_width - len(newline)] \
-                   + newline \
-                   + line[col_width - len(newline)]
-        return line
+    def gen_raw_text(self, formatted_text):
+        self.content += '```text\n' + formatted_text + '\n```\n'
+
+    @staticmethod
+    def gen_bold(text):
+        return '**' + text + '**'
+
+    @staticmethod
+    def gen_hyperlink(text, link):
+        return '[' + text + ']' + '(' + link + ')'
