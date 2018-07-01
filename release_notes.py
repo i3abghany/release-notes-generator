@@ -3,10 +3,12 @@ import reports
 import tickets
 
 
+# Fetch tickets data
 t = tickets.tickets(milestone_id='4.11.3')
 t.load()
 tickets_stats = t.tickets
 
+# Generate markdown format for data
 md = markdown.markdown()
 reports.gen_overall_progress(tickets_stats['overall_progress'], md)
 reports.gen_tickets_stats_by_category(tickets_stats['by_category'], md)
