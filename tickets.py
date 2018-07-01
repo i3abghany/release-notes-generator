@@ -66,6 +66,7 @@ class tickets:
         self.tickets['overall_progress']['closed'] = 0
         self.tickets['overall_progress']['in_progress'] = 0
         self.tickets['overall_progress']['new'] = 0
+        self.tickets['overall_progress']['assigned'] = 0
         self.tickets['tickets'] = {}
 
     def _post_process_ticket_stats(self):
@@ -76,7 +77,7 @@ class tickets:
         # Get progress (closed/total) for each category
         for col in self.tickets['by_category']:
             for key in self.tickets['by_category'][col]:
-                closed = self.tickets['by_category'][col][key]['closed']
+                closed = self.tickets['by_category'][col][key].get('closed', 0)
                 total = self.tickets['by_category'][col][key]['total']
                 self.tickets['by_category'][col][key]['progress'] \
                     = '{c}/{t}'.format(c=closed, t=total)
