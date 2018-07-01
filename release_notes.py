@@ -14,5 +14,5 @@ reports.gen_overall_progress(tickets_stats['overall_progress'], md)
 reports.gen_tickets_stats_by_category(tickets_stats['by_category'], md)
 reports.gen_individual_tickets_info(tickets_stats['tickets'], md)
 
-with open('tickets.md', 'w') as file:
+with open('tickets.md', 'w', encoding='utf-8') as file:
     file.write(md.content)

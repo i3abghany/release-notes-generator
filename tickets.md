@@ -141,16 +141,16 @@ Docs failed to build PDF with the latest Sphinx.
 |2538|Joel Sherrill|Chris Johns|defect|closed|high|4.11.3|tool/rsb|4.11|blocker|worksforme| | | | |
 * **description**
 ```text
-From the log building arm-rtems4.11 target. It is in rtems-tools and the ln only has one argument. Looks like I can expect all targets to fail.
-
-+ /bin/rm -rf rtems-tools-4.11
-+ ln -s /data/home/joel/rtems-4.11-work/rtems-source-builder/rtems/sources/git/rtems-tools.git
-+ cd rtems-tools-4.11
-/data/home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/rtems-tools-4.11-1/doit: line 85: cd: rtems-tools-4.11: No such file or directory
-shell cmd failed: /bin/sh -ex  /data/home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/rtems-tools-4.11-1/doit
-error: building rtems-tools-4.11-1
-
-
+From the log building arm-rtems4.11 target. It is in rtems-tools and the ln only has one argument. Looks like I can expect all targets to fail.
+
++ /bin/rm -rf rtems-tools-4.11
++ ln -s /data/home/joel/rtems-4.11-work/rtems-source-builder/rtems/sources/git/rtems-tools.git
++ cd rtems-tools-4.11
+/data/home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/rtems-tools-4.11-1/doit: line 85: cd: rtems-tools-4.11: No such file or directory
+shell cmd failed: /bin/sh -ex  /data/home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/rtems-tools-4.11-1/doit
+error: building rtems-tools-4.11-1
+
+
 
 ```
 
@@ -176,52 +176,52 @@ error: building rtems-tools-4.11-1
 |2578|Mario Gruber|Chris Johns|defect|closed|high|4.11.3|tool|4.11|blocker|wontfix| | | | |
 * **description**
 ```text
-Building rtems-tools for Cxc builds:
-
-{{{
-git checkout -b 4.11 origin/4.11 \
- && source-builder/sb-check \
- && cd rtems \
- && ../source-builder/sb-set-builder \
- --log=rsb-powerpc-rtems4.11-mingw.txt \
- --prefix=/opt/powerpc-rtems4.11-mingw \
- --host=i686-w64-mingw32 \
- --bset-tar-files \
- 4.11/rtems-powerpc
-}}}
-
-dies at configuring package rtems-tools-4.11-1:
-
-{{{
-config: tools/rtems-tools-4.11-1.cfg
-package: rtems-tools-4.11-1
-...
-+ echo ==> %build:
-==> %build:
-+ pwd
-+ build_top=/tmp/rtems-source-builder/rtems/build/rtems-tools-4.11-1
-+ test x86_64-linux-gnu != i686-w64-mingw32
-+ RT_HOST=-host=i686-w64-mingw32
-+ cd rtems-tools-4.11
-+ ./waf configure -host=i686-w64-mingw32 
-+ --prefix=/opt/powerpc-rtems4.11-mingw
-waf [commands] [options]
-
-Main commands (example: ./waf build -j4)
-  build    : executes the build
-  clean    : cleans the project
-...
-+ ./waf
-The project was not configured: run "waf configure" first!
-shell cmd failed: /bin/sh -ex  /tmp/rtems-source-builder/rtems/build/rtems-tools-4.11-1/doit
-error: building rtems-tools-4.11-1
-  See error report: rsb-report-rtems-tools-4.11-1.txt
-}}}
-
-This is due to the -host command line argument, which is missing a hyphen.
-
-I sent a patch to the mailing list:
-
+Building rtems-tools for Cxc builds:
+
+{{{
+git checkout -b 4.11 origin/4.11 \
+ && source-builder/sb-check \
+ && cd rtems \
+ && ../source-builder/sb-set-builder \
+ --log=rsb-powerpc-rtems4.11-mingw.txt \
+ --prefix=/opt/powerpc-rtems4.11-mingw \
+ --host=i686-w64-mingw32 \
+ --bset-tar-files \
+ 4.11/rtems-powerpc
+}}}
+
+dies at configuring package rtems-tools-4.11-1:
+
+{{{
+config: tools/rtems-tools-4.11-1.cfg
+package: rtems-tools-4.11-1
+...
++ echo ==> %build:
+==> %build:
++ pwd
++ build_top=/tmp/rtems-source-builder/rtems/build/rtems-tools-4.11-1
++ test x86_64-linux-gnu != i686-w64-mingw32
++ RT_HOST=-host=i686-w64-mingw32
++ cd rtems-tools-4.11
++ ./waf configure -host=i686-w64-mingw32 
++ --prefix=/opt/powerpc-rtems4.11-mingw
+waf [commands] [options]
+
+Main commands (example: ./waf build -j4)
+  build    : executes the build
+  clean    : cleans the project
+...
++ ./waf
+The project was not configured: run "waf configure" first!
+shell cmd failed: /bin/sh -ex  /tmp/rtems-source-builder/rtems/build/rtems-tools-4.11-1/doit
+error: building rtems-tools-4.11-1
+  See error report: rsb-report-rtems-tools-4.11-1.txt
+}}}
+
+This is due to the -host command line argument, which is missing a hyphen.
+
+I sent a patch to the mailing list:
+
 https://lists.rtems.org/pipermail/devel/2016-January/013348.html
 ```
 
@@ -246,8 +246,8 @@ rtems-tools configure fails for Cxc builds
 |2639|Chris Johns|Chris Johns|defect|closed|high|4.11.3|tool/rsb|4.11|normal|duplicate|RSB 4.11.0-RC2| | | |
 * **description**
 ```text
-Long path support on Windows requires the use of Unicode paths. The current path is not Unicode and some paths in C++ can be longer than 255 character when building the release candidates using the standard paths in the releases.
-
+Long path support on Windows requires the use of Unicode paths. The current path is not Unicode and some paths in C++ can be longer than 255 character when building the release candidates using the standard paths in the releases.
+
 The solution is to change paths.py so it's host call returns a Unicode string. The also requires changes to the macro key logic to convert any unicode string to an ascii string, all macro keys are ascii. Also the execute module needs to better manage Unicode strings.
 ```
 
@@ -271,14 +271,14 @@ RSB long path support on Windows is still broken.
 |2362|mw|Chris Johns|defect|closed|normal|4.11.3|lib/block|4.11|normal|wontfix| | | | |
 * **description**
 ```text
-If CONFIGURE_BDBUF_MAX_READ_AHEAD_BLOCKS is set too large, the initialization of the block device buffer can fail without any notice, causing problems downstream that are seemingly unrelated (such as trying to read from the device) and with misleading error codes.
-
-Tested on pc386 BSP
-
-Ran testsuites/samples/fileio/fileio.exe fine, initializing partition /dev/hda with result = 0
-
-Modified testsuites/samples/fileio/system.h, setting CONFIGURE_BDBUF_MAX_READ_AHEAD_BLOCKS to 32 (rather than 2).
-
+If CONFIGURE_BDBUF_MAX_READ_AHEAD_BLOCKS is set too large, the initialization of the block device buffer can fail without any notice, causing problems downstream that are seemingly unrelated (such as trying to read from the device) and with misleading error codes.
+
+Tested on pc386 BSP
+
+Ran testsuites/samples/fileio/fileio.exe fine, initializing partition /dev/hda with result = 0
+
+Modified testsuites/samples/fileio/system.h, setting CONFIGURE_BDBUF_MAX_READ_AHEAD_BLOCKS to 32 (rather than 2).
+
 Re-ran, and initializing partition /dev/hda fails with result = 3 (Invalid Name).
 ```
 
@@ -303,17 +303,17 @@ ramdisk_initialize() returns an error code and driver initialization error code 
 |2439|Chris Johns|Chris Johns|defect|closed|normal|4.11.3|tool/gcc|4.11|normal|fixed| | | |3262|
 * **description**
 ```text
-Building 4.11/rtems-arm with the RSB fails with (error report attached):
-
-{{{
-/Users/chris/development/rtems/rsb/rtems-source-builder/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin15.0.0-1/build/./gcc/xgcc -B/Users/chris/development/rtems/rsb/rtems-source-builder/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin15.0.0-1/build/./gcc/ -nostdinc -B/Users/chris/development/rtems/rsb/rtems-source-builder/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin15.0.0-1/build/arm-rtems4.11/newlib/ -isystem /Users/chris/development/rtems/rsb/rtems-source-builder/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin15.0.0-1/build/arm-rtems4.11/newlib/targ-include -isystem /Users/chris/development/rtems/rsb/rtems-source-builder/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin15.0.0-1/gcc-4.9.3/newlib/libc/include -B/Users/chris/development/rtems/4.11/arm-rtems4.11/bin/ -B/Users/chris/development/rtems/4.11/arm-rtems4.11/lib/ -isystem /Users/chris/development/rtems/4.11/arm-rtems4.11/include -isystem /Users/chris/development/rtems/4.11/arm-rtems4.11/sys-include    -g -O2 -mthumb -O2 -I../../../../gcc-4.9.3/libgcc/../newlib/libc/sys/rtems/include -g -O2 -DIN_GCC  -DCROSS_DIRECTORY_STRUCTURE  -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wold-style-definition  -isystem ./include   -fno-inline -g -DIN_LIBGCC2 -fbuilding-libgcc -fno-stack-protector -Dinhibit_libc  -fno-inline -I. -I. -I../../.././gcc -I../../../../gcc-4.9.3/libgcc -I../../../../gcc-4.9.3/libgcc/. -I../../../../gcc-4.9.3/libgcc/../gcc -I../../../../gcc-4.9.3/libgcc/../include  -DHAVE_CC_TLS  -o _arm_unorddf2_s.o -MT _arm_unorddf2_s.o -MD -MP -MF _arm_unorddf2_s.dep -DSHARED -DL_arm_unorddf2 -xassembler-with-cpp -c ../../../../gcc-4.9.3/libgcc/config/arm/lib1funcs.S
-../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S: Assembler messages:
-../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S:567: Error: invalid constant (ff) after fixup
-../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S:673: Error: invalid constant (ff) after fixup
-../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S:689: Error: invalid constant (fd) after fixup
-../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S:875: Error: invalid constant (ff) after fixup
-../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S:912: Error: invalid constant (fd) after fixup
-../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S:985: Error: invalid constant (fd) after fixup
+Building 4.11/rtems-arm with the RSB fails with (error report attached):
+
+{{{
+/Users/chris/development/rtems/rsb/rtems-source-builder/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin15.0.0-1/build/./gcc/xgcc -B/Users/chris/development/rtems/rsb/rtems-source-builder/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin15.0.0-1/build/./gcc/ -nostdinc -B/Users/chris/development/rtems/rsb/rtems-source-builder/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin15.0.0-1/build/arm-rtems4.11/newlib/ -isystem /Users/chris/development/rtems/rsb/rtems-source-builder/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin15.0.0-1/build/arm-rtems4.11/newlib/targ-include -isystem /Users/chris/development/rtems/rsb/rtems-source-builder/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin15.0.0-1/gcc-4.9.3/newlib/libc/include -B/Users/chris/development/rtems/4.11/arm-rtems4.11/bin/ -B/Users/chris/development/rtems/4.11/arm-rtems4.11/lib/ -isystem /Users/chris/development/rtems/4.11/arm-rtems4.11/include -isystem /Users/chris/development/rtems/4.11/arm-rtems4.11/sys-include    -g -O2 -mthumb -O2 -I../../../../gcc-4.9.3/libgcc/../newlib/libc/sys/rtems/include -g -O2 -DIN_GCC  -DCROSS_DIRECTORY_STRUCTURE  -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wold-style-definition  -isystem ./include   -fno-inline -g -DIN_LIBGCC2 -fbuilding-libgcc -fno-stack-protector -Dinhibit_libc  -fno-inline -I. -I. -I../../.././gcc -I../../../../gcc-4.9.3/libgcc -I../../../../gcc-4.9.3/libgcc/. -I../../../../gcc-4.9.3/libgcc/../gcc -I../../../../gcc-4.9.3/libgcc/../include  -DHAVE_CC_TLS  -o _arm_unorddf2_s.o -MT _arm_unorddf2_s.o -MD -MP -MF _arm_unorddf2_s.dep -DSHARED -DL_arm_unorddf2 -xassembler-with-cpp -c ../../../../gcc-4.9.3/libgcc/config/arm/lib1funcs.S
+../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S: Assembler messages:
+../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S:567: Error: invalid constant (ff) after fixup
+../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S:673: Error: invalid constant (ff) after fixup
+../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S:689: Error: invalid constant (fd) after fixup
+../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S:875: Error: invalid constant (ff) after fixup
+../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S:912: Error: invalid constant (fd) after fixup
+../../../../gcc-4.9.3/libgcc/config/arm/ieee754-df.S:985: Error: invalid constant (fd) after fixup
 }}}
 ```
 
@@ -349,28 +349,28 @@ GCC 4.9.3 ARM build fails on OS X 10.11 (El Capitan)
 |2460|Adit| |defect|closed|normal|4.11.3|arch/arm|4.11|normal|duplicate| | | | |
 * **description**
 ```text
-This bug pertains to the ARM Generic Interrupt Controller (GIC) register utility functions in 
-
-{{{c/src/lib/libbsp/arm/shared/include/arm-gic.h}}}
-
-The following routines all use the macro {{{GIC_ID_TO_TWO_BITS_REG_OFFSET(id)}}}:
-
-{{{
-gic_id_get_handling_mode
-gic_id_set_handling_mode
-gic_id_get_trigger_mode
-gic_id_set_trigger_mode
-}}}
-
-These routines set the {{{GIC_ICFGRn}}} set of registers. These registers have 2-bit bit fields. Let's take the trigger mode routines as an example of the bug, but it applies to the handling mode as well. The GIC specification from ARM states that for a particular interrupt ID ''m'' the register ''n'' and bit field ''F'' is found by:
-
-''n = m DIV 16''
-''F = m MOD 16''
-
-And the bit location in register ''n'' is defined as ''[2F+1:2F]''. However, the macro  {{{GIC_ID_TO_TWO_BITS_REG_OFFSET(id)}}} and the routines that use it, set bits ''[F+1:F]''.
-
-I have tested this by using the set_trigger_mode routine to set an interrupt to be edge triggered, but the correct bit does not get set, and the interrupt still behaves in a level triggered fashion. When I adjust the macro to have a {{{<< 1}}} it works correctly.
-
+This bug pertains to the ARM Generic Interrupt Controller (GIC) register utility functions in 
+
+{{{c/src/lib/libbsp/arm/shared/include/arm-gic.h}}}
+
+The following routines all use the macro {{{GIC_ID_TO_TWO_BITS_REG_OFFSET(id)}}}:
+
+{{{
+gic_id_get_handling_mode
+gic_id_set_handling_mode
+gic_id_get_trigger_mode
+gic_id_set_trigger_mode
+}}}
+
+These routines set the {{{GIC_ICFGRn}}} set of registers. These registers have 2-bit bit fields. Let's take the trigger mode routines as an example of the bug, but it applies to the handling mode as well. The GIC specification from ARM states that for a particular interrupt ID ''m'' the register ''n'' and bit field ''F'' is found by:
+
+''n = m DIV 16''
+''F = m MOD 16''
+
+And the bit location in register ''n'' is defined as ''[2F+1:2F]''. However, the macro  {{{GIC_ID_TO_TWO_BITS_REG_OFFSET(id)}}} and the routines that use it, set bits ''[F+1:F]''.
+
+I have tested this by using the set_trigger_mode routine to set an interrupt to be edge triggered, but the correct bit does not get set, and the interrupt still behaves in a level triggered fashion. When I adjust the macro to have a {{{<< 1}}} it works correctly.
+
 If someone can verify my logic at least, then I can submit a tested patch.
 ```
 
@@ -399,15 +399,15 @@ arm-gic.h - GIC_ID_TO_TWO_BITS_REG_OFFSET(id) incorrectly defined
 |2610|Chris Johns|Chris Johns|defect|closed|normal|4.11.3|tool|4.11|normal|wontfix| | | | |
 * **description**
 ```text
-Building unhex.c on Windows gives the following error:
-
-{{{
-gcc -DHAVE_CONFIG_H -I. -I/c/opt/rtems/kernel/rtems.git/tools/build     -g -O2 -MT rtems-bin2c.o -MD -MP -MF .deps/rtems-bin2c.Tpo -c -o rtems-bin2c.o /c/opt/rtems/kernel/rtems.git/tools/build/rtems-bin2c.c
-In file included from C:/opt/rtems/kernel/rtems.git/tools/build/unhex.c:36:0:
-C:/opt/rtems/kernel/rtems.git/tools/build/unhex.c: In function 'error':
-C:/opt/rtems/kernel/rtems.git/tools/build/unhex.c:687:16: warning: '_errno' redeclared without dllimport attribute: previous dllimport ignored [-Wattributes]
-     extern int errno;
-                ^
+Building unhex.c on Windows gives the following error:
+
+{{{
+gcc -DHAVE_CONFIG_H -I. -I/c/opt/rtems/kernel/rtems.git/tools/build     -g -O2 -MT rtems-bin2c.o -MD -MP -MF .deps/rtems-bin2c.Tpo -c -o rtems-bin2c.o /c/opt/rtems/kernel/rtems.git/tools/build/rtems-bin2c.c
+In file included from C:/opt/rtems/kernel/rtems.git/tools/build/unhex.c:36:0:
+C:/opt/rtems/kernel/rtems.git/tools/build/unhex.c: In function 'error':
+C:/opt/rtems/kernel/rtems.git/tools/build/unhex.c:687:16: warning: '_errno' redeclared without dllimport attribute: previous dllimport ignored [-Wattributes]
+     extern int errno;
+                ^
 }}}
 ```
 
@@ -432,50 +432,50 @@ unhex.c does not build on MSYS2
 |2671|Joel Sherrill|Joel Sherrill|defect|closed|normal|4.11.3|tool/rsb|4.11|normal|wontfix| | | | |
 * **description**
 ```text
-I recall needing to sync the binutils and gcc. Checking an old install for 4.11, I noticed that the gcc seems to match what is configured but the binutils is older (2.25).
-
-[joel@rtbf64c ~]$ ~/rtems-4.11-work/tools/4.11/bin/moxie-rtems4.11-as --version
-GNU assembler (GNU Binutils) 2.25
-Copyright (C) 2014 Free Software Foundation, Inc.
-This program is free software; you may redistribute it under the terms of
-the GNU General Public License version 3 or later.
-This program has absolutely no warranty.
-This assembler was configured for a target of `moxie-rtems4.11'.
-[joel@rtbf64c ~]$ ~/rtems-4.11-work/tools/4.11/bin/moxie-rtems4.11-gcc --version
-moxie-rtems4.11-gcc (GCC) 4.9.3 20150626 (RTEMS 4.11, RSB 075ed1c8e2363ec7fcfcaec6b648222597009f20, Newlib 2.2.0.20150423)
-Copyright (C) 2015 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-
-
-Error below:
-
-/home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-linux-gnu-1/build/./gcc/xgcc -B/home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-linux-gnu-1/build/./gcc/ -nostdinc -B/home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-linux-gnu-1/build/moxie-rtems4.11/newlib/ -isystem /home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-linux-gnu-1/build/moxie-rtems4.11/newlib/targ-include -isystem /home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-linux-gnu-1/gcc-4.9.3/newlib/libc/include -B/home/joel/rtems-4.11-work/tools/4.11/moxie-rtems4.11/bin/ -B/home/joel/rtems-4.11-work/tools/4.11/moxie-rtems4.11/lib/ -isystem /home/joel/rtems-4.11-work/tools/4.11/moxie-rtems4.11/include -isystem /home/joel/rtems-4.11-work/tools/4.11/moxie-rtems4.11/sys-include    -g -O2 -mel -O2 -I../../../../gcc-4.9.3/libgcc/../newlib/libc/sys/rtems/include -g -O2 -DIN_GCC  -DCROSS_DIRECTORY_STRUCTURE  -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wold-style-definition  -isystem ./include   -g -DIN_LIBGCC2 -fbuilding-libgcc -fno-stack-protector -Dinhibit_libc  -I. -I. -I../../.././gcc -I../../../../gcc-4.9.3/libgcc -I../../../../gcc-4.9.3/libgcc/. -I../../../../gcc-4.9.3/libgcc/../gcc -I../../../../gcc-4.9.3/libgcc/../include  -DHAVE_CC_TLS -DUSE_EMUTLS -o _ashldi3.o -MT _ashldi3.o -MD -MP -MF _ashldi3.dep -DL_ashldi3 -c ../../../../gcc-4.9.3/libgcc/libgcc2.c -fvisibility=hidden -DHIDE_EXPORTS
-/tmp/cctmIP4r.s: Assembler messages:
-/tmp/cctmIP4r.s:26: Error: unknown opcode sub.l $r1,$r2
-Makefile:463: recipe for target '_negdi2.o' failed
-make[4]: *** [_negdi2.o] Error 1
-make[4]: *** Waiting for unfinished jobs....
-/tmp/ccaQiOcs.s: /tmp/ccWFtIrs.s: Assembler messages:
-Assembler messages:
-/tmp/ccaQiOcs.s:22: Error: unknown opcode sub.l $r3,$r2
-/tmp/ccWFtIrs.s:44: Error: unknown opcode mul.l $r12,$r6
-/tmp/ccWFtIrs.s:46: Error: unknown opcode mul.l $r4,$r1
-/tmp/ccWFtIrs.s:49: Error: unknown opcode mul.l $r8,$r1
-/tmp/ccWFtIrs.s:52: Error: unknown opcode mul.l $r3,$r6
-/tmp/ccWFtIrs.s:56: Error: unknown opcode add.l $r6,$r3
-/tmp/ccWFtIrs.s:61: Error: unknown opcode add.l $r3,$r6
-/tmp/ccWFtIrs.s:68: Error: unknown opcode add.l $r1,$r4
-/tmp/ccWFtIrs.s:75: Error: unknown opcode add.l $r1,$r4
-/tmp/ccWFtIrs.s:89: Error: unknown opcode mul.l $r0,$r4
-/tmp/ccWFtIrs.s:93: Error: unknown opcode mul.l $r2,$r4
-/tmp/ccWFtIrs.s:95: Error: unknown opcode add.l $r0,$r2
-/tmp/ccWFtIrs.s:99: Error: unknown opcode add.l $r0,$r12
-/tmp/ccWFtIrs.s:100: Error: unknown opcode add.l $r1,$r2
-Makefile:463: recipe for target '_muldi3.o' failed
-make[4]: *** [_muldi3.o] Error 1
-make[4]: *** [_lshrdi3.o] Error 1
+I recall needing to sync the binutils and gcc. Checking an old install for 4.11, I noticed that the gcc seems to match what is configured but the binutils is older (2.25).
+
+[joel@rtbf64c ~]$ ~/rtems-4.11-work/tools/4.11/bin/moxie-rtems4.11-as --version
+GNU assembler (GNU Binutils) 2.25
+Copyright (C) 2014 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or later.
+This program has absolutely no warranty.
+This assembler was configured for a target of `moxie-rtems4.11'.
+[joel@rtbf64c ~]$ ~/rtems-4.11-work/tools/4.11/bin/moxie-rtems4.11-gcc --version
+moxie-rtems4.11-gcc (GCC) 4.9.3 20150626 (RTEMS 4.11, RSB 075ed1c8e2363ec7fcfcaec6b648222597009f20, Newlib 2.2.0.20150423)
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+
+Error below:
+
+/home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-linux-gnu-1/build/./gcc/xgcc -B/home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-linux-gnu-1/build/./gcc/ -nostdinc -B/home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-linux-gnu-1/build/moxie-rtems4.11/newlib/ -isystem /home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-linux-gnu-1/build/moxie-rtems4.11/newlib/targ-include -isystem /home/joel/rtems-4.11-work/rtems-source-builder/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-linux-gnu-1/gcc-4.9.3/newlib/libc/include -B/home/joel/rtems-4.11-work/tools/4.11/moxie-rtems4.11/bin/ -B/home/joel/rtems-4.11-work/tools/4.11/moxie-rtems4.11/lib/ -isystem /home/joel/rtems-4.11-work/tools/4.11/moxie-rtems4.11/include -isystem /home/joel/rtems-4.11-work/tools/4.11/moxie-rtems4.11/sys-include    -g -O2 -mel -O2 -I../../../../gcc-4.9.3/libgcc/../newlib/libc/sys/rtems/include -g -O2 -DIN_GCC  -DCROSS_DIRECTORY_STRUCTURE  -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wold-style-definition  -isystem ./include   -g -DIN_LIBGCC2 -fbuilding-libgcc -fno-stack-protector -Dinhibit_libc  -I. -I. -I../../.././gcc -I../../../../gcc-4.9.3/libgcc -I../../../../gcc-4.9.3/libgcc/. -I../../../../gcc-4.9.3/libgcc/../gcc -I../../../../gcc-4.9.3/libgcc/../include  -DHAVE_CC_TLS -DUSE_EMUTLS -o _ashldi3.o -MT _ashldi3.o -MD -MP -MF _ashldi3.dep -DL_ashldi3 -c ../../../../gcc-4.9.3/libgcc/libgcc2.c -fvisibility=hidden -DHIDE_EXPORTS
+/tmp/cctmIP4r.s: Assembler messages:
+/tmp/cctmIP4r.s:26: Error: unknown opcode sub.l $r1,$r2
+Makefile:463: recipe for target '_negdi2.o' failed
+make[4]: *** [_negdi2.o] Error 1
+make[4]: *** Waiting for unfinished jobs....
+/tmp/ccaQiOcs.s: /tmp/ccWFtIrs.s: Assembler messages:
+Assembler messages:
+/tmp/ccaQiOcs.s:22: Error: unknown opcode sub.l $r3,$r2
+/tmp/ccWFtIrs.s:44: Error: unknown opcode mul.l $r12,$r6
+/tmp/ccWFtIrs.s:46: Error: unknown opcode mul.l $r4,$r1
+/tmp/ccWFtIrs.s:49: Error: unknown opcode mul.l $r8,$r1
+/tmp/ccWFtIrs.s:52: Error: unknown opcode mul.l $r3,$r6
+/tmp/ccWFtIrs.s:56: Error: unknown opcode add.l $r6,$r3
+/tmp/ccWFtIrs.s:61: Error: unknown opcode add.l $r3,$r6
+/tmp/ccWFtIrs.s:68: Error: unknown opcode add.l $r1,$r4
+/tmp/ccWFtIrs.s:75: Error: unknown opcode add.l $r1,$r4
+/tmp/ccWFtIrs.s:89: Error: unknown opcode mul.l $r0,$r4
+/tmp/ccWFtIrs.s:93: Error: unknown opcode mul.l $r2,$r4
+/tmp/ccWFtIrs.s:95: Error: unknown opcode add.l $r0,$r2
+/tmp/ccWFtIrs.s:99: Error: unknown opcode add.l $r0,$r12
+/tmp/ccWFtIrs.s:100: Error: unknown opcode add.l $r1,$r2
+Makefile:463: recipe for target '_muldi3.o' failed
+make[4]: *** [_muldi3.o] Error 1
+make[4]: *** [_lshrdi3.o] Error 1
 
 ```
 
@@ -526,23 +526,23 @@ PowerPC BSP score603e PCI.c is broken on case insensitive file system
 |2747|Patrick Gauvin|Chris Johns|defect|closed|normal|4.11.3|lib/dl|4.11|normal|fixed| |Ryan Slabaugh| |3298|
 * **description**
 ```text
-Expected behavior of dlerror:
-- The error is cleared after each invocation
-- `NULL` is returned when no error is set
-- Return value is `char *`, not `const char *`
-http://pubs.opengroup.org/onlinepubs/9699919799/functions/dlerror.html
-
-I've attached patches that address these issues, please critique them and I will submit to the development mailing list. They should also apply to master, but they were generated against 4.11.
-
-Development Environment:
-- '''RTEMS Version:''' 4.11 (Branch "4.11", commit 3f72dda6ee518d3ea04341ad4df079ecb1895ef7)
-- '''System Type:''' ARM Cortex-A9, xilinx_zynq_a9_qemu BSP
-- '''GCC Version:'''
-
-  arm-rtems4.11-gcc (GCC) 4.9.3 20150626 (RTEMS 4.11, RSB 1675a733536d1aec2020011e5e522497a442561a (HEAD, origin/4.11, 4.11), Newlib 2.2.0.20150423)
-- '''RTEMS Configure Options:'''
-
-  ../rtems/configure --target=arm-rtems4.11 --enable-rtemsbsp="xilinx_zynq_a9_qemu xilinx_zynq_zedboard xilinx_zynq_csp_cots xilinx_zynq_csp_hybrid" --enable-tests=samples --enable-posix --prefix=$HOME/development/rtems/4.11 --disable-networking
+Expected behavior of dlerror:
+- The error is cleared after each invocation
+- `NULL` is returned when no error is set
+- Return value is `char *`, not `const char *`
+http://pubs.opengroup.org/onlinepubs/9699919799/functions/dlerror.html
+
+I've attached patches that address these issues, please critique them and I will submit to the development mailing list. They should also apply to master, but they were generated against 4.11.
+
+Development Environment:
+- '''RTEMS Version:''' 4.11 (Branch "4.11", commit 3f72dda6ee518d3ea04341ad4df079ecb1895ef7)
+- '''System Type:''' ARM Cortex-A9, xilinx_zynq_a9_qemu BSP
+- '''GCC Version:'''
+
+  arm-rtems4.11-gcc (GCC) 4.9.3 20150626 (RTEMS 4.11, RSB 1675a733536d1aec2020011e5e522497a442561a (HEAD, origin/4.11, 4.11), Newlib 2.2.0.20150423)
+- '''RTEMS Configure Options:'''
+
+  ../rtems/configure --target=arm-rtems4.11 --enable-rtemsbsp="xilinx_zynq_a9_qemu xilinx_zynq_zedboard xilinx_zynq_csp_cots xilinx_zynq_csp_hybrid" --enable-tests=samples --enable-posix --prefix=$HOME/development/rtems/4.11 --disable-networking
 
 ```
 
@@ -574,11 +574,11 @@ dlerror non-conformance
 |2910|Joel Sherrill|Chris Johns|defect|closed|normal|4.11.3|doc|4.11|normal|fixed| | | | |
 * **description**
 ```text
-
-This section of the RSB has "+sb_check+" which I assume is supposed to be italics or bold.
-
-https://docs.rtems.org/branches/master/rsb/hosts.html#mavericks
-
+
+This section of the RSB has "+sb_check+" which I assume is supposed to be italics or bold.
+
+https://docs.rtems.org/branches/master/rsb/hosts.html#mavericks
+
 Also the formatting of the sentence on xz in the same section is odd.
 ```
 
@@ -604,62 +604,62 @@ RSB docs for Mavericks has Incorrect Formatting Markup
 |2944|Sebastian Huber|Sebastian Huber|defect|closed|normal|4.11.3|fs/fat|4.11|normal|fixed| | | | |
 * **description**
 ```text
-https://lists.rtems.org/pipermail/users/2017-March/031101.html
-
-In msdos_shut_down ( msdos_fsunmount.c ) there is a call to fat_file_close( .. ) which attempts to close a file
-descriptor and write a range of metadata to that file's director entry located in another cluster:
-
-* fat_file_write_first_cluster_num
-* fat_file_write_file_size
-* fat_file_write_time_and_date
-
-The problem is that this is the root node, and of course doesn't have a corresponding parent directory entry. 
-
-In addition, the "parent directory entry" cluster number is initialised to 0x1 (FAT_ROOTDIR_CLUSTER_NUM) 
-which is not working according to the FAT specification (cluster numbering starts at 2).
-This actually creates a critical bug that overwrites random data to above sectors, because 2 is subtracted from 1
-to calculate the sector number of the cluster -> through a series of function calls -> leads to a sector number at
-the end of FAT2 (just below the start of the cluster region). The driver believes this is a FAT region (in fat_buf_release),
-writes the sector to what it "thinks" is FAT1, proceeds to copy the changes to FAT2 -> adds FAT_LENGTH (8161) to sector,
-leading to a write well into the cluster region, randomly overwriting files. 
-
-The three function calls above lead to fsck complaining about disk structure:
-
-#######
-
-fsck from util-linux 2.27.1
-fsck.fat 3.0.28 (2015-05-16)
-0x41: Dirty bit is set. Fs was not properly unmounted and some data may be corrupt.
-1) Remove dirty bit
-2) No action
-? 2
-There are differences between boot sector and its backup.
-This is mostly harmless. Differences: (offset:original/backup)
-  65:01/00
-1) Copy original to backup
-2) Copy backup to original
-3) No action
-? 3
-/  and
-/APPLICAT.ION
-  share clusters.
-  Truncating second to 0 bytes because first is FAT32 root dir.
-/APPLICAT.ION
-  File size is 4096 bytes, cluster chain length is 0 bytes.
-  Truncating file to 0 bytes.
-Perform changes ? (y/n) n
-/dev/sdm1: 14 files, 1600/1044483 clusters
-
-########
-
-In particular the "shared cluster" problem is caused by fat_file_write_first_cluster_num, which adds a directory
-entry to the root directory cluster pointing at itself; e.g. there is a directory entry in cluster 2 pointing to
-a file in cluster 2. (Note: this occurs because we have fixed the "point to cluster # 1 issue" by reading the relative
-location of the root cluster node from the FAT volume info strcture). 
-
-Removing the function call in msdos_shut_down ( .. ) to close the root file descriptor solves the problem perfectly
-(clean fsck). However, we're a bit unsure about the intent behind closing the root directory. 
-
+https://lists.rtems.org/pipermail/users/2017-March/031101.html
+
+In msdos_shut_down ( msdos_fsunmount.c ) there is a call to fat_file_close( .. ) which attempts to close a file
+descriptor and write a range of metadata to that file's director entry located in another cluster:
+
+* fat_file_write_first_cluster_num
+* fat_file_write_file_size
+* fat_file_write_time_and_date
+
+The problem is that this is the root node, and of course doesn't have a corresponding parent directory entry. 
+
+In addition, the "parent directory entry" cluster number is initialised to 0x1 (FAT_ROOTDIR_CLUSTER_NUM) 
+which is not working according to the FAT specification (cluster numbering starts at 2).
+This actually creates a critical bug that overwrites random data to above sectors, because 2 is subtracted from 1
+to calculate the sector number of the cluster -> through a series of function calls -> leads to a sector number at
+the end of FAT2 (just below the start of the cluster region). The driver believes this is a FAT region (in fat_buf_release),
+writes the sector to what it "thinks" is FAT1, proceeds to copy the changes to FAT2 -> adds FAT_LENGTH (8161) to sector,
+leading to a write well into the cluster region, randomly overwriting files. 
+
+The three function calls above lead to fsck complaining about disk structure:
+
+#######
+
+fsck from util-linux 2.27.1
+fsck.fat 3.0.28 (2015-05-16)
+0x41: Dirty bit is set. Fs was not properly unmounted and some data may be corrupt.
+1) Remove dirty bit
+2) No action
+? 2
+There are differences between boot sector and its backup.
+This is mostly harmless. Differences: (offset:original/backup)
+  65:01/00
+1) Copy original to backup
+2) Copy backup to original
+3) No action
+? 3
+/  and
+/APPLICAT.ION
+  share clusters.
+  Truncating second to 0 bytes because first is FAT32 root dir.
+/APPLICAT.ION
+  File size is 4096 bytes, cluster chain length is 0 bytes.
+  Truncating file to 0 bytes.
+Perform changes ? (y/n) n
+/dev/sdm1: 14 files, 1600/1044483 clusters
+
+########
+
+In particular the "shared cluster" problem is caused by fat_file_write_first_cluster_num, which adds a directory
+entry to the root directory cluster pointing at itself; e.g. there is a directory entry in cluster 2 pointing to
+a file in cluster 2. (Note: this occurs because we have fixed the "point to cluster # 1 issue" by reading the relative
+location of the root cluster node from the FAT volume info strcture). 
+
+Removing the function call in msdos_shut_down ( .. ) to close the root file descriptor solves the problem perfectly
+(clean fsck). However, we're a bit unsure about the intent behind closing the root directory. 
+
 
 ```
 
@@ -687,23 +687,23 @@ FAT data corruption during unmount()
 |2964|slemstick|Sebastian Huber|defect|closed|normal|4.11.3|fs/fat|4.11|normal|fixed| | | | |
 * **description**
 ```text
-We have a volume that has a lot of free'd up directory entries, one of which looks like this:
-
- * 1-> old LFN end entry n
- * 2-> old LFN end entry n - 1
- * 3-> old SHORT entry freed with byte[0] = 0xe5
-
-and one remaining file, named slemstick.tar.gz, which resides AFTER this in the directory structure (and is NOT deleted). The old, deleted LFN above (consisting of three consequtive directory entries) earlier contained slemstick.tar.gz, such that the old filename still exist in the old LFN entries 1 and 2 above - but the SHORT entry (3) has been freed by setting byte[0] to 0xe5. 
-
-The problem is that, when the filename search algorithm in msdos_find_file_in_directory(..) encounters the LFN entries 1 and 2, it starts parsing them as normal LFN entries. When it encounters the SHORT entry 3) above, the variable entry_empty is set and the algorithm continues to parse the remaining directory entries by skipping entry 3). As a consequence, it never finds the actual file in the directory entries below. 
-
-A working fix to our problem is to add this clause in side the "else if(entry_empty)" if check around line ~1400 in msdos_misc.c:
-
-https://pastebin.com/guW5JPfT
-
-Which resets the search algorithm, if a short directory entry that has been freed is found while searching for a long file name. 
-
-Can anyone comment on this patch?
+We have a volume that has a lot of free'd up directory entries, one of which looks like this:
+
+ * 1-> old LFN end entry n
+ * 2-> old LFN end entry n - 1
+ * 3-> old SHORT entry freed with byte[0] = 0xe5
+
+and one remaining file, named slemstick.tar.gz, which resides AFTER this in the directory structure (and is NOT deleted). The old, deleted LFN above (consisting of three consequtive directory entries) earlier contained slemstick.tar.gz, such that the old filename still exist in the old LFN entries 1 and 2 above - but the SHORT entry (3) has been freed by setting byte[0] to 0xe5. 
+
+The problem is that, when the filename search algorithm in msdos_find_file_in_directory(..) encounters the LFN entries 1 and 2, it starts parsing them as normal LFN entries. When it encounters the SHORT entry 3) above, the variable entry_empty is set and the algorithm continues to parse the remaining directory entries by skipping entry 3). As a consequence, it never finds the actual file in the directory entries below. 
+
+A working fix to our problem is to add this clause in side the "else if(entry_empty)" if check around line ~1400 in msdos_misc.c:
+
+https://pastebin.com/guW5JPfT
+
+Which resets the search algorithm, if a short directory entry that has been freed is found while searching for a long file name. 
+
+Can anyone comment on this patch?
 
 ```
 
@@ -737,10 +737,10 @@ fat: msdos_find_file_in_directory(..) doesn't reset LFN search appropriately
 |2987|slemstick|Sebastian Huber|defect|closed|normal|4.11.3|fs/fat|4.11|normal|fixed| | | | |
 * **description**
 ```text
-msdos_dir_read(..) uses a conversion function, convert_handler->utf16_to_utf8, to convert LFN directory entry names in utf16 format to utf8. 
-
-However, the conversion handler sets the string length of the output utf8 string as well. That variable: **string_size** in msdos_dir_read(..) is never re-initialised in the search algorithm. When the volume becomes sufficiently fragmented, de-allocated LFN directory entry checksums will cause the filename search algorithm to fail, effectively breaking the current attempt to concatenate directory entry filename chunks, but the output string size is now much shorter (10 characters, where it should be **sizeof(tmp_dirent.d_name)**). Consequently, msdos_dir_read(..) will continue to parse directory entries with a much smaller output string size. 
-
+msdos_dir_read(..) uses a conversion function, convert_handler->utf16_to_utf8, to convert LFN directory entry names in utf16 format to utf8. 
+
+However, the conversion handler sets the string length of the output utf8 string as well. That variable: **string_size** in msdos_dir_read(..) is never re-initialised in the search algorithm. When the volume becomes sufficiently fragmented, de-allocated LFN directory entry checksums will cause the filename search algorithm to fail, effectively breaking the current attempt to concatenate directory entry filename chunks, but the output string size is now much shorter (10 characters, where it should be **sizeof(tmp_dirent.d_name)**). Consequently, msdos_dir_read(..) will continue to parse directory entries with a much smaller output string size. 
+
 The end result is that attempts to read file names from a directory will output truncated file names (for example, readdir() will "work" as normal but the output filenames are too short). Any attempt to open these truncated file names will, of course, fail. 
 ```
 
@@ -772,23 +772,23 @@ fat: msdos_dir_read(..) doesn't reset conversion output string length
 |3004|Linda Huxley|Chris Johns|defect|closed|normal|4.11.3|doc|4.11|normal|fixed| |chrisj@…| | |
 * **description**
 ```text
-There are a couple of apparent typos in section "5.2 Releases" in the Note box near the bottom of the section.  The following switch is mentioned twice:
-
---with-rtemsbsp
-
-However, I can't find that switch anywhere in the RSB source code.  Should that read:
-
---with-rtems-bsp
-
-Thare are a couple of typos in section "5.2.1. RTEMS Tools and Kernel":
-
-$ mv rtems-source-builder-4.11.0 4.110
-$ cd 4.11.0
-
-That should read:
-
-$ mv rtems-source-builder-4.11.0 4.11.0
-$ cd 4.11.0/rtems
+There are a couple of apparent typos in section "5.2 Releases" in the Note box near the bottom of the section.  The following switch is mentioned twice:
+
+--with-rtemsbsp
+
+However, I can't find that switch anywhere in the RSB source code.  Should that read:
+
+--with-rtems-bsp
+
+Thare are a couple of typos in section "5.2.1. RTEMS Tools and Kernel":
+
+$ mv rtems-source-builder-4.11.0 4.110
+$ cd 4.11.0
+
+That should read:
+
+$ mv rtems-source-builder-4.11.0 4.11.0
+$ cd 4.11.0/rtems
 
 ```
 
@@ -811,17 +811,17 @@ Typos in RTEMS User Manual 4.11.99
 |3024|Pavel|Chris Johns|defect|closed|normal|4.11.3|lib/dl|4.11|normal|fixed|dl04, dl05, depcomp, CXXDEPMOD| | | |
 * **description**
 ```text
-Building rtems-4.11.2-rc4 with "--enable-tests" option fails with error from depcomp:
-"depcomp: Variables source, object and depmode must be set"
-
-The reason (in my opinion) is empty CXXDEPMODE variable in Makefiles generated for dl04 and dl05.
-
-I changed it to depmode=gcc for dl04 and depmode=gcc3 for dl05 just to check, it helped.
-
-But I don't know the right value for this variable.
-
-target  - i386-rtems4.11
-bsp     - pc486
+Building rtems-4.11.2-rc4 with "--enable-tests" option fails with error from depcomp:
+"depcomp: Variables source, object and depmode must be set"
+
+The reason (in my opinion) is empty CXXDEPMODE variable in Makefiles generated for dl04 and dl05.
+
+I changed it to depmode=gcc for dl04 and depmode=gcc3 for dl05 just to check, it helped.
+
+But I don't know the right value for this variable.
+
+target  - i386-rtems4.11
+bsp     - pc486
 version - rtems-4.11.2-rc4 (version downloaded by rtems-source-builder-4.11.2-rc4)
 ```
 
@@ -846,8 +846,8 @@ dl04, dl05 build failes
 |3031|Chris Johns|Amar Takhar|infra|closed|normal|4.11.3|doc|4.11|blocker|fixed| |Joel@…| | |
 * **description**
 ```text
-Giving jails such as docs and sync access to an area of the TrueNAS storage would make building and moving of the docs from sync to the docs website much simpler.
-
+Giving jails such as docs and sync access to an area of the TrueNAS storage would make building and moving of the docs from sync to the docs website much simpler.
+
 Currently I build the docs on a server in Sydney, copy them to the RTEMS FTP server using an ssh key and docs.rtems.org picks up the copy. I like to make the whole process local to the RTEMS servers and not rely on gear here with my dodgy connection and me needing to monitor it.
 ```
 
@@ -880,10 +880,10 @@ Give docs.rtems.org and sync.rtems.org jails access to the TrueNAS storage.
 |3065|Chris Johns|chrisj@…|defect|closed|normal|4.11.3|build|4.11|normal|invalid| | | | |
 * **description**
 ```text
-{{{
-checking for scandir... no
-../../../../../rtems-4.11.2/c/src/../../cpukit/configure: 5249: Syntax error: Bad fd number
-configure: error: /bin/sh '../../../../../rtems-4.11.2/c/src/../../cpukit/configure' failed for ../../cpukit
+{{{
+checking for scandir... no
+../../../../../rtems-4.11.2/c/src/../../cpukit/configure: 5249: Syntax error: Bad fd number
+configure: error: /bin/sh '../../../../../rtems-4.11.2/c/src/../../cpukit/configure' failed for ../../cpukit
 }}}
 ```
 
@@ -904,19 +904,19 @@ RTEMS 4.11.2 avr build fails
 |3066|Chris Johns| |defect|closed|normal|4.11.3|tool/gcc|4.11|normal|wontfix| | | | |
 * **description**
 ```text
-C++ sample does not build:
-{{{
-Making all in iostream
-gmake[6]: Entering directory '/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/lm32-rtems4.11-kernel-4.11.2-1/lm32-rtems4.11-kernel-4.11.2-1-4.11.2/build/lm32-rtems4.11/c/lm32_evr/testsuites/samples/iostream'
-lm32-rtems4.11-g++ -B../../../../../lm32_evr/lib/ -specs bsp_specs -qrtems -DHAVE_CONFIG_H -I. -I../../../../../../../rtems-4.11.2/c/src/../../testsuites/samples/iostream -I..     -O0 -g -Wall -Wmissing-prototypes -Wimplicit-function-declaration -Wstrict-prototypes -Wnested-externs -MT init.o -MD -MP -MF .deps/init.Tpo -c -o init.o ../../../../../../../rtems-4.11.2/c/src/../../testsuites/samples/iostream/init.cc
-cc1plus: warning: command line option '-Wmissing-prototypes' is valid for C/ObjC but not for C++
-cc1plus: warning: command line option '-Wimplicit-function-declaration' is valid for C/ObjC but not for C++
-cc1plus: warning: command line option '-Wstrict-prototypes' is valid for C/ObjC but not for C++
-cc1plus: warning: command line option '-Wnested-externs' is valid for C/ObjC but not for C++
-mv -f .deps/init.Tpo .deps/init.Po
-lm32-rtems4.11-g++ -B../../../../../lm32_evr/lib/ -specs bsp_specs -qrtems -O0 -g -Wall -Wmissing-prototypes -Wimplicit-function-declaration -Wstrict-prototypes -Wnested-externs       -o cxx_iostream.exe init.o
-`.gcc_except_table._ZN9__gnu_cxx7__mutexD2Ev' referenced in section `.rodata.cst4' of /build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-lm32.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/lm32-rtems4.11/4.9.3/libstdc++.a(eh_terminate.o): defined in discarded section `.gcc_except_table._ZN9__gnu_cxx7__mutexD2Ev[_ZN9__gnu_cxx7__mutexD5Ev]' of /build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-lm32.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/lm32-rtems4.11/4.9.3/libstdc++.a(eh_terminate.o)
-`.gcc_except_table._ZN9__gnu_cxx7__mutexD2Ev' referenced in section `.rodata.cst4' of /build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-lm32.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/lm32-rtems4.11/4.9.3/libstdc++.a(new_handler.o): defined in discarded section `.gcc_except_table._ZN9__gnu_cxx7__mutexD2Ev[_ZN9__gnu_cxx7__mutexD5Ev]' of /build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-lm32.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/lm32-rtems4.11/4.9.3/libstdc++.a(new_handler.o)
+C++ sample does not build:
+{{{
+Making all in iostream
+gmake[6]: Entering directory '/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/lm32-rtems4.11-kernel-4.11.2-1/lm32-rtems4.11-kernel-4.11.2-1-4.11.2/build/lm32-rtems4.11/c/lm32_evr/testsuites/samples/iostream'
+lm32-rtems4.11-g++ -B../../../../../lm32_evr/lib/ -specs bsp_specs -qrtems -DHAVE_CONFIG_H -I. -I../../../../../../../rtems-4.11.2/c/src/../../testsuites/samples/iostream -I..     -O0 -g -Wall -Wmissing-prototypes -Wimplicit-function-declaration -Wstrict-prototypes -Wnested-externs -MT init.o -MD -MP -MF .deps/init.Tpo -c -o init.o ../../../../../../../rtems-4.11.2/c/src/../../testsuites/samples/iostream/init.cc
+cc1plus: warning: command line option '-Wmissing-prototypes' is valid for C/ObjC but not for C++
+cc1plus: warning: command line option '-Wimplicit-function-declaration' is valid for C/ObjC but not for C++
+cc1plus: warning: command line option '-Wstrict-prototypes' is valid for C/ObjC but not for C++
+cc1plus: warning: command line option '-Wnested-externs' is valid for C/ObjC but not for C++
+mv -f .deps/init.Tpo .deps/init.Po
+lm32-rtems4.11-g++ -B../../../../../lm32_evr/lib/ -specs bsp_specs -qrtems -O0 -g -Wall -Wmissing-prototypes -Wimplicit-function-declaration -Wstrict-prototypes -Wnested-externs       -o cxx_iostream.exe init.o
+`.gcc_except_table._ZN9__gnu_cxx7__mutexD2Ev' referenced in section `.rodata.cst4' of /build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-lm32.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/lm32-rtems4.11/4.9.3/libstdc++.a(eh_terminate.o): defined in discarded section `.gcc_except_table._ZN9__gnu_cxx7__mutexD2Ev[_ZN9__gnu_cxx7__mutexD5Ev]' of /build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-lm32.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/lm32-rtems4.11/4.9.3/libstdc++.a(eh_terminate.o)
+`.gcc_except_table._ZN9__gnu_cxx7__mutexD2Ev' referenced in section `.rodata.cst4' of /build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-lm32.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/lm32-rtems4.11/4.9.3/libstdc++.a(new_handler.o): defined in discarded section `.gcc_except_table._ZN9__gnu_cxx7__mutexD2Ev[_ZN9__gnu_cxx7__mutexD5Ev]' of /build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-lm32.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/lm32-rtems4.11/4.9.3/libstdc++.a(new_handler.o)
 }}}
 ```
 
@@ -937,46 +937,46 @@ RTEMS 4.11.2 LM32 build fails
 |3067|Chris Johns| |defect|closed|normal|4.11.3|tool/gcc|4.11|normal|wontfix| | | | |
 * **description**
 ```text
-CPU Top does not build:
-{{{
-m32c-rtems4.11-gcc --pipe -DHAVE_CONFIG_H   -I.. -I../../cpukit/../../../m32csim/lib/include   -g -O0 -MT monitor/mon-queue.o -MD -MP -MF $depbase.Tpo -c -o monitor/mon-queue.o ../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/monitor/mon-queue.c &&\
-mv -f $depbase.Tpo $depbase.Po
-../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c: In function 'print_memsize':
-../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c:159:20: warning: integer overflow in expression [-Woverflow]
-   if (size > (1024 * 1024))
-                    ^
-../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c:161:40: warning: integer overflow in expression [-Woverflow]
-                           size / (1024 * 1024), label);
-                                        ^
-../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c:161:32: warning: division by zero [-Wdiv-by-zero]
-                           size / (1024 * 1024), label);
-                                ^
-../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c: In function 'rtems_cpuusage_top_thread':
-../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c:309:33: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
-   rtems_cpu_usage_data*  data = (rtems_cpu_usage_data*) arg;
-                                 ^
-../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c: In function 'rtems_cpu_usage_top_with_plugin':
-../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c:617:36: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
-     id, rtems_cpuusage_top_thread, (rtems_task_argument) &data
-                                    ^
-depbase=`echo monitor/mon-driver.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
-m32c-rtems4.11-gcc --pipe -DHAVE_CONFIG_H   -I.. -I../../cpukit/../../../m32csim/lib/include   -g -O0 -MT monitor/mon-driver.o -MD -MP -MF $depbase.Tpo -c -o monitor/mon-driver.o ../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/monitor/mon-driver.c &&\
-mv -f $depbase.Tpo $depbase.Po
-depbase=`echo monitor/mon-itask.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
-m32c-rtems4.11-gcc --pipe -DHAVE_CONFIG_H   -I.. -I../../cpukit/../../../m32csim/lib/include   -g -O0 -MT monitor/mon-itask.o -MD -MP -MF $depbase.Tpo -c -o monitor/mon-itask.o ../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/monitor/mon-itask.c &&\
-mv -f $depbase.Tpo $depbase.Po
-In file included from ../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/dummy/default-configuration.c:113:0:
-../../cpukit/../../../m32csim/lib/include/rtems/confdefs.h: At top level:
-../../cpukit/../../../m32csim/lib/include/rtems/confdefs.h:1483:46: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
-   #define CONFIGURE_INIT_TASK_ARGUMENTS     ((rtems_task_argument) &bsp_boot_cmdline)
-                                              ^
-../../cpukit/../../../m32csim/lib/include/rtems/confdefs.h:1514:7: note: in expansion of macro 'CONFIGURE_INIT_TASK_ARGUMENTS'
-       CONFIGURE_INIT_TASK_ARGUMENTS
-       ^
-../../cpukit/../../../m32csim/lib/include/rtems/confdefs.h:1515:5: error: initializer element is not constant
-     }
-     ^
-../../cpukit/../../../m32csim/lib/include/rtems/confdefs.h:1515:5: error: (near initialization for 'Initialization_tasks[0].argument')
+CPU Top does not build:
+{{{
+m32c-rtems4.11-gcc --pipe -DHAVE_CONFIG_H   -I.. -I../../cpukit/../../../m32csim/lib/include   -g -O0 -MT monitor/mon-queue.o -MD -MP -MF $depbase.Tpo -c -o monitor/mon-queue.o ../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/monitor/mon-queue.c &&\
+mv -f $depbase.Tpo $depbase.Po
+../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c: In function 'print_memsize':
+../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c:159:20: warning: integer overflow in expression [-Woverflow]
+   if (size > (1024 * 1024))
+                    ^
+../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c:161:40: warning: integer overflow in expression [-Woverflow]
+                           size / (1024 * 1024), label);
+                                        ^
+../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c:161:32: warning: division by zero [-Wdiv-by-zero]
+                           size / (1024 * 1024), label);
+                                ^
+../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c: In function 'rtems_cpuusage_top_thread':
+../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c:309:33: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   rtems_cpu_usage_data*  data = (rtems_cpu_usage_data*) arg;
+                                 ^
+../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c: In function 'rtems_cpu_usage_top_with_plugin':
+../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/cpuuse/cpuusagetop.c:617:36: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+     id, rtems_cpuusage_top_thread, (rtems_task_argument) &data
+                                    ^
+depbase=`echo monitor/mon-driver.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+m32c-rtems4.11-gcc --pipe -DHAVE_CONFIG_H   -I.. -I../../cpukit/../../../m32csim/lib/include   -g -O0 -MT monitor/mon-driver.o -MD -MP -MF $depbase.Tpo -c -o monitor/mon-driver.o ../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/monitor/mon-driver.c &&\
+mv -f $depbase.Tpo $depbase.Po
+depbase=`echo monitor/mon-itask.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+m32c-rtems4.11-gcc --pipe -DHAVE_CONFIG_H   -I.. -I../../cpukit/../../../m32csim/lib/include   -g -O0 -MT monitor/mon-itask.o -MD -MP -MF $depbase.Tpo -c -o monitor/mon-itask.o ../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/monitor/mon-itask.c &&\
+mv -f $depbase.Tpo $depbase.Po
+In file included from ../../../../../../rtems-4.11.2/c/src/../../cpukit/libmisc/dummy/default-configuration.c:113:0:
+../../cpukit/../../../m32csim/lib/include/rtems/confdefs.h: At top level:
+../../cpukit/../../../m32csim/lib/include/rtems/confdefs.h:1483:46: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   #define CONFIGURE_INIT_TASK_ARGUMENTS     ((rtems_task_argument) &bsp_boot_cmdline)
+                                              ^
+../../cpukit/../../../m32csim/lib/include/rtems/confdefs.h:1514:7: note: in expansion of macro 'CONFIGURE_INIT_TASK_ARGUMENTS'
+       CONFIGURE_INIT_TASK_ARGUMENTS
+       ^
+../../cpukit/../../../m32csim/lib/include/rtems/confdefs.h:1515:5: error: initializer element is not constant
+     }
+     ^
+../../cpukit/../../../m32csim/lib/include/rtems/confdefs.h:1515:5: error: (near initialization for 'Initialization_tasks[0].argument')
 }}}
 ```
 
@@ -997,25 +997,25 @@ RTEMS 4.11.2 M32C build fails
 |3068|Chris Johns| |defect|closed|normal|4.11.3|tool/gcc|4.11|normal|wontfix| | | | |
 * **description**
 ```text
-C++ sample fails to build:
-{{{
-moxie-rtems4.11-g++ -B../../../../../moxiesim/lib/ -specs bsp_specs -qrtems -Os -g -ffunction-sections -fdata-sections -Wall -Wmissing-prototypes -Wimplicit-function-declaration -Wstrict-prototypes -Wnested-externs  -Wl,--gc-sections     -o cxx_iostream.exe init.o
-init.o: In function `__static_initialization_and_destruction_0':
-/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/lib/gcc/moxie-rtems4.11/4.9.3/include/c++/iostream:74: undefined reference to `__dso_handle'
-/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/moxie-rtems4.11/4.9.3/libstdc++.a(atomicity.o): In function `get_atomic_mutex':
-/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-freebsd11.0-1/build/moxie-rtems4.11/libstdc++-v3/src/c++98/atomicity.cc:33: undefined reference to `__dso_handle'
-/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/moxie-rtems4.11/4.9.3/libstdc++.a(locale.o): In function `get_locale_cache_mutex':
-/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-freebsd11.0-1/build/moxie-rtems4.11/libstdc++-v3/src/c++98/../../../../../gcc-4.9.3/libstdc++-v3/src/c++98/locale.cc:36: undefined reference to `__dso_handle'
-/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/moxie-rtems4.11/4.9.3/libstdc++.a(system_error.o): In function `__static_initialization_and_destruction_0':
-/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-freebsd11.0-1/build/moxie-rtems4.11/libstdc++-v3/src/c++11/../../../../../gcc-4.9.3/libstdc++-v3/src/c++11/system_error.cc:65: undefined reference to `__dso_handle'
-gmake[6]: Leaving directory '/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-kernel-4.11.2-1/moxie-rtems4.11-kernel-4.11.2-1-4.11.2/build/moxie-rtems4.11/c/moxiesim/testsuites/samples/iostream'
-/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-freebsd11.0-1/build/moxie-rtems4.11/libstdc++-v3/src/c++11/../../../../../gcc-4.9.3/libstdc++-v3/src/c++11/system_error.cc:66: undefined reference to `__dso_handle'
-gmake[5]: Leaving directory '/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-kernel-4.11.2-1/moxie-rtems4.11-kernel-4.11.2-1-4.11.2/build/moxie-rtems4.11/c/moxiesim/testsuites/samples'
-/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/moxie-rtems4.11/4.9.3/libstdc++.a(eh_alloc.o):/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-freebsd11.0-1/build/moxie-rtems4.11/libstdc++-v3/libsupc++/../../../../gcc-4.9.3/libstdc++-v3/libsupc++/eh_alloc.cc:96: more undefined references to `__dso_handle' follow
-gmake[4]: Leaving directory '/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-kernel-4.11.2-1/moxie-rtems4.11-kernel-4.11.2-1-4.11.2/build/moxie-rtems4.11/c/moxiesim/testsuites/samples'
-/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/moxie-rtems4.11/4.9.3/../../../../moxie-rtems4.11/bin/ld: cxx_iostream.exe: hidden symbol `__dso_handle' isn't defined
-gmake[3]: Leaving directory '/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-kernel-4.11.2-1/moxie-rtems4.11-kernel-4.11.2-1-4.11.2/build/moxie-rtems4.11/c/moxiesim/testsuites'
-/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/moxie-rtems4.11/4.9.3/../../../../moxie-rtems4.11/bin/ld: final link failed: Bad value
+C++ sample fails to build:
+{{{
+moxie-rtems4.11-g++ -B../../../../../moxiesim/lib/ -specs bsp_specs -qrtems -Os -g -ffunction-sections -fdata-sections -Wall -Wmissing-prototypes -Wimplicit-function-declaration -Wstrict-prototypes -Wnested-externs  -Wl,--gc-sections     -o cxx_iostream.exe init.o
+init.o: In function `__static_initialization_and_destruction_0':
+/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/lib/gcc/moxie-rtems4.11/4.9.3/include/c++/iostream:74: undefined reference to `__dso_handle'
+/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/moxie-rtems4.11/4.9.3/libstdc++.a(atomicity.o): In function `get_atomic_mutex':
+/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-freebsd11.0-1/build/moxie-rtems4.11/libstdc++-v3/src/c++98/atomicity.cc:33: undefined reference to `__dso_handle'
+/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/moxie-rtems4.11/4.9.3/libstdc++.a(locale.o): In function `get_locale_cache_mutex':
+/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-freebsd11.0-1/build/moxie-rtems4.11/libstdc++-v3/src/c++98/../../../../../gcc-4.9.3/libstdc++-v3/src/c++98/locale.cc:36: undefined reference to `__dso_handle'
+/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/moxie-rtems4.11/4.9.3/libstdc++.a(system_error.o): In function `__static_initialization_and_destruction_0':
+/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-freebsd11.0-1/build/moxie-rtems4.11/libstdc++-v3/src/c++11/../../../../../gcc-4.9.3/libstdc++-v3/src/c++11/system_error.cc:65: undefined reference to `__dso_handle'
+gmake[6]: Leaving directory '/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-kernel-4.11.2-1/moxie-rtems4.11-kernel-4.11.2-1-4.11.2/build/moxie-rtems4.11/c/moxiesim/testsuites/samples/iostream'
+/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-freebsd11.0-1/build/moxie-rtems4.11/libstdc++-v3/src/c++11/../../../../../gcc-4.9.3/libstdc++-v3/src/c++11/system_error.cc:66: undefined reference to `__dso_handle'
+gmake[5]: Leaving directory '/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-kernel-4.11.2-1/moxie-rtems4.11-kernel-4.11.2-1-4.11.2/build/moxie-rtems4.11/c/moxiesim/testsuites/samples'
+/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/moxie-rtems4.11/4.9.3/libstdc++.a(eh_alloc.o):/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-freebsd11.0-1/build/moxie-rtems4.11/libstdc++-v3/libsupc++/../../../../gcc-4.9.3/libstdc++-v3/libsupc++/eh_alloc.cc:96: more undefined references to `__dso_handle' follow
+gmake[4]: Leaving directory '/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-kernel-4.11.2-1/moxie-rtems4.11-kernel-4.11.2-1-4.11.2/build/moxie-rtems4.11/c/moxiesim/testsuites/samples'
+/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/moxie-rtems4.11/4.9.3/../../../../moxie-rtems4.11/bin/ld: cxx_iostream.exe: hidden symbol `__dso_handle' isn't defined
+gmake[3]: Leaving directory '/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/moxie-rtems4.11-kernel-4.11.2-1/moxie-rtems4.11-kernel-4.11.2-1-4.11.2/build/moxie-rtems4.11/c/moxiesim/testsuites'
+/build/rtems/releases/build/4.11.2/rtems-source-builder-4.11.2/rtems/build/tmp/sb-chris/4.11/rtems-moxie.bset/build/rtems/releases/4.11.2/bin/../lib/gcc/moxie-rtems4.11/4.9.3/../../../../moxie-rtems4.11/bin/ld: final link failed: Bad value
 }}}
 ```
 
@@ -1036,15 +1036,15 @@ RTEMS 4.11.2 Moxie build fails
 |3074|Chris Johns|Chris Johns|defect|closed|normal|4.11.3|tool/rsb|4.11|normal|fixed| | | | |
 * **description**
 ```text
-RTEMS 4.11.2 Released Tools version is wrong:
-{{{
-$ /opt/work/rtems/4.11/bin/arm-rtems4.11-gcc --version
-arm-rtems4.11-gcc (GCC) 4.9.3 20150626 (RTEMS 4.11, RSB no-repo, Newlib 2.2.0.20150423)
-Copyright (C) 2015 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-}}}
-
+RTEMS 4.11.2 Released Tools version is wrong:
+{{{
+$ /opt/work/rtems/4.11/bin/arm-rtems4.11-gcc --version
+arm-rtems4.11-gcc (GCC) 4.9.3 20150626 (RTEMS 4.11, RSB no-repo, Newlib 2.2.0.20150423)
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+}}}
+
 The RSB field should be `4.11.2`.
 ```
 
@@ -1235,49 +1235,49 @@ aio_cancel() does not destroy the corresponding condition variables
 |3183|Steen Palm|Chris Johns|defect|closed|normal|4.11.3|arch/arm|4.11|normal|fixed|build| | | |
 * **description**
 ```text
-I have built release 4.11.2 of RTEMS for ERC32, and it can successfully run the hello example using the SPARC gdb.
-
-I'm now trying to build RTEMS for ARM using RSB 4.11.2, but RSB fails after it has built the kernel, while it is making a hello example test. The strange thing is that RSB is attempting to use a file that is part of the RTEMS built for ERC32 - a file that does not exist.  The prefix for the ERC32 RTEMS is /home/smile/dev/rtems/4.11/erc32 and /home/smile/dev/rtems/4.11/arm for the ARM RTEMS.
-
-Used build command:  ../source-builder/sb-set-builder --prefix=$HOME/dev/rtems/4.11/arm 4.11/rtems-arm
-
-Extract from the log file rsb-report-arm-rtems4.11-kernel-4.11.2-1.txt:
-...
-make  all-am
-make[5]: Entering directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds/testsuites/samples'
-BSP Testsuite Data: all tests
-Making all in hello
-make[6]: Entering directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds/testsuites/samples/hello'
-arm-rtems4.11-gcc -B../../../../../nds/lib/ -specs bsp_specs -qrtems -DHAVE_CONFIG_H -I. -I../../../../../../../rtems-4.11.2/c/src/../../testsuites/samples/hello -I..     -mcpu=arm9tdmi -O2 -Wall -Wmissing-prototypes -Wimplicit-function-declaration -Wstrict-prototypes -Wnested-externs -MT init.o -MD -MP -MF .deps/init.Tpo -c -o init.o ../../../../../../../rtems-4.11.2/c/src/../../testsuites/samples/hello/init.c
-mv -f .deps/init.Tpo .deps/init.Po
-arm-rtems4.11-gcc -B../../../../../nds/lib/ -specs bsp_specs -qrtems -mcpu=arm9tdmi -O2 -Wall -Wmissing-prototypes -Wimplicit-function-declaration -Wstrict-prototypes -Wnested-externs    -mcpu=arm9tdmi   -o hello.exe init.o 
-arm-rtems4.11-nm -g -n hello.exe > hello.num arm-rtems4.11-size hello.exe
-   text	   data	    bss	    dec	    hex	filename
- 145504	   2384	4043392	4191280	 3ff430	hello.exe
-arm-rtems4.11-objcopy -O binary hello.exe hello.bin ../../../../../nds/build-tools/ndstool -c hello.nds -9 hello.bin -7 /home/smile/dev/rtems/4.11/erc32/sparc-rtems4.11/erc32/lib/coproc.bin
-Cannot open file '/home/smile/dev/rtems/4.11/erc32/sparc-rtems4.11/erc32/lib/coproc.bin'.
-Nintendo DS rom tool compiled for rtems - Oct 10 2017 by Rafael Vuijk, Dave Murphy, Alexei Karpenko
-Makefile:626: recipe for target 'hello.exe' failed
-make[6]: Leaving directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds/testsuites/samples/hello'
-make[6]: *** [hello.exe] Error 1
-make[5]: *** [all-local] Error 1
-make[4]: *** [all] Error 2
-make[3]: *** [all-recursive] Error 1
-make[2]: *** [all-recursive] Error 1
-Makefile:583: recipe for target 'all-local' failed
-make[5]: Leaving directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds/testsuites/samples'
-Makefile:245: recipe for target 'all' failed
-make[4]: Leaving directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds/testsuites/samples'
-Makefile:313: recipe for target 'all-recursive' failed
-make[3]: Leaving directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds/testsuites'
-Makefile:424: recipe for target 'all-recursive' failed
-make[2]: Leaving directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds'
-make[1]: *** [all-recursive] Error 1
-Makefile:286: recipe for target 'all-recursive' failed
-make[1]: Leaving directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c'
-make: *** [all-recursive] Error 1
-Makefile:410: recipe for target 'all-recursive' failed shell cmd failed: /bin/sh -ex  /home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/doit
-error: building arm-rtems4.11-kernel-4.11.2-1
+I have built release 4.11.2 of RTEMS for ERC32, and it can successfully run the hello example using the SPARC gdb.
+
+I'm now trying to build RTEMS for ARM using RSB 4.11.2, but RSB fails after it has built the kernel, while it is making a hello example test. The strange thing is that RSB is attempting to use a file that is part of the RTEMS built for ERC32 - a file that does not exist.  The prefix for the ERC32 RTEMS is /home/smile/dev/rtems/4.11/erc32 and /home/smile/dev/rtems/4.11/arm for the ARM RTEMS.
+
+Used build command:  ../source-builder/sb-set-builder --prefix=$HOME/dev/rtems/4.11/arm 4.11/rtems-arm
+
+Extract from the log file rsb-report-arm-rtems4.11-kernel-4.11.2-1.txt:
+...
+make  all-am
+make[5]: Entering directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds/testsuites/samples'
+BSP Testsuite Data: all tests
+Making all in hello
+make[6]: Entering directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds/testsuites/samples/hello'
+arm-rtems4.11-gcc -B../../../../../nds/lib/ -specs bsp_specs -qrtems -DHAVE_CONFIG_H -I. -I../../../../../../../rtems-4.11.2/c/src/../../testsuites/samples/hello -I..     -mcpu=arm9tdmi -O2 -Wall -Wmissing-prototypes -Wimplicit-function-declaration -Wstrict-prototypes -Wnested-externs -MT init.o -MD -MP -MF .deps/init.Tpo -c -o init.o ../../../../../../../rtems-4.11.2/c/src/../../testsuites/samples/hello/init.c
+mv -f .deps/init.Tpo .deps/init.Po
+arm-rtems4.11-gcc -B../../../../../nds/lib/ -specs bsp_specs -qrtems -mcpu=arm9tdmi -O2 -Wall -Wmissing-prototypes -Wimplicit-function-declaration -Wstrict-prototypes -Wnested-externs    -mcpu=arm9tdmi   -o hello.exe init.o 
+arm-rtems4.11-nm -g -n hello.exe > hello.num arm-rtems4.11-size hello.exe
+   text	   data	    bss	    dec	    hex	filename
+ 145504	   2384	4043392	4191280	 3ff430	hello.exe
+arm-rtems4.11-objcopy -O binary hello.exe hello.bin ../../../../../nds/build-tools/ndstool -c hello.nds -9 hello.bin -7 /home/smile/dev/rtems/4.11/erc32/sparc-rtems4.11/erc32/lib/coproc.bin
+Cannot open file '/home/smile/dev/rtems/4.11/erc32/sparc-rtems4.11/erc32/lib/coproc.bin'.
+Nintendo DS rom tool compiled for rtems - Oct 10 2017 by Rafael Vuijk, Dave Murphy, Alexei Karpenko
+Makefile:626: recipe for target 'hello.exe' failed
+make[6]: Leaving directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds/testsuites/samples/hello'
+make[6]: *** [hello.exe] Error 1
+make[5]: *** [all-local] Error 1
+make[4]: *** [all] Error 2
+make[3]: *** [all-recursive] Error 1
+make[2]: *** [all-recursive] Error 1
+Makefile:583: recipe for target 'all-local' failed
+make[5]: Leaving directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds/testsuites/samples'
+Makefile:245: recipe for target 'all' failed
+make[4]: Leaving directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds/testsuites/samples'
+Makefile:313: recipe for target 'all-recursive' failed
+make[3]: Leaving directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds/testsuites'
+Makefile:424: recipe for target 'all-recursive' failed
+make[2]: Leaving directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c/nds'
+make[1]: *** [all-recursive] Error 1
+Makefile:286: recipe for target 'all-recursive' failed
+make[1]: Leaving directory '/home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/arm-rtems4.11-kernel-4.11.2-1-4.11.2/build/arm-rtems4.11/c'
+make: *** [all-recursive] Error 1
+Makefile:410: recipe for target 'all-recursive' failed shell cmd failed: /bin/sh -ex  /home/smile/dev/rtems/4.11/rtems-source-builder-4.11.2/rtems/build/arm-rtems4.11-kernel-4.11.2-1/doit
+error: building arm-rtems4.11-kernel-4.11.2-1
 
 ```
 
@@ -1300,9 +1300,9 @@ Build of RTEMS 4.11.2 using RSB fails for ARM
 |3193|Ben|Chris Johns|project|closed|normal|4.11.3|tool/rsb|4.11|normal|fixed| | | | |
 * **description**
 ```text
-Download 4-11.2
-Running resource builder gives for each call to
-sb-check, sb-set-builder : a first line NOT RELEASED.
+Download 4-11.2
+Running resource builder gives for each call to
+sb-check, sb-set-builder : a first line NOT RELEASED.
 This suggest a not released package which may be trusted but not guaranteed
 ```
 
@@ -1323,12 +1323,12 @@ NOT released from source builder
 |3196|Ben| |defect|closed|normal|4.11.3|tool/rsb|4.11|normal|wontfix| | | | |
 * **description**
 ```text
-4-11.2 source building fails during gdb generation on Linux Mint 17.1
-"checking for python2.7" is followed by
-"python missing are unusable"
-
-this is due to an #include "Python.h" that fails 
-
+4-11.2 source building fails during gdb generation on Linux Mint 17.1
+"checking for python2.7" is followed by
+"python missing are unusable"
+
+this is due to an #include "Python.h" that fails 
+
 NOTE: the source building package of 4-11.2 that is used, generates a NOT RELEASED message at the start; a ticket has been raised for this
 ```
 
@@ -1353,7 +1353,7 @@ NOTE: the source building package of 4-11.2 that is used, generates a NOT RELEAS
 |3257|Sebastian Huber|Sebastian Huber|defect|closed|normal|4.11.3|fs/fat| |normal|fixed| | | | |
 * **description**
 ```text
-Take care that a file in the root directory with the same name as the
+Take care that a file in the root directory with the same name as the
 volume name can be found.
 ```
 
@@ -1374,8 +1374,8 @@ fat: Support files in the root directoy with the same name as the volume label
 |3258|Sebastian Huber|Sebastian Huber|defect|closed|normal|4.11.3|fs/fat| |normal|fixed| | | | |
 * **description**
 ```text
-If there is already a file with a long file name it isn't possible to
-create a second file which has a name that ends on the first files name
+If there is already a file with a long file name it isn't possible to
+create a second file which has a name that ends on the first files name
 (for example ets.beam and sets.beam).
 ```
 
@@ -1396,15 +1396,15 @@ fat: Fix creation of files with a similar name to existing files in the director
 |3271|mholm|Chris Johns|defect|closed|normal|4.11.3|tool/rsb|4.11|blocker|fixed| | | | |
 * **description**
 ```text
-The multiprocessor.org website is used to download e.g. mpc in many of the GCC build descriptions. Recently the website underwent some changes and re-organised the download directories which have broken at least the 4.11 branch of RSB, but probably many other branches.
-
-Having discussed this with Andreas Enge (maintainer of MPC), he suggests that the gnu mirror is used instead:
-
-''I see, thank you for the info. Actually, I reorganised the web site, so
-the tool is permanently broken. They should not use multiprecision.org,
-but instead the official GNU ftp site:''
-   https://ftp.gnu.org/gnu/mpc/
-
+The multiprocessor.org website is used to download e.g. mpc in many of the GCC build descriptions. Recently the website underwent some changes and re-organised the download directories which have broken at least the 4.11 branch of RSB, but probably many other branches.
+
+Having discussed this with Andreas Enge (maintainer of MPC), he suggests that the gnu mirror is used instead:
+
+''I see, thank you for the info. Actually, I reorganised the web site, so
+the tool is permanently broken. They should not use multiprecision.org,
+but instead the official GNU ftp site:''
+   https://ftp.gnu.org/gnu/mpc/
+
 It would probably be good to use the GNU mirror also for MPFR and GMP and others if they aren't already.
 ```
 
@@ -1530,16 +1530,16 @@ The option expansion is missing `--with-download'.
 |3297|Chris Johns|Chris Johns|defect|closed|normal|4.11.3|build|4.11|normal|fixed| | | | |
 * **description**
 ```text
-A check of the 4.11 branch shows:
-{{{
-$ grep "EXEEXT =" `find sparc-rtems4.11/c/erc32/testsuites/ -name Makefile`
-  [removed some lines]
-sparc-rtems4.11/c/erc32/testsuites/psxtmtests/psxtmcond05/Makefile:EXEEXT = .exe
-sparc-rtems4.11/c/erc32/testsuites/psxtmtests/psxtmkey02/Makefile:EXEEXT = .exe
-sparc-rtems4.11/c/erc32/testsuites/Makefile:EXEEXT = .exe
-sparc-rtems4.11/c/erc32/testsuites/libtests/block16/Makefile:EXEEXT = 
-sparc-rtems4.11/c/erc32/testsuites/libtests/heapwalk/Makefile:EXEEXT = 
-  [removed some lines]
+A check of the 4.11 branch shows:
+{{{
+$ grep "EXEEXT =" `find sparc-rtems4.11/c/erc32/testsuites/ -name Makefile`
+  [removed some lines]
+sparc-rtems4.11/c/erc32/testsuites/psxtmtests/psxtmcond05/Makefile:EXEEXT = .exe
+sparc-rtems4.11/c/erc32/testsuites/psxtmtests/psxtmkey02/Makefile:EXEEXT = .exe
+sparc-rtems4.11/c/erc32/testsuites/Makefile:EXEEXT = .exe
+sparc-rtems4.11/c/erc32/testsuites/libtests/block16/Makefile:EXEEXT = 
+sparc-rtems4.11/c/erc32/testsuites/libtests/heapwalk/Makefile:EXEEXT = 
+  [removed some lines]
 }}}
 ```
 
@@ -1560,18 +1560,18 @@ sparc-rtems4.11/c/erc32/testsuites/libtests/heapwalk/Makefile:EXEEXT =
 |3075|Jeffrey Hill|Sebastian Huber|defect|closed|low|4.11.3|doc|4.11|minor|fixed|interrupt lock acquire| | | |
 * **description**
 ```text
-
-I suspect that in this section it should indicate that the second argument is "rtems_interrupt_level * level" instead of "rtems_interrupt_level level". Furthermore, perhaps it should state that the function is caching some type of opaque context inside of "level" to be restored when the lock is released. Also, perhaps a better argument name would be "pPrvCtx"? The documentation might also divulge additional _functional_ details about what occurs on an SMP system. Does it prevent interrupts from running on all CPUs simultaneously when the lock is acquired? It does say something about an SMP lock, but that perhaps is an implementation detail, and not a functional description of what the function does.
-
-{{{
-7.4.8 INTERRUPT_LOCK_ACQUIRE - Acquire an ISR Lock
-CALLING SEQUENCE:
-
-void rtems_interrupt_lock_acquire(
-  rtems_interrupt_lock *lock,
-  rtems_interrupt_level level
-);
-}}}
+
+I suspect that in this section it should indicate that the second argument is "rtems_interrupt_level * level" instead of "rtems_interrupt_level level". Furthermore, perhaps it should state that the function is caching some type of opaque context inside of "level" to be restored when the lock is released. Also, perhaps a better argument name would be "pPrvCtx"? The documentation might also divulge additional _functional_ details about what occurs on an SMP system. Does it prevent interrupts from running on all CPUs simultaneously when the lock is acquired? It does say something about an SMP lock, but that perhaps is an implementation detail, and not a functional description of what the function does.
+
+{{{
+7.4.8 INTERRUPT_LOCK_ACQUIRE - Acquire an ISR Lock
+CALLING SEQUENCE:
+
+void rtems_interrupt_lock_acquire(
+  rtems_interrupt_lock *lock,
+  rtems_interrupt_level level
+);
+}}}
 
 ```
 
