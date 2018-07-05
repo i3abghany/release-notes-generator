@@ -28,10 +28,11 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 
-import codecs
-import csv
 import pprint
-import urllib.request as request
+try:
+    import urllib.request as urllib_request
+except ImportError:
+    import urllib2 as urllib_request
 import rtems_trac
 import xml.etree.ElementTree as ElementTree
 
@@ -48,7 +49,6 @@ class tickets:
     def load(self):
         # Read entire trac table as DictReader (iterator)
         tickets_dict_iter = self._get_tickets_table_as_dict()
-
         self._pre_process_tickets_stats()
         # Parse ticket data
         for ticket in tickets_dict_iter:
@@ -114,8 +114,7 @@ class tickets:
     @staticmethod
     def _parse_ticket_csv(ticket_id):
         ticket_csv_url = rtems_trac.gen_ticket_csv_url(ticket_id)
-        response = request.urlopen(ticket_csv_url)
-        csv_rows_iter = csv.DictReader(codecs.iterdecode(response, 'utf-8-sig'))
+        csv_rows_iter = rtems_trac.parse_csv_as_dict_iter(ticket_csv_url)
         return dict(next(csv_rows_iter, {}))
 
     def _parse_ticket_rss(self, ticket_id):
@@ -123,7 +122,7 @@ class tickets:
         ticket_rss_dict = {}
         ns = {'dc': '{http://purl.org/dc/elements/1.1/}'}
         ticket_rss_url = rtems_trac.gen_ticket_rss_url(ticket_id)
-        rss_response = request.urlopen(ticket_rss_url)
+        rss_response = urllib_request.urlopen(ticket_rss_url)
         ticket_xml_root = ElementTree.parse(rss_response).getroot()
 
         ticket_rss_dict['title'] = self._remove_tags(
