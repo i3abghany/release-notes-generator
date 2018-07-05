@@ -30,8 +30,11 @@
 
 import codecs
 import csv
-import retry
-import urllib.request as request
+import time
+try:
+    import urllib.request as urllib_request
+except ImportError:
+    import urllib2 as urllib_request
 
 
 trac_base = 'https://devel.rtems.org'
@@ -78,8 +81,14 @@ def gen_trac_query_url(cols, **filters):
     return trac_base + '/' + query + '?' + constraints_str
 
 
-@retry.retry(exceptions=(ConnectionError, TimeoutError),
-             delay = 1, tries = 6, backoff = 2)
 def parse_csv_as_dict_iter(url):
-    csv_response = request.urlopen(url)
-    return csv.DictReader(codecs.iterdecode(csv_response, 'utf-8-sig'))
+    delay, tries, backoff = 1, 6, 2
+    while tries > 0:
+        try:
+            csv_response = urllib_request.urlopen(url)
+            return csv.DictReader(codecs.iterdecode(csv_response, 'utf-8-sig'))
+
+        except OSError:
+            tries -= 1
+            time.sleep(delay)
+            delay *= backoff
