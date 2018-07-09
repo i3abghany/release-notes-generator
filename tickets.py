@@ -149,7 +149,7 @@ class tickets:
         try:
             wrapped_text = '<a>' + (text or '') + '</a>'
             # construct an element tree from string
-            xml_tree = ElementTree.fromstring(wrapped_text)
+            xml_tree = ElementTree.fromstring(wrapped_text.encode('utf-8'))
             # leave out tags
             xml_text = ''.join(xml_tree.itertext())
             # replace multiple whitespaces,
@@ -196,7 +196,7 @@ class tickets:
     def _get_attachment_name_from_description(description):
         try:
             wrapped_text = '<a>' + (description or '') + '</a>'
-            xml_tree_root = ElementTree.fromstring(wrapped_text)
+            xml_tree_root = ElementTree.fromstring(wrapped_text.encode('utf-8'))
             attachment_name = next(xml_tree_root.iter('em'), '').text
             return attachment_name
         except ElementTree.ParseError:
