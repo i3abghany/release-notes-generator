@@ -31,6 +31,7 @@
 import codecs
 import csv
 import time
+import unicode_dict_reader as dict_reader
 try:
     import urllib.request as urllib_request
 except ImportError:
@@ -86,8 +87,14 @@ def parse_csv_as_dict_iter(url):
     while tries > 0:
         try:
             csv_response = urllib_request.urlopen(url)
-            return csv.DictReader(codecs.iterdecode(csv_response, 'utf-8-sig'))
-
+            try:
+                return dict_reader.unicode_dict_reader(
+                    csv_response, encoding='utf-8-sig'
+                )
+            except TypeError:  # For Python 3
+                return csv.DictReader(
+                    codecs.iterdecode(csv_response, 'utf-8-sig')
+                )
         except OSError:
             tries -= 1
             time.sleep(delay)
