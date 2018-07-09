@@ -45,8 +45,9 @@ class markdown():
     def gen_table(self, header, rows, align ='center'):
         num_columns = len(header)
         header = [str(h) for h in header]
-        rows = [[str(r) or ' ' for r in row] for row in rows]
 
+        rows = [[(str(r) if isinstance(r, int) else r) or ' ' for r in row]
+                for row in rows]
         header_str = '|' + '|'.join(header) + '|'
         column_format = '---'
 
