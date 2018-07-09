@@ -29,6 +29,7 @@
 #
 
 import argparse
+import io
 import markdown
 import reports
 import tickets
@@ -55,7 +56,7 @@ if __name__ == '__main__':
     reports.gen_tickets_stats_by_category(tickets_stats['by_category'], md)
     reports.gen_individual_tickets_info(tickets_stats['tickets'], md)
 
-    with open('tickets.md', 'w') as file:
+    with io.open('tickets.md', 'w', encoding='utf-8') as file:
         try:
             file.write(md.content.encode('utf-8'))
         except TypeError:  # For Python 3
