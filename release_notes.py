@@ -56,4 +56,7 @@ if __name__ == '__main__':
     reports.gen_individual_tickets_info(tickets_stats['tickets'], md)
 
     with open('tickets.md', 'w') as file:
-        file.write(md.content)
+        try:
+            file.write(md.content.encode('utf-8'))
+        except TypeError:  # For Python 3
+            file.write(md.content)
