@@ -30,24 +30,39 @@
 
 
 class markdown():
-    def __init__(self):
+    def __init__(self, line_width=78):
         self.content = ''
+        self.line_width = line_width
 
     def gen_bullet_point(self, text):
-        self.content += '* ' + text + '\n'
+        self.content += '* ' + self.wrap_line(text, self.line_width) + '\n'
 
     def gen_line(self, text):
-        self.content += str(text) + '\n'
+        self.content += self.wrap_line(str(text), self.line_width) + '\n'
 
     def gen_heading(self, text, level):
         self.content += '#' * level + ' ' + str(text)
+
+    def gen_wrapped_table(self, header, rows, max_num_cols=4):
+        num_cols = len(header)
+        i = 0
+        if num_cols > max_num_cols:
+            while i < num_cols:
+                self.gen_table(
+                    list(header)[i:i + max_num_cols],
+                    [list(row)[i:i + max_num_cols] for row in rows],
+                )
+                self.gen_line('\n')
+                i += max_num_cols
+        else:
+            self.gen_table(header, rows)
 
     def gen_table(self, header, rows, align ='center'):
         num_columns = len(header)
         header = [str(h) for h in header]
 
-        rows = [[(str(r) if isinstance(r, int) else r) or ' ' for r in row]
-                for row in rows]
+        rows = [[(self.wrap_line(str(r), self.line_width) if isinstance(r, int)
+                  else r) or ' ' for r in row] for row in rows]
         header_str = '|' + '|'.join(header) + '|'
         column_format = '---'
 
@@ -63,7 +78,9 @@ class markdown():
         self.content += '\n'.join([header_str, split_line, rows_str])
 
     def gen_raw_text(self, formatted_text):
-        self.content += '```text\n' + formatted_text + '\n```\n'
+        self.content += '```text\n' \
+                        + self.wrap_line(formatted_text, self.line_width) \
+                        + '\n```\n'
 
     @staticmethod
     def gen_bold(text):
@@ -72,3 +89,12 @@ class markdown():
     @staticmethod
     def gen_hyperlink(text, link):
         return '[' + text + ']' + '(' + link + ')'
+
+    @staticmethod
+    def wrap_line(line, width):
+        i = 0
+        str_list = []
+        while i < len(line):
+            str_list.append(line[i:i + width])
+            i += width
+        return '  \n'.join(str_list)
