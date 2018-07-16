@@ -87,7 +87,7 @@ def gen_individual_tickets_info(tickets, md = markdown.markdown()):
         ticket_meta.pop('description', None)
         ticket_meta.pop('summary', None)
 
-        md.gen_table(header=ticket_meta.keys(), rows=[ticket_meta.values()])
+        md.gen_wrapped_table(header=ticket_meta.keys(), rows=[ticket_meta.values()])
         md.gen_line('')
 
         if description:
@@ -112,7 +112,7 @@ def gen_individual_tickets_info(tickets, md = markdown.markdown()):
                 comments_rows.append(list(comment.values()))
             md.gen_heading('comments', 3)
             md.gen_line('')
-            md.gen_table(comments_header, comments_rows)
+            md.gen_wrapped_table(comments_header, comments_rows)
             md.gen_line('')
 
         if len(attachments) > 0:
@@ -122,5 +122,5 @@ def gen_individual_tickets_info(tickets, md = markdown.markdown()):
                 attachments_rows.append(list(attachment.values()))
             md.gen_heading('attachments', 3)
             md.gen_line('')
-            md.gen_table(attachments_header, attachments_rows)
+            md.gen_wrapped_table(attachments_header, attachments_rows)
             md.gen_line('')
