@@ -57,12 +57,13 @@ class markdown():
         else:
             self.gen_table(header, rows)
 
-    def gen_table(self, header, rows, align ='center'):
+    def gen_table(self, header, rows, align ='center', max_col_width=20):
         num_columns = len(header)
         header = [str(h) for h in header]
 
-        rows = [[(self.wrap_line(str(r), self.line_width) if isinstance(r, int)
-                  else r) or ' ' for r in row] for row in rows]
+        rows = [[(str(r) if isinstance(r, int) else
+                  self.wrap_line(str(r), max_col_width)) or ' ' for r in row]
+                for row in rows]
         header_str = '|' + '|'.join(header) + '|'
         column_format = '---'
 
@@ -78,9 +79,8 @@ class markdown():
         self.content += '\n'.join([header_str, split_line, rows_str])
 
     def gen_raw_text(self, formatted_text):
-        self.content += '```text\n' \
-                        + self.wrap_line(formatted_text, self.line_width) \
-                        + '\n```\n'
+        self.content += '```text\n' + self.wrap_line(
+            formatted_text, self.line_width, True) + '\n```\n'
 
     @staticmethod
     def gen_bold(text):
@@ -91,10 +91,10 @@ class markdown():
         return '[' + text + ']' + '(' + link + ')'
 
     @staticmethod
-    def wrap_line(line, width):
+    def wrap_line(line, width, is_raw_text=False):
         i = 0
         str_list = []
         while i < len(line):
             str_list.append(line[i:i + width])
             i += width
-        return '  \n'.join(str_list)
+        return ('  \n' if is_raw_text else '<br />').join(str_list)
