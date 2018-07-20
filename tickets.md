@@ -12,7 +12,7 @@
 |Joel Sherrill|2|2|2/2|
 |Sebastian Huber|13|13|13/13|
 |Amar Takhar|1|1|1/1|
-|Chris Johns <chrisj@…>|1|1|1/1|
+|Chris Johns <chrisj@<br />…>|1|1|1/1|
 ## type
 |type|closed|total|progress|
 |:---:|:---:|:---:|:---:|
@@ -105,17 +105,17 @@ Documentation link to the 4.11 release is broken.
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Tue, 11 Jul 2017 00:38:21 GMT|milestone changed|https://devel.rtems.org/ticket/2988#comment:1|
-|Chris Johns|Mon, 04 Sep 2017 03:40:17 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2988#comment:2|
-|Sebastian Huber|Tue, 10 Oct 2017 06:06:29 GMT|component changed|https://devel.rtems.org/ticket/2988#comment:3|
-|Danxue Huang|Tue, 29 May 2018 03:47:12 GMT| |https://devel.rtems.org/ticket/2988#comment:4|
+|Chris Johns|Tue, 11 Jul 2017 00:<br />38:21 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2988#comm<br />ent:1|
+|Chris Johns|Mon, 04 Sep 2017 03:<br />40:17 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2988#comm<br />ent:2|
+|Sebastian Huber|Tue, 10 Oct 2017 06:<br />06:29 GMT|component changed|https://devel.rtems.<br />org/ticket/2988#comm<br />ent:3|
+|Danxue Huang|Tue, 29 May 2018 03:<br />47:12 GMT| |https://devel.rtems.<br />org/ticket/2988#comm<br />ent:4|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2988#comment:1|milestone changed from 4.11.2 to 4.11.3 Moved to 4.11.3 and will fix once #3031 is fixed.|Ticket|
-|https://devel.rtems.org/ticket/2988#comment:2|status changed from assigned to closed resolution set to fixed Fixed. ​https://git.rtems.org/chrisj/rtems-admin.git/commit/?id=7eed3cecc3d6f729550468d973641d13e9ce7956|Ticket|
-|https://devel.rtems.org/ticket/2988#comment:3|component changed from Documentation to doc|Ticket|
-|https://devel.rtems.org/ticket/2988#comment:4|This is for test purpose. NVM :D|Ticket|
+|https://devel.rtems.<br />org/ticket/2988#comm<br />ent:1|milestone changed fr<br />om 4.11.2 to 4.11.3 <br />Moved to 4.11.3 and <br />will fix once #3031 <br />is fixed.|Ticket|
+|https://devel.rtems.<br />org/ticket/2988#comm<br />ent:2|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed Fixed. ​https://g<br />it.rtems.org/chrisj/<br />rtems-admin.git/comm<br />it/?id=7eed3cecc3d6f<br />729550468d973641d13e<br />9ce7956|Ticket|
+|https://devel.rtems.<br />org/ticket/2988#comm<br />ent:3|component changed fr<br />om Documentation to <br />doc|Ticket|
+|https://devel.rtems.<br />org/ticket/2988#comm<br />ent:4|This is for test pur<br />pose. NVM :D|Ticket|
 
 
 ## [3107](https://devel.rtems.org/ticket/3107)
@@ -151,13 +151,13 @@ Building gcc-4.9.3 is broken on FreeBSD 11.1
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns <chrisj@…>|Wed, 23 Aug 2017 01:08:53 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3107#comment:1|
-|Sebastian Huber|Tue, 10 Oct 2017 05:58:26 GMT|component changed|https://devel.rtems.org/ticket/3107#comment:2|
+|Chris Johns <chrisj@<br />…>|Wed, 23 Aug 2017 01:<br />08:53 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3107#comm<br />ent:1|
+|Sebastian Huber|Tue, 10 Oct 2017 05:<br />58:26 GMT|component changed|https://devel.rtems.<br />org/ticket/3107#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3107#comment:1|status changed from assigned to closed resolution set to fixed In bb43afd/rtems-source-builder: Building gcc-4.9.3 is broken on FreeBSD 11.1 Reference the patch for the FreeBSD port. See ticket: ​https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212465 Closes #3107.|Ticket|
-|https://devel.rtems.org/ticket/3107#comment:2|component changed from GCC to tool/gcc|Ticket|
+|https://devel.rtems.<br />org/ticket/3107#comm<br />ent:1|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In bb43afd/rtems-<br />source-builder: Buil<br />ding gcc-4.9.3 is br<br />oken on FreeBSD 11.1<br /> Reference the patch<br /> for the FreeBSD por<br />t. See ticket: ​http<br />s://bugs.freebsd.org<br />/bugzilla/show_bug.c<br />gi?id=212465 Closes <br />#3107.|Ticket|
+|https://devel.rtems.<br />org/ticket/3107#comm<br />ent:2|component changed fr<br />om GCC to tool/gcc|Ticket|
 
 
 ## [3119](https://devel.rtems.org/ticket/3119)
@@ -192,13 +192,13 @@ Docs failed to build PDF with the latest Sphinx.
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns <chrisj@…>|Sun, 03 Sep 2017 05:40:24 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3119#comment:1|
-|Sebastian Huber|Tue, 10 Oct 2017 06:06:29 GMT|component changed|https://devel.rtems.org/ticket/3119#comment:2|
+|Chris Johns <chrisj@<br />…>|Sun, 03 Sep 2017 05:<br />40:24 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3119#comm<br />ent:1|
+|Sebastian Huber|Tue, 10 Oct 2017 06:<br />06:29 GMT|component changed|https://devel.rtems.<br />org/ticket/3119#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3119#comment:1|status changed from assigned to closed resolution set to fixed In ba143e0/rtems-docs: pdf: Update the RTEMS style to work recent Sphinx versions. Closes #3119.|Ticket|
-|https://devel.rtems.org/ticket/3119#comment:2|component changed from Documentation to doc|Ticket|
+|https://devel.rtems.<br />org/ticket/3119#comm<br />ent:1|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In ba143e0/rtems-<br />docs: pdf: Update th<br />e RTEMS style to wor<br />k recent Sphinx vers<br />ions. Closes #3119.|Ticket|
+|https://devel.rtems.<br />org/ticket/3119#comm<br />ent:2|component changed fr<br />om Documentation to <br />doc|Ticket|
 
 
 ## [2538](https://devel.rtems.org/ticket/2538)
@@ -250,23 +250,23 @@ error: building rtems-tools-4.11-1
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Wed, 20 Jan 2016 00:14:27 GMT|status changed|https://devel.rtems.org/ticket/2538#comment:1|
-|Mario Gruber|Mon, 25 Jan 2016 16:53:59 GMT| |https://devel.rtems.org/ticket/2538#comment:2|
-|Chris Johns|Fri, 19 Feb 2016 03:11:25 GMT| |https://devel.rtems.org/ticket/2538#comment:3|
-|Sebastian Huber|Thu, 26 Jan 2017 07:16:00 GMT|milestone changed|https://devel.rtems.org/ticket/2538#comment:4|
-|Chris Johns|Tue, 21 Mar 2017 03:12:16 GMT| |https://devel.rtems.org/ticket/2538#comment:5|
-|Chris Johns|Thu, 23 Mar 2017 01:03:28 GMT|milestone changed|https://devel.rtems.org/ticket/2538#comment:6|
-|Chris Johns|Wed, 07 Feb 2018 05:15:39 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2538#comment:7|
+|Chris Johns|Wed, 20 Jan 2016 00:<br />14:27 GMT|status changed|https://devel.rtems.<br />org/ticket/2538#comm<br />ent:1|
+|Mario Gruber|Mon, 25 Jan 2016 16:<br />53:59 GMT| |https://devel.rtems.<br />org/ticket/2538#comm<br />ent:2|
+|Chris Johns|Fri, 19 Feb 2016 03:<br />11:25 GMT| |https://devel.rtems.<br />org/ticket/2538#comm<br />ent:3|
+|Sebastian Huber|Thu, 26 Jan 2017 07:<br />16:00 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2538#comm<br />ent:4|
+|Chris Johns|Tue, 21 Mar 2017 03:<br />12:16 GMT| |https://devel.rtems.<br />org/ticket/2538#comm<br />ent:5|
+|Chris Johns|Thu, 23 Mar 2017 01:<br />03:28 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2538#comm<br />ent:6|
+|Chris Johns|Wed, 07 Feb 2018 05:<br />15:39 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2538#comm<br />ent:7|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2538#comment:1|status changed from new to accepted|Ticket|
-|https://devel.rtems.org/ticket/2538#comment:2|Duplicate of #2495|Ticket|
-|https://devel.rtems.org/ticket/2538#comment:3|I suspect the issue is the git command in the config file attempts to change to the 4.11 branch before a pull and if you have a repo in your sources directory that was cloned before the 4.11 branch was added it fails. I have changed the pull to be before the branch.|Ticket|
-|https://devel.rtems.org/ticket/2538#comment:4|milestone changed from 4.11.1 to 4.11.2|Ticket|
-|https://devel.rtems.org/ticket/2538#comment:5|I just built 4.11/rtems-arm with out error. I cannot reproduce this on FreeBSD. Can you please provide some more information?|Ticket|
-|https://devel.rtems.org/ticket/2538#comment:6|milestone changed from 4.11.2 to 4.11.3 The 4.11.2 milestone is closing.|Ticket|
-|https://devel.rtems.org/ticket/2538#comment:7|status changed from accepted to closed resolution set to worksforme I cannot repeat this and the related code looks OK so without further details I cannot do much with this but report.|Ticket|
+|https://devel.rtems.<br />org/ticket/2538#comm<br />ent:1|status changed from <br />new to accepted|Ticket|
+|https://devel.rtems.<br />org/ticket/2538#comm<br />ent:2|Duplicate of #2495|Ticket|
+|https://devel.rtems.<br />org/ticket/2538#comm<br />ent:3|I suspect the issue <br />is the git command i<br />n the config file at<br />tempts to change to <br />the 4.11 branch befo<br />re a pull and if you<br /> have a repo in your<br /> sources directory t<br />hat was cloned befor<br />e the 4.11 branch wa<br />s added it fails. I <br />have changed the pul<br />l to be before the b<br />ranch.|Ticket|
+|https://devel.rtems.<br />org/ticket/2538#comm<br />ent:4|milestone changed fr<br />om 4.11.1 to 4.11.2|Ticket|
+|https://devel.rtems.<br />org/ticket/2538#comm<br />ent:5|I just built 4.11/rt<br />ems-arm with out err<br />or. I cannot reprodu<br />ce this on FreeBSD. <br />Can you please provi<br />de some more informa<br />tion?|Ticket|
+|https://devel.rtems.<br />org/ticket/2538#comm<br />ent:6|milestone changed fr<br />om 4.11.2 to 4.11.3 <br />The 4.11.2 milestone<br /> is closing.|Ticket|
+|https://devel.rtems.<br />org/ticket/2538#comm<br />ent:7|status changed from <br />accepted to closed r<br />esolution set to wor<br />ksforme I cannot rep<br />eat this and the rel<br />ated code looks OK s<br />o without further de<br />tails I cannot do mu<br />ch with this but rep<br />ort.|Ticket|
 
 
 ## [2578](https://devel.rtems.org/ticket/2578)
@@ -366,21 +366,21 @@ rtems-tools configure fails for Cxc builds
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Mario Gruber|Thu, 18 Feb 2016 08:36:58 GMT|status changed; owner set|https://devel.rtems.org/ticket/2578#comment:1|
-|Chris Johns|Sun, 27 Mar 2016 00:48:40 GMT|owner changed|https://devel.rtems.org/ticket/2578#comment:2|
-|Chris Johns|Sun, 27 Mar 2016 00:51:58 GMT|priority, milestone changed|https://devel.rtems.org/ticket/2578#comment:3|
-|Sebastian Huber|Thu, 26 Jan 2017 07:05:05 GMT|milestone changed|https://devel.rtems.org/ticket/2578#comment:4|
-|Chris Johns|Thu, 23 Mar 2017 01:03:28 GMT|milestone changed|https://devel.rtems.org/ticket/2578#comment:5|
-|Chris Johns|Tue, 23 Jan 2018 21:37:54 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2578#comment:6|
+|Mario Gruber|Thu, 18 Feb 2016 08:<br />36:58 GMT|status changed; owne<br />r set|https://devel.rtems.<br />org/ticket/2578#comm<br />ent:1|
+|Chris Johns|Sun, 27 Mar 2016 00:<br />48:40 GMT|owner changed|https://devel.rtems.<br />org/ticket/2578#comm<br />ent:2|
+|Chris Johns|Sun, 27 Mar 2016 00:<br />51:58 GMT|priority, milestone <br />changed|https://devel.rtems.<br />org/ticket/2578#comm<br />ent:3|
+|Sebastian Huber|Thu, 26 Jan 2017 07:<br />05:05 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2578#comm<br />ent:4|
+|Chris Johns|Thu, 23 Mar 2017 01:<br />03:28 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2578#comm<br />ent:5|
+|Chris Johns|Tue, 23 Jan 2018 21:<br />37:54 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2578#comm<br />ent:6|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2578#comment:1|owner set to Sebastian Huber status changed from new to assigned|Ticket|
-|https://devel.rtems.org/ticket/2578#comment:2|owner changed from Sebastian Huber to Chris Johns|Ticket|
-|https://devel.rtems.org/ticket/2578#comment:3|priority changed from normal to high milestone changed from 4.11.1 to 4.11|Ticket|
-|https://devel.rtems.org/ticket/2578#comment:4|milestone changed from 4.11 to 4.11.2|Ticket|
-|https://devel.rtems.org/ticket/2578#comment:5|milestone changed from 4.11.2 to 4.11.3 The 4.11.2 milestone is closing.|Ticket|
-|https://devel.rtems.org/ticket/2578#comment:6|status changed from assigned to closed resolution set to wontfix I am going to close this ticket. We are now building Windows tools on Windows so the need for Cxc build is not as important as it was. Building on Windows ensures we have the correct DLL set for the tools.|Ticket|
+|https://devel.rtems.<br />org/ticket/2578#comm<br />ent:1|owner set to Sebasti<br />an Huber status chan<br />ged from new to assi<br />gned|Ticket|
+|https://devel.rtems.<br />org/ticket/2578#comm<br />ent:2|owner changed from S<br />ebastian Huber to Ch<br />ris Johns|Ticket|
+|https://devel.rtems.<br />org/ticket/2578#comm<br />ent:3|priority changed fro<br />m normal to high mil<br />estone changed from <br />4.11.1 to 4.11|Ticket|
+|https://devel.rtems.<br />org/ticket/2578#comm<br />ent:4|milestone changed fr<br />om 4.11 to 4.11.2|Ticket|
+|https://devel.rtems.<br />org/ticket/2578#comm<br />ent:5|milestone changed fr<br />om 4.11.2 to 4.11.3 <br />The 4.11.2 milestone<br /> is closing.|Ticket|
+|https://devel.rtems.<br />org/ticket/2578#comm<br />ent:6|status changed from <br />assigned to closed r<br />esolution set to won<br />tfix I am going to c<br />lose this ticket. We<br /> are now building Wi<br />ndows tools on Windo<br />ws so the need for C<br />xc build is not as i<br />mportant as it was. <br />Building on Windows <br />ensures we have the <br />correct DLL set for <br />the tools.|Ticket|
 
 
 ## [2639](https://devel.rtems.org/ticket/2639)
@@ -423,19 +423,19 @@ RSB long path support on Windows is still broken.
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Mon, 14 Mar 2016 04:26:04 GMT|status changed|https://devel.rtems.org/ticket/2639#comment:1|
-|Sebastian Huber|Thu, 26 Jan 2017 07:05:05 GMT|milestone changed|https://devel.rtems.org/ticket/2639#comment:2|
-|Chris Johns|Tue, 21 Mar 2017 03:15:23 GMT| |https://devel.rtems.org/ticket/2639#comment:3|
-|Chris Johns|Thu, 23 Mar 2017 01:03:28 GMT|milestone changed|https://devel.rtems.org/ticket/2639#comment:4|
-|Chris Johns|Sat, 22 Apr 2017 22:25:30 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2639#comment:5|
+|Chris Johns|Mon, 14 Mar 2016 04:<br />26:04 GMT|status changed|https://devel.rtems.<br />org/ticket/2639#comm<br />ent:1|
+|Sebastian Huber|Thu, 26 Jan 2017 07:<br />05:05 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2639#comm<br />ent:2|
+|Chris Johns|Tue, 21 Mar 2017 03:<br />15:23 GMT| |https://devel.rtems.<br />org/ticket/2639#comm<br />ent:3|
+|Chris Johns|Thu, 23 Mar 2017 01:<br />03:28 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2639#comm<br />ent:4|
+|Chris Johns|Sat, 22 Apr 2017 22:<br />25:30 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2639#comm<br />ent:5|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2639#comment:1|status changed from new to accepted|Ticket|
-|https://devel.rtems.org/ticket/2639#comment:2|milestone changed from 4.11 to 4.11.2|Ticket|
-|https://devel.rtems.org/ticket/2639#comment:3|This is a major change and I do not think it is suitable for a release branch. This change should only happen on master.|Ticket|
-|https://devel.rtems.org/ticket/2639#comment:4|milestone changed from 4.11.2 to 4.11.3 The 4.11.2 milestone is closing.|Ticket|
-|https://devel.rtems.org/ticket/2639#comment:5|status changed from accepted to closed resolution set to duplicate Closing this ticket as #2992 has more details.|Ticket|
+|https://devel.rtems.<br />org/ticket/2639#comm<br />ent:1|status changed from <br />new to accepted|Ticket|
+|https://devel.rtems.<br />org/ticket/2639#comm<br />ent:2|milestone changed fr<br />om 4.11 to 4.11.2|Ticket|
+|https://devel.rtems.<br />org/ticket/2639#comm<br />ent:3|This is a major chan<br />ge and I do not thin<br />k it is suitable for<br /> a release branch. T<br />his change should on<br />ly happen on master.|Ticket|
+|https://devel.rtems.<br />org/ticket/2639#comm<br />ent:4|milestone changed fr<br />om 4.11.2 to 4.11.3 <br />The 4.11.2 milestone<br /> is closing.|Ticket|
+|https://devel.rtems.<br />org/ticket/2639#comm<br />ent:5|status changed from <br />accepted to closed r<br />esolution set to dup<br />licate Closing this <br />ticket as #2992 has <br />more details.|Ticket|
 
 
 ## [2362](https://devel.rtems.org/ticket/2362)
@@ -486,21 +486,21 @@ e is ignored in general
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Gedare|Tue, 09 Jun 2015 15:49:59 GMT|status changed; owner, milestone set|https://devel.rtems.org/ticket/2362#comment:1|
-|Sebastian Huber|Tue, 09 Jun 2015 19:38:43 GMT|summary changed|https://devel.rtems.org/ticket/2362#comment:2|
-|Sebastian Huber|Thu, 26 Jan 2017 07:16:00 GMT|milestone changed|https://devel.rtems.org/ticket/2362#comment:3|
-|Chris Johns|Thu, 23 Mar 2017 01:03:28 GMT|milestone changed|https://devel.rtems.org/ticket/2362#comment:4|
-|Chris Johns|Mon, 05 Feb 2018 05:50:27 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2362#comment:5|
-|Chris Johns|Mon, 12 Feb 2018 03:56:35 GMT|component changed|https://devel.rtems.org/ticket/2362#comment:6|
+|Gedare|Tue, 09 Jun 2015 15:<br />49:59 GMT|status changed; owne<br />r, milestone set|https://devel.rtems.<br />org/ticket/2362#comm<br />ent:1|
+|Sebastian Huber|Tue, 09 Jun 2015 19:<br />38:43 GMT|summary changed|https://devel.rtems.<br />org/ticket/2362#comm<br />ent:2|
+|Sebastian Huber|Thu, 26 Jan 2017 07:<br />16:00 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2362#comm<br />ent:3|
+|Chris Johns|Thu, 23 Mar 2017 01:<br />03:28 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2362#comm<br />ent:4|
+|Chris Johns|Mon, 05 Feb 2018 05:<br />50:27 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2362#comm<br />ent:5|
+|Chris Johns|Mon, 12 Feb 2018 03:<br />56:35 GMT|component changed|https://devel.rtems.<br />org/ticket/2362#comm<br />ent:6|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2362#comment:1|owner set to Chris Johns status changed from new to assigned milestone set to 4.11.1|Ticket|
-|https://devel.rtems.org/ticket/2362#comment:2|summary changed from Configuration/initialization of block device buffer fails silently to ramdisk_initialize() returns an error code and driver initialization error code is ignored in general The rtems_bdbuf_init() doesn't fail silently. It returns an error code. We even have a test case for this libtests/block17. The real problem is that ramdisk_initialize() returns an error code which nobody evaluates. This is a device driver API flaw.|Ticket|
-|https://devel.rtems.org/ticket/2362#comment:3|milestone changed from 4.11.1 to 4.11.2|Ticket|
-|https://devel.rtems.org/ticket/2362#comment:4|milestone changed from 4.11.2 to 4.11.3 The 4.11.2 milestone is closing.|Ticket|
-|https://devel.rtems.org/ticket/2362#comment:5|status changed from assigned to closed resolution set to wontfix|Ticket|
-|https://devel.rtems.org/ticket/2362#comment:6|component changed from unspecified to lib/block|Ticket|
+|https://devel.rtems.<br />org/ticket/2362#comm<br />ent:1|owner set to Chris J<br />ohns status changed <br />from new to assigned<br /> milestone set to 4.<br />11.1|Ticket|
+|https://devel.rtems.<br />org/ticket/2362#comm<br />ent:2|summary changed from<br /> Configuration/initi<br />alization of block d<br />evice buffer fails s<br />ilently to ramdisk_i<br />nitialize() returns <br />an error code and dr<br />iver initialization <br />error code is ignore<br />d in general The rte<br />ms_bdbuf_init() does<br />n't fail silently. I<br />t returns an error c<br />ode. We even have a <br />test case for this l<br />ibtests/block17. The<br /> real problem is tha<br />t ramdisk_initialize<br />() returns an error <br />code which nobody ev<br />aluates. This is a d<br />evice driver API fla<br />w.|Ticket|
+|https://devel.rtems.<br />org/ticket/2362#comm<br />ent:3|milestone changed fr<br />om 4.11.1 to 4.11.2|Ticket|
+|https://devel.rtems.<br />org/ticket/2362#comm<br />ent:4|milestone changed fr<br />om 4.11.2 to 4.11.3 <br />The 4.11.2 milestone<br /> is closing.|Ticket|
+|https://devel.rtems.<br />org/ticket/2362#comm<br />ent:5|status changed from <br />assigned to closed r<br />esolution set to won<br />tfix|Ticket|
+|https://devel.rtems.<br />org/ticket/2362#comm<br />ent:6|component changed fr<br />om unspecified to li<br />b/block|Ticket|
 
 
 ## [2439](https://devel.rtems.org/ticket/2439)
@@ -579,45 +579,45 @@ GCC 4.9.3 ARM build fails on OS X 10.11 (El Capitan)
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Mon, 02 Nov 2015 00:06:00 GMT|summary changed|https://devel.rtems.org/ticket/2439#comment:1|
-|Amar Takhar|Mon, 02 Nov 2015 02:47:10 GMT|summary changed|https://devel.rtems.org/ticket/2439#comment:2|
-|Chris Johns|Wed, 04 Nov 2015 23:31:42 GMT| |https://devel.rtems.org/ticket/2439#comment:3|
-|Joel Sherrill|Thu, 05 Nov 2015 00:59:15 GMT| |https://devel.rtems.org/ticket/2439#comment:4|
-|Chris Johns|Wed, 11 Nov 2015 00:11:22 GMT| |https://devel.rtems.org/ticket/2439#comment:5|
-|Sebastian Huber|Thu, 26 Jan 2017 07:16:00 GMT|milestone changed|https://devel.rtems.org/ticket/2439#comment:6|
-|Chris Johns|Thu, 23 Mar 2017 01:04:45 GMT|milestone changed|https://devel.rtems.org/ticket/2439#comment:7|
-|Sebastian Huber|Tue, 10 Oct 2017 05:58:26 GMT|component changed|https://devel.rtems.org/ticket/2439#comment:8|
-|Chris Johns|Tue, 23 Jan 2018 03:03:54 GMT|blocking set|https://devel.rtems.org/ticket/2439#comment:9|
-|Chris Johns|Tue, 23 Jan 2018 05:10:15 GMT| |https://devel.rtems.org/ticket/2439#comment:10|
-|Chris Johns|Thu, 25 Jan 2018 05:51:43 GMT|status changed; owner set|https://devel.rtems.org/ticket/2439#comment:11|
-|Chris Johns|Wed, 07 Feb 2018 05:12:32 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2439#comment:12|
+|Chris Johns|Mon, 02 Nov 2015 00:<br />06:00 GMT|summary changed|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:1|
+|Amar Takhar|Mon, 02 Nov 2015 02:<br />47:10 GMT|summary changed|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:2|
+|Chris Johns|Wed, 04 Nov 2015 23:<br />31:42 GMT| |https://devel.rtems.<br />org/ticket/2439#comm<br />ent:3|
+|Joel Sherrill|Thu, 05 Nov 2015 00:<br />59:15 GMT| |https://devel.rtems.<br />org/ticket/2439#comm<br />ent:4|
+|Chris Johns|Wed, 11 Nov 2015 00:<br />11:22 GMT| |https://devel.rtems.<br />org/ticket/2439#comm<br />ent:5|
+|Sebastian Huber|Thu, 26 Jan 2017 07:<br />16:00 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:6|
+|Chris Johns|Thu, 23 Mar 2017 01:<br />04:45 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:7|
+|Sebastian Huber|Tue, 10 Oct 2017 05:<br />58:26 GMT|component changed|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:8|
+|Chris Johns|Tue, 23 Jan 2018 03:<br />03:54 GMT|blocking set|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:9|
+|Chris Johns|Tue, 23 Jan 2018 05:<br />10:15 GMT| |https://devel.rtems.<br />org/ticket/2439#comm<br />ent:10|
+|Chris Johns|Thu, 25 Jan 2018 05:<br />51:43 GMT|status changed; owne<br />r set|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:11|
+|Chris Johns|Wed, 07 Feb 2018 05:<br />12:32 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:12|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2439#comment:1|summary changed from ARM build fails on OS X 10.11 (Ll Capitan) to GCC 4.9.3 ARM build fails on OS X 10.11 (Ll Capitan)|Ticket|
-|https://devel.rtems.org/ticket/2439#comment:2|summary changed from GCC 4.9.3 ARM build fails on OS X 10.11 (Ll Capitan) to GCC 4.9.3 ARM build fails on OS X 10.11 (El Capitan)|Ticket|
-|https://devel.rtems.org/ticket/2439#comment:3|The ARM target does not build on Yosemite or El Capitan with Xcode 7.1 command line tools and the problem still exists in El Capitan with Xcode 7.1 and the 7.2 beta command line tools. It appears to be a bug in clang in Xcode building tc-arm.c in binutils. I have raise a bug report with Apple with a small test case.|Ticket|
-|https://devel.rtems.org/ticket/2439#comment:4|Did you ask about this on the binutils and clang lists? It might actually get more traction on the public side.|Ticket|
-|https://devel.rtems.org/ticket/2439#comment:5|I raised a bug report and it has been fixed in binutils and should be released in 2.26.|Ticket|
-|https://devel.rtems.org/ticket/2439#comment:6|milestone changed from 4.11.1 to 4.11.2|Ticket|
-|https://devel.rtems.org/ticket/2439#comment:7|milestone changed from 4.11.2 to 4.11.3 The 4.11.2 milestone is closing.|Ticket|
-|https://devel.rtems.org/ticket/2439#comment:8|component changed from GCC to tool/gcc|Ticket|
-|https://devel.rtems.org/ticket/2439#comment:9|blocking set to 3262|Ticket|
-|https://devel.rtems.org/ticket/2439#comment:10|Testing the latest RSB for this ticket with the latest MacOS (High Sierra) with the latest Xcode (9.2) and it's command line tools fails with: /usr/bin/c++ -O2 -pipe -fbracket-depth=1024 -I/opt/work/chris/rtems/rsb/rtems-source-builder.git/rtems/build/tmp/sb-chris/4.11/rtems-arm.bset/opt/work/rtems/4.11/include -c -DIN_GCC_FRONTEND -g -O2 -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -pedantic -Wno-long-long -Wno-variadic-m acros -Wno-overlength-strings -DHAVE_CONFIG_H -I. -Ic -I../../gcc-4.9.3/gcc -I../../gcc-4.9.3/gcc/c -I../../gcc-4.9.3/gcc/../include -I../../gcc-4.9.3/gcc/../libcpp/include -I/opt/work/chris/rtems/rsb/rtems-source-builder.git/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin17.3.0-1/build/./gmp -I/opt/work/chris/rtems/rsb/rtems-source-builder.git/rtems/build/arm-rtems4.11-gcc-4.9 .3-newlib-2.2.0.20150423-x86_64-apple-darwin17.3.0-1/gcc-4.9.3/gmp -I/opt/work/chris/rtems/rsb/rtems-source-builder.git/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin17.3.0-1/build/./mpfr -I/opt/work/chris/rtems/rsb/rtems-source-builder.git/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin17.3.0-1/gcc-4.9.3/mpfr -I/opt/work/chris/rtems/rsb/rtems-sourc e-builder.git/rtems/build/arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin17.3.0-1/gcc-4.9.3/mpc/src -I../../gcc-4.9.3/gcc/../libdecnumber -I../../gcc-4.9.3/gcc/../libdecnumber/dpd -I../libdecnumber -I../../gcc-4.9.3/gcc/../libbacktrace -o c/c-objc-common.o -MT c/c-objc-common.o -MMD -MP -MF c/.deps/c-objc-common.TPo ../../gcc-4.9.3/gcc/c/c-objc-common.c clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated [-Wdeprecated] In file included from ../../gcc-4.9.3/gcc/c/c-objc-common.c:33: In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/new:89: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/exception:173:5: error: no member named 'fancy_abort' in namespace 'std::__1'; did you mean simply 'fancy_abort'? _VSTD::abort(); ^~~~~~~ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__config:392:15: note: expanded from macro '_VSTD' #define _VSTD std::_LIBCPP_NAMESPACE ^ ../../gcc-4.9.3/gcc/system.h:685:13: note: 'fancy_abort' declared here extern void fancy_abort (const char *, int, const char *) ATTRIBUTE_NORETURN; ^ 1 error generated.|Ticket|
-|https://devel.rtems.org/ticket/2439#comment:11|owner set to Chris Johns status changed from new to accepted|Ticket|
-|https://devel.rtems.org/ticket/2439#comment:12|status changed from accepted to closed resolution set to fixed ARM is building on MacOS: ​https://lists.rtems.org/pipermail/build/2018-February/000447.html|Ticket|
+|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:1|summary changed from<br /> ARM build fails on <br />OS X 10.11 (Ll Capit<br />an) to GCC 4.9.3 ARM<br /> build fails on OS X<br /> 10.11 (Ll Capitan)|Ticket|
+|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:2|summary changed from<br /> GCC 4.9.3 ARM build<br /> fails on OS X 10.11<br /> (Ll Capitan) to GCC<br /> 4.9.3 ARM build fai<br />ls on OS X 10.11 (El<br /> Capitan)|Ticket|
+|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:3|The ARM target does <br />not build on Yosemit<br />e or El Capitan with<br /> Xcode 7.1 command l<br />ine tools and the pr<br />oblem still exists i<br />n El Capitan with Xc<br />ode 7.1 and the 7.2 <br />beta command line to<br />ols. It appears to b<br />e a bug in clang in <br />Xcode building tc-ar<br />m.c in binutils. I h<br />ave raise a bug repo<br />rt with Apple with a<br /> small test case.|Ticket|
+|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:4|Did you ask about th<br />is on the binutils a<br />nd clang lists? It m<br />ight actually get mo<br />re traction on the p<br />ublic side.|Ticket|
+|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:5|I raised a bug repor<br />t and it has been fi<br />xed in binutils and <br />should be released i<br />n 2.26.|Ticket|
+|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:6|milestone changed fr<br />om 4.11.1 to 4.11.2|Ticket|
+|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:7|milestone changed fr<br />om 4.11.2 to 4.11.3 <br />The 4.11.2 milestone<br /> is closing.|Ticket|
+|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:8|component changed fr<br />om GCC to tool/gcc|Ticket|
+|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:9|blocking set to 3262|Ticket|
+|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:10|Testing the latest R<br />SB for this ticket w<br />ith the latest MacOS<br /> (High Sierra) with <br />the latest Xcode (9.<br />2) and it's command <br />line tools fails wit<br />h: /usr/bin/c++ -O2 <br />-pipe -fbracket-dept<br />h=1024 -I/opt/work/c<br />hris/rtems/rsb/rtems<br />-source-builder.git/<br />rtems/build/tmp/sb-c<br />hris/4.11/rtems-arm.<br />bset/opt/work/rtems/<br />4.11/include -c -DIN<br />_GCC_FRONTEND -g -O2<br /> -DIN_GCC -DCROSS_DI<br />RECTORY_STRUCTURE -f<br />no-exceptions -fno-r<br />tti -fasynchronous-u<br />nwind-tables -W -Wal<br />l -Wno-narrowing -Ww<br />rite-strings -Wcast-<br />qual -Wmissing-forma<br />t-attribute -pedanti<br />c -Wno-long-long -Wn<br />o-variadic-m acros -<br />Wno-overlength-strin<br />gs -DHAVE_CONFIG_H -<br />I. -Ic -I../../gcc-4<br />.9.3/gcc -I../../gcc<br />-4.9.3/gcc/c -I../..<br />/gcc-4.9.3/gcc/../in<br />clude -I../../gcc-4.<br />9.3/gcc/../libcpp/in<br />clude -I/opt/work/ch<br />ris/rtems/rsb/rtems-<br />source-builder.git/r<br />tems/build/arm-rtems<br />4.11-gcc-4.9.3-newli<br />b-2.2.0.20150423-x86<br />_64-apple-darwin17.3<br />.0-1/build/./gmp -I/<br />opt/work/chris/rtems<br />/rsb/rtems-source-bu<br />ilder.git/rtems/buil<br />d/arm-rtems4.11-gcc-<br />4.9 .3-newlib-2.2.0.<br />20150423-x86_64-appl<br />e-darwin17.3.0-1/gcc<br />-4.9.3/gmp -I/opt/wo<br />rk/chris/rtems/rsb/r<br />tems-source-builder.<br />git/rtems/build/arm-<br />rtems4.11-gcc-4.9.3-<br />newlib-2.2.0.2015042<br />3-x86_64-apple-darwi<br />n17.3.0-1/build/./mp<br />fr -I/opt/work/chris<br />/rtems/rsb/rtems-sou<br />rce-builder.git/rtem<br />s/build/arm-rtems4.1<br />1-gcc-4.9.3-newlib-2<br />.2.0.20150423-x86_64<br />-apple-darwin17.3.0-<br />1/gcc-4.9.3/mpfr -I/<br />opt/work/chris/rtems<br />/rsb/rtems-sourc e-b<br />uilder.git/rtems/bui<br />ld/arm-rtems4.11-gcc<br />-4.9.3-newlib-2.2.0.<br />20150423-x86_64-appl<br />e-darwin17.3.0-1/gcc<br />-4.9.3/mpc/src -I../<br />../gcc-4.9.3/gcc/../<br />libdecnumber -I../..<br />/gcc-4.9.3/gcc/../li<br />bdecnumber/dpd -I../<br />libdecnumber -I../..<br />/gcc-4.9.3/gcc/../li<br />bbacktrace -o c/c-ob<br />jc-common.o -MT c/c-<br />objc-common.o -MMD -<br />MP -MF c/.deps/c-obj<br />c-common.TPo ../../g<br />cc-4.9.3/gcc/c/c-obj<br />c-common.c clang: wa<br />rning: treating 'c' <br />input as 'c++' when <br />in C++ mode, this be<br />havior is deprecated<br /> [-Wdeprecated] In f<br />ile included from ..<br />/../gcc-4.9.3/gcc/c/<br />c-objc-common.c:33: <br />In file included fro<br />m /Applications/Xcod<br />e.app/Contents/Devel<br />oper/Toolchains/Xcod<br />eDefault.xctoolchain<br />/usr/include/c++/v1/<br />new:89: /Application<br />s/Xcode.app/Contents<br />/Developer/Toolchain<br />s/XcodeDefault.xctoo<br />lchain/usr/include/c<br />++/v1/exception:173:<br />5: error: no member <br />named 'fancy_abort' <br />in namespace 'std::_<br />_1'; did you mean si<br />mply 'fancy_abort'? <br />_VSTD::abort(); ^~~~<br />~~~ /Applications/Xc<br />ode.app/Contents/Dev<br />eloper/Toolchains/Xc<br />odeDefault.xctoolcha<br />in/usr/include/c++/v<br />1/__config:392:15: n<br />ote: expanded from m<br />acro '_VSTD' #define<br /> _VSTD std::_LIBCPP_<br />NAMESPACE ^ ../../gc<br />c-4.9.3/gcc/system.h<br />:685:13: note: 'fanc<br />y_abort' declared he<br />re extern void fancy<br />_abort (const char *<br />, int, const char *)<br /> ATTRIBUTE_NORETURN;<br /> ^ 1 error generated<br />.|Ticket|
+|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:11|owner set to Chris J<br />ohns status changed <br />from new to accepted|Ticket|
+|https://devel.rtems.<br />org/ticket/2439#comm<br />ent:12|status changed from <br />accepted to closed r<br />esolution set to fix<br />ed ARM is building o<br />n MacOS: ​https://li<br />sts.rtems.org/piperm<br />ail/build/2018-Febru<br />ary/000447.html|Ticket|
 
 
 ### attachments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Mon, 02 Nov 2015 00:05:09 GMT|attachment set|https://devel.rtems.org/ticket/2439|
-|Chris Johns|Tue, 23 Jan 2018 22:09:36 GMT|attachment set|https://devel.rtems.org/ticket/2439|
+|Chris Johns|Mon, 02 Nov 2015 00:<br />05:09 GMT|attachment set|https://devel.rtems.<br />org/ticket/2439|
+|Chris Johns|Tue, 23 Jan 2018 22:<br />09:36 GMT|attachment set|https://devel.rtems.<br />org/ticket/2439|
 
 |guid|description|category|attachment_link|
 |:---:|:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2439|attachment set to rsb-report-arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin15.0.0-1.txt RSB report.|Ticket|https://devel.rtems.org/attachment/ticket/2439/rsb-report-arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-apple-darwin15.0.0-1.txt|
-|https://devel.rtems.org/ticket/2439|attachment set to gcc-4.9.3-macos-xcode9.diff Fixes for MacOS (High Sierra) and Xocde 9.2 command line tools.|Ticket|https://devel.rtems.org/attachment/ticket/2439/gcc-4.9.3-macos-xcode9.diff|
+|https://devel.rtems.<br />org/ticket/2439|attachment set to rs<br />b-report-arm-rtems4.<br />11-gcc-4.9.3-newlib-<br />2.2.0.20150423-x86_6<br />4-apple-darwin15.0.0<br />-1.txt RSB report.|Ticket|https://devel.rtems.<br />org/attachment/ticke<br />t/2439/rsb-report-ar<br />m-rtems4.11-gcc-4.9.<br />3-newlib-2.2.0.20150<br />423-x86_64-apple-dar<br />win15.0.0-1.txt|
+|https://devel.rtems.<br />org/ticket/2439|attachment set to gc<br />c-4.9.3-macos-xcode9<br />.diff Fixes for MacO<br />S (High Sierra) and <br />Xocde 9.2 command li<br />ne tools.|Ticket|https://devel.rtems.<br />org/attachment/ticke<br />t/2439/gcc-4.9.3-mac<br />os-xcode9.diff|
 
 
 ## [2460](https://devel.rtems.org/ticket/2460)
@@ -690,31 +690,31 @@ arm-gic.h - GIC_ID_TO_TWO_BITS_REG_OFFSET(id) incorrectly defined
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Sebastian Huber|Tue, 10 Nov 2015 07:16:01 GMT| |https://devel.rtems.org/ticket/2460#comment:1|
-|Sebastian Huber|Thu, 26 Jan 2017 07:16:00 GMT|milestone changed|https://devel.rtems.org/ticket/2460#comment:2|
-|Chris Johns|Thu, 23 Mar 2017 01:04:45 GMT|milestone changed|https://devel.rtems.org/ticket/2460#comment:3|
-|Chris Johns|Mon, 05 Feb 2018 04:40:23 GMT|milestone changed|https://devel.rtems.org/ticket/2460#comment:4|
-|Sebastian Huber|Mon, 05 Feb 2018 07:48:15 GMT|status, milestone changed; resolution set|https://devel.rtems.org/ticket/2460#comment:5|
-|Sebastian Huber|Mon, 05 Feb 2018 07:59:59 GMT|component changed|https://devel.rtems.org/ticket/2460#comment:6|
+|Sebastian Huber|Tue, 10 Nov 2015 07:<br />16:01 GMT| |https://devel.rtems.<br />org/ticket/2460#comm<br />ent:1|
+|Sebastian Huber|Thu, 26 Jan 2017 07:<br />16:00 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2460#comm<br />ent:2|
+|Chris Johns|Thu, 23 Mar 2017 01:<br />04:45 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2460#comm<br />ent:3|
+|Chris Johns|Mon, 05 Feb 2018 04:<br />40:23 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2460#comm<br />ent:4|
+|Sebastian Huber|Mon, 05 Feb 2018 07:<br />48:15 GMT|status, milestone ch<br />anged; resolution se<br />t|https://devel.rtems.<br />org/ticket/2460#comm<br />ent:5|
+|Sebastian Huber|Mon, 05 Feb 2018 07:<br />59:59 GMT|component changed|https://devel.rtems.<br />org/ticket/2460#comm<br />ent:6|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2460#comment:1|Yes, please send a patch to devel(at)rtems.org and add "Close #2460." to the commit message.|Ticket|
-|https://devel.rtems.org/ticket/2460#comment:2|milestone changed from 4.11.1 to 4.11.2|Ticket|
-|https://devel.rtems.org/ticket/2460#comment:3|milestone changed from 4.11.2 to 4.11.3 The 4.11.2 milestone is closing.|Ticket|
-|https://devel.rtems.org/ticket/2460#comment:4|milestone changed from 4.11.3 to Indefinite Requires funding.|Ticket|
-|https://devel.rtems.org/ticket/2460#comment:5|status changed from new to closed resolution set to duplicate milestone changed from Indefinite to 4.11.3 Duplicate of #3002.|Ticket|
-|https://devel.rtems.org/ticket/2460#comment:6|component changed from bsps to arch/arm|Ticket|
+|https://devel.rtems.<br />org/ticket/2460#comm<br />ent:1|Yes, please send a p<br />atch to devel(at)rte<br />ms.org and add "Clos<br />e #2460." to the com<br />mit message.|Ticket|
+|https://devel.rtems.<br />org/ticket/2460#comm<br />ent:2|milestone changed fr<br />om 4.11.1 to 4.11.2|Ticket|
+|https://devel.rtems.<br />org/ticket/2460#comm<br />ent:3|milestone changed fr<br />om 4.11.2 to 4.11.3 <br />The 4.11.2 milestone<br /> is closing.|Ticket|
+|https://devel.rtems.<br />org/ticket/2460#comm<br />ent:4|milestone changed fr<br />om 4.11.3 to Indefin<br />ite Requires funding<br />.|Ticket|
+|https://devel.rtems.<br />org/ticket/2460#comm<br />ent:5|status changed from <br />new to closed resolu<br />tion set to duplicat<br />e milestone changed <br />from Indefinite to 4<br />.11.3 Duplicate of #<br />3002.|Ticket|
+|https://devel.rtems.<br />org/ticket/2460#comm<br />ent:6|component changed fr<br />om bsps to arch/arm|Ticket|
 
 
 ### attachments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Adit|Wed, 11 Nov 2015 04:42:44 GMT|attachment set|https://devel.rtems.org/ticket/2460|
+|Adit|Wed, 11 Nov 2015 04:<br />42:44 GMT|attachment set|https://devel.rtems.<br />org/ticket/2460|
 
 |guid|description|category|attachment_link|
 |:---:|:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2460|attachment set to 0001-Fixes-GIC_ID_TO_TWO_BITS_REG_OFFSET-macro-in-arm-gic.patch|Ticket|https://devel.rtems.org/attachment/ticket/2460/0001-Fixes-GIC_ID_TO_TWO_BITS_REG_OFFSET-macro-in-arm-gic.patch|
+|https://devel.rtems.<br />org/ticket/2460|attachment set to 00<br />01-Fixes-GIC_ID_TO_T<br />WO_BITS_REG_OFFSET-m<br />acro-in-arm-gic.patc<br />h|Ticket|https://devel.rtems.<br />org/attachment/ticke<br />t/2460/0001-Fixes-GI<br />C_ID_TO_TWO_BITS_REG<br />_OFFSET-macro-in-arm<br />-gic.patch|
 
 
 ## [2610](https://devel.rtems.org/ticket/2610)
@@ -767,21 +767,21 @@ unhex.c does not build on MSYS2
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Tue, 23 Feb 2016 05:22:17 GMT| |https://devel.rtems.org/ticket/2610#comment:1|
-|Chris Johns|Tue, 23 Feb 2016 05:22:50 GMT|priority, severity, milestone changed|https://devel.rtems.org/ticket/2610#comment:2|
-|Chris Johns|Wed, 24 Feb 2016 03:15:50 GMT|status changed|https://devel.rtems.org/ticket/2610#comment:3|
-|Sebastian Huber|Thu, 26 Jan 2017 07:16:00 GMT|milestone changed|https://devel.rtems.org/ticket/2610#comment:4|
-|Chris Johns|Thu, 23 Mar 2017 01:03:28 GMT|milestone changed|https://devel.rtems.org/ticket/2610#comment:5|
-|Chris Johns|Wed, 07 Feb 2018 03:00:35 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2610#comment:6|
+|Chris Johns|Tue, 23 Feb 2016 05:<br />22:17 GMT| |https://devel.rtems.<br />org/ticket/2610#comm<br />ent:1|
+|Chris Johns|Tue, 23 Feb 2016 05:<br />22:50 GMT|priority, severity, <br />milestone changed|https://devel.rtems.<br />org/ticket/2610#comm<br />ent:2|
+|Chris Johns|Wed, 24 Feb 2016 03:<br />15:50 GMT|status changed|https://devel.rtems.<br />org/ticket/2610#comm<br />ent:3|
+|Sebastian Huber|Thu, 26 Jan 2017 07:<br />16:00 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2610#comm<br />ent:4|
+|Chris Johns|Thu, 23 Mar 2017 01:<br />03:28 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2610#comm<br />ent:5|
+|Chris Johns|Wed, 07 Feb 2018 03:<br />00:35 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2610#comm<br />ent:6|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2610#comment:1|This is a warning and not fatal. I think it should still be cleaned up.|Ticket|
-|https://devel.rtems.org/ticket/2610#comment:2|priority changed from highest to normal severity changed from critical to normal milestone changed from 4.11 to 4.11.1|Ticket|
-|https://devel.rtems.org/ticket/2610#comment:3|status changed from new to accepted|Ticket|
-|https://devel.rtems.org/ticket/2610#comment:4|milestone changed from 4.11.1 to 4.11.2|Ticket|
-|https://devel.rtems.org/ticket/2610#comment:5|milestone changed from 4.11.2 to 4.11.3 The 4.11.2 milestone is closing.|Ticket|
-|https://devel.rtems.org/ticket/2610#comment:6|status changed from accepted to closed resolution set to wontfix I am closing this ticket. The tool can be fixed on master.|Ticket|
+|https://devel.rtems.<br />org/ticket/2610#comm<br />ent:1|This is a warning an<br />d not fatal. I think<br /> it should still be <br />cleaned up.|Ticket|
+|https://devel.rtems.<br />org/ticket/2610#comm<br />ent:2|priority changed fro<br />m highest to normal <br />severity changed fro<br />m critical to normal<br /> milestone changed f<br />rom 4.11 to 4.11.1|Ticket|
+|https://devel.rtems.<br />org/ticket/2610#comm<br />ent:3|status changed from <br />new to accepted|Ticket|
+|https://devel.rtems.<br />org/ticket/2610#comm<br />ent:4|milestone changed fr<br />om 4.11.1 to 4.11.2|Ticket|
+|https://devel.rtems.<br />org/ticket/2610#comm<br />ent:5|milestone changed fr<br />om 4.11.2 to 4.11.3 <br />The 4.11.2 milestone<br /> is closing.|Ticket|
+|https://devel.rtems.<br />org/ticket/2610#comm<br />ent:6|status changed from <br />accepted to closed r<br />esolution set to won<br />tfix I am closing th<br />is ticket. The tool <br />can be fixed on mast<br />er.|Ticket|
 
 
 ## [2671](https://devel.rtems.org/ticket/2671)
@@ -912,23 +912,23 @@ moxie tools fail to build on 4.11
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Joel Sherrill|Mon, 21 Mar 2016 14:54:34 GMT| |https://devel.rtems.org/ticket/2671#comment:1|
-|Joel Sherrill|Mon, 21 Mar 2016 15:27:18 GMT| |https://devel.rtems.org/ticket/2671#comment:2|
-|Sebastian Huber|Thu, 26 Jan 2017 07:05:37 GMT|milestone changed|https://devel.rtems.org/ticket/2671#comment:3|
-|Chris Johns|Tue, 21 Mar 2017 04:07:24 GMT|owner, status changed|https://devel.rtems.org/ticket/2671#comment:4|
-|Chris Johns|Thu, 23 Mar 2017 01:03:28 GMT|milestone changed|https://devel.rtems.org/ticket/2671#comment:5|
-|Chris Johns|Mon, 05 Feb 2018 05:45:16 GMT| |https://devel.rtems.org/ticket/2671#comment:6|
-|Chris Johns|Mon, 05 Feb 2018 05:45:26 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2671#comment:7|
+|Joel Sherrill|Mon, 21 Mar 2016 14:<br />54:34 GMT| |https://devel.rtems.<br />org/ticket/2671#comm<br />ent:1|
+|Joel Sherrill|Mon, 21 Mar 2016 15:<br />27:18 GMT| |https://devel.rtems.<br />org/ticket/2671#comm<br />ent:2|
+|Sebastian Huber|Thu, 26 Jan 2017 07:<br />05:37 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2671#comm<br />ent:3|
+|Chris Johns|Tue, 21 Mar 2017 04:<br />07:24 GMT|owner, status change<br />d|https://devel.rtems.<br />org/ticket/2671#comm<br />ent:4|
+|Chris Johns|Thu, 23 Mar 2017 01:<br />03:28 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2671#comm<br />ent:5|
+|Chris Johns|Mon, 05 Feb 2018 05:<br />45:16 GMT| |https://devel.rtems.<br />org/ticket/2671#comm<br />ent:6|
+|Chris Johns|Mon, 05 Feb 2018 05:<br />45:26 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2671#comm<br />ent:7|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2671#comment:1|The following is sufficient to get a toolset built. diff --git a/rtems/config/4.11/rtems-moxie.bset b/rtems/config/4.11/rtems-moxie.bset index 0473f02..c8f764e 100644 --- a/rtems/config/4.11/rtems-moxie.bset +++ b/rtems/config/4.11/rtems-moxie.bset @@ -22,7 +22,7 @@ 4.11/rtems-autotools devel/expat-2.1.0-1 devel/dtc-1.4.1-1 -tools/rtems-binutils-2.26-1 +tools/rtems-binutils-2.25-1 tools/rtems-gcc-4.9.3-newlib-2.2.0-20150423-1 tools/rtems-gdb-7.9-1 tools/rtems-tools-4.11-1|Ticket|
-|https://devel.rtems.org/ticket/2671#comment:2|moxie/moxiesim built but didn't run: Starting program: /home/joel/rtems-4.11-work/rtems-testing/rtems/ticker-executables/moxie-moxiesim-ticker.ralf sim-core.c:476: assertion failed - (addr & (nr_bytes - 1)) == 0 Aborted (core dumped) But at least the tools build. I will confirm status on the master once I get time.|Ticket|
-|https://devel.rtems.org/ticket/2671#comment:3|milestone changed from 4.11 to 4.11.2|Ticket|
-|https://devel.rtems.org/ticket/2671#comment:4|owner changed from Chris Johns to Joel Sherrill status changed from new to assigned I suggest you create a patch and apply to the RSB to resolve this. Please close the ticket in the commit. Thanks.|Ticket|
-|https://devel.rtems.org/ticket/2671#comment:5|milestone changed from 4.11.2 to 4.11.3 The 4.11.2 milestone is closing.|Ticket|
-|https://devel.rtems.org/ticket/2671#comment:6|If you want Moxie support use master.|Ticket|
-|https://devel.rtems.org/ticket/2671#comment:7|status changed from assigned to closed resolution set to wontfix|Ticket|
+|https://devel.rtems.<br />org/ticket/2671#comm<br />ent:1|The following is suf<br />ficient to get a too<br />lset built. diff --g<br />it a/rtems/config/4.<br />11/rtems-moxie.bset <br />b/rtems/config/4.11/<br />rtems-moxie.bset ind<br />ex 0473f02..c8f764e <br />100644 --- a/rtems/c<br />onfig/4.11/rtems-mox<br />ie.bset +++ b/rtems/<br />config/4.11/rtems-mo<br />xie.bset @@ -22,7 +2<br />2,7 @@ 4.11/rtems-au<br />totools devel/expat-<br />2.1.0-1 devel/dtc-1.<br />4.1-1 -tools/rtems-b<br />inutils-2.26-1 +tool<br />s/rtems-binutils-2.2<br />5-1 tools/rtems-gcc-<br />4.9.3-newlib-2.2.0-2<br />0150423-1 tools/rtem<br />s-gdb-7.9-1 tools/rt<br />ems-tools-4.11-1|Ticket|
+|https://devel.rtems.<br />org/ticket/2671#comm<br />ent:2|moxie/moxiesim built<br /> but didn't run: Sta<br />rting program: /home<br />/joel/rtems-4.11-wor<br />k/rtems-testing/rtem<br />s/ticker-executables<br />/moxie-moxiesim-tick<br />er.ralf sim-core.c:4<br />76: assertion failed<br /> - (addr & (nr_bytes<br /> - 1)) == 0 Aborted <br />(core dumped) But at<br /> least the tools bui<br />ld. I will confirm s<br />tatus on the master <br />once I get time.|Ticket|
+|https://devel.rtems.<br />org/ticket/2671#comm<br />ent:3|milestone changed fr<br />om 4.11 to 4.11.2|Ticket|
+|https://devel.rtems.<br />org/ticket/2671#comm<br />ent:4|owner changed from C<br />hris Johns to Joel S<br />herrill status chang<br />ed from new to assig<br />ned I suggest you cr<br />eate a patch and app<br />ly to the RSB to res<br />olve this. Please cl<br />ose the ticket in th<br />e commit. Thanks.|Ticket|
+|https://devel.rtems.<br />org/ticket/2671#comm<br />ent:5|milestone changed fr<br />om 4.11.2 to 4.11.3 <br />The 4.11.2 milestone<br /> is closing.|Ticket|
+|https://devel.rtems.<br />org/ticket/2671#comm<br />ent:6|If you want Moxie su<br />pport use master.|Ticket|
+|https://devel.rtems.<br />org/ticket/2671#comm<br />ent:7|status changed from <br />assigned to closed r<br />esolution set to won<br />tfix|Ticket|
 
 
 ## [2677](https://devel.rtems.org/ticket/2677)
@@ -964,23 +964,23 @@ PowerPC BSP score603e PCI.c is broken on case insensitive file system
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Joel Sherrill|Mon, 28 Mar 2016 03:15:56 GMT|status changed; owner set|https://devel.rtems.org/ticket/2677#comment:1|
-|Chris Johns|Mon, 28 Mar 2016 04:03:39 GMT| |https://devel.rtems.org/ticket/2677#comment:2|
-|Joel Sherrill|Mon, 28 Mar 2016 19:08:15 GMT| |https://devel.rtems.org/ticket/2677#comment:3|
-|Sebastian Huber|Thu, 26 Jan 2017 07:16:00 GMT|milestone changed|https://devel.rtems.org/ticket/2677#comment:4|
-|Chris Johns|Thu, 23 Mar 2017 01:03:28 GMT|milestone changed|https://devel.rtems.org/ticket/2677#comment:5|
-|Joel Sherrill|Thu, 13 Jul 2017 13:42:18 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2677#comment:6|
-|Chris Johns|Mon, 12 Feb 2018 03:57:08 GMT|component changed|https://devel.rtems.org/ticket/2677#comment:7|
+|Joel Sherrill|Mon, 28 Mar 2016 03:<br />15:56 GMT|status changed; owne<br />r set|https://devel.rtems.<br />org/ticket/2677#comm<br />ent:1|
+|Chris Johns|Mon, 28 Mar 2016 04:<br />03:39 GMT| |https://devel.rtems.<br />org/ticket/2677#comm<br />ent:2|
+|Joel Sherrill|Mon, 28 Mar 2016 19:<br />08:15 GMT| |https://devel.rtems.<br />org/ticket/2677#comm<br />ent:3|
+|Sebastian Huber|Thu, 26 Jan 2017 07:<br />16:00 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2677#comm<br />ent:4|
+|Chris Johns|Thu, 23 Mar 2017 01:<br />03:28 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2677#comm<br />ent:5|
+|Joel Sherrill|Thu, 13 Jul 2017 13:<br />42:18 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2677#comm<br />ent:6|
+|Chris Johns|Mon, 12 Feb 2018 03:<br />57:08 GMT|component changed|https://devel.rtems.<br />org/ticket/2677#comm<br />ent:7|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2677#comment:1|owner set to Joel Sherrill status changed from new to assigned I will try to fix this but the BSP should have been removed on master. Should I look for other files with upper case letters in their name?|Ticket|
-|https://devel.rtems.org/ticket/2677#comment:2|Replying to joel.sherrill: I will try to fix this but the BSP should have been removed on master. Too late for 4.11. Should I look for other files with upper case letters in their name? Not 4.11. For 4.11 any simple hack to avoid this would be good.|Ticket|
-|https://devel.rtems.org/ticket/2677#comment:3|The file is installed as bsp/PCI.h and the shared infrastructure is installed as bsp/pci.h. It is used just enough where reworking code to avoid it for a deprecated BSP isn't worth it. I am testing a patch now to rename it to bsp/pciimpl.h. But at the moment, I am going back to relax and enjoy my team with honey, lemon and fresh mint. I caught something from someone last week and passed it along to Michele. :(|Ticket|
-|https://devel.rtems.org/ticket/2677#comment:4|milestone changed from 4.11.1 to 4.11.2|Ticket|
-|https://devel.rtems.org/ticket/2677#comment:5|milestone changed from 4.11.2 to 4.11.3 The 4.11.2 milestone is closing.|Ticket|
-|https://devel.rtems.org/ticket/2677#comment:6|status changed from assigned to closed resolution set to wontfix This BSP has been removed from the RTEMS source tree.|Ticket|
-|https://devel.rtems.org/ticket/2677#comment:7|component changed from unspecified to build|Ticket|
+|https://devel.rtems.<br />org/ticket/2677#comm<br />ent:1|owner set to Joel Sh<br />errill status change<br />d from new to assign<br />ed I will try to fix<br /> this but the BSP sh<br />ould have been remov<br />ed on master. Should<br /> I look for other fi<br />les with upper case <br />letters in their nam<br />e?|Ticket|
+|https://devel.rtems.<br />org/ticket/2677#comm<br />ent:2|Replying to joel.she<br />rrill: I will try to<br /> fix this but the BS<br />P should have been r<br />emoved on master. To<br />o late for 4.11. Sho<br />uld I look for other<br /> files with upper ca<br />se letters in their <br />name? Not 4.11. For <br />4.11 any simple hack<br /> to avoid this would<br /> be good.|Ticket|
+|https://devel.rtems.<br />org/ticket/2677#comm<br />ent:3|The file is installe<br />d as bsp/PCI.h and t<br />he shared infrastruc<br />ture is installed as<br /> bsp/pci.h. It is us<br />ed just enough where<br /> reworking code to a<br />void it for a deprec<br />ated BSP isn't worth<br /> it. I am testing a <br />patch now to rename <br />it to bsp/pciimpl.h.<br /> But at the moment, <br />I am going back to r<br />elax and enjoy my te<br />am with honey, lemon<br /> and fresh mint. I c<br />aught something from<br /> someone last week a<br />nd passed it along t<br />o Michele. :(|Ticket|
+|https://devel.rtems.<br />org/ticket/2677#comm<br />ent:4|milestone changed fr<br />om 4.11.1 to 4.11.2|Ticket|
+|https://devel.rtems.<br />org/ticket/2677#comm<br />ent:5|milestone changed fr<br />om 4.11.2 to 4.11.3 <br />The 4.11.2 milestone<br /> is closing.|Ticket|
+|https://devel.rtems.<br />org/ticket/2677#comm<br />ent:6|status changed from <br />assigned to closed r<br />esolution set to won<br />tfix This BSP has be<br />en removed from the <br />RTEMS source tree.|Ticket|
+|https://devel.rtems.<br />org/ticket/2677#comm<br />ent:7|component changed fr<br />om unspecified to bu<br />ild|Ticket|
 
 
 ## [2747](https://devel.rtems.org/ticket/2747)
@@ -1045,37 +1045,37 @@ dlerror non-conformance
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Mon, 14 Aug 2017 00:12:35 GMT|milestone set|https://devel.rtems.org/ticket/2747#comment:1|
-|Chris Johns|Mon, 05 Feb 2018 04:41:10 GMT|status changed|https://devel.rtems.org/ticket/2747#comment:2|
-|Chris Johns|Thu, 08 Feb 2018 03:37:08 GMT|blocking set|https://devel.rtems.org/ticket/2747#comment:3|
-|Chris Johns <chrisj@…>|Thu, 08 Feb 2018 22:32:42 GMT| |https://devel.rtems.org/ticket/2747#comment:4|
-|Chris Johns|Thu, 08 Feb 2018 22:34:06 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2747#comment:5|
-|Chris Johns <chrisj@…>|Fri, 16 Feb 2018 02:16:46 GMT| |https://devel.rtems.org/ticket/2747#comment:6|
+|Chris Johns|Mon, 14 Aug 2017 00:<br />12:35 GMT|milestone set|https://devel.rtems.<br />org/ticket/2747#comm<br />ent:1|
+|Chris Johns|Mon, 05 Feb 2018 04:<br />41:10 GMT|status changed|https://devel.rtems.<br />org/ticket/2747#comm<br />ent:2|
+|Chris Johns|Thu, 08 Feb 2018 03:<br />37:08 GMT|blocking set|https://devel.rtems.<br />org/ticket/2747#comm<br />ent:3|
+|Chris Johns <chrisj@<br />…>|Thu, 08 Feb 2018 22:<br />32:42 GMT| |https://devel.rtems.<br />org/ticket/2747#comm<br />ent:4|
+|Chris Johns|Thu, 08 Feb 2018 22:<br />34:06 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2747#comm<br />ent:5|
+|Chris Johns <chrisj@<br />…>|Fri, 16 Feb 2018 02:<br />16:46 GMT| |https://devel.rtems.<br />org/ticket/2747#comm<br />ent:6|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2747#comment:1|milestone set to 4.11.3|Ticket|
-|https://devel.rtems.org/ticket/2747#comment:2|status changed from new to accepted|Ticket|
-|https://devel.rtems.org/ticket/2747#comment:3|blocking set to 3298|Ticket|
-|https://devel.rtems.org/ticket/2747#comment:4|In 7093cb5e/rtems: libtest/dl01: Add dlerror tests. Update #2747|Ticket|
-|https://devel.rtems.org/ticket/2747#comment:5|status changed from accepted to closed resolution set to fixed|Ticket|
-|https://devel.rtems.org/ticket/2747#comment:6|In 7093cb5e/rtems: libtest/dl01: Add dlerror tests. Update #2747|Ticket|
+|https://devel.rtems.<br />org/ticket/2747#comm<br />ent:1|milestone set to 4.1<br />1.3|Ticket|
+|https://devel.rtems.<br />org/ticket/2747#comm<br />ent:2|status changed from <br />new to accepted|Ticket|
+|https://devel.rtems.<br />org/ticket/2747#comm<br />ent:3|blocking set to 3298|Ticket|
+|https://devel.rtems.<br />org/ticket/2747#comm<br />ent:4|In 7093cb5e/rtems: l<br />ibtest/dl01: Add dle<br />rror tests. Update #<br />2747|Ticket|
+|https://devel.rtems.<br />org/ticket/2747#comm<br />ent:5|status changed from <br />accepted to closed r<br />esolution set to fix<br />ed|Ticket|
+|https://devel.rtems.<br />org/ticket/2747#comm<br />ent:6|In 7093cb5e/rtems: l<br />ibtest/dl01: Add dle<br />rror tests. Update #<br />2747|Ticket|
 
 
 ### attachments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Patrick Gauvin|Sun, 26 Jun 2016 17:36:02 GMT|attachment set|https://devel.rtems.org/ticket/2747|
-|Patrick Gauvin|Sun, 26 Jun 2016 17:36:13 GMT|attachment set|https://devel.rtems.org/ticket/2747|
-|Patrick Gauvin|Sun, 26 Jun 2016 17:36:22 GMT|attachment set|https://devel.rtems.org/ticket/2747|
-|Patrick Gauvin|Sun, 26 Jun 2016 17:36:41 GMT|attachment set|https://devel.rtems.org/ticket/2747|
+|Patrick Gauvin|Sun, 26 Jun 2016 17:<br />36:02 GMT|attachment set|https://devel.rtems.<br />org/ticket/2747|
+|Patrick Gauvin|Sun, 26 Jun 2016 17:<br />36:13 GMT|attachment set|https://devel.rtems.<br />org/ticket/2747|
+|Patrick Gauvin|Sun, 26 Jun 2016 17:<br />36:22 GMT|attachment set|https://devel.rtems.<br />org/ticket/2747|
+|Patrick Gauvin|Sun, 26 Jun 2016 17:<br />36:41 GMT|attachment set|https://devel.rtems.<br />org/ticket/2747|
 
 |guid|description|category|attachment_link|
 |:---:|:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2747|attachment set to 0001-libdl-Clear-error-between-dlerror-invocations.patch|Ticket|https://devel.rtems.org/attachment/ticket/2747/0001-libdl-Clear-error-between-dlerror-invocations.patch|
-|https://devel.rtems.org/ticket/2747|attachment set to 0002-libdl-dlerror-return-NULL-when-no-error.patch|Ticket|https://devel.rtems.org/attachment/ticket/2747/0002-libdl-dlerror-return-NULL-when-no-error.patch|
-|https://devel.rtems.org/ticket/2747|attachment set to 0003-libdl-Fix-dlerror-return-type.patch|Ticket|https://devel.rtems.org/attachment/ticket/2747/0003-libdl-Fix-dlerror-return-type.patch|
-|https://devel.rtems.org/ticket/2747|attachment set to 0004-Update-dlerror-usage.patch|Ticket|https://devel.rtems.org/attachment/ticket/2747/0004-Update-dlerror-usage.patch|
+|https://devel.rtems.<br />org/ticket/2747|attachment set to 00<br />01-libdl-Clear-error<br />-between-dlerror-inv<br />ocations.patch|Ticket|https://devel.rtems.<br />org/attachment/ticke<br />t/2747/0001-libdl-Cl<br />ear-error-between-dl<br />error-invocations.pa<br />tch|
+|https://devel.rtems.<br />org/ticket/2747|attachment set to 00<br />02-libdl-dlerror-ret<br />urn-NULL-when-no-err<br />or.patch|Ticket|https://devel.rtems.<br />org/attachment/ticke<br />t/2747/0002-libdl-dl<br />error-return-NULL-wh<br />en-no-error.patch|
+|https://devel.rtems.<br />org/ticket/2747|attachment set to 00<br />03-libdl-Fix-dlerror<br />-return-type.patch|Ticket|https://devel.rtems.<br />org/attachment/ticke<br />t/2747/0003-libdl-Fi<br />x-dlerror-return-typ<br />e.patch|
+|https://devel.rtems.<br />org/ticket/2747|attachment set to 00<br />04-Update-dlerror-us<br />age.patch|Ticket|https://devel.rtems.<br />org/attachment/ticke<br />t/2747/0004-Update-d<br />lerror-usage.patch|
 
 
 ## [2910](https://devel.rtems.org/ticket/2910)
@@ -1117,23 +1117,23 @@ RSB docs for Mavericks has Incorrect Formatting Markup
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Sebastian Huber|Wed, 15 Feb 2017 13:44:44 GMT|owner, status, milestone changed|https://devel.rtems.org/ticket/2910#comment:1|
-|Joel Sherrill|Wed, 15 Feb 2017 14:05:49 GMT|owner, milestone changed|https://devel.rtems.org/ticket/2910#comment:2|
-|Chris Johns|Thu, 23 Mar 2017 01:03:28 GMT|milestone changed|https://devel.rtems.org/ticket/2910#comment:3|
-|Sebastian Huber|Tue, 10 Oct 2017 06:06:29 GMT|component changed|https://devel.rtems.org/ticket/2910#comment:4|
-|Chris Johns|Mon, 05 Feb 2018 04:54:44 GMT|status changed|https://devel.rtems.org/ticket/2910#comment:5|
-|Chris Johns <chrisj@…>|Mon, 05 Feb 2018 23:22:15 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2910#comment:6|
-|Chris Johns <chrisj@…>|Fri, 16 Feb 2018 02:17:18 GMT| |https://devel.rtems.org/ticket/2910#comment:7|
+|Sebastian Huber|Wed, 15 Feb 2017 13:<br />44:44 GMT|owner, status, miles<br />tone changed|https://devel.rtems.<br />org/ticket/2910#comm<br />ent:1|
+|Joel Sherrill|Wed, 15 Feb 2017 14:<br />05:49 GMT|owner, milestone cha<br />nged|https://devel.rtems.<br />org/ticket/2910#comm<br />ent:2|
+|Chris Johns|Thu, 23 Mar 2017 01:<br />03:28 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2910#comm<br />ent:3|
+|Sebastian Huber|Tue, 10 Oct 2017 06:<br />06:29 GMT|component changed|https://devel.rtems.<br />org/ticket/2910#comm<br />ent:4|
+|Chris Johns|Mon, 05 Feb 2018 04:<br />54:44 GMT|status changed|https://devel.rtems.<br />org/ticket/2910#comm<br />ent:5|
+|Chris Johns <chrisj@<br />…>|Mon, 05 Feb 2018 23:<br />22:15 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2910#comm<br />ent:6|
+|Chris Johns <chrisj@<br />…>|Fri, 16 Feb 2018 02:<br />17:18 GMT| |https://devel.rtems.<br />org/ticket/2910#comm<br />ent:7|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2910#comment:1|owner changed from Chris Johns to Needs Funding status changed from new to assigned milestone changed from 4.11.2 to Indefinite|Ticket|
-|https://devel.rtems.org/ticket/2910#comment:2|owner changed from Needs Funding to Chris Johns milestone changed from Indefinite to 4.11.2|Ticket|
-|https://devel.rtems.org/ticket/2910#comment:3|milestone changed from 4.11.2 to 4.11.3 The 4.11.2 milestone is closing.|Ticket|
-|https://devel.rtems.org/ticket/2910#comment:4|component changed from Documentation to doc|Ticket|
-|https://devel.rtems.org/ticket/2910#comment:5|status changed from assigned to accepted|Ticket|
-|https://devel.rtems.org/ticket/2910#comment:6|status changed from accepted to closed resolution set to fixed In 739e0f9/rtems-docs: rsb: Minor fixes. Close #2910|Ticket|
-|https://devel.rtems.org/ticket/2910#comment:7|In 739e0f9/rtems-docs: rsb: Minor fixes. Close #2910|Ticket|
+|https://devel.rtems.<br />org/ticket/2910#comm<br />ent:1|owner changed from C<br />hris Johns to Needs <br />Funding status chang<br />ed from new to assig<br />ned milestone change<br />d from 4.11.2 to Ind<br />efinite|Ticket|
+|https://devel.rtems.<br />org/ticket/2910#comm<br />ent:2|owner changed from N<br />eeds Funding to Chri<br />s Johns milestone ch<br />anged from Indefinit<br />e to 4.11.2|Ticket|
+|https://devel.rtems.<br />org/ticket/2910#comm<br />ent:3|milestone changed fr<br />om 4.11.2 to 4.11.3 <br />The 4.11.2 milestone<br /> is closing.|Ticket|
+|https://devel.rtems.<br />org/ticket/2910#comm<br />ent:4|component changed fr<br />om Documentation to <br />doc|Ticket|
+|https://devel.rtems.<br />org/ticket/2910#comm<br />ent:5|status changed from <br />assigned to accepted|Ticket|
+|https://devel.rtems.<br />org/ticket/2910#comm<br />ent:6|status changed from <br />accepted to closed r<br />esolution set to fix<br />ed In 739e0f9/rtems-<br />docs: rsb: Minor fix<br />es. Close #2910|Ticket|
+|https://devel.rtems.<br />org/ticket/2910#comm<br />ent:7|In 739e0f9/rtems-doc<br />s: rsb: Minor fixes.<br /> Close #2910|Ticket|
 
 
 ## [2944](https://devel.rtems.org/ticket/2944)
@@ -1260,27 +1260,27 @@ FAT data corruption during unmount()
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Mon, 20 Mar 2017 21:21:33 GMT| |https://devel.rtems.org/ticket/2944#comment:1|
-|slemstick|Tue, 28 Mar 2017 08:15:10 GMT| |https://devel.rtems.org/ticket/2944#comment:2|
-|Sebastian Huber|Thu, 11 May 2017 07:31:02 GMT|milestone changed|https://devel.rtems.org/ticket/2944#comment:3|
-|Chris Johns|Mon, 14 Aug 2017 00:21:48 GMT|version changed|https://devel.rtems.org/ticket/2944#comment:4|
-|Sebastian Huber|Thu, 24 Aug 2017 09:56:36 GMT|owner, status changed|https://devel.rtems.org/ticket/2944#comment:5|
-|Sebastian Huber|Wed, 06 Sep 2017 12:39:26 GMT|version, milestone changed|https://devel.rtems.org/ticket/2944#comment:6|
-|Sebastian Huber <sebastian.huber@…>|Wed, 06 Sep 2017 12:40:16 GMT| |https://devel.rtems.org/ticket/2944#comment:7|
-|Sebastian Huber <sebastian.huber@…>|Wed, 06 Sep 2017 12:41:05 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2944#comment:8|
-|Sebastian Huber|Tue, 10 Oct 2017 06:50:58 GMT|component changed|https://devel.rtems.org/ticket/2944#comment:9|
+|Chris Johns|Mon, 20 Mar 2017 21:<br />21:33 GMT| |https://devel.rtems.<br />org/ticket/2944#comm<br />ent:1|
+|slemstick|Tue, 28 Mar 2017 08:<br />15:10 GMT| |https://devel.rtems.<br />org/ticket/2944#comm<br />ent:2|
+|Sebastian Huber|Thu, 11 May 2017 07:<br />31:02 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:3|
+|Chris Johns|Mon, 14 Aug 2017 00:<br />21:48 GMT|version changed|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:4|
+|Sebastian Huber|Thu, 24 Aug 2017 09:<br />56:36 GMT|owner, status change<br />d|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:5|
+|Sebastian Huber|Wed, 06 Sep 2017 12:<br />39:26 GMT|version, milestone c<br />hanged|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:6|
+|Sebastian Huber <seb<br />astian.huber@…>|Wed, 06 Sep 2017 12:<br />40:16 GMT| |https://devel.rtems.<br />org/ticket/2944#comm<br />ent:7|
+|Sebastian Huber <seb<br />astian.huber@…>|Wed, 06 Sep 2017 12:<br />41:05 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:8|
+|Sebastian Huber|Tue, 10 Oct 2017 06:<br />50:58 GMT|component changed|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:9|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2944#comment:1|Replying to Sebastian Huber: Removing the function call in msdos_shut_down ( .. ) to close the root file descriptor solves the problem perfectly (clean fsck). I assume you mean fat_file_close? However, we're a bit unsure about the intent behind closing the root directory. There is memory allocated in fat_file_open which you would leak. I see the fat_file_close calls fat_buf_release and if the fs_info cache is not empty it is holding a bdbuf buffer so this would cause a leak of buffers. What about the fat_file_close calls in the msdos init call on error? Would they also cause the same problem?|Ticket|
-|https://devel.rtems.org/ticket/2944#comment:2|Replying to Chris Johns: Replying to Sebastian Huber: Removing the function call in msdos_shut_down ( .. ) to close the root file descriptor solves the problem perfectly (clean fsck). I assume you mean fat_file_close? Yes. However, we're a bit unsure about the intent behind closing the root directory. There is memory allocated in fat_file_open which you would leak. We fixed this issue by creating a special "root file close" function, by removing the call to fat_file_update() in fat_file_close() (which caused the corruption). I see the fat_file_close calls fat_buf_release and if the fs_info cache is not empty it is holding a bdbuf buffer so this would cause a leak of buffers. What about the fat_file_close calls in the msdos init call on error? Would they also cause the same problem? Yes, these will cause the same issues. To update / summarise this ticket a bit here: We originally attempted a fix to this problem by setting the hard-coded root directory cluster number to 2, as well as the above (remove corruption caused by fat_file_update() in fat_file_close() on unmount). However, our attempt to fix the broken root cluster numbering breaks a hashing mechanism in fat_file_open(..). This mechanism indexes open file descriptors based on 1) parent directory cluster number and 2) offset into that directory structure. The issue is that the root directory, and the file pointed to by the first directory entry in the root directory, may construct their hashes based on the same indexes: Root directory: cluster number 2, offset 0 First file in root directory: cluster number 2, offset 0 Before, this was not a problem of course, as the root directory had the hard-coded cluster number of 1, and the keys were therefore always unique. But this can actually cause a number of new issues. The fix to this problem is to set the hard-coded root cluster directory number back to 1, instead of drastically changing the key hashing method function calls and data structures, and trusting that removing calls to fat_file_update(on_root_node) are sufficient to avoid the data corruption issue described above. However, there are two other places in msdos_misc.c where the hardcoded root directory cluster number - FAT_ROOTDIR_CLUSTER_NUM - is used: msdos_get_name_node() msdos_get_dotdot_dir_info_cluster_num() Like this: if ( (MSDOS_EXTRACT_CLUSTER_NUM(dotdot_node)) == 0) { /* we handle root dir for all FAT types in the same way with the ordinary directories ( through fat_file_* calls ) */ fat_dir_pos_init(dir_pos); dir_pos->sname.cln = FAT_ROOTDIR_CLUSTER_NUM; } Which, to my understanding, will never occur as you should never have a cluster number below 2 in a compliant (msdos) FAT file system. Does anyone know the intent behind this?|Ticket|
-|https://devel.rtems.org/ticket/2944#comment:3|milestone changed from 4.12 to 4.12.0|Ticket|
-|https://devel.rtems.org/ticket/2944#comment:4|version changed from 4.11 to 4.12|Ticket|
-|https://devel.rtems.org/ticket/2944#comment:5|owner changed from chrisj@… to Sebastian Huber status changed from new to assigned|Ticket|
-|https://devel.rtems.org/ticket/2944#comment:6|version changed from 4.12 to 4.11 milestone changed from 4.12.0 to 4.11.3|Ticket|
-|https://devel.rtems.org/ticket/2944#comment:7|In 4d495cf/rtems: dosfs: Fix fat_file_update() Do not update the non-existant meta-data of the root directory. Update #2944.|Ticket|
-|https://devel.rtems.org/ticket/2944#comment:8|status changed from assigned to closed resolution set to fixed In a3199d91/rtems: dosfs: Fix fat_file_update() Do not update the non-existant meta-data of the root directory. Close #2944.|Ticket|
-|https://devel.rtems.org/ticket/2944#comment:9|component changed from fs to fs/fat|Ticket|
+|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:1|Replying to Sebastia<br />n Huber: Removing th<br />e function call in m<br />sdos_shut_down ( .. <br />) to close the root <br />file descriptor solv<br />es the problem perfe<br />ctly (clean fsck). I<br /> assume you mean fat<br />_file_close? However<br />, we're a bit unsure<br /> about the intent be<br />hind closing the roo<br />t directory. There i<br />s memory allocated i<br />n fat_file_open whic<br />h you would leak. I <br />see the fat_file_clo<br />se calls fat_buf_rel<br />ease and if the fs_i<br />nfo cache is not emp<br />ty it is holding a b<br />dbuf buffer so this <br />would cause a leak o<br />f buffers. What abou<br />t the fat_file_close<br /> calls in the msdos <br />init call on error? <br />Would they also caus<br />e the same problem?|Ticket|
+|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:2|Replying to Chris Jo<br />hns: Replying to Seb<br />astian Huber: Removi<br />ng the function call<br /> in msdos_shut_down <br />( .. ) to close the <br />root file descriptor<br /> solves the problem <br />perfectly (clean fsc<br />k). I assume you mea<br />n fat_file_close? Ye<br />s. However, we're a <br />bit unsure about the<br /> intent behind closi<br />ng the root director<br />y. There is memory a<br />llocated in fat_file<br />_open which you woul<br />d leak. We fixed thi<br />s issue by creating <br />a special "root file<br /> close" function, by<br /> removing the call t<br />o fat_file_update() <br />in fat_file_close() <br />(which caused the co<br />rruption). I see the<br /> fat_file_close call<br />s fat_buf_release an<br />d if the fs_info cac<br />he is not empty it i<br />s holding a bdbuf bu<br />ffer so this would c<br />ause a leak of buffe<br />rs. What about the f<br />at_file_close calls <br />in the msdos init ca<br />ll on error? Would t<br />hey also cause the s<br />ame problem? Yes, th<br />ese will cause the s<br />ame issues. To updat<br />e / summarise this t<br />icket a bit here: We<br /> originally attempte<br />d a fix to this prob<br />lem by setting the h<br />ard-coded root direc<br />tory cluster number <br />to 2, as well as the<br /> above (remove corru<br />ption caused by fat_<br />file_update() in fat<br />_file_close() on unm<br />ount). However, our <br />attempt to fix the b<br />roken root cluster n<br />umbering breaks a ha<br />shing mechanism in f<br />at_file_open(..). Th<br />is mechanism indexes<br /> open file descripto<br />rs based on 1) paren<br />t directory cluster <br />number and 2) offset<br /> into that directory<br /> structure. The issu<br />e is that the root d<br />irectory, and the fi<br />le pointed to by the<br /> first directory ent<br />ry in the root direc<br />tory, may construct <br />their hashes based o<br />n the same indexes: <br />Root directory: clus<br />ter number 2, offset<br /> 0 First file in roo<br />t directory: cluster<br /> number 2, offset 0 <br />Before, this was not<br /> a problem of course<br />, as the root direct<br />ory had the hard-cod<br />ed cluster number of<br /> 1, and the keys wer<br />e therefore always u<br />nique. But this can <br />actually cause a num<br />ber of new issues. T<br />he fix to this probl<br />em is to set the har<br />d-coded root cluster<br /> directory number ba<br />ck to 1, instead of <br />drastically changing<br /> the key hashing met<br />hod function calls a<br />nd data structures, <br />and trusting that re<br />moving calls to fat_<br />file_update(on_root_<br />node) are sufficient<br /> to avoid the data c<br />orruption issue desc<br />ribed above. However<br />, there are two othe<br />r places in msdos_mi<br />sc.c where the hardc<br />oded root directory <br />cluster number - FAT<br />_ROOTDIR_CLUSTER_NUM<br /> - is used: msdos_ge<br />t_name_node() msdos_<br />get_dotdot_dir_info_<br />cluster_num() Like t<br />his: if ( (MSDOS_EXT<br />RACT_CLUSTER_NUM(dot<br />dot_node)) == 0) { /<br />* we handle root dir<br /> for all FAT types i<br />n the same way with <br />the ordinary directo<br />ries ( through fat_f<br />ile_* calls ) */ fat<br />_dir_pos_init(dir_po<br />s); dir_pos->sname.c<br />ln = FAT_ROOTDIR_CLU<br />STER_NUM; } Which, t<br />o my understanding, <br />will never occur as <br />you should never hav<br />e a cluster number b<br />elow 2 in a complian<br />t (msdos) FAT file s<br />ystem. Does anyone k<br />now the intent behin<br />d this?|Ticket|
+|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:3|milestone changed fr<br />om 4.12 to 4.12.0|Ticket|
+|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:4|version changed from<br /> 4.11 to 4.12|Ticket|
+|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:5|owner changed from c<br />hrisj@… to Sebastian<br /> Huber status change<br />d from new to assign<br />ed|Ticket|
+|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:6|version changed from<br /> 4.12 to 4.11 milest<br />one changed from 4.1<br />2.0 to 4.11.3|Ticket|
+|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:7|In 4d495cf/rtems: do<br />sfs: Fix fat_file_up<br />date() Do not update<br /> the non-existant me<br />ta-data of the root <br />directory. Update #2<br />944.|Ticket|
+|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:8|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In a3199d91/rtems<br />: dosfs: Fix fat_fil<br />e_update() Do not up<br />date the non-existan<br />t meta-data of the r<br />oot directory. Close<br /> #2944.|Ticket|
+|https://devel.rtems.<br />org/ticket/2944#comm<br />ent:9|component changed fr<br />om fs to fs/fat|Ticket|
 
 
 ## [2964](https://devel.rtems.org/ticket/2964)
@@ -1350,41 +1350,41 @@ fat: msdos_find_file_in_directory(..) doesn't reset LFN search appropriately
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Sebastian Huber|Fri, 31 Mar 2017 12:24:33 GMT| |https://devel.rtems.org/ticket/2964#comment:1|
-|Sebastian Huber|Mon, 03 Apr 2017 06:12:40 GMT| |https://devel.rtems.org/ticket/2964#comment:2|
-|Sebastian Huber|Thu, 11 May 2017 07:31:02 GMT|milestone changed|https://devel.rtems.org/ticket/2964#comment:3|
-|Chris Johns|Mon, 14 Aug 2017 00:22:25 GMT|version changed|https://devel.rtems.org/ticket/2964#comment:4|
-|Sebastian Huber|Thu, 24 Aug 2017 09:56:36 GMT|status changed; owner set|https://devel.rtems.org/ticket/2964#comment:5|
-|Sebastian Huber|Thu, 24 Aug 2017 10:02:52 GMT|component, summary changed|https://devel.rtems.org/ticket/2964#comment:6|
-|Sebastian Huber|Wed, 06 Sep 2017 10:01:51 GMT| |https://devel.rtems.org/ticket/2964#comment:7|
-|Sebastian Huber <sebastian.huber@…>|Wed, 06 Sep 2017 12:08:46 GMT| |https://devel.rtems.org/ticket/2964#comment:8|
-|Sebastian Huber|Wed, 06 Sep 2017 12:09:49 GMT|version, milestone changed|https://devel.rtems.org/ticket/2964#comment:9|
-|Sebastian Huber <sebastian.huber@…>|Wed, 06 Sep 2017 12:10:08 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2964#comment:10|
-|Sebastian Huber|Tue, 10 Oct 2017 06:50:58 GMT|component changed|https://devel.rtems.org/ticket/2964#comment:11|
+|Sebastian Huber|Fri, 31 Mar 2017 12:<br />24:33 GMT| |https://devel.rtems.<br />org/ticket/2964#comm<br />ent:1|
+|Sebastian Huber|Mon, 03 Apr 2017 06:<br />12:40 GMT| |https://devel.rtems.<br />org/ticket/2964#comm<br />ent:2|
+|Sebastian Huber|Thu, 11 May 2017 07:<br />31:02 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:3|
+|Chris Johns|Mon, 14 Aug 2017 00:<br />22:25 GMT|version changed|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:4|
+|Sebastian Huber|Thu, 24 Aug 2017 09:<br />56:36 GMT|status changed; owne<br />r set|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:5|
+|Sebastian Huber|Thu, 24 Aug 2017 10:<br />02:52 GMT|component, summary c<br />hanged|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:6|
+|Sebastian Huber|Wed, 06 Sep 2017 10:<br />01:51 GMT| |https://devel.rtems.<br />org/ticket/2964#comm<br />ent:7|
+|Sebastian Huber <seb<br />astian.huber@…>|Wed, 06 Sep 2017 12:<br />08:46 GMT| |https://devel.rtems.<br />org/ticket/2964#comm<br />ent:8|
+|Sebastian Huber|Wed, 06 Sep 2017 12:<br />09:49 GMT|version, milestone c<br />hanged|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:9|
+|Sebastian Huber <seb<br />astian.huber@…>|Wed, 06 Sep 2017 12:<br />10:08 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:10|
+|Sebastian Huber|Tue, 10 Oct 2017 06:<br />50:58 GMT|component changed|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:11|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2964#comment:1|Could you please provide a patch against the current Git master of RTEMS. Please also provide a self-contained test case, e.g. in ​https://git.rtems.org/rtems/tree/testsuites/fstests/fsdosfsname01/init.c|Ticket|
-|https://devel.rtems.org/ticket/2964#comment:2|Please create two patches with the git format-patch command. The first patch should add a test case for this issue to ​https://git.rtems.org/rtems/tree/testsuites/fstests/fsdosfsname01/init.c which fails. The second patch should fix the problem and let the test case pass.|Ticket|
-|https://devel.rtems.org/ticket/2964#comment:3|milestone changed from 4.12 to 4.12.0|Ticket|
-|https://devel.rtems.org/ticket/2964#comment:4|version changed from 4.11 to 4.12|Ticket|
-|https://devel.rtems.org/ticket/2964#comment:5|owner set to Sebastian Huber status changed from new to assigned|Ticket|
-|https://devel.rtems.org/ticket/2964#comment:6|component changed from General to filesystem summary changed from msdos_find_file_in_directory(..) doesn't reset LFN search appropriately to fat: msdos_find_file_in_directory(..) doesn't reset LFN search appropriately|Ticket|
-|https://devel.rtems.org/ticket/2964#comment:7|It looks like a bug, but I am not able to write a test case for this. The msdos_set_first_char4file_name() sets the first byte of each directory entry to 0xe5. How did you end up with 1-> old LFN end entry n 2-> old LFN end entry n - 1 3-> old SHORT entry freed with byte[0] = 0xe5 ? Do you use a removable media and delete the file with another operating system or via the short file name?|Ticket|
-|https://devel.rtems.org/ticket/2964#comment:8|In a2c204eb/rtems: dosfs: Fix find name next entry preparation Update #2964.|Ticket|
-|https://devel.rtems.org/ticket/2964#comment:9|version changed from 4.12 to 4.11 milestone changed from 4.12.0 to 4.11.3|Ticket|
-|https://devel.rtems.org/ticket/2964#comment:10|status changed from assigned to closed resolution set to fixed In a76c31e1/rtems: dosfs: Fix find name next entry preparation Close #2964.|Ticket|
-|https://devel.rtems.org/ticket/2964#comment:11|component changed from fs to fs/fat|Ticket|
+|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:1|Could you please pro<br />vide a patch against<br /> the current Git mas<br />ter of RTEMS. Please<br /> also provide a self<br />-contained test case<br />, e.g. in ​https://g<br />it.rtems.org/rtems/t<br />ree/testsuites/fstes<br />ts/fsdosfsname01/ini<br />t.c|Ticket|
+|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:2|Please create two pa<br />tches with the git f<br />ormat-patch command.<br /> The first patch sho<br />uld add a test case <br />for this issue to ​h<br />ttps://git.rtems.org<br />/rtems/tree/testsuit<br />es/fstests/fsdosfsna<br />me01/init.c which fa<br />ils. The second patc<br />h should fix the pro<br />blem and let the tes<br />t case pass.|Ticket|
+|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:3|milestone changed fr<br />om 4.12 to 4.12.0|Ticket|
+|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:4|version changed from<br /> 4.11 to 4.12|Ticket|
+|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:5|owner set to Sebasti<br />an Huber status chan<br />ged from new to assi<br />gned|Ticket|
+|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:6|component changed fr<br />om General to filesy<br />stem summary changed<br /> from msdos_find_fil<br />e_in_directory(..) d<br />oesn't reset LFN sea<br />rch appropriately to<br /> fat: msdos_find_fil<br />e_in_directory(..) d<br />oesn't reset LFN sea<br />rch appropriately|Ticket|
+|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:7|It looks like a bug,<br /> but I am not able t<br />o write a test case <br />for this. The msdos_<br />set_first_char4file_<br />name() sets the firs<br />t byte of each direc<br />tory entry to 0xe5. <br />How did you end up w<br />ith 1-> old LFN end <br />entry n 2-> old LFN <br />end entry n - 1 3-> <br />old SHORT entry free<br />d with byte[0] = 0xe<br />5 ? Do you use a rem<br />ovable media and del<br />ete the file with an<br />other operating syst<br />em or via the short <br />file name?|Ticket|
+|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:8|In a2c204eb/rtems: d<br />osfs: Fix find name <br />next entry preparati<br />on Update #2964.|Ticket|
+|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:9|version changed from<br /> 4.12 to 4.11 milest<br />one changed from 4.1<br />2.0 to 4.11.3|Ticket|
+|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:10|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In a76c31e1/rtems<br />: dosfs: Fix find na<br />me next entry prepar<br />ation Close #2964.|Ticket|
+|https://devel.rtems.<br />org/ticket/2964#comm<br />ent:11|component changed fr<br />om fs to fs/fat|Ticket|
 
 
 ### attachments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|slemstick|Mon, 03 Apr 2017 06:06:49 GMT|attachment set|https://devel.rtems.org/ticket/2964|
+|slemstick|Mon, 03 Apr 2017 06:<br />06:49 GMT|attachment set|https://devel.rtems.<br />org/ticket/2964|
 
 |guid|description|category|attachment_link|
 |:---:|:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2964|attachment set to l4n_find.patch Patch file agains master|Ticket|https://devel.rtems.org/attachment/ticket/2964/l4n_find.patch|
+|https://devel.rtems.<br />org/ticket/2964|attachment set to l4<br />n_find.patch Patch f<br />ile agains master|Ticket|https://devel.rtems.<br />org/attachment/ticke<br />t/2964/l4n_find.patc<br />h|
 
 
 ## [2987](https://devel.rtems.org/ticket/2987)
@@ -1436,37 +1436,37 @@ fat: msdos_dir_read(..) doesn't reset conversion output string length
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Gedare|Tue, 11 Apr 2017 00:43:35 GMT| |https://devel.rtems.org/ticket/2987#comment:1|
-|Sebastian Huber|Thu, 11 May 2017 07:31:02 GMT|milestone changed|https://devel.rtems.org/ticket/2987#comment:2|
-|Sebastian Huber|Mon, 12 Jun 2017 07:32:58 GMT| |https://devel.rtems.org/ticket/2987#comment:3|
-|Sebastian Huber|Thu, 24 Aug 2017 09:56:36 GMT|status changed; owner set|https://devel.rtems.org/ticket/2987#comment:4|
-|Sebastian Huber|Thu, 24 Aug 2017 10:03:56 GMT|component, summary changed|https://devel.rtems.org/ticket/2987#comment:5|
-|Sebastian Huber <sebastian.huber@…>|Wed, 06 Sep 2017 11:22:03 GMT| |https://devel.rtems.org/ticket/2987#comment:6|
-|Sebastian Huber|Wed, 06 Sep 2017 11:24:30 GMT|version, milestone changed|https://devel.rtems.org/ticket/2987#comment:7|
-|Sebastian Huber <sebastian.huber@…>|Wed, 06 Sep 2017 11:24:52 GMT|status changed; resolution set|https://devel.rtems.org/ticket/2987#comment:8|
-|Sebastian Huber|Tue, 10 Oct 2017 06:50:58 GMT|component changed|https://devel.rtems.org/ticket/2987#comment:9|
+|Gedare|Tue, 11 Apr 2017 00:<br />43:35 GMT| |https://devel.rtems.<br />org/ticket/2987#comm<br />ent:1|
+|Sebastian Huber|Thu, 11 May 2017 07:<br />31:02 GMT|milestone changed|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:2|
+|Sebastian Huber|Mon, 12 Jun 2017 07:<br />32:58 GMT| |https://devel.rtems.<br />org/ticket/2987#comm<br />ent:3|
+|Sebastian Huber|Thu, 24 Aug 2017 09:<br />56:36 GMT|status changed; owne<br />r set|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:4|
+|Sebastian Huber|Thu, 24 Aug 2017 10:<br />03:56 GMT|component, summary c<br />hanged|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:5|
+|Sebastian Huber <seb<br />astian.huber@…>|Wed, 06 Sep 2017 11:<br />22:03 GMT| |https://devel.rtems.<br />org/ticket/2987#comm<br />ent:6|
+|Sebastian Huber|Wed, 06 Sep 2017 11:<br />24:30 GMT|version, milestone c<br />hanged|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:7|
+|Sebastian Huber <seb<br />astian.huber@…>|Wed, 06 Sep 2017 11:<br />24:52 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:8|
+|Sebastian Huber|Tue, 10 Oct 2017 06:<br />50:58 GMT|component changed|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:9|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2987#comment:1|Please remove the spurious whitespace changes, add "Closes #2987." Into the commit message, and format a friendly short commit message that specifies the rtems subsystem first, e.g. "libfs/dosfs: ..." Please see Developer/Git|Ticket|
-|https://devel.rtems.org/ticket/2987#comment:2|milestone changed from 4.12 to 4.12.0|Ticket|
-|https://devel.rtems.org/ticket/2987#comment:3|Without a real name I cannot apply this patch.|Ticket|
-|https://devel.rtems.org/ticket/2987#comment:4|owner set to Sebastian Huber status changed from new to assigned|Ticket|
-|https://devel.rtems.org/ticket/2987#comment:5|component changed from General to filesystem summary changed from msdos_dir_read(..) doesn't reset conversion output string length to fat: msdos_dir_read(..) doesn't reset conversion output string length|Ticket|
-|https://devel.rtems.org/ticket/2987#comment:6|In 34dda604/rtems: dosfs: Fix msdos_dir_read() Set a proper name buffer length for each converter invocation. Update #2987.|Ticket|
-|https://devel.rtems.org/ticket/2987#comment:7|version changed from 4.12 to 4.11 milestone changed from 4.12.0 to 4.11.3|Ticket|
-|https://devel.rtems.org/ticket/2987#comment:8|status changed from assigned to closed resolution set to fixed In e1c3dc09/rtems: dosfs: Fix msdos_dir_read() Set a proper name buffer length for each converter invocation. Close #2987.|Ticket|
-|https://devel.rtems.org/ticket/2987#comment:9|component changed from fs to fs/fat|Ticket|
+|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:1|Please remove the sp<br />urious whitespace ch<br />anges, add "Closes #<br />2987." Into the comm<br />it message, and form<br />at a friendly short <br />commit message that <br />specifies the rtems <br />subsystem first, e.g<br />. "libfs/dosfs: ..."<br /> Please see Develope<br />r/Git|Ticket|
+|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:2|milestone changed fr<br />om 4.12 to 4.12.0|Ticket|
+|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:3|Without a real name <br />I cannot apply this <br />patch.|Ticket|
+|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:4|owner set to Sebasti<br />an Huber status chan<br />ged from new to assi<br />gned|Ticket|
+|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:5|component changed fr<br />om General to filesy<br />stem summary changed<br /> from msdos_dir_read<br />(..) doesn't reset c<br />onversion output str<br />ing length to fat: m<br />sdos_dir_read(..) do<br />esn't reset conversi<br />on output string len<br />gth|Ticket|
+|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:6|In 34dda604/rtems: d<br />osfs: Fix msdos_dir_<br />read() Set a proper <br />name buffer length f<br />or each converter in<br />vocation. Update #29<br />87.|Ticket|
+|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:7|version changed from<br /> 4.12 to 4.11 milest<br />one changed from 4.1<br />2.0 to 4.11.3|Ticket|
+|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:8|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In e1c3dc09/rtems<br />: dosfs: Fix msdos_d<br />ir_read() Set a prop<br />er name buffer lengt<br />h for each converter<br /> invocation. Close #<br />2987.|Ticket|
+|https://devel.rtems.<br />org/ticket/2987#comm<br />ent:9|component changed fr<br />om fs to fs/fat|Ticket|
 
 
 ### attachments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|slemstick|Sun, 09 Apr 2017 10:33:41 GMT|attachment set|https://devel.rtems.org/ticket/2987|
+|slemstick|Sun, 09 Apr 2017 10:<br />33:41 GMT|attachment set|https://devel.rtems.<br />org/ticket/2987|
 
 |guid|description|category|attachment_link|
 |:---:|:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/2987|attachment set to 0001-Fix-issue-that-msdos_dir_read-didn-t-reset-an-output.patch|Ticket|https://devel.rtems.org/attachment/ticket/2987/0001-Fix-issue-that-msdos_dir_read-didn-t-reset-an-output.patch|
+|https://devel.rtems.<br />org/ticket/2987|attachment set to 00<br />01-Fix-issue-that-ms<br />dos_dir_read-didn-t-<br />reset-an-output.patc<br />h|Ticket|https://devel.rtems.<br />org/attachment/ticke<br />t/2987/0001-Fix-issu<br />e-that-msdos_dir_rea<br />d-didn-t-reset-an-ou<br />tput.patch|
 
 
 ## [3004](https://devel.rtems.org/ticket/3004)
@@ -1524,17 +1524,17 @@ Typos in RTEMS User Manual 4.11.99
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Tue, 11 Jul 2017 00:34:08 GMT|milestone changed|https://devel.rtems.org/ticket/3004#comment:1|
-|Sebastian Huber|Tue, 10 Oct 2017 06:06:29 GMT|component changed|https://devel.rtems.org/ticket/3004#comment:2|
-|Chris Johns|Mon, 05 Feb 2018 03:38:30 GMT|owner, status changed|https://devel.rtems.org/ticket/3004#comment:3|
-|Chris Johns|Mon, 05 Feb 2018 23:23:36 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3004#comment:4|
+|Chris Johns|Tue, 11 Jul 2017 00:<br />34:08 GMT|milestone changed|https://devel.rtems.<br />org/ticket/3004#comm<br />ent:1|
+|Sebastian Huber|Tue, 10 Oct 2017 06:<br />06:29 GMT|component changed|https://devel.rtems.<br />org/ticket/3004#comm<br />ent:2|
+|Chris Johns|Mon, 05 Feb 2018 03:<br />38:30 GMT|owner, status change<br />d|https://devel.rtems.<br />org/ticket/3004#comm<br />ent:3|
+|Chris Johns|Mon, 05 Feb 2018 23:<br />23:36 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3004#comm<br />ent:4|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3004#comment:1|milestone changed from 4.11.2 to 4.11.3|Ticket|
-|https://devel.rtems.org/ticket/3004#comment:2|component changed from Documentation to doc|Ticket|
-|https://devel.rtems.org/ticket/3004#comment:3|owner changed from chrisj@… to Chris Johns status changed from new to accepted|Ticket|
-|https://devel.rtems.org/ticket/3004#comment:4|status changed from accepted to closed resolution set to fixed ​https://git.rtems.org/rtems-docs/commit/?h=4.11&id=0319856bca6a0655e453a5faa20344d97ff78c64|Ticket|
+|https://devel.rtems.<br />org/ticket/3004#comm<br />ent:1|milestone changed fr<br />om 4.11.2 to 4.11.3|Ticket|
+|https://devel.rtems.<br />org/ticket/3004#comm<br />ent:2|component changed fr<br />om Documentation to <br />doc|Ticket|
+|https://devel.rtems.<br />org/ticket/3004#comm<br />ent:3|owner changed from c<br />hrisj@… to Chris Joh<br />ns status changed fr<br />om new to accepted|Ticket|
+|https://devel.rtems.<br />org/ticket/3004#comm<br />ent:4|status changed from <br />accepted to closed r<br />esolution set to fix<br />ed ​https://git.rtem<br />s.org/rtems-docs/com<br />mit/?h=4.11&id=03198<br />56bca6a0655e453a5faa<br />20344d97ff78c64|Ticket|
 
 
 ## [3024](https://devel.rtems.org/ticket/3024)
@@ -1549,7 +1549,7 @@ Typos in RTEMS User Manual 4.11.99
 
 |version|severity|resolution|keywords|
 |:---:|:---:|:---:|:---:|
-|4.11|normal|fixed|dl04, dl05, depcomp, CXXDEPMOD|
+|4.11|normal|fixed|dl04, dl05, depcomp,<br /> CXXDEPMOD|
 
 |cc|blockedby|blocking|
 |:---:|:---:|:---:|
@@ -1586,21 +1586,21 @@ dl04, dl05 build failes
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Joel Sherrill|Tue, 23 May 2017 15:47:28 GMT|owner, status changed|https://devel.rtems.org/ticket/3024#comment:1|
-|Chris Johns|Wed, 24 May 2017 00:06:42 GMT|milestone changed|https://devel.rtems.org/ticket/3024#comment:2|
-|Chris Johns|Tue, 11 Jul 2017 00:37:09 GMT|milestone changed|https://devel.rtems.org/ticket/3024#comment:3|
-|Chris Johns <chrisj@…>|Tue, 22 Aug 2017 23:49:20 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3024#comment:4|
-|Sebastian Huber|Tue, 10 Oct 2017 06:46:55 GMT|component changed|https://devel.rtems.org/ticket/3024#comment:5|
-|Chris Johns|Mon, 12 Feb 2018 03:54:22 GMT|component changed|https://devel.rtems.org/ticket/3024#comment:6|
+|Joel Sherrill|Tue, 23 May 2017 15:<br />47:28 GMT|owner, status change<br />d|https://devel.rtems.<br />org/ticket/3024#comm<br />ent:1|
+|Chris Johns|Wed, 24 May 2017 00:<br />06:42 GMT|milestone changed|https://devel.rtems.<br />org/ticket/3024#comm<br />ent:2|
+|Chris Johns|Tue, 11 Jul 2017 00:<br />37:09 GMT|milestone changed|https://devel.rtems.<br />org/ticket/3024#comm<br />ent:3|
+|Chris Johns <chrisj@<br />…>|Tue, 22 Aug 2017 23:<br />49:20 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3024#comm<br />ent:4|
+|Sebastian Huber|Tue, 10 Oct 2017 06:<br />46:55 GMT|component changed|https://devel.rtems.<br />org/ticket/3024#comm<br />ent:5|
+|Chris Johns|Mon, 12 Feb 2018 03:<br />54:22 GMT|component changed|https://devel.rtems.<br />org/ticket/3024#comm<br />ent:6|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3024#comment:1|owner changed from joel.sherrill@… to Chris Johns status changed from new to assigned Changing own to chrisj since he owns the dl tests and has been hacking on the Makefiles lately. The script depcomp is at the top of a bootstrapped source tree and is documented as part of automake. Hopefully the documentation pointers saved someone some time.|Ticket|
-|https://devel.rtems.org/ticket/3024#comment:2|milestone changed from 4.11.3 to 4.11.2|Ticket|
-|https://devel.rtems.org/ticket/3024#comment:3|milestone changed from 4.11.2 to 4.11.3|Ticket|
-|https://devel.rtems.org/ticket/3024#comment:4|status changed from assigned to closed resolution set to fixed In 2ed53cb9/rtems: testsuite/dl: Add C++ by default for DL tests which use C++. Add AM C++ support to the testsuite configure.ac script. Fix the dependences in the DL tests. Closes #3024.|Ticket|
-|https://devel.rtems.org/ticket/3024#comment:5|component changed from testing to unspecified|Ticket|
-|https://devel.rtems.org/ticket/3024#comment:6|component changed from unspecified to lib/dl|Ticket|
+|https://devel.rtems.<br />org/ticket/3024#comm<br />ent:1|owner changed from j<br />oel.sherrill@… to Ch<br />ris Johns status cha<br />nged from new to ass<br />igned Changing own t<br />o chrisj since he ow<br />ns the dl tests and <br />has been hacking on <br />the Makefiles lately<br />. The script depcomp<br /> is at the top of a <br />bootstrapped source <br />tree and is document<br />ed as part of automa<br />ke. Hopefully the do<br />cumentation pointers<br /> saved someone some <br />time.|Ticket|
+|https://devel.rtems.<br />org/ticket/3024#comm<br />ent:2|milestone changed fr<br />om 4.11.3 to 4.11.2|Ticket|
+|https://devel.rtems.<br />org/ticket/3024#comm<br />ent:3|milestone changed fr<br />om 4.11.2 to 4.11.3|Ticket|
+|https://devel.rtems.<br />org/ticket/3024#comm<br />ent:4|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In 2ed53cb9/rtems<br />: testsuite/dl: Add <br />C++ by default for D<br />L tests which use C+<br />+. Add AM C++ suppor<br />t to the testsuite c<br />onfigure.ac script. <br />Fix the dependences <br />in the DL tests. Clo<br />ses #3024.|Ticket|
+|https://devel.rtems.<br />org/ticket/3024#comm<br />ent:5|component changed fr<br />om testing to unspec<br />ified|Ticket|
+|https://devel.rtems.<br />org/ticket/3024#comm<br />ent:6|component changed fr<br />om unspecified to li<br />b/dl|Ticket|
 
 
 ## [3031](https://devel.rtems.org/ticket/3031)
@@ -1642,37 +1642,37 @@ Give docs.rtems.org and sync.rtems.org jails access to the TrueNAS storage.
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Joel Sherrill|Wed, 07 Jun 2017 06:58:09 GMT|cc set|https://devel.rtems.org/ticket/3031#comment:1|
-|Amar Takhar|Wed, 07 Jun 2017 11:45:10 GMT| |https://devel.rtems.org/ticket/3031#comment:2|
-|Chris Johns|Thu, 15 Jun 2017 02:27:38 GMT| |https://devel.rtems.org/ticket/3031#comment:3|
-|Amar Takhar|Thu, 15 Jun 2017 02:34:32 GMT| |https://devel.rtems.org/ticket/3031#comment:4|
-|Chris Johns|Thu, 15 Jun 2017 02:35:56 GMT| |https://devel.rtems.org/ticket/3031#comment:5|
-|Amar Takhar|Mon, 19 Jun 2017 19:00:38 GMT| |https://devel.rtems.org/ticket/3031#comment:6|
-|Chris Johns|Tue, 11 Jul 2017 00:35:11 GMT|severity, milestone changed|https://devel.rtems.org/ticket/3031#comment:7|
-|Chris Johns|Tue, 11 Jul 2017 00:35:41 GMT|owner, status changed|https://devel.rtems.org/ticket/3031#comment:8|
-|Amar Takhar|Tue, 11 Jul 2017 02:23:30 GMT| |https://devel.rtems.org/ticket/3031#comment:9|
-|Amar Takhar|Tue, 11 Jul 2017 02:24:07 GMT| |https://devel.rtems.org/ticket/3031#comment:10|
-|Amar Takhar|Tue, 11 Jul 2017 12:30:19 GMT| |https://devel.rtems.org/ticket/3031#comment:11|
-|Chris Johns|Tue, 11 Jul 2017 23:43:30 GMT| |https://devel.rtems.org/ticket/3031#comment:12|
-|Chris Johns|Sun, 03 Sep 2017 05:37:17 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3031#comment:13|
-|Sebastian Huber|Tue, 10 Oct 2017 06:06:29 GMT|component changed|https://devel.rtems.org/ticket/3031#comment:14|
+|Joel Sherrill|Wed, 07 Jun 2017 06:<br />58:09 GMT|cc set|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:1|
+|Amar Takhar|Wed, 07 Jun 2017 11:<br />45:10 GMT| |https://devel.rtems.<br />org/ticket/3031#comm<br />ent:2|
+|Chris Johns|Thu, 15 Jun 2017 02:<br />27:38 GMT| |https://devel.rtems.<br />org/ticket/3031#comm<br />ent:3|
+|Amar Takhar|Thu, 15 Jun 2017 02:<br />34:32 GMT| |https://devel.rtems.<br />org/ticket/3031#comm<br />ent:4|
+|Chris Johns|Thu, 15 Jun 2017 02:<br />35:56 GMT| |https://devel.rtems.<br />org/ticket/3031#comm<br />ent:5|
+|Amar Takhar|Mon, 19 Jun 2017 19:<br />00:38 GMT| |https://devel.rtems.<br />org/ticket/3031#comm<br />ent:6|
+|Chris Johns|Tue, 11 Jul 2017 00:<br />35:11 GMT|severity, milestone <br />changed|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:7|
+|Chris Johns|Tue, 11 Jul 2017 00:<br />35:41 GMT|owner, status change<br />d|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:8|
+|Amar Takhar|Tue, 11 Jul 2017 02:<br />23:30 GMT| |https://devel.rtems.<br />org/ticket/3031#comm<br />ent:9|
+|Amar Takhar|Tue, 11 Jul 2017 02:<br />24:07 GMT| |https://devel.rtems.<br />org/ticket/3031#comm<br />ent:10|
+|Amar Takhar|Tue, 11 Jul 2017 12:<br />30:19 GMT| |https://devel.rtems.<br />org/ticket/3031#comm<br />ent:11|
+|Chris Johns|Tue, 11 Jul 2017 23:<br />43:30 GMT| |https://devel.rtems.<br />org/ticket/3031#comm<br />ent:12|
+|Chris Johns|Sun, 03 Sep 2017 05:<br />37:17 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:13|
+|Sebastian Huber|Tue, 10 Oct 2017 06:<br />06:29 GMT|component changed|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:14|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3031#comment:1|cc Joel@… added|Ticket|
-|https://devel.rtems.org/ticket/3031#comment:2|OK I will look into this Tonight or Friday (2017-06-09). I'll try to get it done quickly tonight but that will depend on what time I get home.|Ticket|
-|https://devel.rtems.org/ticket/3031#comment:3|How is this going?|Ticket|
-|https://devel.rtems.org/ticket/3031#comment:4|Sigh, thanks for the reminder. I need to setup auto-reminders for trac to harass me. I need to fix something in the switch to give this machine access to the VLAN I am away tomorrow (2016-06-15) but I will be back Friday (2016-06-16). I will take care of this then and have entered it into my calendar.|Ticket|
-|https://devel.rtems.org/ticket/3031#comment:5|Hey no problem, and thanks. Let me know how it goes.|Ticket|
-|https://devel.rtems.org/ticket/3031#comment:6|FYI an update I'm almost done this just took some time to clean up a few VLANs on the switch.|Ticket|
-|https://devel.rtems.org/ticket/3031#comment:7|severity changed from major to blocker milestone changed from 4.11.2 to 4.11.3 I cannot wait any longer and will release RTEMS 4.11.2. Moving this to 4.11.3 and making it a blocker issue.|Ticket|
-|https://devel.rtems.org/ticket/3031#comment:8|owner changed from chrisj@… to Amar Takhar status changed from new to assigned Assign to Amar.|Ticket|
-|https://devel.rtems.org/ticket/3031#comment:9|Huh, I thought I did this already I will look at it in the morning. Sorry.|Ticket|
-|https://devel.rtems.org/ticket/3031#comment:10|I think all I need to do is attach the share, it's late here I will do it in the morning.|Ticket|
-|https://devel.rtems.org/ticket/3031#comment:11|This is done please check to make sure it works.|Ticket|
-|https://devel.rtems.org/ticket/3031#comment:12|Replying to Amar Takhar: This is done please check to make sure it works. Thank you. I will take a look over this week.|Ticket|
-|https://devel.rtems.org/ticket/3031#comment:13|status changed from assigned to closed resolution set to fixed|Ticket|
-|https://devel.rtems.org/ticket/3031#comment:14|component changed from Documentation to doc|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:1|cc Joel@… added|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:2|OK I will look into <br />this Tonight or Frid<br />ay (2017-06-09). I'l<br />l try to get it done<br /> quickly tonight but<br /> that will depend on<br /> what time I get hom<br />e.|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:3|How is this going?|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:4|Sigh, thanks for the<br /> reminder. I need to<br /> setup auto-reminder<br />s for trac to harass<br /> me. I need to fix s<br />omething in the swit<br />ch to give this mach<br />ine access to the VL<br />AN I am away tomorro<br />w (2016-06-15) but I<br /> will be back Friday<br /> (2016-06-16). I wil<br />l take care of this <br />then and have entere<br />d it into my calenda<br />r.|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:5|Hey no problem, and <br />thanks. Let me know <br />how it goes.|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:6|FYI an update I'm al<br />most done this just <br />took some time to cl<br />ean up a few VLANs o<br />n the switch.|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:7|severity changed fro<br />m major to blocker m<br />ilestone changed fro<br />m 4.11.2 to 4.11.3 I<br /> cannot wait any lon<br />ger and will release<br /> RTEMS 4.11.2. Movin<br />g this to 4.11.3 and<br /> making it a blocker<br /> issue.|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:8|owner changed from c<br />hrisj@… to Amar Takh<br />ar status changed fr<br />om new to assigned A<br />ssign to Amar.|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:9|Huh, I thought I did<br /> this already I will<br /> look at it in the m<br />orning. Sorry.|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:10|I think all I need t<br />o do is attach the s<br />hare, it's late here<br /> I will do it in the<br /> morning.|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:11|This is done please <br />check to make sure i<br />t works.|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:12|Replying to Amar Tak<br />har: This is done pl<br />ease check to make s<br />ure it works. Thank <br />you. I will take a l<br />ook over this week.|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:13|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed|Ticket|
+|https://devel.rtems.<br />org/ticket/3031#comm<br />ent:14|component changed fr<br />om Documentation to <br />doc|Ticket|
 
 
 ## [3065](https://devel.rtems.org/ticket/3065)
@@ -1714,13 +1714,13 @@ RTEMS 4.11.2 avr build fails
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Sebastian Huber|Tue, 10 Oct 2017 06:00:29 GMT|component changed|https://devel.rtems.org/ticket/3065#comment:1|
-|Chris Johns|Mon, 05 Feb 2018 05:29:27 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3065#comment:2|
+|Sebastian Huber|Tue, 10 Oct 2017 06:<br />00:29 GMT|component changed|https://devel.rtems.<br />org/ticket/3065#comm<br />ent:1|
+|Chris Johns|Mon, 05 Feb 2018 05:<br />29:27 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3065#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3065#comment:1|component changed from Autoconf to build|Ticket|
-|https://devel.rtems.org/ticket/3065#comment:2|status changed from new to closed resolution set to invalid I cannot repeat this building the 4.11 branch tools and then RTEMS on FreeBSD 11.1. As a result I will close this PR. Note, the AVR BSP does not build as GCC fails with: /opt/work/chris/rtems/kernel/rtems.git/c/src/../../cpukit/libfs/src/dosfs/msdos_misc.c: In function 'msdos_find_node_by_cluster_num_in_fat_file': /opt/work/chris/rtems/kernel/rtems.git/c/src/../../cpukit/libfs/src/dosfs/msdos_misc.c:2069:1: error: unable to find a register to spill in class 'POINTER_REGS' } ^ /opt/work/chris/rtems/kernel/rtems.git/c/src/../../cpukit/libfs/src/dosfs/msdos_misc.c:2069:1: error: this is the insn: (insn 144 143 145 17 (set (reg:HI 26 r26) (reg/v/f:HI 96 [ dir_entry ])) /opt/work/chris/rtems/kernel/rtems.git/c/src/../../cpukit/libfs/src/dosfs/msdos_misc.c:2061 83 {*movhi} (expr_list:REG_DEAD (reg/v/f:HI 96 [ dir_entry ]) (nil))) /opt/work/chris/rtems/kernel/rtems.git/c/src/../../cpukit/libfs/src/dosfs/msdos_misc.c:2069: confused by earlier errors, bailing out|Ticket|
+|https://devel.rtems.<br />org/ticket/3065#comm<br />ent:1|component changed fr<br />om Autoconf to build|Ticket|
+|https://devel.rtems.<br />org/ticket/3065#comm<br />ent:2|status changed from <br />new to closed resolu<br />tion set to invalid <br />I cannot repeat this<br /> building the 4.11 b<br />ranch tools and then<br /> RTEMS on FreeBSD 11<br />.1. As a result I wi<br />ll close this PR. No<br />te, the AVR BSP does<br /> not build as GCC fa<br />ils with: /opt/work/<br />chris/rtems/kernel/r<br />tems.git/c/src/../..<br />/cpukit/libfs/src/do<br />sfs/msdos_misc.c: In<br /> function 'msdos_fin<br />d_node_by_cluster_nu<br />m_in_fat_file': /opt<br />/work/chris/rtems/ke<br />rnel/rtems.git/c/src<br />/../../cpukit/libfs/<br />src/dosfs/msdos_misc<br />.c:2069:1: error: un<br />able to find a regis<br />ter to spill in clas<br />s 'POINTER_REGS' } ^<br /> /opt/work/chris/rte<br />ms/kernel/rtems.git/<br />c/src/../../cpukit/l<br />ibfs/src/dosfs/msdos<br />_misc.c:2069:1: erro<br />r: this is the insn:<br /> (insn 144 143 145 1<br />7 (set (reg:HI 26 r2<br />6) (reg/v/f:HI 96 [ <br />dir_entry ])) /opt/w<br />ork/chris/rtems/kern<br />el/rtems.git/c/src/.<br />./../cpukit/libfs/sr<br />c/dosfs/msdos_misc.c<br />:2061 83 {*movhi} (e<br />xpr_list:REG_DEAD (r<br />eg/v/f:HI 96 [ dir_e<br />ntry ]) (nil))) /opt<br />/work/chris/rtems/ke<br />rnel/rtems.git/c/src<br />/../../cpukit/libfs/<br />src/dosfs/msdos_misc<br />.c:2069: confused by<br /> earlier errors, bai<br />ling out|Ticket|
 
 
 ## [3066](https://devel.rtems.org/ticket/3066)
@@ -1801,13 +1801,13 @@ RTEMS 4.11.2 LM32 build fails
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Mon, 05 Feb 2018 05:41:55 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3066#comment:1|
-|Chris Johns|Mon, 12 Feb 2018 03:57:34 GMT|component changed|https://devel.rtems.org/ticket/3066#comment:2|
+|Chris Johns|Mon, 05 Feb 2018 05:<br />41:55 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3066#comm<br />ent:1|
+|Chris Johns|Mon, 12 Feb 2018 03:<br />57:34 GMT|component changed|https://devel.rtems.<br />org/ticket/3066#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3066#comment:1|status changed from new to closed resolution set to wontfix If you want LM32 support use master.|Ticket|
-|https://devel.rtems.org/ticket/3066#comment:2|component changed from unspecified to tool/gcc|Ticket|
+|https://devel.rtems.<br />org/ticket/3066#comm<br />ent:1|status changed from <br />new to closed resolu<br />tion set to wontfix <br />If you want LM32 sup<br />port use master.|Ticket|
+|https://devel.rtems.<br />org/ticket/3066#comm<br />ent:2|component changed fr<br />om unspecified to to<br />ol/gcc|Ticket|
 
 
 ## [3067](https://devel.rtems.org/ticket/3067)
@@ -1927,13 +1927,13 @@ RTEMS 4.11.2 M32C build fails
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Mon, 05 Feb 2018 05:42:28 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3067#comment:1|
-|Chris Johns|Mon, 12 Feb 2018 03:57:48 GMT|component changed|https://devel.rtems.org/ticket/3067#comment:2|
+|Chris Johns|Mon, 05 Feb 2018 05:<br />42:28 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3067#comm<br />ent:1|
+|Chris Johns|Mon, 12 Feb 2018 03:<br />57:48 GMT|component changed|https://devel.rtems.<br />org/ticket/3067#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3067#comment:1|status changed from new to closed resolution set to wontfix If you want M32C support use master.|Ticket|
-|https://devel.rtems.org/ticket/3067#comment:2|component changed from unspecified to tool/gcc|Ticket|
+|https://devel.rtems.<br />org/ticket/3067#comm<br />ent:1|status changed from <br />new to closed resolu<br />tion set to wontfix <br />If you want M32C sup<br />port use master.|Ticket|
+|https://devel.rtems.<br />org/ticket/3067#comm<br />ent:2|component changed fr<br />om unspecified to to<br />ol/gcc|Ticket|
 
 
 ## [3068](https://devel.rtems.org/ticket/3068)
@@ -2043,13 +2043,13 @@ RTEMS 4.11.2 Moxie build fails
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Mon, 05 Feb 2018 05:42:57 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3068#comment:1|
-|Chris Johns|Mon, 12 Feb 2018 03:58:04 GMT|component changed|https://devel.rtems.org/ticket/3068#comment:2|
+|Chris Johns|Mon, 05 Feb 2018 05:<br />42:57 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3068#comm<br />ent:1|
+|Chris Johns|Mon, 12 Feb 2018 03:<br />58:04 GMT|component changed|https://devel.rtems.<br />org/ticket/3068#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3068#comment:1|status changed from new to closed resolution set to wontfix If you want Moxie support use master.|Ticket|
-|https://devel.rtems.org/ticket/3068#comment:2|component changed from unspecified to tool/gcc|Ticket|
+|https://devel.rtems.<br />org/ticket/3068#comm<br />ent:1|status changed from <br />new to closed resolu<br />tion set to wontfix <br />If you want Moxie su<br />pport use master.|Ticket|
+|https://devel.rtems.<br />org/ticket/3068#comm<br />ent:2|component changed fr<br />om unspecified to to<br />ol/gcc|Ticket|
 
 
 ## [3074](https://devel.rtems.org/ticket/3074)
@@ -2098,11 +2098,11 @@ gcc version report for released tools is wrong.
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns <chrisj@…>|Wed, 07 Feb 2018 21:54:15 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3074#comment:1|
+|Chris Johns <chrisj@<br />…>|Wed, 07 Feb 2018 21:<br />54:15 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3074#comm<br />ent:1|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3074#comment:1|status changed from assigned to closed resolution set to fixed In 3822803/rtems-source-builder: gcc: Use the RSB release for released tools. Using the RSB release version for the gcc version string means the tools have a version string that matches the release. Close #3074|Ticket|
+|https://devel.rtems.<br />org/ticket/3074#comm<br />ent:1|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In 3822803/rtems-<br />source-builder: gcc:<br /> Use the RSB release<br /> for released tools.<br /> Using the RSB relea<br />se version for the g<br />cc version string me<br />ans the tools have a<br /> version string that<br /> matches the release<br />. Close #3074|Ticket|
 
 
 ## [3092](https://devel.rtems.org/ticket/3092)
@@ -2132,15 +2132,15 @@ ARM: Test spcontext01 fails on Cortex-R4
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Sebastian Huber|Thu, 10 Aug 2017 06:10:33 GMT|summary changed|https://devel.rtems.org/ticket/3092#comment:1|
-|Sebastian Huber|Thu, 10 Aug 2017 06:21:47 GMT|summary changed|https://devel.rtems.org/ticket/3092#comment:2|
-|Sebastian Huber <sebastian.huber@…>|Thu, 10 Aug 2017 06:24:11 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3092#comment:3|
+|Sebastian Huber|Thu, 10 Aug 2017 06:<br />10:33 GMT|summary changed|https://devel.rtems.<br />org/ticket/3092#comm<br />ent:1|
+|Sebastian Huber|Thu, 10 Aug 2017 06:<br />21:47 GMT|summary changed|https://devel.rtems.<br />org/ticket/3092#comm<br />ent:2|
+|Sebastian Huber <seb<br />astian.huber@…>|Thu, 10 Aug 2017 06:<br />24:11 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3092#comm<br />ent:3|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3092#comment:1|summary changed from Test spcontext01 fails on Cortex-R5 to ARM: Test spcontext01 fails on Cortex-R5|Ticket|
-|https://devel.rtems.org/ticket/3092#comment:2|summary changed from ARM: Test spcontext01 fails on Cortex-R5 to ARM: Test spcontext01 fails on Cortex-R4|Ticket|
-|https://devel.rtems.org/ticket/3092#comment:3|status changed from assigned to closed resolution set to fixed In 5cc276e/rtems: arm: Fix CPU context validation for Cortex-R4 Do not touch the FPSCR[QC] bit since this is DNM/RAZ on Cortex-R4. Close #3092.|Ticket|
+|https://devel.rtems.<br />org/ticket/3092#comm<br />ent:1|summary changed from<br /> Test spcontext01 fa<br />ils on Cortex-R5 to <br />ARM: Test spcontext0<br />1 fails on Cortex-R5|Ticket|
+|https://devel.rtems.<br />org/ticket/3092#comm<br />ent:2|summary changed from<br /> ARM: Test spcontext<br />01 fails on Cortex-R<br />5 to ARM: Test spcon<br />text01 fails on Cort<br />ex-R4|Ticket|
+|https://devel.rtems.<br />org/ticket/3092#comm<br />ent:3|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In 5cc276e/rtems:<br /> arm: Fix CPU contex<br />t validation for Cor<br />tex-R4 Do not touch <br />the FPSCR[QC] bit si<br />nce this is DNM/RAZ <br />on Cortex-R4. Close <br />#3092.|Ticket|
 
 
 ## [3093](https://devel.rtems.org/ticket/3093)
@@ -2176,15 +2176,15 @@ ARM: Validate IT[7:0] bit field in PSR on Thumb 2 targets
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Sebastian Huber <sebastian.huber@…>|Thu, 10 Aug 2017 06:19:09 GMT| |https://devel.rtems.org/ticket/3093#comment:1|
-|Sebastian Huber <sebastian.huber@…>|Thu, 10 Aug 2017 07:04:55 GMT| |https://devel.rtems.org/ticket/3093#comment:2|
-|Sebastian Huber <sebastian.huber@…>|Thu, 10 Aug 2017 07:25:32 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3093#comment:3|
+|Sebastian Huber <seb<br />astian.huber@…>|Thu, 10 Aug 2017 06:<br />19:09 GMT| |https://devel.rtems.<br />org/ticket/3093#comm<br />ent:1|
+|Sebastian Huber <seb<br />astian.huber@…>|Thu, 10 Aug 2017 07:<br />04:55 GMT| |https://devel.rtems.<br />org/ticket/3093#comm<br />ent:2|
+|Sebastian Huber <seb<br />astian.huber@…>|Thu, 10 Aug 2017 07:<br />25:32 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3093#comm<br />ent:3|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3093#comment:1|In a95d909/rtems: arm: Validate IT[7:0] bit field of PSR Update #3093.|Ticket|
-|https://devel.rtems.org/ticket/3093#comment:2|In 0daa8ab/rtems: arm: Use ARM code on Thumb 1 targets Update #3093.|Ticket|
-|https://devel.rtems.org/ticket/3093#comment:3|status changed from assigned to closed resolution set to fixed In 7d097c5/rtems: arm: Validate IT[7:0] bit field of PSR Close #3093.|Ticket|
+|https://devel.rtems.<br />org/ticket/3093#comm<br />ent:1|In a95d909/rtems: ar<br />m: Validate IT[7:0] <br />bit field of PSR Upd<br />ate #3093.|Ticket|
+|https://devel.rtems.<br />org/ticket/3093#comm<br />ent:2|In 0daa8ab/rtems: ar<br />m: Use ARM code on T<br />humb 1 targets Updat<br />e #3093.|Ticket|
+|https://devel.rtems.<br />org/ticket/3093#comm<br />ent:3|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In 7d097c5/rtems:<br /> arm: Validate IT[7:<br />0] bit field of PSR <br />Close #3093.|Ticket|
 
 
 ## [3094](https://devel.rtems.org/ticket/3094)
@@ -2224,11 +2224,11 @@ ARM: Back port Newlib patch to avoid warnings with -fno-short-enums
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Sebastian Huber <sebastian.huber@…>|Fri, 11 Aug 2017 05:16:41 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3094#comment:1|
+|Sebastian Huber <seb<br />astian.huber@…>|Fri, 11 Aug 2017 05:<br />16:41 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3094#comm<br />ent:1|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3094#comment:1|status changed from assigned to closed resolution set to fixed In 50908d2/rtems-source-builder: ARM: Avoid warnings with -fno-short-enums Close #3094.|Ticket|
+|https://devel.rtems.<br />org/ticket/3094#comm<br />ent:1|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In 50908d2/rtems-<br />source-builder: ARM:<br /> Avoid warnings with<br /> -fno-short-enums Cl<br />ose #3094.|Ticket|
 
 
 ## [3104](https://devel.rtems.org/ticket/3104)
@@ -2263,15 +2263,15 @@ Shell internal commands should be public.
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Mon, 05 Feb 2018 05:50:58 GMT|status changed|https://devel.rtems.org/ticket/3104#comment:1|
-|Chris Johns|Mon, 05 Feb 2018 05:51:09 GMT|component changed|https://devel.rtems.org/ticket/3104#comment:2|
-|Chris Johns|Mon, 05 Feb 2018 23:24:48 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3104#comment:3|
+|Chris Johns|Mon, 05 Feb 2018 05:<br />50:58 GMT|status changed|https://devel.rtems.<br />org/ticket/3104#comm<br />ent:1|
+|Chris Johns|Mon, 05 Feb 2018 05:<br />51:09 GMT|component changed|https://devel.rtems.<br />org/ticket/3104#comm<br />ent:2|
+|Chris Johns|Mon, 05 Feb 2018 23:<br />24:48 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3104#comm<br />ent:3|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3104#comment:1|status changed from assigned to accepted|Ticket|
-|https://devel.rtems.org/ticket/3104#comment:2|component changed from unspecified to shell|Ticket|
-|https://devel.rtems.org/ticket/3104#comment:3|status changed from accepted to closed resolution set to fixed ​https://git.rtems.org/rtems/commit/?h=4.11&id=89fd08eae6d3801a917daccc992b0ac5b32cf4d6|Ticket|
+|https://devel.rtems.<br />org/ticket/3104#comm<br />ent:1|status changed from <br />assigned to accepted|Ticket|
+|https://devel.rtems.<br />org/ticket/3104#comm<br />ent:2|component changed fr<br />om unspecified to sh<br />ell|Ticket|
+|https://devel.rtems.<br />org/ticket/3104#comm<br />ent:3|status changed from <br />accepted to closed r<br />esolution set to fix<br />ed ​https://git.rtem<br />s.org/rtems/commit/?<br />h=4.11&id=89fd08eae6<br />d3801a917daccc992b0a<br />c5b32cf4d6|Ticket|
 
 
 ## [3105](https://devel.rtems.org/ticket/3105)
@@ -2307,13 +2307,13 @@ Invalid memory size configuration for POSIX keys
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Sebastian Huber <sebastian.huber@…>|Tue, 22 Aug 2017 06:02:41 GMT| |https://devel.rtems.org/ticket/3105#comment:1|
-|Sebastian Huber <sebastian.huber@…>|Tue, 22 Aug 2017 14:13:58 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3105#comment:2|
+|Sebastian Huber <seb<br />astian.huber@…>|Tue, 22 Aug 2017 06:<br />02:41 GMT| |https://devel.rtems.<br />org/ticket/3105#comm<br />ent:1|
+|Sebastian Huber <seb<br />astian.huber@…>|Tue, 22 Aug 2017 14:<br />13:58 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3105#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3105#comment:1|In e0660391/rtems: confdefs: Fix POSIX keys configuration Remove the OBJECTS_UNLIMITED_OBJECTS flag for the memory size configuration. Update #3105.|Ticket|
-|https://devel.rtems.org/ticket/3105#comment:2|status changed from assigned to closed resolution set to fixed In 492c95e/rtems: confdefs: Fix POSIX keys configuration Remove the OBJECTS_UNLIMITED_OBJECTS flag for the memory size configuration. Close #3105.|Ticket|
+|https://devel.rtems.<br />org/ticket/3105#comm<br />ent:1|In e0660391/rtems: c<br />onfdefs: Fix POSIX k<br />eys configuration Re<br />move the OBJECTS_UNL<br />IMITED_OBJECTS flag <br />for the memory size <br />configuration. Updat<br />e #3105.|Ticket|
+|https://devel.rtems.<br />org/ticket/3105#comm<br />ent:2|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In 492c95e/rtems:<br /> confdefs: Fix POSIX<br /> keys configuration <br />Remove the OBJECTS_U<br />NLIMITED_OBJECTS fla<br />g for the memory siz<br />e configuration. Clo<br />se #3105.|Ticket|
 
 
 ## [3108](https://devel.rtems.org/ticket/3108)
@@ -2349,11 +2349,11 @@ Remove RSB ARM specific config file rtems-arm-gcc-4.9.3-newlib-2.2.0-20150423-
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns <chrisj@…>|Wed, 23 Aug 2017 01:11:13 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3108#comment:1|
+|Chris Johns <chrisj@<br />…>|Wed, 23 Aug 2017 01:<br />11:13 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3108#comm<br />ent:1|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3108#comment:1|status changed from assigned to closed resolution set to fixed In 4a87913/rtems-source-builder: Remove RSB ARM specific config file rtems-arm-gcc-4.9.3-newlib-2.2.0-20150423-1.cfg Closes #3108.|Ticket|
+|https://devel.rtems.<br />org/ticket/3108#comm<br />ent:1|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In 4a87913/rtems-<br />source-builder: Remo<br />ve RSB ARM specific <br />config file rtems-ar<br />m-gcc-4.9.3-newlib-2<br />.2.0-20150423-1.cfg <br />Closes #3108.|Ticket|
 
 
 ## [3161](https://devel.rtems.org/ticket/3161)
@@ -2388,13 +2388,13 @@ I2C EEPROM driver uses incorrect address format
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Sebastian Huber <sebastian.huber@…>|Mon, 02 Oct 2017 11:41:17 GMT| |https://devel.rtems.org/ticket/3161#comment:1|
-|Sebastian Huber|Mon, 02 Oct 2017 11:47:47 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3161#comment:2|
+|Sebastian Huber <seb<br />astian.huber@…>|Mon, 02 Oct 2017 11:<br />41:17 GMT| |https://devel.rtems.<br />org/ticket/3161#comm<br />ent:1|
+|Sebastian Huber|Mon, 02 Oct 2017 11:<br />47:47 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3161#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3161#comment:1|In 2e1d595/rtems: i2c: Send MSB of address first for EEPROMs Update #3161.|Ticket|
-|https://devel.rtems.org/ticket/3161#comment:2|status changed from assigned to closed resolution set to fixed [8ca15e26ba98f172ee1396f34269ca664925427d/rtems]|Ticket|
+|https://devel.rtems.<br />org/ticket/3161#comm<br />ent:1|In 2e1d595/rtems: i2<br />c: Send MSB of addre<br />ss first for EEPROMs<br /> Update #3161.|Ticket|
+|https://devel.rtems.<br />org/ticket/3161#comm<br />ent:2|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed [8ca15e26ba98f172<br />ee1396f34269ca664925<br />427d/rtems]|Ticket|
 
 
 ## [3162](https://devel.rtems.org/ticket/3162)
@@ -2431,13 +2431,13 @@ I2C EEPROM driver uses incorrect program timeout handling
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Sebastian Huber <sebastian.huber@…>|Mon, 02 Oct 2017 11:41:28 GMT| |https://devel.rtems.org/ticket/3162#comment:1|
-|Sebastian Huber <sebastian.huber@…>|Mon, 02 Oct 2017 11:47:06 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3162#comment:2|
+|Sebastian Huber <seb<br />astian.huber@…>|Mon, 02 Oct 2017 11:<br />41:28 GMT| |https://devel.rtems.<br />org/ticket/3162#comm<br />ent:1|
+|Sebastian Huber <seb<br />astian.huber@…>|Mon, 02 Oct 2017 11:<br />47:06 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3162#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3162#comment:1|In 9c063df/rtems: i2c: Fix EEPROM driver program timeout handling The RTEMS_MILLISECONDS_TO_TICKS() macro doesn't round up. Do not use it to calculate the program timeout in ticks. Check program done condition after the timeout check to account for pre-emptions. Update #3162.|Ticket|
-|https://devel.rtems.org/ticket/3162#comment:2|status changed from assigned to closed resolution set to fixed In 1a21831/rtems: i2c: Fix EEPROM driver program timeout handling The RTEMS_MILLISECONDS_TO_TICKS() macro doesn't round up. Do not use it to calculate the program timeout in ticks. Check program done condition after the timeout check to account for pre-emptions. Close #3162.|Ticket|
+|https://devel.rtems.<br />org/ticket/3162#comm<br />ent:1|In 9c063df/rtems: i2<br />c: Fix EEPROM driver<br /> program timeout han<br />dling The RTEMS_MILL<br />ISECONDS_TO_TICKS() <br />macro doesn't round <br />up. Do not use it to<br /> calculate the progr<br />am timeout in ticks.<br /> Check program done <br />condition after the <br />timeout check to acc<br />ount for pre-emption<br />s. Update #3162.|Ticket|
+|https://devel.rtems.<br />org/ticket/3162#comm<br />ent:2|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In 1a21831/rtems:<br /> i2c: Fix EEPROM dri<br />ver program timeout <br />handling The RTEMS_M<br />ILLISECONDS_TO_TICKS<br />() macro doesn't rou<br />nd up. Do not use it<br /> to calculate the pr<br />ogram timeout in tic<br />ks. Check program do<br />ne condition after t<br />he timeout check to <br />account for pre-empt<br />ions. Close #3162.|Ticket|
 
 
 ## [3164](https://devel.rtems.org/ticket/3164)
@@ -2467,13 +2467,13 @@ aio_cancel() does not destroy the corresponding condition variables
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Sebastian Huber <sebastian.huber@…>|Wed, 04 Oct 2017 07:25:50 GMT| |https://devel.rtems.org/ticket/3164#comment:1|
-|Sebastian Huber <sebastian.huber@…>|Wed, 04 Oct 2017 07:26:55 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3164#comment:2|
+|Sebastian Huber <seb<br />astian.huber@…>|Wed, 04 Oct 2017 07:<br />25:50 GMT| |https://devel.rtems.<br />org/ticket/3164#comm<br />ent:1|
+|Sebastian Huber <seb<br />astian.huber@…>|Wed, 04 Oct 2017 07:<br />26:55 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3164#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3164#comment:1|In dcdd329/rtems: posix: Fix aio_cancel() Update #3164.|Ticket|
-|https://devel.rtems.org/ticket/3164#comment:2|status changed from assigned to closed resolution set to fixed In c139a70/rtems: posix: Fix aio_cancel() Close #3164.|Ticket|
+|https://devel.rtems.<br />org/ticket/3164#comm<br />ent:1|In dcdd329/rtems: po<br />six: Fix aio_cancel(<br />) Update #3164.|Ticket|
+|https://devel.rtems.<br />org/ticket/3164#comm<br />ent:2|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In c139a70/rtems:<br /> posix: Fix aio_canc<br />el() Close #3164.|Ticket|
 
 
 ## [3183](https://devel.rtems.org/ticket/3183)
@@ -2607,17 +2607,17 @@ Build of RTEMS 4.11.2 using RSB fails for ARM
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Steen Palm|Thu, 12 Oct 2017 08:00:23 GMT| |https://devel.rtems.org/ticket/3183#comment:1|
-|Chris Johns|Thu, 12 Oct 2017 15:52:03 GMT| |https://devel.rtems.org/ticket/3183#comment:2|
-|Chris Johns|Tue, 06 Feb 2018 00:41:37 GMT|status, component changed; owner, milestone set|https://devel.rtems.org/ticket/3183#comment:3|
-|Chris Johns|Wed, 07 Feb 2018 03:12:28 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3183#comment:4|
+|Steen Palm|Thu, 12 Oct 2017 08:<br />00:23 GMT| |https://devel.rtems.<br />org/ticket/3183#comm<br />ent:1|
+|Chris Johns|Thu, 12 Oct 2017 15:<br />52:03 GMT| |https://devel.rtems.<br />org/ticket/3183#comm<br />ent:2|
+|Chris Johns|Tue, 06 Feb 2018 00:<br />41:37 GMT|status, component ch<br />anged; owner, milest<br />one set|https://devel.rtems.<br />org/ticket/3183#comm<br />ent:3|
+|Chris Johns|Wed, 07 Feb 2018 03:<br />12:28 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3183#comm<br />ent:4|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3183#comment:1|I forgot to mention that the platform is Debian 8.|Ticket|
-|https://devel.rtems.org/ticket/3183#comment:2|As a work around please add --without-rtems as an option to the RSB set builder command. You will then need to build RTEMS yourself and you can select the specific BSP you are interested in.|Ticket|
-|https://devel.rtems.org/ticket/3183#comment:3|owner set to Chris Johns status changed from new to assigned component changed from admin to arch/arm milestone set to 4.11.3|Ticket|
-|https://devel.rtems.org/ticket/3183#comment:4|status changed from assigned to closed resolution set to fixed This fix resolves the RSB side of things, the kernel is now not build by default with the following change so this error is avoided: ​https://git.rtems.org/rtems-source-builder/commit/?h=4.11&id=49033ffc66f75d10ba47df166be77827d0069b56 The underlying bug in the BSP is still present and if it is a problem a new ticket can be created.|Ticket|
+|https://devel.rtems.<br />org/ticket/3183#comm<br />ent:1|I forgot to mention <br />that the platform is<br /> Debian 8.|Ticket|
+|https://devel.rtems.<br />org/ticket/3183#comm<br />ent:2|As a work around ple<br />ase add --without-rt<br />ems as an option to <br />the RSB set builder <br />command. You will th<br />en need to build RTE<br />MS yourself and you <br />can select the speci<br />fic BSP you are inte<br />rested in.|Ticket|
+|https://devel.rtems.<br />org/ticket/3183#comm<br />ent:3|owner set to Chris J<br />ohns status changed <br />from new to assigned<br /> component changed f<br />rom admin to arch/ar<br />m milestone set to 4<br />.11.3|Ticket|
+|https://devel.rtems.<br />org/ticket/3183#comm<br />ent:4|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed This fix resolves<br /> the RSB side of thi<br />ngs, the kernel is n<br />ow not build by defa<br />ult with the followi<br />ng change so this er<br />ror is avoided: ​htt<br />ps://git.rtems.org/r<br />tems-source-builder/<br />commit/?h=4.11&id=49<br />033ffc66f75d10ba47df<br />166be77827d0069b56 T<br />he underlying bug in<br /> the BSP is still pr<br />esent and if it is a<br /> problem a new ticke<br />t can be created.|Ticket|
 
 
 ## [3193](https://devel.rtems.org/ticket/3193)
@@ -2657,13 +2657,13 @@ NOT released from source builder
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Mon, 05 Feb 2018 04:36:33 GMT|status changed; owner set|https://devel.rtems.org/ticket/3193#comment:1|
-|Chris Johns|Wed, 07 Feb 2018 02:59:44 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3193#comment:2|
+|Chris Johns|Mon, 05 Feb 2018 04:<br />36:33 GMT|status changed; owne<br />r set|https://devel.rtems.<br />org/ticket/3193#comm<br />ent:1|
+|Chris Johns|Wed, 07 Feb 2018 02:<br />59:44 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3193#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3193#comment:1|owner set to Chris Johns status changed from new to accepted|Ticket|
-|https://devel.rtems.org/ticket/3193#comment:2|status changed from accepted to closed resolution set to fixed I download ​rtems-source-builder-4.11.2.tar.xz and the sb-check shows: $ ./source-builder/sb-check RTEMS Source Builder - Check, 4.11.not_released Environment is ok which matches the output in this ticket. I copied the VERSION file from this version to the 4.11 branch version and got: $ ./source-builder/sb-check RTEMS Source Builder - Check, 4.11.2 I believe this issue is fixed on the branch.|Ticket|
+|https://devel.rtems.<br />org/ticket/3193#comm<br />ent:1|owner set to Chris J<br />ohns status changed <br />from new to accepted|Ticket|
+|https://devel.rtems.<br />org/ticket/3193#comm<br />ent:2|status changed from <br />accepted to closed r<br />esolution set to fix<br />ed I download ​rtems<br />-source-builder-4.11<br />.2.tar.xz and the sb<br />-check shows: $ ./so<br />urce-builder/sb-chec<br />k RTEMS Source Build<br />er - Check, 4.11.not<br />_released Environmen<br />t is ok which matche<br />s the output in this<br /> ticket. I copied th<br />e VERSION file from <br />this version to the <br />4.11 branch version <br />and got: $ ./source-<br />builder/sb-check RTE<br />MS Source Builder - <br />Check, 4.11.2 I beli<br />eve this issue is fi<br />xed on the branch.|Ticket|
 
 
 ## [3196](https://devel.rtems.org/ticket/3196)
@@ -2708,23 +2708,23 @@ has been raised for this
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Ben|Mon, 23 Oct 2017 08:38:46 GMT| |https://devel.rtems.org/ticket/3196#comment:1|
-|Chris Johns|Mon, 05 Feb 2018 04:47:05 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3196#comment:2|
+|Ben|Mon, 23 Oct 2017 08:<br />38:46 GMT| |https://devel.rtems.<br />org/ticket/3196#comm<br />ent:1|
+|Chris Johns|Mon, 05 Feb 2018 04:<br />47:05 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3196#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3196#comment:1|The problem has been resolved The message sequence "checking python2.7" and result "python missing" are not related In between is a check for Python.h which was not installed. Installation has resolved the generation issue Hence a recommendation is left for sb-check to test on Python.h (as well to check for ncurses and termcap)|Ticket|
-|https://devel.rtems.org/ticket/3196#comment:2|status changed from new to closed resolution set to wontfix This will not be fixed on this branch. Checking for a header is not simple to implement. Where do you check for python.h because the location can vary from host to host. For example on MacOS and Xcode it is /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7/Python.h.|Ticket|
+|https://devel.rtems.<br />org/ticket/3196#comm<br />ent:1|The problem has been<br /> resolved The messag<br />e sequence "checking<br /> python2.7" and resu<br />lt "python missing" <br />are not related In b<br />etween is a check fo<br />r Python.h which was<br /> not installed. Inst<br />allation has resolve<br />d the generation iss<br />ue Hence a recommend<br />ation is left for sb<br />-check to test on Py<br />thon.h (as well to c<br />heck for ncurses and<br /> termcap)|Ticket|
+|https://devel.rtems.<br />org/ticket/3196#comm<br />ent:2|status changed from <br />new to closed resolu<br />tion set to wontfix <br />This will not be fix<br />ed on this branch. C<br />hecking for a header<br /> is not simple to im<br />plement. Where do yo<br />u check for python.h<br /> because the locatio<br />n can vary from host<br /> to host. For exampl<br />e on MacOS and Xcode<br /> it is /Applications<br />/Xcode.app/Contents/<br />Developer/Platforms/<br />MacOSX.platform/Deve<br />loper/SDKs/MacOSX.sd<br />k/System/Library/Fra<br />meworks/Python.frame<br />work/Versions/2.7/in<br />clude/python2.7/Pyth<br />on.h.|Ticket|
 
 
 ### attachments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Ben|Tue, 17 Oct 2017 05:09:27 GMT|attachment set|https://devel.rtems.org/ticket/3196|
+|Ben|Tue, 17 Oct 2017 05:<br />09:27 GMT|attachment set|https://devel.rtems.<br />org/ticket/3196|
 
 |guid|description|category|attachment_link|
 |:---:|:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3196|attachment set to config.log config.log in ..../rtems-source-builder-4.11.2/rtems/build/m68k-rtems4.11-gdb-7.9-i686-linux-gnu-1/build/gdb|Ticket|https://devel.rtems.org/attachment/ticket/3196/config.log|
+|https://devel.rtems.<br />org/ticket/3196|attachment set to co<br />nfig.log config.log <br />in ..../rtems-source<br />-builder-4.11.2/rtem<br />s/build/m68k-rtems4.<br />11-gdb-7.9-i686-linu<br />x-gnu-1/build/gdb|Ticket|https://devel.rtems.<br />org/attachment/ticke<br />t/3196/config.log|
 
 
 ## [3257](https://devel.rtems.org/ticket/3257)
@@ -2761,13 +2761,13 @@ fat: Support files in the root directoy with the same name as the volume label
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Christian Mauderer <Christian.Mauderer@…>|Tue, 05 Dec 2017 07:01:08 GMT| |https://devel.rtems.org/ticket/3257#comment:1|
-|Christian Mauderer <Christian.Mauderer@…>|Tue, 05 Dec 2017 07:03:36 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3257#comment:2|
+|Christian Mauderer <<br />Christian.Mauderer@…<br />>|Tue, 05 Dec 2017 07:<br />01:08 GMT| |https://devel.rtems.<br />org/ticket/3257#comm<br />ent:1|
+|Christian Mauderer <<br />Christian.Mauderer@…<br />>|Tue, 05 Dec 2017 07:<br />03:36 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3257#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3257#comment:1|In ca835e56/rtems: dosfs: Fix files with same name as volume name. Take care that a file in the root directory with the same name as the volume name can be found. Update #3257.|Ticket|
-|https://devel.rtems.org/ticket/3257#comment:2|status changed from assigned to closed resolution set to fixed In 004a63e/rtems: dosfs: Fix files with same name as volume name. Take care that a file in the root directory with the same name as the volume name can be found. Close #3257.|Ticket|
+|https://devel.rtems.<br />org/ticket/3257#comm<br />ent:1|In ca835e56/rtems: d<br />osfs: Fix files with<br /> same name as volume<br /> name. Take care tha<br />t a file in the root<br /> directory with the <br />same name as the vol<br />ume name can be foun<br />d. Update #3257.|Ticket|
+|https://devel.rtems.<br />org/ticket/3257#comm<br />ent:2|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In 004a63e/rtems:<br /> dosfs: Fix files wi<br />th same name as volu<br />me name. Take care t<br />hat a file in the ro<br />ot directory with th<br />e same name as the v<br />olume name can be fo<br />und. Close #3257.|Ticket|
 
 
 ## [3258](https://devel.rtems.org/ticket/3258)
@@ -2807,13 +2807,13 @@ ory
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Christian Mauderer <Christian.Mauderer@…>|Thu, 07 Dec 2017 07:03:44 GMT| |https://devel.rtems.org/ticket/3258#comment:1|
-|Christian Mauderer <Christian.Mauderer@…>|Thu, 07 Dec 2017 07:04:31 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3258#comment:2|
+|Christian Mauderer <<br />Christian.Mauderer@…<br />>|Thu, 07 Dec 2017 07:<br />03:44 GMT| |https://devel.rtems.<br />org/ticket/3258#comm<br />ent:1|
+|Christian Mauderer <<br />Christian.Mauderer@…<br />>|Thu, 07 Dec 2017 07:<br />04:31 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3258#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3258#comment:1|In 2fe3687/rtems: dosfs: Allow creating a file with similar name. If there is already a file with a long file name it isn't possible to create a second file which has a name that ends on the first files name (for example ets.beam and sets.beam). This patch fixes that. Update #3258.|Ticket|
-|https://devel.rtems.org/ticket/3258#comment:2|status changed from assigned to closed resolution set to fixed In d438427/rtems: dosfs: Allow creating a file with similar name. If there is already a file with a long file name it isn't possible to create a second file which has a name that ends on the first files name (for example ets.beam and sets.beam). This patch fixes that. Close #3258.|Ticket|
+|https://devel.rtems.<br />org/ticket/3258#comm<br />ent:1|In 2fe3687/rtems: do<br />sfs: Allow creating <br />a file with similar <br />name. If there is al<br />ready a file with a <br />long file name it is<br />n't possible to crea<br />te a second file whi<br />ch has a name that e<br />nds on the first fil<br />es name (for example<br /> ets.beam and sets.b<br />eam). This patch fix<br />es that. Update #325<br />8.|Ticket|
+|https://devel.rtems.<br />org/ticket/3258#comm<br />ent:2|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In d438427/rtems:<br /> dosfs: Allow creati<br />ng a file with simil<br />ar name. If there is<br /> already a file with<br /> a long file name it<br /> isn't possible to c<br />reate a second file <br />which has a name tha<br />t ends on the first <br />files name (for exam<br />ple ets.beam and set<br />s.beam). This patch <br />fixes that. Close #3<br />258.|Ticket|
 
 
 ## [3271](https://devel.rtems.org/ticket/3271)
@@ -2866,25 +2866,25 @@ Avoid using multiprocessor.org in rtems source builder
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Gedare|Sat, 13 Jan 2018 14:21:57 GMT|status, severity changed; owner, version, milestone set|https://devel.rtems.org/ticket/3271#comment:1|
-|Gedare|Sat, 13 Jan 2018 14:23:10 GMT|version changed|https://devel.rtems.org/ticket/3271#comment:2|
-|Chris Johns|Mon, 15 Jan 2018 22:00:57 GMT|status changed|https://devel.rtems.org/ticket/3271#comment:3|
-|Chris Johns|Mon, 15 Jan 2018 22:25:37 GMT|version, milestone changed|https://devel.rtems.org/ticket/3271#comment:4|
-|mholm|Tue, 16 Jan 2018 07:09:03 GMT| |https://devel.rtems.org/ticket/3271#comment:5|
-|Chris Johns|Tue, 16 Jan 2018 08:01:24 GMT| |https://devel.rtems.org/ticket/3271#comment:6|
-|Chris Johns <chrisj@…>|Thu, 18 Jan 2018 03:19:40 GMT| |https://devel.rtems.org/ticket/3271#comment:7|
-|Chris Johns|Wed, 07 Feb 2018 22:12:41 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3271#comment:8|
+|Gedare|Sat, 13 Jan 2018 14:<br />21:57 GMT|status, severity cha<br />nged; owner, version<br />, milestone set|https://devel.rtems.<br />org/ticket/3271#comm<br />ent:1|
+|Gedare|Sat, 13 Jan 2018 14:<br />23:10 GMT|version changed|https://devel.rtems.<br />org/ticket/3271#comm<br />ent:2|
+|Chris Johns|Mon, 15 Jan 2018 22:<br />00:57 GMT|status changed|https://devel.rtems.<br />org/ticket/3271#comm<br />ent:3|
+|Chris Johns|Mon, 15 Jan 2018 22:<br />25:37 GMT|version, milestone c<br />hanged|https://devel.rtems.<br />org/ticket/3271#comm<br />ent:4|
+|mholm|Tue, 16 Jan 2018 07:<br />09:03 GMT| |https://devel.rtems.<br />org/ticket/3271#comm<br />ent:5|
+|Chris Johns|Tue, 16 Jan 2018 08:<br />01:24 GMT| |https://devel.rtems.<br />org/ticket/3271#comm<br />ent:6|
+|Chris Johns <chrisj@<br />…>|Thu, 18 Jan 2018 03:<br />19:40 GMT| |https://devel.rtems.<br />org/ticket/3271#comm<br />ent:7|
+|Chris Johns|Wed, 07 Feb 2018 22:<br />12:41 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3271#comm<br />ent:8|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3271#comment:1|owner set to Chris Johns status changed from new to assigned version set to 4.10 severity changed from critical to blocker milestone set to 5.1|Ticket|
-|https://devel.rtems.org/ticket/3271#comment:2|version changed from 4.10 to 5 Fix should be applied to 4.11, 4.10, and master branches of RSB, please.|Ticket|
-|https://devel.rtems.org/ticket/3271#comment:3|status changed from assigned to accepted|Ticket|
-|https://devel.rtems.org/ticket/3271#comment:4|version changed from 5 to 4.11 milestone changed from 5.1 to 4.11.3 RTEMS 5 is already using the GNU FTP site (1). I have moved this ticket to 4.11 and a 4.11.3 milestone. Note, for 4.10 we need a separate ticket with a suitable 4.10 milestone, a ticket cannot cover more than one release and milestone. That ticket could reference this ticket and depend on it however by default Trac does not support any ticket dependency and I think we may need something (2) if we want to be able to do this. (1) ​https://git.rtems.org/rtems-source-builder/tree/source-builder/config/gcc-7-1.cfg#n21 (2) ​https://trac-hacks.org/wiki/MasterTicketsPlugin|Ticket|
-|https://devel.rtems.org/ticket/3271#comment:5|I added ​https://devel.rtems.org/ticket/3272 for the 4.10 branch.|Ticket|
-|https://devel.rtems.org/ticket/3271#comment:6|Replying to mholm: I added ​https://devel.rtems.org/ticket/3272 for the 4.10 branch. Thank you. I have a patch for that branch so I will update the ticket details and post it soon.|Ticket|
-|https://devel.rtems.org/ticket/3271#comment:7|In f7c729e/rtems-source-builder: gcc: Update MPC verison to one hosted on GNU's FTP site. Update #3271|Ticket|
-|https://devel.rtems.org/ticket/3271#comment:8|status changed from accepted to closed resolution set to fixed Check the 4.11 branch and it is now using the GNU ftp site: package: arm-rtems4.11-gcc-4.9.3-newlib-2.2.0.20150423-x86_64-freebsd11.1-1 download: https://ftp.gnu.org/gnu/mpc/mpc-1.0.3.tar.gz -> sources/mpc-1.0.3.tar.gz downloading: sources/mpc-1.0.3.tar.gz - 654.2kB of 654.2kB (100%)|Ticket|
+|https://devel.rtems.<br />org/ticket/3271#comm<br />ent:1|owner set to Chris J<br />ohns status changed <br />from new to assigned<br /> version set to 4.10<br /> severity changed fr<br />om critical to block<br />er milestone set to <br />5.1|Ticket|
+|https://devel.rtems.<br />org/ticket/3271#comm<br />ent:2|version changed from<br /> 4.10 to 5 Fix shoul<br />d be applied to 4.11<br />, 4.10, and master b<br />ranches of RSB, plea<br />se.|Ticket|
+|https://devel.rtems.<br />org/ticket/3271#comm<br />ent:3|status changed from <br />assigned to accepted|Ticket|
+|https://devel.rtems.<br />org/ticket/3271#comm<br />ent:4|version changed from<br /> 5 to 4.11 milestone<br /> changed from 5.1 to<br /> 4.11.3 RTEMS 5 is a<br />lready using the GNU<br /> FTP site (1). I hav<br />e moved this ticket <br />to 4.11 and a 4.11.3<br /> milestone. Note, fo<br />r 4.10 we need a sep<br />arate ticket with a <br />suitable 4.10 milest<br />one, a ticket cannot<br /> cover more than one<br /> release and milesto<br />ne. That ticket coul<br />d reference this tic<br />ket and depend on it<br /> however by default <br />Trac does not suppor<br />t any ticket depende<br />ncy and I think we m<br />ay need something (2<br />) if we want to be a<br />ble to do this. (1) <br />​https://git.rtems.o<br />rg/rtems-source-buil<br />der/tree/source-buil<br />der/config/gcc-7-1.c<br />fg#n21 (2) ​https://<br />trac-hacks.org/wiki/<br />MasterTicketsPlugin|Ticket|
+|https://devel.rtems.<br />org/ticket/3271#comm<br />ent:5|I added ​https://dev<br />el.rtems.org/ticket/<br />3272 for the 4.10 br<br />anch.|Ticket|
+|https://devel.rtems.<br />org/ticket/3271#comm<br />ent:6|Replying to mholm: I<br /> added ​https://deve<br />l.rtems.org/ticket/3<br />272 for the 4.10 bra<br />nch. Thank you. I ha<br />ve a patch for that <br />branch so I will upd<br />ate the ticket detai<br />ls and post it soon.|Ticket|
+|https://devel.rtems.<br />org/ticket/3271#comm<br />ent:7|In f7c729e/rtems-sou<br />rce-builder: gcc: Up<br />date MPC verison to <br />one hosted on GNU's <br />FTP site. Update #32<br />71|Ticket|
+|https://devel.rtems.<br />org/ticket/3271#comm<br />ent:8|status changed from <br />accepted to closed r<br />esolution set to fix<br />ed Check the 4.11 br<br />anch and it is now u<br />sing the GNU ftp sit<br />e: package: arm-rtem<br />s4.11-gcc-4.9.3-newl<br />ib-2.2.0.20150423-x8<br />6_64-freebsd11.1-1 d<br />ownload: https://ftp<br />.gnu.org/gnu/mpc/mpc<br />-1.0.3.tar.gz -> sou<br />rces/mpc-1.0.3.tar.g<br />z downloading: sourc<br />es/mpc-1.0.3.tar.gz <br />- 654.2kB of 654.2kB<br /> (100%)|Ticket|
 
 
 ## [3274](https://devel.rtems.org/ticket/3274)
@@ -2919,20 +2919,20 @@ RSB remove unused tool configuration files.
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns <chrisj@…>|Fri, 19 Jan 2018 00:41:42 GMT| |https://devel.rtems.org/ticket/3274#comment:1|
-|Chris Johns|Fri, 19 Jan 2018 02:19:17 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3274#comment:2|
+|Chris Johns <chrisj@<br />…>|Fri, 19 Jan 2018 00:<br />41:42 GMT| |https://devel.rtems.<br />org/ticket/3274#comm<br />ent:1|
+|Chris Johns|Fri, 19 Jan 2018 02:<br />19:17 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3274#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3274#comment:1|In efa1677/rtems-source-builder: rtems: Update all MPC version to use GNU's FTP site. Update #3274|Ticket|
-|https://devel.rtems.org/ticket/3274#comment:2|status changed from assigned to closed resolution set to fixed|Ticket|
+|https://devel.rtems.<br />org/ticket/3274#comm<br />ent:1|In efa1677/rtems-sou<br />rce-builder: rtems: <br />Update all MPC versi<br />on to use GNU's FTP <br />site. Update #3274|Ticket|
+|https://devel.rtems.<br />org/ticket/3274#comm<br />ent:2|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed|Ticket|
 
 
 ## [3275](https://devel.rtems.org/ticket/3275)
 ### meta
 |id|reporter|owner|type|
 |:---:|:---:|:---:|:---:|
-|3275|Chris Johns|Chris Johns <chrisj@…>|defect|
+|3275|Chris Johns|Chris Johns <chrisj@<br />…>|defect|
 
 |status|priority|milestone|component|
 |:---:|:---:|:---:|:---:|
@@ -2960,13 +2960,13 @@ RSB do not build the kernel when released.
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns <chrisj@…>|Fri, 19 Jan 2018 02:44:20 GMT|status changed; owner, resolution set|https://devel.rtems.org/ticket/3275#comment:1|
-|Chris Johns <chrisj@…>|Sun, 25 Mar 2018 23:13:30 GMT| |https://devel.rtems.org/ticket/3275#comment:2|
+|Chris Johns <chrisj@<br />…>|Fri, 19 Jan 2018 02:<br />44:20 GMT|status changed; owne<br />r, resolution set|https://devel.rtems.<br />org/ticket/3275#comm<br />ent:1|
+|Chris Johns <chrisj@<br />…>|Sun, 25 Mar 2018 23:<br />13:30 GMT| |https://devel.rtems.<br />org/ticket/3275#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3275#comment:1|owner set to Chris Johns <chrisj@…> status changed from new to closed resolution set to fixed In 49033ff/rtems-source-builder: kernel: Do not build the RTEMS kernel by default when released. Close #3275|Ticket|
-|https://devel.rtems.org/ticket/3275#comment:2|In db86923/rtems-docs: RSB does not build a kernel by default. Update #3275.|Ticket|
+|https://devel.rtems.<br />org/ticket/3275#comm<br />ent:1|owner set to Chris J<br />ohns <chrisj@…> stat<br />us changed from new <br />to closed resolution<br /> set to fixed In 490<br />33ff/rtems-source-bu<br />ilder: kernel: Do no<br />t build the RTEMS ke<br />rnel by default when<br /> released. Close #32<br />75|Ticket|
+|https://devel.rtems.<br />org/ticket/3275#comm<br />ent:2|In db86923/rtems-doc<br />s: RSB does not buil<br />d a kernel by defaul<br />t. Update #3275.|Ticket|
 
 
 ## [3279](https://devel.rtems.org/ticket/3279)
@@ -3003,11 +3003,11 @@ Make the XZ executable path based on the Darwin (MacOS) host.
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns <chrisj@…>|Mon, 29 Jan 2018 03:26:00 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3279#comment:1|
+|Chris Johns <chrisj@<br />…>|Mon, 29 Jan 2018 03:<br />26:00 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3279#comm<br />ent:1|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3279#comment:1|status changed from assigned to closed resolution set to fixed In 892b416/rtems-source-builder: darwin: Make the xz executable path based. The xz tool is not provided in Xcode command line tools and needs to built or obtained somehow. This path can be any where so relax the need for an absolute path. Close #3279|Ticket|
+|https://devel.rtems.<br />org/ticket/3279#comm<br />ent:1|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In 892b416/rtems-<br />source-builder: darw<br />in: Make the xz exec<br />utable path based. T<br />he xz tool is not pr<br />ovided in Xcode comm<br />and line tools and n<br />eeds to built or obt<br />ained somehow. This <br />path can be any wher<br />e so relax the need <br />for an absolute path<br />. Close #3279|Ticket|
 
 
 ## [3289](https://devel.rtems.org/ticket/3289)
@@ -3043,13 +3043,13 @@ RSB backport changes to support mailing list posting of builds.
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Mon, 05 Feb 2018 04:33:55 GMT|status changed|https://devel.rtems.org/ticket/3289#comment:1|
-|Chris Johns|Mon, 05 Feb 2018 23:17:12 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3289#comment:2|
+|Chris Johns|Mon, 05 Feb 2018 04:<br />33:55 GMT|status changed|https://devel.rtems.<br />org/ticket/3289#comm<br />ent:1|
+|Chris Johns|Mon, 05 Feb 2018 23:<br />17:12 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3289#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3289#comment:1|status changed from assigned to accepted|Ticket|
-|https://devel.rtems.org/ticket/3289#comment:2|status changed from accepted to closed resolution set to fixed|Ticket|
+|https://devel.rtems.<br />org/ticket/3289#comm<br />ent:1|status changed from <br />assigned to accepted|Ticket|
+|https://devel.rtems.<br />org/ticket/3289#comm<br />ent:2|status changed from <br />accepted to closed r<br />esolution set to fix<br />ed|Ticket|
 
 
 ## [3295](https://devel.rtems.org/ticket/3295)
@@ -3084,13 +3084,13 @@ The option expansion is missing `--with-download'.
 ### comments
 |author|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns <chrisj@…>|Wed, 07 Feb 2018 22:14:41 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3295#comment:1|
-|Chris Johns <chrisj@…>|Fri, 16 Feb 2018 02:16:28 GMT| |https://devel.rtems.org/ticket/3295#comment:2|
+|Chris Johns <chrisj@<br />…>|Wed, 07 Feb 2018 22:<br />14:41 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3295#comm<br />ent:1|
+|Chris Johns <chrisj@<br />…>|Fri, 16 Feb 2018 02:<br />16:28 GMT| |https://devel.rtems.<br />org/ticket/3295#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3295#comment:1|status changed from assigned to closed resolution set to fixed In 4671017/rtems-source-builder: sb: Option --source-only-download does not download the source. The option expansion is missing `--with-download'. Close #3295|Ticket|
-|https://devel.rtems.org/ticket/3295#comment:2|In 4671017/rtems-source-builder: sb: Option --source-only-download does not download the source. The option expansion is missing `--with-download'. Close #3295|Ticket|
+|https://devel.rtems.<br />org/ticket/3295#comm<br />ent:1|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In 4671017/rtems-<br />source-builder: sb: <br />Option --source-only<br />-download does not d<br />ownload the source. <br />The option expansion<br /> is missing `--with-<br />download'. Close #32<br />95|Ticket|
+|https://devel.rtems.<br />org/ticket/3295#comm<br />ent:2|In 4671017/rtems-sou<br />rce-builder: sb: Opt<br />ion --source-only-do<br />wnload does not down<br />load the source. The<br /> option expansion is<br /> missing `--with-dow<br />nload'. Close #3295|Ticket|
 
 
 ## [3297](https://devel.rtems.org/ticket/3297)
@@ -3141,13 +3141,13 @@ s/libtests/heapwalk/Makefile:EXEEXT =
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Chris Johns|Thu, 08 Feb 2018 03:27:07 GMT|status changed; owner set|https://devel.rtems.org/ticket/3297#comment:1|
-|Chris Johns|Thu, 08 Feb 2018 22:34:45 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3297#comment:2|
+|Chris Johns|Thu, 08 Feb 2018 03:<br />27:07 GMT|status changed; owne<br />r set|https://devel.rtems.<br />org/ticket/3297#comm<br />ent:1|
+|Chris Johns|Thu, 08 Feb 2018 22:<br />34:45 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3297#comm<br />ent:2|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3297#comment:1|owner set to Chris Johns status changed from new to accepted|Ticket|
-|https://devel.rtems.org/ticket/3297#comment:2|status changed from accepted to closed resolution set to fixed ​http://git.rtems.org/rtems/commit/?id=1a304307a2f0527023b912595c70d0c7fb17a2d0|Ticket|
+|https://devel.rtems.<br />org/ticket/3297#comm<br />ent:1|owner set to Chris J<br />ohns status changed <br />from new to accepted|Ticket|
+|https://devel.rtems.<br />org/ticket/3297#comm<br />ent:2|status changed from <br />accepted to closed r<br />esolution set to fix<br />ed ​http://git.rtems<br />.org/rtems/commit/?i<br />d=1a304307a2f0527023<br />b912595c70d0c7fb17a2<br />d0|Ticket|
 
 
 ## [3075](https://devel.rtems.org/ticket/3075)
@@ -3162,7 +3162,7 @@ s/libtests/heapwalk/Makefile:EXEEXT =
 
 |version|severity|resolution|keywords|
 |:---:|:---:|:---:|:---:|
-|4.11|minor|fixed|interrupt lock acquire|
+|4.11|minor|fixed|interrupt lock acqui<br />re|
 
 |cc|blockedby|blocking|
 |:---:|:---:|:---:|
@@ -3207,18 +3207,18 @@ rs Guide"
 ### comments
 |creator|pubDate|title|link|
 |:---:|:---:|:---:|:---:|
-|Gedare|Thu, 13 Jul 2017 22:10:43 GMT|owner, status changed|https://devel.rtems.org/ticket/3075#comment:1|
-|Sebastian Huber <sebastian.huber@…>|Fri, 14 Jul 2017 05:53:00 GMT| |https://devel.rtems.org/ticket/3075#comment:2|
-|Sebastian Huber|Fri, 14 Jul 2017 05:53:23 GMT|milestone set|https://devel.rtems.org/ticket/3075#comment:3|
-|Sebastian Huber <sebastian.huber@…>|Fri, 14 Jul 2017 05:55:52 GMT|status changed; resolution set|https://devel.rtems.org/ticket/3075#comment:4|
-|Sebastian Huber|Fri, 14 Jul 2017 06:00:17 GMT| |https://devel.rtems.org/ticket/3075#comment:5|
-|Sebastian Huber|Tue, 10 Oct 2017 06:06:29 GMT|component changed|https://devel.rtems.org/ticket/3075#comment:6|
+|Gedare|Thu, 13 Jul 2017 22:<br />10:43 GMT|owner, status change<br />d|https://devel.rtems.<br />org/ticket/3075#comm<br />ent:1|
+|Sebastian Huber <seb<br />astian.huber@…>|Fri, 14 Jul 2017 05:<br />53:00 GMT| |https://devel.rtems.<br />org/ticket/3075#comm<br />ent:2|
+|Sebastian Huber|Fri, 14 Jul 2017 05:<br />53:23 GMT|milestone set|https://devel.rtems.<br />org/ticket/3075#comm<br />ent:3|
+|Sebastian Huber <seb<br />astian.huber@…>|Fri, 14 Jul 2017 05:<br />55:52 GMT|status changed; reso<br />lution set|https://devel.rtems.<br />org/ticket/3075#comm<br />ent:4|
+|Sebastian Huber|Fri, 14 Jul 2017 06:<br />00:17 GMT| |https://devel.rtems.<br />org/ticket/3075#comm<br />ent:5|
+|Sebastian Huber|Tue, 10 Oct 2017 06:<br />06:29 GMT|component changed|https://devel.rtems.<br />org/ticket/3075#comm<br />ent:6|
 
 |guid|description|category|
 |:---:|:---:|:---:|
-|https://devel.rtems.org/ticket/3075#comment:1|owner changed from chrisj@… to Sebastian Huber status changed from new to assigned|Ticket|
-|https://devel.rtems.org/ticket/3075#comment:2|In f776fe6/rtems-docs: c-user: Fix interrupt lock documentation Update #3075.|Ticket|
-|https://devel.rtems.org/ticket/3075#comment:3|milestone set to 4.11.3|Ticket|
-|https://devel.rtems.org/ticket/3075#comment:4|status changed from assigned to closed resolution set to fixed In eecec5f/rtems-docs: c-user: Fix interrupt lock documentation Close #3075.|Ticket|
-|https://devel.rtems.org/ticket/3075#comment:5|If it is still unclear, then please re-open the ticket.|Ticket|
-|https://devel.rtems.org/ticket/3075#comment:6|component changed from Documentation to doc|Ticket|
+|https://devel.rtems.<br />org/ticket/3075#comm<br />ent:1|owner changed from c<br />hrisj@… to Sebastian<br /> Huber status change<br />d from new to assign<br />ed|Ticket|
+|https://devel.rtems.<br />org/ticket/3075#comm<br />ent:2|In f776fe6/rtems-doc<br />s: c-user: Fix inter<br />rupt lock documentat<br />ion Update #3075.|Ticket|
+|https://devel.rtems.<br />org/ticket/3075#comm<br />ent:3|milestone set to 4.1<br />1.3|Ticket|
+|https://devel.rtems.<br />org/ticket/3075#comm<br />ent:4|status changed from <br />assigned to closed r<br />esolution set to fix<br />ed In eecec5f/rtems-<br />docs: c-user: Fix in<br />terrupt lock documen<br />tation Close #3075.|Ticket|
+|https://devel.rtems.<br />org/ticket/3075#comm<br />ent:5|If it is still uncle<br />ar, then please re-o<br />pen the ticket.|Ticket|
+|https://devel.rtems.<br />org/ticket/3075#comm<br />ent:6|component changed fr<br />om Documentation to <br />doc|Ticket|
