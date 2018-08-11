@@ -1,5 +1,6 @@
 # ReleaseNotesGenerator
 This repo contains code for generating RTEMS release notes.
+
 Introduction: This project aims to automatically create the RTEMS release notes for a release from the Trac data by using XML parser (Python). Since all changes on a release branch must have a ticket, the ticket is assigned the Version and Milestone. Therefore, web pages are converted to a PDF as the release notes.
 
 ## Current Markdown Version
