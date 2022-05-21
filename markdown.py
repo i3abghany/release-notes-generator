@@ -35,7 +35,7 @@ class markdown():
         self.line_width = line_width
 
     def gen_bullet_point(self, text):
-        self.content += '* ' + self.wrap_line(text, self.line_width) + '\n'
+        self.content += '* ' + self.wrap_line(str(text), self.line_width) + '\n'
 
     def gen_line(self, text):
         self.content += self.wrap_line(str(text), self.line_width) + '\n'
