@@ -57,7 +57,7 @@ class markdown():
         else:
             self.gen_table(header, rows)
 
-    def gen_table(self, header, rows, align ='center', max_col_width=20):
+    def gen_table(self, header, rows, align='center', max_col_width=20):
         num_columns = len(header)
         header = [str(h) for h in header]
 
@@ -71,7 +71,7 @@ class markdown():
             column_format = ':' + column_format
         elif align == 'right':
             column_format = column_format + ':'
-        elif align == 'center':
+        else:
             column_format = ':' + column_format + ':'
 
         split_line = column_format.join(['|'] * (num_columns + 1))
