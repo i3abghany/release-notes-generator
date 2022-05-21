@@ -61,9 +61,16 @@ class markdown():
         num_columns = len(header)
         header = [str(h) for h in header]
 
+        # TODO: figure out whether we need this hard line wrapping.
+        # We could ensure the A4 size on PDF generation and fill lines
+        # towards the end in the Markdown generation.
+
         rows = [[(str(r) if isinstance(r, int) else
                   self.wrap_line(str(r), max_col_width)) or ' ' for r in row]
                 for row in rows]
+
+        # rows = [[str(r) if isinstance(r, int) else r for r in row] for row in rows]
+
         header_str = '|' + '|'.join(header) + '|'
         column_format = '---'
 

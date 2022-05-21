@@ -40,6 +40,17 @@ def gen_overall_progress(overall_progress, md = markdown.markdown()):
     return md.content
 
 
+def gen_tickets_summary(tickets, md=markdown.markdown()):
+    md.gen_heading('Ticket Summary', 1)
+    md.gen_line('')
+
+    keys = tickets.keys()
+    id_summary_mapping = [(k, tickets[k]['meta']['summary']) for k in keys]
+    cols = ['id', 'summary']
+    md.gen_table(cols, id_summary_mapping)
+    return md.content
+
+
 def gen_tickets_stats_by_category(by_category, md = markdown.markdown()):
     md.gen_heading('By Category', 1)
     md.gen_line('')
