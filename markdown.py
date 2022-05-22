@@ -35,13 +35,13 @@ class markdown():
         self.line_width = line_width
 
     def gen_bullet_point(self, text):
-        self.content += '* ' + self.wrap_line(str(text), self.line_width) + '\n'
+        self.content += '* ' + self.wrap_line(self._convert_to_unicode_str(text), self.line_width) + '\n'
 
     def gen_line(self, text):
-        self.content += self.wrap_line(str(text), self.line_width) + '\n'
+        self.content += self.wrap_line(self._convert_to_unicode_str(text), self.line_width) + '\n'
 
     def gen_heading(self, text, level):
-        self.content += '\n' + ('#' * level) + ' ' + str(text) + '\n'
+        self.content += '\n' + ('#' * level) + ' ' + self._convert_to_unicode_str(text) + '\n'
 
     def gen_wrapped_table(self, header, rows, max_num_cols=4):
         num_cols = len(header)
@@ -59,14 +59,14 @@ class markdown():
 
     def gen_table(self, header, rows, align='center', max_col_width=20):
         num_columns = len(header)
-        header = [str(h) for h in header]
+        header = [self._convert_to_unicode_str(h) for h in header]
 
         # TODO: figure out whether we need this hard line wrapping.
         # We could ensure the A4 size on PDF generation and fill lines
         # towards the end in the Markdown generation.
 
-        rows = [[(str(r) if isinstance(r, int) else
-                  self.wrap_line(str(r), max_col_width)) or ' ' for r in row]
+        rows = [[(self._convert_to_unicode_str(r) if isinstance(r, int) else
+                  self.wrap_line(self._convert_to_unicode_str(r), max_col_width)) or ' ' for r in row]
                 for row in rows]
 
         # rows = [[str(r) if isinstance(r, int) else r for r in row] for row in rows]
@@ -105,3 +105,13 @@ class markdown():
             str_list.append(line[i:i + width])
             i += width
         return ('  \n' if is_raw_text else '<br />').join(str_list)
+
+    @staticmethod
+    def _convert_to_unicode_str(text):
+        try:
+            return str(text)
+        except UnicodeEncodeError:
+            if isinstance(text, unicode):
+                return text
+            else:
+                return unicode(text, "utf-8")
