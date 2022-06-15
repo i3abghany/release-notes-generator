@@ -29,7 +29,7 @@
 #
 
 
-class markdown():
+class markdown_generator:
     def __init__(self, line_width=78):
         self.content = ''
         self.line_width = line_width

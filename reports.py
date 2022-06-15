@@ -28,7 +28,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 
-import markdown
+import markdown_generator
 
 
 def gen_overall_progress(overall_progress, md = markdown.markdown()):

@@ -30,7 +30,7 @@
 
 import argparse
 import io
-import markdown
+import markdown_generator
 import reports
 import tickets
 

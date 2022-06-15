@@ -84,7 +84,7 @@ class tickets:
 
     def _get_tickets_table_as_dict(self):
         csv_url = rtems_trac.gen_trac_query_csv_url(
-            rtems_trac.all_cols, milestone = self.tickets_id)
+            rtems_trac.all_cols, milestone=self.tickets_id)
         return rtems_trac.parse_csv_as_dict_iter(csv_url)
 
     def _parse_ticket_data(self, ticket):
