@@ -27,18 +27,21 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
-
+import codecs
 import pprint
+
 try:
     import urllib.request as urllib_request
 except ImportError:
     import urllib2 as urllib_request
 import rtems_trac
 import xml.etree.ElementTree as ElementTree
+import markdown
 
 
 class tickets:
-    '''This class load all tickets data for a milestone.'''
+    """This class load all tickets data for a milestone."""
+
     def __init__(self, milestone_id):
         self.tickets_id = milestone_id
         self.tickets = {}
@@ -73,7 +76,7 @@ class tickets:
         # (number of closed tickets) / (number of total tickets)
         self.tickets['overall_progress']['percentage'] \
             = "{0:.0%}".format(self.tickets['overall_progress'].get('closed', 0)
-            / self.tickets['overall_progress'].get('total', 0))
+                               / self.tickets['overall_progress'].get('total', 0))
         # Get progress (closed/total) for each category
         for col in self.tickets['by_category']:
             for key in self.tickets['by_category'][col]:
@@ -102,11 +105,11 @@ class tickets:
                 = self.tickets['by_category'][col].get(col_value, {})
             if ticket['Status'] == 'closed':
                 self.tickets['by_category'][col][col_value]['closed'] \
-                    = self.tickets['by_category'][col][col_value]\
+                    = self.tickets['by_category'][col][col_value] \
                           .get('closed', 0) + 1
             self.tickets['by_category'][col][col_value]['total'] \
                 = self.tickets \
-                ['by_category'][col][col_value].get('total', 0) + 1
+                      ['by_category'][col][col_value].get('total', 0) + 1
 
         return {'meta': self._parse_ticket_csv(ticket['id']),
                 'comment_attachment': self._parse_ticket_rss(ticket['id'])}
@@ -159,10 +162,10 @@ class tickets:
             return text
 
     def _parse_ticket_comments_and_attachments(
-        self,
-        ticket_id,
-        ticket_xml_root,
-        ns,
+            self,
+            ticket_id,
+            ticket_xml_root,
+            ns,
     ):
         items_dict = {'comments': [], 'attachments': []}
         for item in ticket_xml_root.findall('channel/item'):
