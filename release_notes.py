@@ -30,6 +30,8 @@
 
 import argparse
 import io
+import markdown
+
 import markdown_generator
 import reports
 import tickets
@@ -51,7 +53,7 @@ if __name__ == '__main__':
     tickets_stats = t.tickets
 
     # Generate Markdown for data
-    md = markdown.markdown()
+    md = markdown_generator.markdown_generator()
     reports.gen_overall_progress(tickets_stats['overall_progress'], md)
     reports.gen_tickets_stats_by_category(tickets_stats['by_category'], md)
     reports.gen_tickets_summary(tickets_stats['tickets'], md)
@@ -62,3 +64,8 @@ if __name__ == '__main__':
             file.write(md.content.encode('utf-8'))
         except TypeError:  # For Python 3
             file.write(md.content)
+
+    # TODO: Use Trac CSS data to style the HTML content.
+    html_output = markdown.markdown(md.content.encode('utf-8'), extensions=['tables'])
+    with open('tickets.html', 'w', encoding='utf-8') as html_file:
+        html_file.write(html_output)
