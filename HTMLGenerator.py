@@ -1,6 +1,6 @@
 #
 # RTEMS Tools Project (http://www.rtems.org/)
-# Copyright 2018 Danxue Huang (danxue.huang@gmail.com)
+# Copyright 2022 Mahmoud Abumandour (ma.mandourr@gmail.com)
 # All rights reserved.
 #
 # This file is part of the RTEMS Tools package in 'rtems-tools'.
@@ -28,43 +28,37 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 
-import argparse
-import io
-
-import markdown_generator
-import reports
-import tickets
-from HTMLGenerator import HTMLGenerator
+import markdown
 
 
-def parse_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-m', '--milestone_id', dest='milestone_id',
-                        help='The milestone id to be parsed', default='4.11.3')
-    return parser.parse_args()
+class HTMLGenerator:
+    CSS_TABLE_CLASSES = 'listing tickets'
+    CSS_TRAC_CONTENT_CLASS = 'trac-content'
 
+    HTML_TEMPLATE = """
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{}" type="text/css" />
+    </head>
+    <body>
+        <div class="{}">
+            {}
+        </div>
+    </body>
+</html>
+    """
 
-if __name__ == '__main__':
-    args = parse_args()
+    def __init__(self, stylesheet_path):
+        self.stylesheet_path = stylesheet_path
 
-    # Fetch tickets data
-    t = tickets.tickets(milestone_id=args.milestone_id)
-    t.load()
-    tickets_stats = t.tickets
+    def from_markdown(self, markdown_str):
+        html = markdown.markdown(markdown_str, extensions=['tables'])
 
-    # Generate Markdown for data
-    md = markdown_generator.markdown_generator()
-    reports.gen_overall_progress(tickets_stats['overall_progress'], md)
-    reports.gen_tickets_stats_by_category(tickets_stats['by_category'], md)
-    reports.gen_tickets_summary(tickets_stats['tickets'], md)
-    reports.gen_individual_tickets_info(tickets_stats['tickets'], md)
-
-    with io.open('tickets.md', 'w', encoding='utf-8') as file:
-        try:
-            file.write(md.content.encode('utf-8'))
-        except TypeError:  # For Python 3
-            file.write(md.content)
-
-    html_gen = HTMLGenerator('rtems_trac.css')
-    with open('html/tickets.html', 'w', encoding='utf-8') as html_file:
-        html_file.write(html_gen.from_markdown(md.content))
+        # TODO: Find out if it's possible to use styles through PythonMarkdown directly.
+        html = html.replace('<table>', '<table class="{}" />'.format(self.CSS_TABLE_CLASSES))
+        op = self.HTML_TEMPLATE.format(self.stylesheet_path,
+                                       self.CSS_TRAC_CONTENT_CLASS,
+                                       html.replace('\n', '\n\t\t'))
+        return op
