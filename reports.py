@@ -89,7 +89,7 @@ def gen_individual_tickets_info(tickets, md = markdown.markdown()):
             md.gen_heading(md.gen_hyperlink(ticket_id, ticket_link), 2)
             md.gen_line('')
 
-        md.gen_heading('meta', 3)
+        md.gen_heading('Meta', 3)
         md.gen_line('')
 
         description = ticket_meta.get('description', None)
@@ -102,12 +102,12 @@ def gen_individual_tickets_info(tickets, md = markdown.markdown()):
         md.gen_line('')
 
         if description:
-            md.gen_bullet_point(md.gen_bold('description'))
+            md.gen_bullet_point(md.gen_bold('Description'))
             md.gen_raw_text(description)
             md.gen_line('')
 
         if summary:
-            md.gen_bullet_point(md.gen_bold('summary'))
+            md.gen_bullet_point(md.gen_bold('Summary'))
             md.gen_raw_text(summary)
             md.gen_line('')
 
