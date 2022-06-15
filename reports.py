@@ -31,7 +31,7 @@
 import markdown_generator
 
 
-def gen_overall_progress(overall_progress, md = markdown.markdown()):
+def gen_overall_progress(overall_progress, md):
     md.gen_heading('Overall Progress', 1)
     md.gen_line('')
 
@@ -40,7 +40,7 @@ def gen_overall_progress(overall_progress, md = markdown.markdown()):
     return md.content
 
 
-def gen_tickets_summary(tickets, md=markdown.markdown()):
+def gen_tickets_summary(tickets, md):
     md.gen_heading('Ticket Summary', 1)
     md.gen_line('')
 
@@ -51,7 +51,7 @@ def gen_tickets_summary(tickets, md=markdown.markdown()):
     return md.content
 
 
-def gen_tickets_stats_by_category(by_category, md = markdown.markdown()):
+def gen_tickets_stats_by_category(by_category, md):
     md.gen_heading('By Category', 1)
     md.gen_line('')
 
@@ -75,7 +75,7 @@ def gen_tickets_stats_by_category(by_category, md = markdown.markdown()):
     return md.content
 
 
-def gen_individual_tickets_info(tickets, md = markdown.markdown()):
+def gen_individual_tickets_info(tickets, md):
     md.gen_heading('Tickets', 1)
     md.gen_line('')
 
