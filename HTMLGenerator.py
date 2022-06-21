@@ -34,7 +34,10 @@ import markdown
 class HTMLGenerator:
     CSS_TABLE_CLASSES = 'listing tickets'
     CSS_TRAC_CONTENT_CLASS = 'trac-content'
+    CSS_NEW_PAGE_CLASS = 'new-page'
 
+    HTML_TICKET_NUMBER_TAG_PATTERN = '<h2><a'
+    HTML_TICKET_NUMBER_WITH_NEW_PAGE = '<h2 class="new-page"><a'
     HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
@@ -55,10 +58,13 @@ class HTMLGenerator:
 
     def from_markdown(self, markdown_str):
         html = markdown.markdown(markdown_str, extensions=['tables'])
-
-        # TODO: Find out if it's possible to use styles through PythonMarkdown directly.
-        html = html.replace('<table>', '<table class="{}" />'.format(self.CSS_TABLE_CLASSES))
+        html = self._insert_style_classes(html)
         op = self.HTML_TEMPLATE.format(self.stylesheet_path,
                                        self.CSS_TRAC_CONTENT_CLASS,
                                        html.replace('\n', '\n\t\t'))
         return op
+
+    def _insert_style_classes(self, html):
+        html = html.replace('<table>', '<table class="{}" />'.format(self.CSS_TABLE_CLASSES))
+        html = html.replace(self.HTML_TICKET_NUMBER_TAG_PATTERN, self.HTML_TICKET_NUMBER_WITH_NEW_PAGE)
+        return html

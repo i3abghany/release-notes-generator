@@ -203,15 +203,3 @@ class tickets:
             return attachment_name
         except ElementTree.ParseError:
             return ''
-
-
-if __name__ == '__main__':
-    tickets = tickets(milestone_id='4.11.3')
-    pp = pprint.PrettyPrinter(indent=4)
-    tickets.load()
-    pp.pprint(tickets.tickets)
-
-    import json2html
-
-    with open('tickets.html', 'w', encoding='utf-8') as html_file:
-        html_file.write(json2html.json2html.convert(tickets.tickets))
