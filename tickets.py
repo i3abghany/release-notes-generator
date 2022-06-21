@@ -35,7 +35,6 @@ except ImportError:
     import urllib2 as urllib_request
 import rtems_trac
 import xml.etree.ElementTree as ElementTree
-import markdown
 
 
 class tickets:
@@ -73,9 +72,10 @@ class tickets:
 
     def _post_process_ticket_stats(self):
         # (number of closed tickets) / (number of total tickets)
+        n_closed = self.tickets['overall_progress'].get('closed', 0)
+        n_total = self.tickets['overall_progress'].get('total', 0)
         self.tickets['overall_progress']['percentage'] \
-            = "{0:.0%}".format(self.tickets['overall_progress'].get('closed', 0)
-                               / self.tickets['overall_progress'].get('total', 0))
+            = "{0:.0%}".format((n_closed / n_total) if n_total > 0 else 0.0)
         # Get progress (closed/total) for each category
         for col in self.tickets['by_category']:
             for key in self.tickets['by_category'][col]:
@@ -107,8 +107,7 @@ class tickets:
                     = self.tickets['by_category'][col][col_value] \
                           .get('closed', 0) + 1
             self.tickets['by_category'][col][col_value]['total'] \
-                = self.tickets \
-                      ['by_category'][col][col_value].get('total', 0) + 1
+                = self.tickets['by_category'][col][col_value].get('total', 0) + 1
 
         return {'meta': self._parse_ticket_csv(ticket['id']),
                 'comment_attachment': self._parse_ticket_rss(ticket['id'])}
