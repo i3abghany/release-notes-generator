@@ -52,10 +52,14 @@ class tickets:
         tickets_dict_iter = self._get_tickets_table_as_dict()
         self._pre_process_tickets_stats()
         # Parse ticket data
+        i = 0
         for ticket in tickets_dict_iter:
             print('processing ticket {t} ...'.format(t=ticket['id']))
             self.tickets['tickets'][ticket['id']] \
                 = self._parse_ticket_data(ticket)
+            i += 1
+            if i == 4:
+                break
         self._post_process_ticket_stats()
 
     def _pre_process_tickets_stats(self):

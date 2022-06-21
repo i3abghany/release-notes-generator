@@ -32,19 +32,24 @@ def gen_overall_progress(overall_progress, md):
     md.gen_heading('Overall Progress', 1)
     md.gen_line('')
 
-    md.gen_table(overall_progress.keys(), [overall_progress.values()])
+    md.gen_table(overall_progress.keys(), [overall_progress.values()], align='left')
     md.gen_line('')
+    md.gen_line('')
+    md.gen_line('<br />')
     return md.content
 
 
 def gen_tickets_summary(tickets, md):
+    md.gen_line('')
+    md.gen_line('')
+    md.gen_line('<br />')
     md.gen_heading('Ticket Summary', 1)
     md.gen_line('')
 
     keys = tickets.keys()
     id_summary_mapping = [(k, tickets[k]['meta']['summary']) for k in keys]
     cols = ['id', 'summary']
-    md.gen_table(cols, id_summary_mapping)
+    md.gen_table(cols, id_summary_mapping, align='left')
     return md.content
 
 
@@ -67,7 +72,7 @@ def gen_tickets_stats_by_category(by_category, md):
             ticket_stats = by_category[category][category_value]
             rows.append([category_value] + list(ticket_stats.values()))
 
-        md.gen_table(header, rows)
+        md.gen_table(header, rows, align='left')
         md.gen_line('')
     return md.content
 
@@ -80,9 +85,9 @@ def gen_individual_tickets_info(tickets, md):
         # Generate markdown for ticket meta data
         ticket_meta = tickets[ticket_id]['meta']
 
-        ticket_link = tickets[ticket_id].get('comment_attachment', {})\
+        ticket_link = tickets[ticket_id].get('comment_attachment', {}) \
             .get('link', None)
-        if ticket_link:
+        if ticket_link is not None:
             md.gen_heading(md.gen_hyperlink(ticket_id, ticket_link), 2)
             md.gen_line('')
 
@@ -99,20 +104,23 @@ def gen_individual_tickets_info(tickets, md):
         md.gen_line('')
 
         if description:
-            md.gen_bullet_point(md.gen_bold('Description'))
+            md.gen_raw_text(md.gen_bold('Description'))
+            md.gen_line('')
             md.gen_raw_text(description)
             md.gen_line('')
 
         if summary:
-            md.gen_bullet_point(md.gen_bold('Summary'))
+            md.gen_raw_text(md.gen_bold('Summary'))
+            md.gen_line('')
             md.gen_raw_text(summary)
             md.gen_line('')
 
         # Generate markdown for ticket's comments or attachments
         items = tickets[ticket_id]['comment_attachment']['items']
         comments = items.get('comments', None)
+        comments = remove_unnecessary_columns(comments)
         attachments = items.get('attachments', None)
-
+        attachments = remove_unnecessary_columns(attachments)
         if len(comments) > 0:
             comments_header = comments[0].keys()
             comments_rows = []
@@ -132,3 +140,13 @@ def gen_individual_tickets_info(tickets, md):
             md.gen_line('')
             md.gen_wrapped_table(attachments_header, attachments_rows)
             md.gen_line('')
+
+
+def remove_unnecessary_columns(addenda):
+    for el in addenda:
+        el.pop('link', None)
+        el.pop('guid', None)
+        el.pop('title', None)
+        el.pop('category', None)
+    return addenda
+

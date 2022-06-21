@@ -55,9 +55,9 @@ class markdown_generator:
                 self.gen_line('\n')
                 i += max_num_cols
         else:
-            self.gen_table(header, rows)
+            self.gen_table(header, rows, align='left')
 
-    def gen_table(self, header, rows, align='center', max_col_width=20):
+    def gen_table(self, header, rows, align='center', max_col_width=38):
         num_columns = len(header)
         header = [self._convert_to_unicode_str(h) for h in header]
 
@@ -86,8 +86,7 @@ class markdown_generator:
         self.content += '\n'.join([header_str, split_line, rows_str])
 
     def gen_raw_text(self, formatted_text):
-        self.content += '```text\n' + self.wrap_line(
-            formatted_text, self.line_width, True) + '\n```\n'
+        self.content += '\n' + formatted_text + '\n'
 
     @staticmethod
     def gen_bold(text):
