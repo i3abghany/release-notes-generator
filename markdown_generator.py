@@ -57,19 +57,21 @@ class markdown_generator:
         else:
             self.gen_table(header, rows, align='left')
 
-    def gen_table(self, header, rows, align='center', max_col_width=38):
+    def gen_line_break(self):
+        self.gen_line('')
+        self.gen_line('')
+        self.gen_line('<br />')
+
+    def gen_table(self, header, rows, align='left', max_col_width=38):
         num_columns = len(header)
         header = [self._convert_to_unicode_str(h) for h in header]
 
-        # TODO: figure out whether we need this hard line wrapping.
-        # We could ensure the A4 size on PDF generation and fill lines
-        # towards the end in the Markdown generation.
-
-        rows = [[(self._convert_to_unicode_str(r) if isinstance(r, int) else
-                  self.wrap_line(self._convert_to_unicode_str(r), max_col_width)) or ' ' for r in row]
-                for row in rows]
-
-        # rows = [[str(r) if isinstance(r, int) else r for r in row] for row in rows]
+        if max_col_width == -1:
+            rows = [[self._convert_to_unicode_str(r) for r in row] for row in rows]
+        else:
+            rows = [[(self._convert_to_unicode_str(r) if isinstance(r, int) else
+                      self.wrap_line(self._convert_to_unicode_str(r), max_col_width)) or ' ' for r in row]
+                    for row in rows]
 
         header_str = '|' + '|'.join(header) + '|'
         column_format = '---'
