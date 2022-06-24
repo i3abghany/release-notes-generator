@@ -66,5 +66,8 @@ class HTMLGenerator:
 
     def _insert_style_classes(self, html):
         html = html.replace('<table>', '<table class="{}" />'.format(self.CSS_TABLE_CLASSES))
-        html = html.replace(self.HTML_TICKET_NUMBER_TAG_PATTERN, self.HTML_TICKET_NUMBER_WITH_NEW_PAGE)
+
+        # Inserting a page break before all tickets but for the first.
+        html = html.replace(self.HTML_TICKET_NUMBER_TAG_PATTERN, self.HTML_TICKET_NUMBER_WITH_NEW_PAGE) \
+                   .replace(self.HTML_TICKET_NUMBER_WITH_NEW_PAGE, self.HTML_TICKET_NUMBER_TAG_PATTERN, 1)
         return html
