@@ -27,7 +27,6 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
-import pprint
 
 try:
     import urllib.request as urllib_request
@@ -51,17 +50,17 @@ class tickets:
         # Read entire trac table as DictReader (iterator)
         tickets_dict_iter = self._get_tickets_table_as_dict()
         self._pre_process_tickets_stats()
+
         # Parse ticket data
         for ticket in tickets_dict_iter:
             print('processing ticket {t} ...'.format(t=ticket['id']))
-            self.tickets['tickets'][ticket['id']] \
-                = self._parse_ticket_data(ticket)
+            self.tickets['tickets'][ticket['id']] = self._parse_ticket_data(ticket)
+
         self._post_process_ticket_stats()
 
     def _pre_process_tickets_stats(self):
         self.tickets['overall_progress'] = {}
-        self.tickets['by_category'] \
-            = {col: {} for col in rtems_trac.aggregate_cols}
+        self.tickets['by_category'] = {col: {} for col in rtems_trac.aggregate_cols}
 
         self.tickets['overall_progress']['total'] = 0
         self.tickets['overall_progress']['closed'] = 0

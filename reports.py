@@ -27,29 +27,28 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
+from urlextract import URLExtract
+
 
 def gen_overall_progress(overall_progress, md):
     md.gen_heading('Overall Progress', 1)
     md.gen_line('')
 
     md.gen_table(overall_progress.keys(), [overall_progress.values()], align='left')
-    md.gen_line('')
-    md.gen_line('')
-    md.gen_line('<br />')
+    md.gen_line_break()
     return md.content
 
 
 def gen_tickets_summary(tickets, md):
-    md.gen_line('')
-    md.gen_line('')
-    md.gen_line('<br />')
+    md.gen_line_break()
     md.gen_heading('Ticket Summary', 1)
     md.gen_line('')
 
     keys = tickets.keys()
     id_summary_mapping = [(k, tickets[k]['meta']['summary']) for k in keys]
     cols = ['id', 'summary']
-    md.gen_table(cols, id_summary_mapping, align='left')
+    md.gen_table(cols, id_summary_mapping, align='left', max_col_width=-1)
+    md.gen_line('')
     return md.content
 
 
@@ -78,6 +77,7 @@ def gen_tickets_stats_by_category(by_category, md):
 
 
 def gen_individual_tickets_info(tickets, md):
+    md.gen_line_break()
     md.gen_heading('Tickets', 1)
     md.gen_line('')
 
@@ -124,11 +124,14 @@ def gen_individual_tickets_info(tickets, md):
         if len(comments) > 0:
             comments_header = comments[0].keys()
             comments_rows = []
+            justifier = TextJustifier('<br />', '[{}]({})')
+            for comment in comments:
+                comment['description'] = justifier.wrap(comment['description'])
             for comment in comments:
                 comments_rows.append(list(comment.values()))
-            md.gen_heading('comments', 3)
+            md.gen_heading('Comments', 3)
             md.gen_line('')
-            md.gen_wrapped_table(comments_header, comments_rows)
+            md.gen_table(comments_header, comments_rows, max_col_width=-1)
             md.gen_line('')
 
         if len(attachments) > 0:
@@ -150,3 +153,50 @@ def remove_unnecessary_columns(addenda):
         el.pop('category', None)
     return addenda
 
+
+class TextJustifier:
+
+    def __init__(self, line_break, url_pattern):
+        self.line_break = line_break
+        self.url_pattern = url_pattern
+
+    def wrap(self, text, width=50):
+        text = text.replace('\n', ' ')
+        lines = ['']
+        effective_lens = [0]
+        words = list(map(lambda w: w.replace('\u200b', ''), text.split(' ')))
+        url_extractor = URLExtract()
+        for i, word in enumerate(words):
+            is_url = url_extractor.has_urls(word)
+            if is_url and len(word) > width:
+                word = self.url_pattern.format("_link_", word)
+            if effective_lens[-1] + len(word) < width or (is_url and (effective_lens[-1] + len("link") < width)):
+                lines[-1] += (' ' + word.strip())
+                if is_url:
+                    effective_lens[-1] += len("link")
+                else:
+                    effective_lens[-1] += len((' ' + word.strip()))
+            elif len(word) <= width:
+                lines.append('')
+                lines[-1] += word
+                effective_lens.append(len(word))
+            else:
+                splits = self._hard_wrap_line(word, width)
+                for split in splits:
+                    if effective_lens[-1] + len(split) < width:
+                        lines[-1] += split
+                        effective_lens[-1] += len(split)
+                    else:
+                        lines.append('')
+                        lines[-1] += split
+                        effective_lens.append(len(split))
+
+        return self.line_break.join(lines)
+
+    def _hard_wrap_line(self, text, width):
+        lines = []
+        i = 0
+        while i < len(text):
+            lines.append(text[i:min(len(text), i + width)])
+            i += width
+        return lines
