@@ -66,14 +66,14 @@ if __name__ == '__main__':
             file.write(md.content)
 
     html_gen = HTMLGenerator('rtems_trac.css')
-    with open('html/tickets.html', 'w', encoding='utf-8') as html_file:
+    with io.open('html/tickets.html', 'w', encoding='utf-8') as html_file:
         html_file.write(html_gen.from_markdown(md.content))
 
     options = {
         'page-size': 'A4',
-        'margin-top': '0.35in',
+        'margin-top': '0.30in',
         'margin-right': '0.25in',
-        'margin-bottom': '0.25in',
+        'margin-bottom': '0.30in',
         'margin-left': '0.25in',
         'encoding': "UTF-8",
         'disable-smart-shrinking': None,
@@ -82,4 +82,5 @@ if __name__ == '__main__':
 
     f = 'html/tickets.html'
     import pdfkit
+
     pdfkit.from_file(f, 'out.pdf', options=options)
