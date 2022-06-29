@@ -29,6 +29,8 @@
 #
 from urlextract import URLExtract
 
+import markdown_generator
+
 
 def gen_overall_progress(overall_progress, md):
     md.gen_heading('Overall Progress', 1)
@@ -106,12 +108,17 @@ def gen_individual_tickets_info(tickets, md):
         if description:
             md.gen_raw_text(md.gen_bold('Description'))
             md.gen_line('')
+            description = description.replace('{{{', '```')
+            description = description.replace('}}}', '```')
+            description = TextJustifier('\n', '[{}]({})').wrap(description, 80)
             md.gen_raw_text(description)
             md.gen_line('')
 
         if summary:
             md.gen_raw_text(md.gen_bold('Summary'))
             md.gen_line('')
+            summary = summary.replace('{{{', '```')
+            summary = summary.replace('}}}', '```')
             md.gen_raw_text(summary)
             md.gen_line('')
 
