@@ -55,6 +55,7 @@ class HTMLGenerator:
 
     def __init__(self, stylesheet_path):
         self.stylesheet_path = stylesheet_path
+        self.code_area_threshold = 20
 
     def from_markdown(self, markdown_str):
         html = markdown.markdown(markdown_str, extensions=['tables'])
@@ -70,7 +71,16 @@ class HTMLGenerator:
         # Inserting a page break before all tickets but for the first.
         html = html.replace(self.HTML_TICKET_NUMBER_TAG_PATTERN, self.HTML_TICKET_NUMBER_WITH_NEW_PAGE) \
                    .replace(self.HTML_TICKET_NUMBER_WITH_NEW_PAGE, self.HTML_TICKET_NUMBER_TAG_PATTERN, 1)
+        start = 0
+        for _ in range(html.count('<code>')):
+            open_idx = html.find('<code>', start)
+            close_idx = html.find('</code>', start)
 
-        html = html.replace('<code>', '<pre class="wiki">')
-        html = html.replace('</code>', '</pre>')
+            if html.find('\n', open_idx, close_idx) == -1 or (close_idx - open_idx < self.code_area_threshold):
+                start = close_idx + len('</code>')
+                continue
+
+            html = html[:open_idx] + '<pre class="wiki">' + html[open_idx + len('<code>'):]
+            html = html[:close_idx] + '</pre>' + html[close_idx + len('</code>'):]
+            start = close_idx + len('</pre>')
         return html
