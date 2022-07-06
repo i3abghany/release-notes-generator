@@ -27,6 +27,7 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
+
 from urlextract import URLExtract
 
 import markdown_generator
@@ -110,7 +111,8 @@ def gen_individual_tickets_info(tickets, md):
             md.gen_line('')
             description = description.replace('{{{', '```')
             description = description.replace('}}}', '```')
-            description = TextJustifier('\n', '[{}]({})').wrap(description, 80)
+            markdown_link_format_pattern = '[{}]({})'
+            description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, 80)
             md.gen_raw_text(description)
             md.gen_line('')
 
@@ -168,7 +170,7 @@ class TextJustifier:
         self.url_pattern = url_pattern
 
     def wrap(self, text, width=50):
-        text = text.replace('\n', ' ')
+        text = text.replace('\r\n', '\n ')
         lines = ['']
         effective_lens = [0]
         words = list(map(lambda w: w.replace('\u200b', ''), text.split(' ')))
@@ -183,10 +185,18 @@ class TextJustifier:
                     effective_lens[-1] += len("link")
                 else:
                     effective_lens[-1] += len((' ' + word.strip()))
+                if word.find('\n') != -1:
+                    effective_lens[-1] = width
+                    lines[-1] += self.line_break
+                    continue
             elif len(word) <= width:
                 lines.append('')
                 lines[-1] += word
                 effective_lens.append(len(word))
+                if word.find('\n') != -1:
+                    effective_lens[-1] = width
+                    lines[-1] += self.line_break
+                    continue
             else:
                 splits = self._hard_wrap_line(word, width)
                 for split in splits:
