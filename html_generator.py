@@ -58,7 +58,7 @@ class HTMLGenerator:
         self.code_area_threshold = 20
 
     def from_markdown(self, markdown_str):
-        html = markdown2.markdown(markdown_str, extras=['tables'])
+        html = markdown2.markdown(markdown_str, extras=['tables', 'code-friendly', 'fenced-code-blocks'])
         html = self._insert_style_classes(html)
         op = self.HTML_TEMPLATE.format(self.stylesheet_path,
                                        self.CSS_TRAC_CONTENT_CLASS,
@@ -80,7 +80,7 @@ class HTMLGenerator:
                 start = close_idx + len('</code>')
                 continue
 
-            html = html[:open_idx] + '<pre class="wiki">' + html[open_idx + len('<code>'):]
             html = html[:close_idx] + '</pre>' + html[close_idx + len('</code>'):]
+            html = html[:open_idx] + '<pre class="wiki">' + html[open_idx + len('<code>'):]
             start = close_idx + len('</pre>')
         return html

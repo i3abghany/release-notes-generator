@@ -30,17 +30,24 @@
 
 import argparse
 import io
+import sys
+
+# from weasyprint import HTML, CSS
+
+import pickle
 
 import markdown_generator
 import reports
 import tickets
-from HTMLGenerator import HTMLGenerator
+from html_generator import HTMLGenerator
 
 
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-m', '--milestone_id', dest='milestone_id',
                         help='The milestone id to be parsed', default='4.11.3')
+    parser.add_argument('-s', '--style', dest='style_format',
+                        help='Generated document style (currently either: trac or pandoc)', default='trac')
     return parser.parse_args()
 
 
@@ -48,9 +55,12 @@ if __name__ == '__main__':
     args = parse_args()
 
     # Fetch tickets data
-    t = tickets.tickets(milestone_id=args.milestone_id)
-    t.load()
-    tickets_stats = t.tickets
+    # t = tickets.tickets(milestone_id=args.milestone_id)
+    # t.load()
+    # tickets_stats = t.tickets
+
+    pickle_file_name = '../tickets.pkl'
+    tickets_stats = pickle.load(open(pickle_file_name, 'rb'))
 
     # Generate Markdown for data
     md = markdown_generator.markdown_generator()
@@ -65,22 +75,29 @@ if __name__ == '__main__':
         except TypeError:  # For Python 3
             file.write(md.content)
 
-    html_gen = HTMLGenerator('rtems_trac.css')
-    with io.open('html/tickets.html', 'w', encoding='utf-8') as html_file:
-        html_file.write(html_gen.from_markdown(md.content))
+    if args.style_format == 'trac':
+        # content = io.open('tickets.md').read()
+        html_gen = HTMLGenerator('rtems_trac.css')
+        with io.open('html/tickets.html', 'w', encoding='utf-8') as html_file:
+            html_file.write(html_gen.from_markdown(md.content))
 
-    options = {
-        'page-size': 'A4',
-        'margin-top': '0.40in',
-        'margin-right': '0.25in',
-        'margin-bottom': '0.40in',
-        'margin-left': '0.25in',
-        'encoding': "UTF-8",
-        'disable-smart-shrinking': None,
-        'print-media-type': None,
-    }
+        options = {
+            'page-size': 'A4',
+            'margin-top': '0.40in',
+            'margin-right': '0.25in',
+            'margin-bottom': '0.40in',
+            'margin-left': '0.25in',
+            'encoding': "UTF-8",
+            'disable-smart-shrinking': None,
+            'print-media-type': None,
+        }
 
-    f = 'html/tickets.html'
-    import pdfkit
+        f = 'html/tickets.html'
+        import pdfkit
 
-    pdfkit.from_file(f, 'out.pdf', options=options)
+        pdfkit.from_file(f, 'out.pdf', options=options)
+    elif args.style_format == 'markdown':
+        pass
+    else:
+        print(f'Unsupported style format: {args.style}\n')
+        sys.exit(1)
