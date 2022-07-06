@@ -3,5 +3,6 @@ __pycache__/*
 *.pyc
 tickets.md
 html/*
+gen/tickets.html
 prof/*
 out.pdf
