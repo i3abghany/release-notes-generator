@@ -28,7 +28,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 
-import markdown
+import markdown2
 
 
 class HTMLGenerator:
@@ -58,7 +58,7 @@ class HTMLGenerator:
         self.code_area_threshold = 20
 
     def from_markdown(self, markdown_str):
-        html = markdown.markdown(markdown_str, extensions=['tables'])
+        html = markdown2.markdown(markdown_str, extras=['tables'])
         html = self._insert_style_classes(html)
         op = self.HTML_TEMPLATE.format(self.stylesheet_path,
                                        self.CSS_TRAC_CONTENT_CLASS,
