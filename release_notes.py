@@ -75,29 +75,29 @@ if __name__ == '__main__':
         except TypeError:  # For Python 3
             file.write(md.content)
 
+    css_file = ''
     if args.style_format == 'trac':
-        # content = io.open('tickets.md').read()
-        html_gen = HTMLGenerator('rtems_trac.css')
-        with io.open('html/tickets.html', 'w', encoding='utf-8') as html_file:
-            html_file.write(html_gen.from_markdown(md.content))
-
-        options = {
-            'page-size': 'A4',
-            'margin-top': '0.40in',
-            'margin-right': '0.25in',
-            'margin-bottom': '0.40in',
-            'margin-left': '0.25in',
-            'encoding': "UTF-8",
-            'disable-smart-shrinking': None,
-            'print-media-type': None,
-        }
-
-        f = 'html/tickets.html'
-        import pdfkit
-
-        pdfkit.from_file(f, 'out.pdf', options=options)
+        css_file = 'rtems_trac.css'
     elif args.style_format == 'markdown':
-        pass
+        css_file = 'markdown.css'
     else:
         print(f'Unsupported style format: {args.style}\n')
         sys.exit(1)
+
+    html_gen = HTMLGenerator(css_file)
+    with io.open('gen/tickets.html', 'w', encoding='utf-8') as html_file:
+        html_file.write(html_gen.from_markdown(md.content))
+    f = 'gen/tickets.html'
+    import pdfkit
+
+    wk_options = {
+        'page-size': 'A4',
+        'margin-top': '0.40in',
+        'margin-right': '0.25in',
+        'margin-bottom': '0.40in',
+        'margin-left': '0.25in',
+        'encoding': "UTF-8",
+        'disable-smart-shrinking': None,
+    }
+
+    pdfkit.from_file(f, 'out.pdf', options=wk_options)
