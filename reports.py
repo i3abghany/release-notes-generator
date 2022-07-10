@@ -139,7 +139,7 @@ def gen_individual_tickets_info(tickets, md):
             comments_rows = []
             justifier = TextJustifier('<br />', '[{}]({})')
             for comment in comments:
-                comment['description'] = justifier.wrap(comment['description'], width=60)
+                comment['description'] = justifier.wrap(comment['description'], width=70)
             for comment in comments:
                 comments_rows.append(list(comment.values()))
             md.gen_heading('Comments', 3)
