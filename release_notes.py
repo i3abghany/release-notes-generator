@@ -92,11 +92,11 @@ if __name__ == '__main__':
 
     wk_options = {
         'page-size': 'A4',
-        'margin-top': '0.40in',
-        'margin-right': '0.25in',
-        'margin-bottom': '0.40in',
-        'margin-left': '0.25in',
-        'encoding': "UTF-8",
+        'margin-top': '0.250in',
+        'margin-right': '0.250in',
+        'margin-bottom': '0.250in',
+        'margin-left': '0.250in',
+        'encoding': 'UTF-8',
         'disable-smart-shrinking': None,
     }
 

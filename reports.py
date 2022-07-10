@@ -111,7 +111,7 @@ def gen_individual_tickets_info(tickets, md):
             description = description.replace('{{{', '```')
             description = description.replace('}}}', '```')
             markdown_link_format_pattern = '[{}]({})'
-            description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, 80)
+            description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, width=70)
             description = re.sub('```\n\n', '```\n', description)
             description = re.sub('\n\n```', '\n```', description)
             md.gen_raw_text(description)
@@ -149,9 +149,10 @@ def gen_individual_tickets_info(tickets, md):
             attachments_rows = []
             for attachment in attachments:
                 attachments_rows.append(list(attachment.values()))
+                attachments_rows[-1][3] = '[{}]({})'.format("link", attachments_rows[-1][3])
             md.gen_heading('attachments', 3)
             md.gen_line('')
-            md.gen_wrapped_table(attachments_header, attachments_rows)
+            md.gen_table(attachments_header, attachments_rows, max_col_width=-1)
             md.gen_line('')
 
 
