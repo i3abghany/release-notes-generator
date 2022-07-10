@@ -783,7 +783,10 @@ table.listing tbody tr.odd { background-color: #f7f7f7 }
 table.listing tbody tr:hover td { background: #eed !important }
 table.listing tbody tr.focus { background: #ddf !important }
 
-table.listing pre { white-space: pre-wrap }
+table.listing pre {
+    white-space: pre-wrap;
+    page-break-inside: avoid !important;
+}
 
 /* Styles for the page history table
    (extends the styles for "table.listing") */
@@ -921,7 +924,10 @@ div.system-message .trac-close-msg:hover {
   font-family: monospace;
   font-style: normal;
 }
-#content.error #traceback td code { white-space: pre; }
+#content.error #traceback td code {
+    white-space: pre;
+    page-break-inside: avoid !important;
+}
 #content.error #traceback pre { font-size: 95%; }
 
 #content .paging { margin: 0 0 2em; padding: .5em 0 0;
