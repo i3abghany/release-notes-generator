@@ -87,8 +87,7 @@ def gen_individual_tickets_info(tickets, md):
         # Generate markdown for ticket meta data
         ticket_meta = tickets[ticket_id]['meta']
 
-        ticket_link = tickets[ticket_id].get('comment_attachment', {}) \
-            .get('link', None)
+        ticket_link = tickets[ticket_id].get('comment_attachment', {}).get('link', None)
         if ticket_link is not None:
             md.gen_heading(md.gen_hyperlink(ticket_id, ticket_link), 2)
             md.gen_line('')
@@ -114,6 +113,10 @@ def gen_individual_tickets_info(tickets, md):
             description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, width=70)
             description = re.sub('```\n\n', '```\n', description)
             description = re.sub('\n\n```', '\n```', description)
+
+            # A bit hacky, but resolves the issue of ticket 3771 that contains whitespace-composed lines.
+            description = re.sub(r'[ ]{8,}', ' ', description)
+
             md.gen_raw_text(description)
             md.gen_line('')
 
