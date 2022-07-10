@@ -175,6 +175,7 @@ a::selection { background: rgba(255, 255, 0, 0.3); color: #0645ad; }
     border-right: 1px solid #ddd;
     border-spacing: 0;
     border-collapse: collapse;
+    width: 100%;
   }
 
   table th {
