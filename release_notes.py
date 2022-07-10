@@ -47,7 +47,7 @@ def parse_args():
     parser.add_argument('-m', '--milestone_id', dest='milestone_id',
                         help='The milestone id to be parsed', default='4.11.3')
     parser.add_argument('-s', '--style', dest='style_format',
-                        help='Generated document style (currently either: trac or pandoc)', default='trac')
+                        help='Generated document style (currently either: trac or markdown)', default='trac')
     return parser.parse_args()
 
 
