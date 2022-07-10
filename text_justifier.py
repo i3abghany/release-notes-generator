@@ -17,9 +17,9 @@ class TextJustifier:
             is_url = url_extractor.has_urls(word)
 
             if word.find('```') != -1:
-                effective_lens[-1] = width  # Fill the line to enforce  a break.
+                effective_lens[-1] = width  # Fill the line to enforce a break.
 
-            if is_url and len(word) > width:
+            if is_url and len(word) > width - effective_lens[-1]:
                 word = self.url_pattern.format("link", word)
             if effective_lens[-1] + len(word) < width or (is_url and (effective_lens[-1] + len("link") < width)):
                 lines[-1] += (' ' + word.strip())
