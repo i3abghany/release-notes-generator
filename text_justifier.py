@@ -1,3 +1,5 @@
+import re
+
 from urlextract import URLExtract
 
 
@@ -8,32 +10,38 @@ class TextJustifier:
         self.url_pattern = url_pattern
 
     def wrap(self, text, width=50):
-        text = text.replace('\r\n', '\n ')
+        text = text.replace('\r\n', ' \n ').strip()
         lines = ['']
         effective_lens = [0]
-        words = list(map(lambda w: w.replace('\u200b', ''), text.split(' ')))
+        words = list(map(lambda w: w.replace('\u200b', ''), re.sub(r'(\S)\n(\S)', r'\1 \n \2', text).split(' ')))
         url_extractor = URLExtract()
         for i, word in enumerate(words):
             is_url = url_extractor.has_urls(word)
+            word_effective_len = len(word)
+            if word == '\n' and effective_lens[-1] != width:
+                lines.append('')
+                effective_lens.append(0)
+                continue
 
             if word.find('```') != -1:
                 effective_lens[-1] = width  # Fill the line to enforce a break.
 
             if is_url and len(word) > width - effective_lens[-1]:
+                word_effective_len = len("link")
                 word = self.url_pattern.format("link", word)
-            if effective_lens[-1] + len(word) < width or (is_url and (effective_lens[-1] + len("link") < width)):
+            if effective_lens[-1] + word_effective_len < width or (is_url and (effective_lens[-1] + word_effective_len < width)):
                 lines[-1] += (' ' + word.strip())
-                if is_url:
-                    effective_lens[-1] += len("link")
+                if is_url and not (effective_lens[-1] + word_effective_len < width):
+                    effective_lens[-1] += word_effective_len
                 else:
                     effective_lens[-1] += len((' ' + word.strip()))
                 if word.find('\n') != -1:
                     effective_lens[-1] = width
                     continue
-            elif len(word) <= width:
+            elif word_effective_len <= width:
                 lines.append('')
                 lines[-1] += word
-                effective_lens.append(len(word))
+                effective_lens.append(word_effective_len)
                 if word.find('\n') != -1:
                     effective_lens[-1] = width
                     continue
@@ -58,3 +66,12 @@ class TextJustifier:
             lines.append(text[i:min(len(text), i + width)])
             i += width
         return lines
+
+
+if __name__ == '__main__':
+    j = TextJustifier(line_break='\n', url_pattern='[{}]({})')
+    a = j.wrap(text="""This section of the RSB has "+sb_check+" which I assume is supposed to be italics or bold.
+https://docs.rtems.org/branches/master/rsb/hosts.html#mavericks
+Also the formatting of the sentence on xz in the same section is odd.""", width=70)
+
+    print(a)

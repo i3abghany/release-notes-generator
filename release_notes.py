@@ -55,9 +55,12 @@ if __name__ == '__main__':
     args = parse_args()
 
     # Fetch tickets data
-    t = tickets.tickets(milestone_id=args.milestone_id)
-    t.load()
-    tickets_stats = t.tickets
+    # t = tickets.tickets(milestone_id=args.milestone_id)
+    # t.load()
+    # tickets_stats = t.tickets
+
+    pickle_file_name = '../tickets.pkl'
+    tickets_stats = pickle.load(open(pickle_file_name, 'rb'))
 
     # Generate Markdown for data
     md = markdown_generator.markdown_generator()

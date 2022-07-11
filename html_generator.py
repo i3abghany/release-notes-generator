@@ -71,6 +71,7 @@ class HTMLGenerator:
         # Inserting a page break before all tickets but for the first.
         html = html.replace(self.HTML_TICKET_NUMBER_TAG_PATTERN, self.HTML_TICKET_NUMBER_WITH_NEW_PAGE) \
                    .replace(self.HTML_TICKET_NUMBER_WITH_NEW_PAGE, self.HTML_TICKET_NUMBER_TAG_PATTERN, 1)
+        html = html.replace('<h1>Tickets</h1>', '<h1 class="new-page">Tickets</h1>')
         start = 0
         for _ in range(html.count('<code>')):
             open_idx = html.find('<code>', start)
