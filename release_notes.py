@@ -95,6 +95,7 @@ if __name__ == '__main__':
         'margin-left': '0.40in',
         'encoding': 'UTF-8',
         'disable-smart-shrinking': None,
+        'print-media-type': None
     }
 
     pdfkit.from_file(f, args.out_file, options=wk_options)
