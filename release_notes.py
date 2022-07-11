@@ -32,8 +32,6 @@ import argparse
 import io
 import sys
 
-# from weasyprint import HTML, CSS
-
 import pickle
 
 import markdown_generator
@@ -48,6 +46,8 @@ def parse_args():
                         help='The milestone id to be parsed', default='4.11.3')
     parser.add_argument('-s', '--style', dest='style_format',
                         help='Generated document style (currently either: trac or markdown)', default='trac')
+    parser.add_argument('-o', '--outfile', dest='out_file',
+                        help='Name of the generated output PDF file', default='out.pdf')
     return parser.parse_args()
 
 
@@ -89,12 +89,12 @@ if __name__ == '__main__':
 
     wk_options = {
         'page-size': 'A4',
-        'margin-top': '0.60in',
+        'margin-top': '0.40in',
         'margin-right': '0.40in',
-        'margin-bottom': '0.60in',
+        'margin-bottom': '0.40in',
         'margin-left': '0.40in',
         'encoding': 'UTF-8',
         'disable-smart-shrinking': None,
     }
 
-    pdfkit.from_file(f, 'out.pdf', options=wk_options)
+    pdfkit.from_file(f, args.out_file, options=wk_options)

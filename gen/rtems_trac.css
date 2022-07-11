@@ -1,13 +1,28 @@
 /* -*- coding: utf-8 -*- */
 @media print {
   .new-page {
-    page-break-before: always;
+    page-break-before: always !important;
   }
+}
+
+h2 a {
+    page-break-before: always !important;
 }
 
 @page {
         size: A4; /* Change from the default size of A4 */
         margin: 10mm; /* Set margin on each page */
+}
+
+thead {
+    display: table-row-group;
+}
+
+table {
+    word-wrap: break-word;
+}
+table td {
+    word-break: break-all;
 }
 
 tr, td, th, tbody, thead, tfoot {

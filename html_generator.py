@@ -51,7 +51,7 @@ class HTMLGenerator:
         </div>
     </body>
 </html>
-    """
+"""
 
     def __init__(self, stylesheet_path):
         self.stylesheet_path = stylesheet_path
