@@ -37,7 +37,6 @@ def gen_overall_progress(overall_progress, md):
     md.gen_line('')
 
     md.gen_table(overall_progress.keys(), [overall_progress.values()], align='left')
-    md.gen_line_break()
     return md.content
 
 
@@ -50,7 +49,8 @@ def gen_tickets_summary(tickets, md):
     id_summary_mapping = [(k, tickets[k]['meta']['summary']) for k in keys]
     cols = ['id', 'summary']
     md.gen_table(cols, id_summary_mapping, align='left', max_col_width=-1)
-    md.gen_line('')
+    # md.gen_line('')
+    md.gen_line_break()
     return md.content
 
 
@@ -59,7 +59,7 @@ def gen_tickets_stats_by_category(by_category, md):
     md.gen_line('')
 
     for category in by_category:
-        md.gen_heading(category, 2)
+        md.gen_heading(category.capitalize(), 2)
         md.gen_line('')
 
         # Get header and all rows to generate table, set category as first col
