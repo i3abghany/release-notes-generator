@@ -65,8 +65,8 @@ if __name__ == '__main__':
     # Generate Markdown for data
     md = markdown_generator.markdown_generator()
     reports.gen_overall_progress(tickets_stats['overall_progress'], md)
-    reports.gen_tickets_stats_by_category(tickets_stats['by_category'], md)
     reports.gen_tickets_summary(tickets_stats['tickets'], md)
+    reports.gen_tickets_stats_by_category(tickets_stats['by_category'], md)
     reports.gen_individual_tickets_info(tickets_stats['tickets'], md)
 
     with io.open('tickets.md', 'w', encoding='utf-8') as file:
@@ -86,8 +86,8 @@ if __name__ == '__main__':
 
     html_gen = HTMLGenerator(css_file)
     with io.open('gen/tickets.html', 'w', encoding='utf-8') as html_file:
-        html_file.write(html_gen.from_markdown(md.content))
-    f = 'gen/tickets.html'
+        html_file.write(html_gen.from_markdown(md.content, args.milestone_id))
+    html_output_file = 'gen/tickets.html'
     import pdfkit
 
     wk_options = {
@@ -97,8 +97,13 @@ if __name__ == '__main__':
         'margin-bottom': '0.40in',
         'margin-left': '0.40in',
         'encoding': 'UTF-8',
+        '--footer-font-size': '8',
+        '--footer-left': f'RTEMS {args.milestone_id} release notes',
+        '--footer-right': '[page]',
         'disable-smart-shrinking': None,
-        'print-media-type': None
+        'enable-local-file-access': None
     }
 
-    pdfkit.from_file(f, args.out_file, options=wk_options)
+    if args.style_format == 'trac':
+        wk_options['print-media-type'] = None
+    pdfkit.from_file(html_output_file, args.out_file, options=wk_options)

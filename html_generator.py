@@ -27,6 +27,8 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
+import datetime
+import re
 
 import markdown2
 
@@ -46,6 +48,7 @@ class HTMLGenerator:
         <link rel="stylesheet" href="{}" type="text/css" />
     </head>
     <body>
+        @@@HEADER_SOURCE_PLACEHOLDER@@@
         <div class="{}">
             {}
         </div>
@@ -57,12 +60,21 @@ class HTMLGenerator:
         self.stylesheet_path = stylesheet_path
         self.code_area_threshold = 20
 
-    def from_markdown(self, markdown_str):
+    def from_markdown(self, markdown_str, milestone_id):
         html = markdown2.markdown(markdown_str, extras=['tables', 'code-friendly', 'fenced-code-blocks'])
         html = self._insert_style_classes(html)
-        op = self.HTML_TEMPLATE.format(self.stylesheet_path,
-                                       self.CSS_TRAC_CONTENT_CLASS,
-                                       html.replace('\n', '\n\t\t'))
+        op = self._generate_header(milestone_id).format(self.stylesheet_path,
+                                                        self.CSS_TRAC_CONTENT_CLASS,
+                                                        html)
+
+        return op
+
+    def _generate_header(self, milestone_id):
+        header_content = open('./gen/heading.html', 'r').read()
+        op = self.HTML_TEMPLATE
+        op = re.sub('@@@HEADER_SOURCE_PLACEHOLDER@@@', header_content, op)
+        op = re.sub('@@@VERSION_PLACEHOLDER@@@', milestone_id, op)
+        op = re.sub('@@@GENERATION_DATE_PLACEHOLDER@@@', str(datetime.date.today()), op)
         return op
 
     def _insert_style_classes(self, html):
@@ -70,7 +82,7 @@ class HTMLGenerator:
 
         # Inserting a page break before all tickets but for the first.
         html = html.replace(self.HTML_TICKET_NUMBER_TAG_PATTERN, self.HTML_TICKET_NUMBER_WITH_NEW_PAGE) \
-                   .replace(self.HTML_TICKET_NUMBER_WITH_NEW_PAGE, self.HTML_TICKET_NUMBER_TAG_PATTERN, 1)
+            .replace(self.HTML_TICKET_NUMBER_WITH_NEW_PAGE, self.HTML_TICKET_NUMBER_TAG_PATTERN, 1)
         html = html.replace('<h1>Tickets</h1>', '<h1 class="new-page">Tickets</h1>')
         start = 0
         for _ in range(html.count('<code>')):
