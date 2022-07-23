@@ -1,14 +1,12 @@
 /* -*- coding: utf-8 -*- */
 
-@media print {
-  .new-page {
+.new-page {
     page-break-before: always;
-  }
 }
 
 @page {
-        size: A4; /* Change from the default size of A4 */
-        margin: 10mm; /* Set margin on each page */
+    size: A4; /* Change from the default size of A4 */
+    margin: 10mm; /* Set margin on each page */
 }
 
 tr, td, th, tbody, thead, tfoot {
@@ -311,17 +309,6 @@ td div, th div{
          page-break-after: avoid;
     }
 }
- @media print {
-     .new-page {
-         page-break-before: always;
-    }
-}
- @page {
-     size: A4;
-    /* Change from the default size of A4 */
-     margin: 10mm;
-    /* Set margin on each page */
-}
  .container, .new-section, .new-section table.fixed{
      width: 100%;
 }
@@ -334,10 +321,3 @@ td div, th div{
  tfoot {
      display:table-footer-group;
 }
- tr, td, th, tbody, thead, tfoot {
-     page-break-inside: avoid !important;
-}
- td div, th div{
-     page-break-inside: avoid !important;
-}
-
