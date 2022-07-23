@@ -66,12 +66,3 @@ class TextJustifier:
             lines.append(text[i:min(len(text), i + width)])
             i += width
         return lines
-
-
-if __name__ == '__main__':
-    j = TextJustifier(line_break='\n', url_pattern='[{}]({})')
-    a = j.wrap(text="""This section of the RSB has "+sb_check+" which I assume is supposed to be italics or bold.
-https://docs.rtems.org/branches/master/rsb/hosts.html#mavericks
-Also the formatting of the sentence on xz in the same section is odd.""", width=70)
-
-    print(a)
