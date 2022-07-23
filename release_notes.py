@@ -53,6 +53,14 @@ def parse_args():
 
 if __name__ == '__main__':
     args = parse_args()
+    css_file = ''
+    if args.style_format == 'trac':
+        css_file = 'rtems_trac.css'
+    elif args.style_format == 'markdown':
+        css_file = 'markdown.css'
+    else:
+        print(f'Unsupported style format: {args.style}\n')
+        sys.exit(1)
 
     # Fetch tickets data
     # t = tickets.tickets(milestone_id=args.milestone_id)
@@ -67,22 +75,13 @@ if __name__ == '__main__':
     reports.gen_overall_progress(tickets_stats['overall_progress'], md)
     reports.gen_tickets_summary(tickets_stats['tickets'], md)
     reports.gen_tickets_stats_by_category(tickets_stats['by_category'], md)
-    reports.gen_individual_tickets_info(tickets_stats['tickets'], md)
+    reports.gen_individual_tickets_info(tickets_stats['tickets'], md, 95 if args.style_format == 'markdown' else 75)
 
     with io.open('tickets.md', 'w', encoding='utf-8') as file:
         try:
             file.write(md.content.encode('utf-8'))
         except TypeError:  # For Python 3
             file.write(md.content)
-
-    css_file = ''
-    if args.style_format == 'trac':
-        css_file = 'rtems_trac.css'
-    elif args.style_format == 'markdown':
-        css_file = 'markdown.css'
-    else:
-        print(f'Unsupported style format: {args.style}\n')
-        sys.exit(1)
 
     html_gen = HTMLGenerator(css_file)
     with io.open('gen/tickets.html', 'w', encoding='utf-8') as html_file:

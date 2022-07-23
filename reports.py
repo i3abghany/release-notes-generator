@@ -78,7 +78,7 @@ def gen_tickets_stats_by_category(by_category, md):
     return md.content
 
 
-def gen_individual_tickets_info(tickets, md):
+def gen_individual_tickets_info(tickets, md, description_width):
     md.gen_line_break()
     md.gen_heading('Tickets', 1)
     md.gen_line('')
@@ -110,7 +110,7 @@ def gen_individual_tickets_info(tickets, md):
             description = description.replace('{{{', '```')
             description = description.replace('}}}', '```')
             markdown_link_format_pattern = '[{}]({})'
-            description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, width=70)
+            description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, width=description_width)
             description = re.sub('```\n\n', '```\n', description)
             description = re.sub('\n\n```', '\n```', description)
 
