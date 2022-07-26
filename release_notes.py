@@ -56,7 +56,7 @@ if __name__ == '__main__':
     css_file = ''
     if args.style_format == 'trac':
         css_file = 'rtems_trac.css'
-    elif args.style_format == 'markdown':
+    elif args.style_format == 'markdown' or args.style_format == 'md':
         css_file = 'markdown.css'
     else:
         print(f'Unsupported style format: {args.style}\n')
