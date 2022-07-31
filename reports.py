@@ -36,7 +36,7 @@ def gen_overall_progress(overall_progress, md):
     md.gen_heading('Overall Progress', 1)
     md.gen_line('')
 
-    md.gen_table(overall_progress.keys(), [overall_progress.values()], align='left')
+    md.gen_table([k.capitalize() for k in overall_progress.keys()], [overall_progress.values()], align='left')
     return md.content
 
 
@@ -47,7 +47,7 @@ def gen_tickets_summary(tickets, md):
 
     keys = tickets.keys()
     id_summary_mapping = [(k, tickets[k]['meta']['summary']) for k in keys]
-    cols = ['id', 'summary']
+    cols = ['ID', 'Summary']
     md.gen_table(cols, id_summary_mapping, align='left', max_col_width=-1)
     md.gen_line_break()
     return md.content
@@ -91,11 +91,11 @@ def gen_tickets_stats_by_category(by_category, md):
         md.gen_line('')
 
         # Get header and all rows to generate table, set category as first col
-        header = [category]
+        header = [category.capitalize()]
         rows = []
         ticket_stats_list = list(by_category[category].values())
         if len(ticket_stats_list) > 0:
-            header += ticket_stats_list[0].keys()
+            header += [k.capitalize() for k in ticket_stats_list[0].keys()]
 
         for category_value in by_category[category]:
             ticket_stats = by_category[category][category_value]
@@ -129,7 +129,7 @@ def gen_individual_tickets_info(tickets, md, description_width):
         ticket_meta.pop('description', None)
         ticket_meta.pop('summary', None)
 
-        md.gen_wrapped_table(header=ticket_meta.keys(), rows=[ticket_meta.values()])
+        md.gen_wrapped_table(header=[k.capitalize() for k in ticket_meta.keys()], rows=[ticket_meta.values()])
         md.gen_line('')
 
         if description:
