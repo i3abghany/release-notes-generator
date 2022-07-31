@@ -42,20 +42,48 @@ def gen_overall_progress(overall_progress, md):
 
 def gen_tickets_summary(tickets, md):
     md.gen_line_break()
-    md.gen_heading('Ticket Summary', 1)
+    md.gen_heading('Tickets Summary', 1)
     md.gen_line('')
 
     keys = tickets.keys()
     id_summary_mapping = [(k, tickets[k]['meta']['summary']) for k in keys]
     cols = ['id', 'summary']
     md.gen_table(cols, id_summary_mapping, align='left', max_col_width=-1)
-    # md.gen_line('')
     md.gen_line_break()
     return md.content
 
 
+def _convert_to_bulleted_link(name: str):
+    level = name.count('#')
+    stripped_name = name.replace('#', '').strip()
+    upscaled_name = f"<font size=3>{stripped_name}</font>"
+    linked_name = name.lower().replace(' ', '-').replace('-', '', 1).replace('#', '', level - 1)
+    return f"{('    ' * (level - 1)) + '* '}[**{upscaled_name}**]({linked_name})"
+
+
+def gen_toc(categories, md):
+    toc_headers = [
+        '# Overall Progress',
+        '# Tickets Summary',
+        '# Tickets By Category'
+    ]
+
+    toc_headers.extend(["## " + c.capitalize() for c in categories])
+    toc_headers.append('# Tickets')
+
+    bulleted_links = []
+    for c in toc_headers:
+        bulleted_links.append(_convert_to_bulleted_link(c))
+
+    md.gen_heading('Table of Content', 1)
+    for b in bulleted_links:
+        md.gen_line(b)
+
+    md.gen_page_break()
+
+
 def gen_tickets_stats_by_category(by_category, md):
-    md.gen_heading('By Category', 1)
+    md.gen_heading('Tickets By Category', 1)
     md.gen_line('')
 
     for category in by_category:
@@ -166,5 +194,3 @@ def remove_unnecessary_columns(addenda):
         el.pop('title', None)
         el.pop('category', None)
     return addenda
-
-

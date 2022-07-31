@@ -61,12 +61,12 @@ class HTMLGenerator:
         self.code_area_threshold = 20
 
     def from_markdown(self, markdown_str, milestone_id):
-        html = markdown2.markdown(markdown_str, extras=['tables', 'code-friendly', 'fenced-code-blocks'])
+        md = markdown2.Markdown(extras=['tables', 'code-friendly', 'fenced-code-blocks', 'toc'])
+        html = md.convert(markdown_str)
         html = self._insert_style_classes(html)
         op = self._generate_header(milestone_id).format(self.stylesheet_path,
                                                         self.CSS_TRAC_CONTENT_CLASS,
                                                         html)
-
         return op
 
     def _generate_header(self, milestone_id):

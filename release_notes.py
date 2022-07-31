@@ -69,6 +69,7 @@ if __name__ == '__main__':
 
     # Generate Markdown for data
     md = markdown_generator.markdown_generator()
+    reports.gen_toc(tickets_stats['by_category'], md)
     reports.gen_overall_progress(tickets_stats['overall_progress'], md)
     reports.gen_tickets_summary(tickets_stats['tickets'], md)
     reports.gen_tickets_stats_by_category(tickets_stats['by_category'], md)

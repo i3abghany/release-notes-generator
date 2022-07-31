@@ -57,6 +57,9 @@ class markdown_generator:
         else:
             self.gen_table(header, rows, align='left')
 
+    def gen_page_break(self):
+        self.gen_line('<div class="new-page"></div>')
+
     def gen_line_break(self):
         self.gen_line('')
         self.gen_line('')
