@@ -1,0 +1,376 @@
+## RTEMS 5.1 Release Notes
+
+### RTEMS Improvements
+
+In this section, we discuss public API level changes as well as improvements to
+the implementation of those API routines.
+
+Public API changes usually fall into one of the following categories:
+
+* Addition of new methods
+
+* Modifications to prototypes
+
+* Deletion of obsoleted methods
+
+Implementation improvements usually fall into one of the following categories:
+
+* Algorithm improvements in execution time or memory usage
+
+* Critical section reduction
+
+### API Changes
+
+* The header file <rtems.h> no longer includes <limits.h> and <string.h>.
+
+* Most services use now statically allocated resources and no longer need
+  accounting in the application configuration.
+
+* The work area initialization (RTEMS Work Space and C Program Heap) changed.
+  BSPs must provide now a `_Memory_Get()` function.
+
+* POSIX timers and signals are now the only POSIX resources which are enabled
+  by the POSIX API.
+
+#### API Additions
+
+* Support for recording of high-frequency events in particular on SMP systems
+
+* Termios supports now generation of signals.
+
+* New fatal sources:
+
+  * `RTEMS_FATAL_SOURCE_EXCEPTION`
+
+  * `RTEMS_FATAL_SOURCE_PANIC`
+
+  * `RTEMS_FATAL_SOURCE_SMP`
+
+  * `RTEMS_FATAL_SOURCE_INVALID_HEAP_FREE`
+
+  * `RTEMS_FATAL_SOURCE_HEAP`
+
+* New chain API function: rtems_chain_get_first_unprotected()
+
+* Add user defined thread names: pthread_setname_np() and pthread_getname_np()
+
+* Support for xz compression/decompression
+
+* Added rtems_scheduler_ident_by_processor()
+
+* Added rtems_scheduler_ident_by_processor_set()
+
+* Added RTEMS_PREDICT_TRUE() and RTEMS_PREDICT_FALSE() for static branch prediction hints
+
+* Added rtems_malloc() and rtems_calloc()
+
+* Added rtems_scheduler_get_maximum_priority()
+
+* Added rtems_scheduler_get_processor()
+
+* Added rtems_scheduler_get_processor_maximum()
+
+#### API Implementation Improvements
+
+* Priority inheritance is now transitive.
+
+* POSIX key destructors are now called during thread restart.
+
+* More robust thread dispatching on SMP and ARM Cortex-M
+
+#### API Deprecations
+
+* `rtems_iterate_over_all_threads()`.  Use `rtems_task_iterate()` instead.
+
+* `rtems_get_current_processor()`.  Use `rtems_scheduler_get_processor()` instead.
+
+* `rtems_get_processor_count()`.  Use `rtems_scheduler_get_processor_maximum()` instead.
+
+* `boolean` is deprecated.  Use `bool` instead.
+
+* `single_precision` is deprecated.  Use `float` instead.
+
+* `double_precision` is deprecated.  Use `double` instead.
+
+* `proc_ptr` is deprecated.  Use a proper function pointer type.
+
+* rtems_context
+
+* rtems_context_fp
+
+* rtems_extension
+
+* `rtems_io_lookup_name()` is deprecated. Use `stat()` instead.
+
+* region_information_block
+
+* `rtems_thread_cpu_usage_t` is deprecated. Use `struct timespec` instead.
+
+* `rtems_rate_monotonic_period_time_t` is deprecated. Use `struct timespec` instead.
+
+* `_Copyright_Notice` is deprecated.  Use `rtems_get_copyright_notice()` instead.
+
+* `_RTEMS_version` is deprecated.  Use `rtems_get_version_string()` instead.
+
+* `RTEMS_MAXIMUM_NAME_LENGTH` is deprecated. Use `sizeof(rtems_name)` instead.
+
+* `RTEMS_COMPILER_NO_RETURN_ATTRIBUTE` is deprecated. Use `RTEMS_NO_RETURN` instead.
+
+* `RTEMS_COMPILER_PURE_ATTRIBUTE` is deprecated. Use `RTEMS_PURE` instead.
+
+* `RTEMS_COMPILER_DEPRECATED_ATTRIBUTE` is deprecated. Use `RTEMS_DEPRECATED` instead.
+
+* `RTEMS_COMPILER_UNUSED_ATTRIBUTE` is deprecated. Use `RTEMS_UNUSED` instead.
+
+* `RTEMS_COMPILER_PACKED_ATTRIBUTE` is deprecated. Use `RTEMS_PACKED` instead.
+
+* Including <rtems/system.h> is deprecated.  This header file will be removed in RTEMS 6.
+
+#### API Removals
+
+* `rtems_clock_get()`
+
+* API defined by <rtems/debug.h>
+
+* Task notepads
+
+* Task variables
+
+### SMP Support Improvements
+
+* Reimplemenation of the Multiprocessor Resource Sharing Protocol (MrsP) to
+  address performance issues.
+
+* Implementation of the O(m) Independence-Preserving Protocol (OMIP).
+
+* Support for thread pinning (enables support for Epoch Based Reclamation; used
+  by libbsd)
+
+* The default SMP scheduler supports now EDF scheduling, one-to-one and
+  one-to-all thread to processor affinities, and thread pinning.
+
+* Timers (watchdogs) use now per-processor data structures.
+
+* Improved POSIX key to value look up.
+
+* The Ada runtime supports now SMP configurations.
+
+### Configuration Changes
+
+* All configuration options are now documented.
+
+* Most resources are now statically allocated and no longer use the workspace.
+
+* New configuration options:
+
+    * `CONFIGURE_MAXIMUM_THREAD_NAME_SIZE`
+
+    * `CONFIGURE_MINIMUM_POSIX_THREAD_STACK_SIZE`
+
+    * `CONFIGURE_DIRTY_MEMORY`
+
+    * `CONFIGURE_RECORD_EXTENSIONS_ENABLED`
+
+    * `CONFIGURE_RECORD_FATAL_DUMP_BASE64`
+
+    * `CONFIGURE_RECORD_FATAL_DUMP_BASE64_ZLIB`
+
+    * `CONFIGURE_RECORD_PER_PROCESSOR_ITEMS`
+
+    * `CONFIGURE_VERBOSE_SYSTEM_INITIALIZATION`
+
+    * `CONFIGURE_IMFS_ENABLE_MKFIFO`
+
+    * `CONFIGURE_IMFS_DISABLE_MKNOD_FILE`
+
+* Renamed configuration options:
+
+    * `CONFIGURE_SMP_MAXIMUM_PROCESSORS` to `CONFIGURE_MAXIMUM_PROCESSORS`
+
+    * `CONFIGURE_LIBIO_MAXIMUM_FILE_DESCRIPTORS` to `CONFIGURE_MAXIMUM_FILE_DESCRIPTORS`
+
+* Removed configuration options:
+
+    * `CONFIGURE_SMP_APPLICATION`
+
+    * `CONFIGURE_HAS_OWN_CONFIGURATION_TABLE`
+
+    * `CONFIGURE_HAS_OWN_BDBUF_TABLE`
+
+    * `CONFIGURE_HAS_OWN_DEVICE_DRIVER_TABLE`
+
+    * `CONFIGURE_HAS_OWN_FILESYSTEM_TABLE`
+
+    * `CONFIGURE_HAS_OWN_INIT_TABLE`
+
+    * `CONFIGURE_HAS_OWN_MOUNT_TABLE`
+
+    * `CONFIGURE_HAS_OWN_MULTIPROCESSING_TABLE`
+
+    * `CONFIGURE_POSIX_HAS_OWN_INIT_THREAD_TABLE`
+
+    * `CONFIGURE_DISABLE_SMP_CONFIGURATION`
+
+    * `CONFIGURE_MAXIMUM_DEVICES`
+
+* The helper macro for the clustered scheduler configuration
+  `RTEMS_SCHEDULER_EDF_SMP()` has now only one parameter.
+
+## RTEMS Shell Improvements
+
+The following improvements were made to the RTEMS Shell:
+
+* Telnet now supports `joel` script output. Running a `joel` script in a
+  telnet session now sees the output. Nested `joel` scripts also output to the
+  telnet session.
+
+## General
+
+* The system initialization is now performed by system initialization handlers
+  registered in a special linker set (similar to global constructors in C++).
+
+* API header files have been collected from the various locations in the RTEMS
+  source tree and placed under `cputkit/include` and for BSPs under
+  `bsps/include`. There is no header pre-install phase when building RTEMS.
+
+* Improved parallel build performance. Nested `make` calls now run in
+  parallel.
+
+* Added support for the RISC-V 32-bit and 64-bit architecture.
+
+* Added support for the 64-bit PowerPC architecture using the ELFv2 ABI.
+
+* Synchronized support for Journalling Flash File System, Version 2 (JFFS2)
+  with Linux 4.17.
+
+* Import of libfdt from device tree compiler project.
+
+* Added `libdebugger`, a thread aware GDB debug server with TCP transport
+  support. Currently the supported architectures are i386 and ARM. The ARM
+  support is experimental.
+
+* Most BSP use now function and data sections to support the linker garbage
+  collection.
+
+* This is the last release of RTEMS with the `autoconf`/`automake` build
+  system. RTEMS will be moving to a `waf` based build system driven from YAML
+  specifications files. The effort is part of the on-going wotk in the RTEMS
+  project to support qualification of the operating system.
+
+## Architectures
+
+Removed obsolete architectures:
+
+* AVR
+
+* H8300
+
+* M32C
+
+* M32R
+
+Obsoleted architectures:
+
+* Epiphany
+
+* PowerPC SPE
+
+## BSPs and Device Drivers
+
+* General
+
+    * BSP source code moved from `c/src/lib/libbsp` to `bsps` in the
+      source tree. The configure and some other related pieces are still held in
+      the original path.
+
+* New BSPs
+
+    * BSPs for ARM
+
+        * `atsamv` - Microchip (former Atmel) SAM V71 series
+
+        * `xilinx-zynqmp` - Xilinx Zynq UltraScale+ MPSoC platform
+
+    * BSPs for RISC-V
+
+        * `riscv` - Family of generic BSPs
+
+        * `griscv` - BSP based on the GRLIB
+
+* Significant updates to existing BSPs
+
+    * `powerpc/qoriq`: 64-bit support
+
+* Removal of obsoleted BSPs
+
+    * `arm/gdbarmsim`
+
+    * `arm/nds`
+
+    * `arm/gp32`
+
+    * `arm/ep1a`
+
+    * `arm/score603e`
+
+    * `m68k/idp`
+
+* Obsoleted BSPs
+
+    * `m68k/gen68302`
+
+    * `m68k/ods68302`
+
+    * `powerpc/brs5l`
+
+    * `powerpc/brs6l`
+
+    * `powerpc/dp2`
+
+    * `powerpc/mbx8xx`
+
+    * `powerpc/mpc5566evb_spe`
+
+    * `powerpc/mpc5643l_dpu`
+
+    * `powerpc/mpc5643l_evb`
+
+    * `powerpc/mpc5674f_ecu508_app`
+
+    * `powerpc/mpc5674f_ecu508_boot`
+
+    * `powerpc/mpc5674fevb_spe`
+
+    * `powerpc/mpc5674f_rsm6`
+
+* Drivers
+
+    * Drivers for `getentropy()`
+
+    * New I2C device driver framework supporting the Linux user-space API
+
+    * New SPI device driver framework supporting the Linux user-space API
+
+## Newlib Changes
+
+* time_t is now 64-bit to adress the year 2038 problem.
+
+* General improvements in the feature test macros support.
+
+* Newlib internal locks are now supported, e.g. for FILE objects.
+
+* The standard input, output, and error FILE objects are now global and no
+  longer thread-specific.
+
+* Added support for C++17 std::aligned_alloc
+
+## Ecosystem
+
+* RSB support to build a BSP software stack of tools, kernel, libbsd, and
+  supported 3rd party packages.
+
+* RTEMS Tester (`rtems-test`) support for DHCP/TFTP target hardware testing.
+
+* RTEMS Trace addition of a new trace record support for target tracing.
+
+* RTEMS Bootimage, a tool to portably create SD card images.

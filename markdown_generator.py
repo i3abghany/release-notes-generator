@@ -40,6 +40,10 @@ class markdown_generator:
     def gen_line(self, text):
         self.content += self.wrap_line(self._convert_to_unicode_str(text), self.line_width) + '\n'
 
+    def gen_unwrapped_line(self, text, is_raw_text=True):
+        self.content += text
+        self.content += ('  \n' if is_raw_text else '<br />')
+
     def gen_heading(self, text, level):
         self.content += '\n' + ('#' * level) + ' ' + self._convert_to_unicode_str(text) + '\n'
 
@@ -64,6 +68,9 @@ class markdown_generator:
         self.gen_line('')
         self.gen_line('')
         self.gen_line('<br />')
+
+    def gen_raw_md(self, content):
+        self.content += content
 
     def gen_table(self, header, rows, align='left', max_col_width=38):
         num_columns = len(header)

@@ -48,7 +48,19 @@ def parse_args():
                         help='Generated document style (currently either: trac or markdown)', default='trac')
     parser.add_argument('-o', '--outfile', dest='out_file',
                         help='Name of the generated output PDF file', default='out.pdf')
+    parser.add_argument('-n', '--notes-file', dest='notes_file',
+                        help='A file with top-level, manually-entered release notes', default='')
     return parser.parse_args()
+
+
+def get_notes_headings(file_name):
+    lines = [line.rstrip() for line in open(file_name, 'r').readlines()]
+    headings = [line for line in lines if line.startswith('#')]
+    return headings
+
+
+def get_notes_file_content(notes_file):
+    return open(notes_file, 'r').read()
 
 
 if __name__ == '__main__':
@@ -67,9 +79,12 @@ if __name__ == '__main__':
     t.load()
     tickets_stats = t.tickets
 
+    top_level_headings = get_notes_headings(args.notes_file) if args.notes_file != '' else []
+    top_level_notes_md = get_notes_file_content(args.notes_file) if args.notes_file != '' else ''
     # Generate Markdown for data
     md = markdown_generator.markdown_generator()
-    reports.gen_toc(tickets_stats['by_category'], md)
+    reports.gen_toc(top_level_headings, tickets_stats['by_category'], md)
+    reports.gen_top_level_notes(top_level_notes_md, md)
     reports.gen_overall_progress(tickets_stats['overall_progress'], md)
     reports.gen_tickets_summary(tickets_stats['tickets'], md)
     reports.gen_tickets_stats_by_category(tickets_stats['by_category'], md)

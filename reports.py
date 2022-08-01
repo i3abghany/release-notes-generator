@@ -57,16 +57,17 @@ def _convert_to_bulleted_link(name: str):
     level = name.count('#')
     stripped_name = name.replace('#', '').strip()
     upscaled_name = f"<font size=3>{stripped_name}</font>"
-    linked_name = name.lower().replace(' ', '-').replace('-', '', 1).replace('#', '', level - 1)
+    linked_name = name.lower().replace(' ', '-').replace('-', '', 1).replace('#', '', level - 1).replace('.', '')
     return f"{('    ' * (level - 1)) + '* '}[**{upscaled_name}**]({linked_name})"
 
 
-def gen_toc(categories, md):
-    toc_headers = [
+def gen_toc(top_headings, categories, md):
+    toc_headers = [h[1:] for h in top_headings]
+    toc_headers.extend([
         '# Overall Progress',
         '# Tickets Summary',
         '# Tickets By Category'
-    ]
+    ])
 
     toc_headers.extend(["## " + c.capitalize() for c in categories])
     toc_headers.append('# Tickets')
@@ -77,7 +78,7 @@ def gen_toc(categories, md):
 
     md.gen_heading('Table of Content', 1)
     for b in bulleted_links:
-        md.gen_line(b)
+        md.gen_unwrapped_line(b)
 
     md.gen_page_break()
 
@@ -194,3 +195,8 @@ def remove_unnecessary_columns(addenda):
         el.pop('title', None)
         el.pop('category', None)
     return addenda
+
+
+def gen_top_level_notes(top_level_notes_md, md):
+    md.gen_raw_md(top_level_notes_md)
+    md.gen_page_break()
