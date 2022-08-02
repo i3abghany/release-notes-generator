@@ -4,6 +4,7 @@ from urlextract import URLExtract
 
 
 class TextJustifier:
+    url_extractor = URLExtract()
 
     def __init__(self, line_break, url_pattern):
         self.line_break = line_break
@@ -14,9 +15,8 @@ class TextJustifier:
         lines = ['']
         effective_lens = [0]
         words = list(map(lambda w: w.replace('\u200b', ''), re.sub(r'(\S)\n(\S)', r'\1 \n \2', text).split(' ')))
-        url_extractor = URLExtract()
         for i, word in enumerate(words):
-            is_url = url_extractor.has_urls(word)
+            is_url = self.url_extractor.has_urls(word)
             word_effective_len = len(word)
             if word == '\n' and effective_lens[-1] != width:
                 lines.append('')
