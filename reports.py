@@ -146,8 +146,8 @@ def get_ticket_md_content(tickets, ticket_id, description_width):
         description = re.sub('\n\n```', '\n```', description)
 
         # For ticket 2624 where the opening three curly braces are not on a separate line.
-        description = re.sub('```(?!\n)', '```\n', description)
-        description = re.sub('(?!\n)```', '\n```', description)
+        description = re.sub(r'```(?!\n)', '```\n', description)
+        description = re.sub(r'(?!\n)```', '\n```', description)
 
         # For ticket 2993 where the defective closing curly brackets miss up with text area rendering.
         description = re.sub('}}:', '```\n', description)
