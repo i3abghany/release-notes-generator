@@ -29,6 +29,7 @@
 #
 import re
 
+import markdown_generator
 from text_justifier import TextJustifier
 
 
@@ -107,85 +108,107 @@ def gen_tickets_stats_by_category(by_category, md):
     return md.content
 
 
+def get_ticket_md_content(tickets, ticket_id, description_width):
+    md = markdown_generator.MarkdownGenerator()
+    ticket_meta = tickets[ticket_id]['meta']
+
+    ticket_link = tickets[ticket_id].get('comment_attachment', {}).get('link', None)
+    if ticket_link is not None:
+        md.gen_heading(md.gen_hyperlink(ticket_id, ticket_link), 2)
+        md.gen_line('')
+
+    md.gen_heading('Meta', 3)
+    md.gen_line('')
+
+    description = ticket_meta.get('description', None)
+    summary = ticket_meta.get('summary', None)
+
+    ticket_meta.pop('description', None)
+    ticket_meta.pop('summary', None)
+
+    md.gen_wrapped_table(header=[k.capitalize() for k in ticket_meta.keys()], rows=[ticket_meta.values()])
+    md.gen_line('')
+
+    if description:
+        md.gen_raw_text(md.gen_bold('Description'))
+        md.gen_line('')
+
+        if ticket_id == '3384':
+            description = re.sub('%s}}}', '%s}\n}\n}', description)
+
+        description = description.replace('{{{', '```')
+        description = description.replace('}}}', '```')
+        markdown_link_format_pattern = '[{}]({})'
+        description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, width=description_width)
+
+        # Two lines after the opening (and after the ending) back-ticks misses up with the text area rendering.
+        description = re.sub('```\n\n', '```\n', description)
+        description = re.sub('\n\n```', '\n```', description)
+
+        # For ticket 2624 where the opening three curly braces are not on a separate line.
+        description = re.sub('```(?!\n)', '```\n', description)
+        description = re.sub('(?!\n)```', '\n```', description)
+
+        # For ticket 2993 where the defective closing curly brackets miss up with text area rendering.
+        description = re.sub('}}:', '```\n', description)
+
+        # A bit hacky, but resolves the issue of ticket 3771 that contains whitespace-composed lines.
+        description = re.sub(r'[ ]{8,}', ' ', description)
+
+        md.gen_raw_text(description)
+        md.gen_line('')
+
+    if summary:
+        md.gen_raw_text(md.gen_bold('Summary'))
+        md.gen_line('')
+        summary = summary.replace('{{{', '```')
+        summary = summary.replace('}}}', '```')
+        md.gen_raw_text(summary)
+        md.gen_line('')
+
+    # Generate markdown for ticket's comments or attachments
+    items = tickets[ticket_id]['comment_attachment']['items']
+    comments = items.get('comments', None)
+    comments = remove_unnecessary_columns(comments)
+    attachments = items.get('attachments', None)
+    attachments = remove_unnecessary_columns(attachments)
+    if len(comments) > 0:
+        comments_header = comments[0].keys()
+        comments_rows = []
+        justifier = TextJustifier('<br />', '[{}]({})')
+        for comment in comments:
+            comment['description'] = justifier.wrap(comment['description'], width=57)
+        for comment in comments:
+            comments_rows.append(list(comment.values()))
+        md.gen_heading('Comments', 3)
+        md.gen_line('')
+        md.gen_table(comments_header, comments_rows, max_col_width=-1)
+        md.gen_line('')
+
+    if len(attachments) > 0:
+        attachments_header = attachments[0].keys()
+        attachments_rows = []
+        for attachment in attachments:
+            attachments_rows.append(list(attachment.values()))
+            attachments_rows[-1][3] = '[{}]({})'.format("link", attachments_rows[-1][3])
+        md.gen_heading('attachments', 3)
+        md.gen_line('')
+        md.gen_table(attachments_header, attachments_rows, max_col_width=-1)
+        md.gen_line('')
+
+    return md.content
+
+
 def gen_individual_tickets_info(tickets, md, description_width):
     md.gen_line_break()
     md.gen_heading('Tickets', 1)
     md.gen_line('')
 
-    for ticket_id in tickets:
+    for i, ticket_id in enumerate(tickets):
         # Generate markdown for ticket meta data
-        ticket_meta = tickets[ticket_id]['meta']
 
-        ticket_link = tickets[ticket_id].get('comment_attachment', {}).get('link', None)
-        if ticket_link is not None:
-            md.gen_heading(md.gen_hyperlink(ticket_id, ticket_link), 2)
-            md.gen_line('')
-
-        md.gen_heading('Meta', 3)
-        md.gen_line('')
-
-        description = ticket_meta.get('description', None)
-        summary = ticket_meta.get('summary', None)
-
-        ticket_meta.pop('description', None)
-        ticket_meta.pop('summary', None)
-
-        md.gen_wrapped_table(header=[k.capitalize() for k in ticket_meta.keys()], rows=[ticket_meta.values()])
-        md.gen_line('')
-
-        if description:
-            md.gen_raw_text(md.gen_bold('Description'))
-            md.gen_line('')
-            description = description.replace('{{{', '```')
-            description = description.replace('}}}', '```')
-            markdown_link_format_pattern = '[{}]({})'
-            description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, width=description_width)
-            description = re.sub('```\n\n', '```\n', description)
-            description = re.sub('\n\n```', '\n```', description)
-
-            # A bit hacky, but resolves the issue of ticket 3771 that contains whitespace-composed lines.
-            description = re.sub(r'[ ]{8,}', ' ', description)
-
-            md.gen_raw_text(description)
-            md.gen_line('')
-
-        if summary:
-            md.gen_raw_text(md.gen_bold('Summary'))
-            md.gen_line('')
-            summary = summary.replace('{{{', '```')
-            summary = summary.replace('}}}', '```')
-            md.gen_raw_text(summary)
-            md.gen_line('')
-
-        # Generate markdown for ticket's comments or attachments
-        items = tickets[ticket_id]['comment_attachment']['items']
-        comments = items.get('comments', None)
-        comments = remove_unnecessary_columns(comments)
-        attachments = items.get('attachments', None)
-        attachments = remove_unnecessary_columns(attachments)
-        if len(comments) > 0:
-            comments_header = comments[0].keys()
-            comments_rows = []
-            justifier = TextJustifier('<br />', '[{}]({})')
-            for comment in comments:
-                comment['description'] = justifier.wrap(comment['description'], width=57)
-            for comment in comments:
-                comments_rows.append(list(comment.values()))
-            md.gen_heading('Comments', 3)
-            md.gen_line('')
-            md.gen_table(comments_header, comments_rows, max_col_width=-1)
-            md.gen_line('')
-
-        if len(attachments) > 0:
-            attachments_header = attachments[0].keys()
-            attachments_rows = []
-            for attachment in attachments:
-                attachments_rows.append(list(attachment.values()))
-                attachments_rows[-1][3] = '[{}]({})'.format("link", attachments_rows[-1][3])
-            md.gen_heading('attachments', 3)
-            md.gen_line('')
-            md.gen_table(attachments_header, attachments_rows, max_col_width=-1)
-            md.gen_line('')
+        content = get_ticket_md_content(tickets, ticket_id, description_width)
+        md.gen_raw_md(content)
 
 
 def remove_unnecessary_columns(addenda):
