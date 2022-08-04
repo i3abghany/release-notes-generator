@@ -96,7 +96,7 @@ if __name__ == '__main__':
     reports.gen_overall_progress(tickets_stats['overall_progress'], md)
     reports.gen_tickets_summary(tickets_stats['tickets'], md)
     reports.gen_tickets_stats_by_category(tickets_stats['by_category'], md)
-    reports.gen_individual_tickets_info(tickets_stats['tickets'], md, 95 if args.style_format == 'markdown' else 75)
+    reports.gen_individual_tickets_info(tickets_stats['tickets'], md, 100 if args.style_format == 'markdown' else 75)
 
     with io.open('tickets.md', 'w', encoding='utf-8') as file:
         try:
