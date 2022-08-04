@@ -28,6 +28,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 import re
+from joblib import Parallel, delayed
 
 import markdown_generator
 from text_justifier import TextJustifier
@@ -136,8 +137,12 @@ def get_ticket_md_content(tickets, ticket_id, description_width):
         if ticket_id == '3384':
             description = re.sub('%s}}}', '%s}\n}\n}', description)
 
+        # TODO: Make sure Trac [url description] syntax is on a single line in the generated Markdown
+        # description = re.sub(r"\[([^ ]*) ([^]]*)]", r"[\1](\2)", description)
+
         description = description.replace('{{{', '```')
         description = description.replace('}}}', '```')
+
         markdown_link_format_pattern = '[{}]({})'
         description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, width=description_width)
 
@@ -204,11 +209,9 @@ def gen_individual_tickets_info(tickets, md, description_width):
     md.gen_heading('Tickets', 1)
     md.gen_line('')
 
-    for i, ticket_id in enumerate(tickets):
-        # Generate markdown for ticket meta data
-
-        content = get_ticket_md_content(tickets, ticket_id, description_width)
-        md.gen_raw_md(content)
+    mds = Parallel(n_jobs=8)(delayed(get_ticket_md_content)(tickets, ticket_id, description_width) for ticket_id in tickets)
+    for tmd in mds:
+        md.gen_raw_md(tmd)
 
 
 def remove_unnecessary_columns(addenda):

@@ -49,18 +49,23 @@ def parse_args():
     parser.add_argument('-o', '--outfile', dest='out_file',
                         help='Name of the generated output PDF file', default='out.pdf')
     parser.add_argument('-n', '--notes-file', dest='notes_file',
-                        help='A file with top-level, manually-entered release notes', default='')
+                        help='A file with top-level, manually-written release notes', default='')
     return parser.parse_args()
 
 
 def get_notes_headings(file_name):
+    if file_name == '':
+        return []
     lines = [line.rstrip() for line in open(file_name, 'r').readlines()]
     headings = [line for line in lines if line.startswith('#')]
     return headings
 
 
 def get_notes_file_content(notes_file):
-    return open(notes_file, 'r').read()
+    if notes_file == '':
+        return ''
+    else:
+        return open(notes_file, 'r').read()
 
 
 if __name__ == '__main__':
@@ -81,11 +86,9 @@ if __name__ == '__main__':
     with open('tickets_5.1.pkl', 'wb') as pf:
         pickle.dump(tickets_stats, pf, pickle.HIGHEST_PROTOCOL)
 
-    # pickle_file_name = '../tickets.pkl'
-    # tickets_stats = pickle.load(open(pickle_file_name, 'rb'))
-
-    top_level_headings = get_notes_headings(args.notes_file) if args.notes_file != '' else []
-    top_level_notes_md = get_notes_file_content(args.notes_file) if args.notes_file != '' else ''
+    print('Generating the release notes PDF file')
+    top_level_headings = get_notes_headings(args.notes_file)
+    top_level_notes_md = get_notes_file_content(args.notes_file)
     # Generate Markdown for data
     md = markdown_generator.MarkdownGenerator()
     reports.gen_toc(top_level_headings, tickets_stats['by_category'], md)
