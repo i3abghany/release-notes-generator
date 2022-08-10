@@ -55,12 +55,13 @@ def gen_tickets_summary(tickets, md):
     return md.content
 
 
-def _convert_to_bulleted_link(name: str):
+def _convert_to_bulleted_link(name: str, generator):
     level = name.count('#')
     stripped_name = name.replace('#', '').strip()
-    upscaled_name = f"<font size=3>{stripped_name}</font>"
+    if isinstance(generator, markdown_generator.MarkdownGenerator):
+        stripped_name = f"**<font size=3>{stripped_name}</font>**"
     linked_name = name.lower().replace(' ', '-').replace('-', '', 1).replace('#', '', level - 1).replace('.', '')
-    return f"{('    ' * (level - 1)) + '* '}[**{upscaled_name}**]({linked_name})"
+    return f"{('    ' * (level - 1)) + '* '}[{stripped_name}]({linked_name})"
 
 
 def gen_toc(top_headings, categories, md):
@@ -76,7 +77,7 @@ def gen_toc(top_headings, categories, md):
 
     bulleted_links = []
     for c in toc_headers:
-        bulleted_links.append(_convert_to_bulleted_link(c))
+        bulleted_links.append(_convert_to_bulleted_link(c, md))
 
     md.gen_heading('Table of Content', 1)
     for b in bulleted_links:
@@ -209,7 +210,8 @@ def gen_individual_tickets_info(tickets, md, description_width):
     md.gen_heading('Tickets', 1)
     md.gen_line('')
 
-    mds = Parallel(n_jobs=8)(delayed(get_ticket_md_content)(tickets, ticket_id, description_width) for ticket_id in tickets)
+    mds = Parallel(n_jobs=8)(
+        delayed(get_ticket_md_content)(tickets, ticket_id, description_width) for ticket_id in tickets)
     for tmd in mds:
         md.gen_raw_md(tmd)
 

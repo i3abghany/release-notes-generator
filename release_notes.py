@@ -34,6 +34,8 @@ import sys
 
 import pickle
 
+import m2r
+
 import markdown_generator
 import reports
 import tickets
@@ -103,6 +105,12 @@ if __name__ == '__main__':
             file.write(md.content.encode('utf-8'))
         except TypeError:  # For Python 3
             file.write(md.content)
+
+    with io.open('tickets.rst', 'w', encoding='utf-8') as file:
+        try:
+            file.write(md.content.encode('utf-8'))
+        except TypeError:  # For Python 3
+            file.write(m2r.convert(md.content))
 
     html_gen = HTMLGenerator(css_file)
     with io.open('gen/tickets.html', 'w', encoding='utf-8') as html_file:
