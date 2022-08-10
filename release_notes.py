@@ -96,7 +96,7 @@ if __name__ == '__main__':
     top_level_notes_md = get_notes_file_content(args.notes_file)
     # Generate Markdown for data
     md = markdown_generator.MarkdownGenerator()
-    gen = reports.ReportsGenerator()
+    gen = reports.ReportsGenerator(fmt='rst')
     gen.gen_toc(top_level_headings, tickets_stats['by_category'])
     gen.gen_top_level_notes(top_level_notes_md)
     gen.gen_overall_progress(tickets_stats['overall_progress'])

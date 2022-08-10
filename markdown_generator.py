@@ -97,6 +97,13 @@ class MarkdownGenerator:
         rows_str = '\n'.join(['|' + '|'.join(row) + '|' for row in rows])
         self.content += '\n'.join([header_str, split_line, rows_str])
 
+    def gen_comment_card(self, comment_headers, comment):
+        for i, h in enumerate(comment_headers):
+            self.content += f'**{h.capitalize()}**: {comment[i]}'
+            self.gen_line('')
+            self.gen_line('')
+        self.gen_horizontal_line()
+
     def gen_raw_text(self, formatted_text):
         self.content += '\n' + formatted_text + '\n'
 
@@ -116,6 +123,9 @@ class MarkdownGenerator:
             str_list.append(line[i:i + width])
             i += width
         return ('  \n' if is_raw_text else '<br />').join(str_list)
+
+    def gen_horizontal_line(self):
+        self.content += '\n---\n'
 
     @staticmethod
     def _convert_to_unicode_str(text):

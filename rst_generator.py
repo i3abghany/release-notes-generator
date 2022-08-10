@@ -27,6 +27,10 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
+import m2r
+
+import markdown_generator
+
 
 class RstGenerator:
     def __init__(self):
@@ -38,10 +42,29 @@ class RstGenerator:
     def gen_line(self, txt):
         self.content += f'\n{txt}\n'
 
-    def gen_heading(self, txt):
+    def gen_unwrapped_line(self, txt):
+        self.gen_line(txt)
+
+    def gen_table(self, headers, rows, align='left', max_col_width=38):
+        md = markdown_generator.MarkdownGenerator()
+        md.gen_table(headers, rows, align=align, max_col_width=max_col_width)
+        self.content += m2r.convert(md.content)
+
+    def gen_heading(self, txt, _):
         self.content += f'\n{txt}\n'
         self.content += '=' * (len(txt) + 1)
         self.content += '\n'
+
+    def gen_line_break(self):
+        self.content += '\n|br|'
+
+    def gen_raw_rst(self, txt):
+        self.content += txt
+
+    def gen_page_break(self):
+        self.content += '\n'
+        self.content += '.. raw:: html\n'
+        self.content += '<div style="page-break-after: always"></div>\n'
 
     @staticmethod
     def gen_bold(txt):

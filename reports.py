@@ -28,6 +28,8 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 import re
+
+import m2r
 from joblib import Parallel, delayed
 
 from markdown_generator import MarkdownGenerator
@@ -65,7 +67,12 @@ class ReportsGenerator:
         stripped_name = name.replace('#', '').strip()
         if isinstance(generator, MarkdownGenerator):
             stripped_name = f"**<font size=3>{stripped_name}</font>**"
-        linked_name = name.lower().replace(' ', '-').replace('-', '', 1).replace('#', '', level - 1).replace('.', '')
+        linked_name = name.lower().replace(' ', '-').replace('-', '', 1).replace('#', '', level - 1)
+        if isinstance(generator, MarkdownGenerator):
+            linked_name = linked_name.replace('.', '')
+        else:
+            linked_name = linked_name.replace('.', '-')
+
         return f"{('    ' * (level - 1)) + '* '}[{stripped_name}]({linked_name})"
 
     def gen_toc(self, top_headings, categories):
@@ -113,7 +120,7 @@ class ReportsGenerator:
         return self.generator.content
 
     @staticmethod
-    def get_ticket_md_content(tickets, ticket_id, description_width):
+    def get_ticket_md_content(tickets, ticket_id, description_width, fmt='markdown'):
         md = MarkdownGenerator()
         ticket_meta = tickets[ticket_id]['meta']
 
@@ -186,14 +193,21 @@ class ReportsGenerator:
         if len(comments) > 0:
             comments_header = comments[0].keys()
             comments_rows = []
-            justifier = TextJustifier('<br />', '[{}]({})')
-            for comment in comments:
-                comment['description'] = justifier.wrap(comment['description'], width=57)
+            if fmt == 'markdown':
+                justifier = TextJustifier('<br />', '[{}]({})')
+                for comment in comments:
+                    comment['description'] = justifier.wrap(comment['description'], width=57)
+                md.gen_heading('Comments', 3)
+            else:
+                md.gen_line(md.gen_bold('Comments'))
             for comment in comments:
                 comments_rows.append(list(comment.values()))
-            md.gen_heading('Comments', 3)
             md.gen_line('')
-            md.gen_table(comments_header, comments_rows, max_col_width=-1)
+            if fmt == 'markdown':
+                md.gen_table(comments_header, comments_rows, max_col_width=-1)
+            else:
+                for c in comments_rows:
+                    md.gen_comment_card(comments_header, c)
             md.gen_line('')
 
         if len(attachments) > 0:
@@ -202,7 +216,11 @@ class ReportsGenerator:
             for attachment in attachments:
                 attachments_rows.append(list(attachment.values()))
                 attachments_rows[-1][3] = '[{}]({})'.format("link", attachments_rows[-1][3])
-            md.gen_heading('attachments', 3)
+
+            if fmt == 'markdown':
+                md.gen_heading('Attachments', 3)
+            else:
+                md.gen_line(md.gen_bold('Attachments'))
             md.gen_line('')
             md.gen_table(attachments_header, attachments_rows, max_col_width=-1)
             md.gen_line('')
@@ -215,9 +233,14 @@ class ReportsGenerator:
         self.generator.gen_line('')
 
         generated_content = Parallel(n_jobs=8)(
-            delayed(self.get_ticket_md_content)(tickets, ticket_id, description_width) for ticket_id in tickets)
-        for ticket_content in generated_content:
-            self.generator.gen_raw_md(ticket_content)
+            delayed(self.get_ticket_md_content)(tickets, ticket_id, description_width, self.format) for ticket_id in tickets)
+        if self.format == 'markdown':
+            for ticket_content in generated_content:
+                self.generator.gen_raw_md(ticket_content)
+        else:
+            for ticket_content in generated_content:
+                rst_content = m2r.convert(ticket_content)
+                self.generator.gen_raw_rst(rst_content)
 
     @staticmethod
     def remove_unnecessary_columns(addenda):
@@ -232,3 +255,6 @@ class ReportsGenerator:
         if self.format == 'markdown':
             self.generator.gen_raw_md(top_level_notes_md)
             self.generator.gen_page_break()
+        else:
+            rst_notes = m2r.convert(top_level_notes_md)
+            self.generator.gen_raw_rst(rst_notes)
