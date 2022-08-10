@@ -82,39 +82,43 @@ if __name__ == '__main__':
         sys.exit(1)
 
     # Fetch tickets data
-    t = tickets.tickets(milestone_id=args.milestone_id)
-    t.load()
-    tickets_stats = t.tickets
-    with open('tickets_5.1.pkl', 'wb') as pf:
-        pickle.dump(tickets_stats, pf, pickle.HIGHEST_PROTOCOL)
+    # t = tickets.tickets(milestone_id=args.milestone_id)
+    # t.load()
+    # tickets_stats = t.tickets
+    # with open('tickets_5.1.pkl', 'wb') as pf:
+    #     pickle.dump(tickets_stats, pf, pickle.HIGHEST_PROTOCOL)
+
+    pickle_file_name = '../tickets.pkl'
+    tickets_stats = pickle.load(open(pickle_file_name, 'rb'))
 
     print('Generating the release notes PDF file')
     top_level_headings = get_notes_headings(args.notes_file)
     top_level_notes_md = get_notes_file_content(args.notes_file)
     # Generate Markdown for data
     md = markdown_generator.MarkdownGenerator()
-    reports.gen_toc(top_level_headings, tickets_stats['by_category'], md)
-    reports.gen_top_level_notes(top_level_notes_md, md)
-    reports.gen_overall_progress(tickets_stats['overall_progress'], md)
-    reports.gen_tickets_summary(tickets_stats['tickets'], md)
-    reports.gen_tickets_stats_by_category(tickets_stats['by_category'], md)
-    reports.gen_individual_tickets_info(tickets_stats['tickets'], md, 100 if args.style_format == 'markdown' else 75)
+    gen = reports.ReportsGenerator()
+    gen.gen_toc(top_level_headings, tickets_stats['by_category'])
+    gen.gen_top_level_notes(top_level_notes_md)
+    gen.gen_overall_progress(tickets_stats['overall_progress'])
+    gen.gen_tickets_summary(tickets_stats['tickets'])
+    gen.gen_tickets_stats_by_category(tickets_stats['by_category'])
+    gen.gen_individual_tickets_info(tickets_stats['tickets'], 100 if args.style_format == 'markdown' else 75)
 
     with io.open('tickets.md', 'w', encoding='utf-8') as file:
         try:
-            file.write(md.content.encode('utf-8'))
+            file.write(gen.generator.content.encode('utf-8'))
         except TypeError:  # For Python 3
-            file.write(md.content)
+            file.write(gen.generator.content)
 
     with io.open('tickets.rst', 'w', encoding='utf-8') as file:
         try:
-            file.write(md.content.encode('utf-8'))
+            file.write(gen.generator.content.encode('utf-8'))
         except TypeError:  # For Python 3
-            file.write(m2r.convert(md.content))
+            file.write(m2r.convert(gen.generator.content))
 
     html_gen = HTMLGenerator(css_file)
     with io.open('gen/tickets.html', 'w', encoding='utf-8') as html_file:
-        html_file.write(html_gen.from_markdown(md.content, args.milestone_id))
+        html_file.write(html_gen.from_markdown(gen.generator.content, args.milestone_id))
     html_output_file = 'gen/tickets.html'
     import pdfkit
 
