@@ -128,7 +128,9 @@ def get_ticket_md_content(tickets, ticket_id, description_width):
     ticket_meta.pop('description', None)
     ticket_meta.pop('summary', None)
 
-    md.gen_wrapped_table(header=[k.capitalize() for k in ticket_meta.keys()], rows=[ticket_meta.values()])
+    keys = [k.capitalize() for k in ticket_meta.keys()]
+    vals = [[v if v != '' else 'N.A.' for v in ticket_meta.values()]]
+    md.gen_wrapped_table(header=keys, rows=vals)
     md.gen_line('')
 
     if description:
