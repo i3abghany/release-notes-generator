@@ -73,8 +73,10 @@ if __name__ == '__main__':
         css_file = 'rtems_trac.css'
     elif args.style_format == 'markdown' or args.style_format == 'md':
         css_file = 'markdown.css'
+    elif args.style_format == 'rst':
+        pass  # TODO: add custom CSS file for rst if needed
     else:
-        print(f'Unsupported style format: {args.style}\n')
+        print(f'Unsupported style format: {args.style_format}\n')
         sys.exit(1)
 
     # Fetch tickets data

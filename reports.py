@@ -123,30 +123,29 @@ class ReportsGenerator:
         ticket_link = tickets[ticket_id].get('comment_attachment', {}).get('link', None)
         if ticket_link is not None:
             md.gen_heading(md.gen_hyperlink(ticket_id, ticket_link), 2)
-            md.gen_line('')
 
-        md.gen_heading('Meta', 3)
-        md.gen_line('')
+        if ticket_id == '2460' or ticket_id == '2578':
+            print('here')
 
         description = ticket_meta.get('description', None)
         summary = ticket_meta.get('summary', None)
         ticket_meta.pop('description', None)
         ticket_meta.pop('summary', None)
 
-        keys = [k.capitalize() for k in ticket_meta.keys()]
-        vals = [[v if v != '' else 'N.A.' for v in ticket_meta.values()]]
-        md.gen_wrapped_table(header=keys, rows=vals)
-        md.gen_line('')
+        md.gen_heading('Meta', 3)
+        meta_headers = [k.capitalize() for k in ticket_meta.keys()]
+        meta_vals = [[v if v != '' else 'N.A.' for v in ticket_meta.values()]]
+        md.gen_wrapped_table(header=meta_headers, rows=meta_vals)
 
-        ReportsGenerator._format_description(description, description_width, md, ticket_id)
+        ReportsGenerator._format_description(description, description_width, fmt, md, ticket_id)
         ReportsGenerator._format_summary(md, summary)
 
         # Generate markdown for ticket's comments or attachments
         items = tickets[ticket_id]['comment_attachment']['items']
         comments = items.get('comments', None)
-        comments = ReportsGenerator.remove_unnecessary_columns(comments)
+        comments = ReportsGenerator._remove_unnecessary_columns(comments)
         attachments = items.get('attachments', None)
-        attachments = ReportsGenerator.remove_unnecessary_columns(attachments)
+        attachments = ReportsGenerator._remove_unnecessary_columns(attachments)
 
         ReportsGenerator._format_comments(comments, fmt, md)
         ReportsGenerator._format_attachments(attachments, fmt, md)
@@ -165,9 +164,11 @@ class ReportsGenerator:
         md.gen_line('')
 
     @staticmethod
-    def _format_description(description, description_width, md, ticket_id):
+    def _format_description(description, description_width, fmt, md, ticket_id):
         if description is None:
             return
+        description = description.replace('\r\n', '\n')
+
         md.gen_raw_text(md.gen_bold('Description'))
         md.gen_line('')
 
@@ -177,11 +178,19 @@ class ReportsGenerator:
         # TODO: Make sure Trac [url description] syntax is on a single line in the generated Markdown
         # description = re.sub(r"\[([^ ]*) ([^]]*)]", r"[\1](\2)", description)
 
-        description = description.replace('{{{', '```')
-        description = description.replace('}}}', '```')
+        description = description.replace('{{{\n', '```\n')
+        description = description.replace('\n}}}', '\n```')
+
+        if fmt == 'markdown':
+            description = re.sub(r'{{{(?!\n)', '`', description)
+            description = re.sub(r'(?!\n)}}}', '`', description)
+        else:
+            description = re.sub(r'{{{(?!\n)', ':code:`', description)
+            description = re.sub(r'(?!\n)}}}', '`', description)
 
         markdown_link_format_pattern = '[{}]({})'
-        description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, width=description_width)
+        if fmt == 'markdown':
+            description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, width=description_width)
 
         # Two lines after the opening (and after the ending) back-ticks misses up with the text area rendering.
         description = re.sub('```\n\n', '```\n', description)
@@ -194,8 +203,13 @@ class ReportsGenerator:
         # For ticket 2993 where the defective closing curly brackets miss up with text area rendering.
         description = re.sub('}}:', '```\n', description)
 
-        # A bit hacky, but resolves the issue of ticket 3771 that contains whitespace-composed lines.
-        description = re.sub(r'[ ]{8,}', ' ', description)
+        # Ticket 3771 has code that's not written in a code block, which is interpretted by the Markdown generator
+        # as headers (#define)... Hence, we fix that manually.
+
+        if ticket_id == '3771':
+            description = re.sub('#define', '```\n#define', description, count=1)
+            description = re.sub('Problem facing on writing', '```\nProblem facing on writing', description, count=1)
+            description = re.sub(r'[ ]{8,}', ' ', description)
 
         md.gen_raw_text(description)
         md.gen_line('')
