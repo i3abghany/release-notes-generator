@@ -56,7 +56,9 @@ class RstGenerator:
         self.content += '\n'
 
     def gen_line_break(self):
-        self.content += '\n|br|'
+        self.content += '\n'
+        self.content += '.. raw:: html\n'
+        self.content += '    <br>\n'
 
     def gen_raw_rst(self, txt):
         self.content += txt
