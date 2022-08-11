@@ -44,15 +44,12 @@ class ReportsGenerator:
 
     def gen_overall_progress(self, overall_progress):
         self.generator.gen_heading('Overall Progress', 1)
-        self.generator.gen_line('')
-
         self.generator.gen_table([k.capitalize() for k in overall_progress.keys()], [overall_progress.values()], align='left')
         return self.generator.content
 
     def gen_tickets_summary(self, tickets):
         self.generator.gen_line_break()
         self.generator.gen_heading('Tickets Summary', 1)
-        self.generator.gen_line('')
 
         keys = tickets.keys()
         id_summary_mapping = [(k, tickets[k]['meta']['summary']) for k in keys]
@@ -102,7 +99,6 @@ class ReportsGenerator:
 
         for category in by_category:
             self.generator.gen_heading(category.capitalize(), 2)
-            self.generator.gen_line('')
 
             # Get header and all rows to generate table, set category as first col
             header = [category.capitalize()]
@@ -217,9 +213,10 @@ class ReportsGenerator:
             md.gen_heading('Comments', 3)
         else:
             md.gen_line(md.gen_bold('Comments'))
+            md.gen_line('')
+
         for comment in comments:
             comments_rows.append(list(comment.values()))
-        md.gen_line('')
         if fmt == 'markdown':
             md.gen_table(comments_header, comments_rows, max_col_width=-1)
         else:
@@ -241,14 +238,13 @@ class ReportsGenerator:
             md.gen_heading('Attachments', 3)
         else:
             md.gen_line(md.gen_bold('Attachments'))
-        md.gen_line('')
+            md.gen_line('')
         md.gen_table(attachments_header, attachments_rows, max_col_width=-1)
         md.gen_line('')
 
     def gen_individual_tickets_info(self, tickets, description_width):
         self.generator.gen_line_break()
         self.generator.gen_heading('Tickets', 1)
-        self.generator.gen_line('')
 
         generated_content = Parallel(n_jobs=8)(
             delayed(self.get_ticket_md_content)(tickets, ticket_id, description_width, self.format) for ticket_id in tickets)
@@ -261,7 +257,7 @@ class ReportsGenerator:
                 self.generator.gen_raw_rst(rst_content)
 
     @staticmethod
-    def remove_unnecessary_columns(addenda):
+    def _remove_unnecessary_columns(addenda):
         for el in addenda:
             el.pop('link', None)
             el.pop('guid', None)

@@ -45,7 +45,7 @@ class MarkdownGenerator:
         self.content += ('  \n' if is_raw_text else '<br />')
 
     def gen_heading(self, text, level):
-        self.content += '\n' + ('#' * level) + ' ' + self._convert_to_unicode_str(text) + '\n'
+        self.content += '\n' + ('#' * level) + ' ' + self._convert_to_unicode_str(text) + '\n\n'
 
     def gen_wrapped_table(self, header, rows, max_num_cols=4):
         num_cols = len(header)
