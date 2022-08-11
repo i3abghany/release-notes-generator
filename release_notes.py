@@ -28,18 +28,17 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 
-import argparse
 import io
 import sys
 
+import argparse
 import pickle
-
 import m2r
 
-import markdown_generator
-import reports
 import tickets
 from html_generator import HTMLGenerator
+from markdown_generator import MarkdownGenerator
+from reports import ReportsGenerator
 
 
 def parse_args():
@@ -64,10 +63,7 @@ def get_notes_headings(file_name):
 
 
 def get_notes_file_content(notes_file):
-    if notes_file == '':
-        return ''
-    else:
-        return open(notes_file, 'r').read()
+    return open(notes_file, 'r').read() if notes_file != '' else ''
 
 
 if __name__ == '__main__':
@@ -88,15 +84,15 @@ if __name__ == '__main__':
     # with open('tickets_5.1.pkl', 'wb') as pf:
     #     pickle.dump(tickets_stats, pf, pickle.HIGHEST_PROTOCOL)
 
-    pickle_file_name = '../tickets.pkl'
+    pickle_file_name = '../tickets_5.1.pkl'
     tickets_stats = pickle.load(open(pickle_file_name, 'rb'))
 
     print('Generating the release notes PDF file')
     top_level_headings = get_notes_headings(args.notes_file)
     top_level_notes_md = get_notes_file_content(args.notes_file)
     # Generate Markdown for data
-    md = markdown_generator.MarkdownGenerator()
-    gen = reports.ReportsGenerator(fmt='rst')
+    md = MarkdownGenerator()
+    gen = ReportsGenerator(fmt=args.style_format)
     gen.gen_toc(top_level_headings, tickets_stats['by_category'])
     gen.gen_top_level_notes(top_level_notes_md)
     gen.gen_overall_progress(tickets_stats['overall_progress'])

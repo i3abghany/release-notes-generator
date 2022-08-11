@@ -40,7 +40,7 @@ from text_justifier import TextJustifier
 class ReportsGenerator:
     def __init__(self, fmt='markdown'):
         self.format = fmt
-        self.generator = MarkdownGenerator() if fmt == 'markdown' else RstGenerator()
+        self.generator = MarkdownGenerator() if fmt == 'markdown' or fmt == 'trac' else RstGenerator()
 
     def gen_overall_progress(self, overall_progress):
         self.generator.gen_heading('Overall Progress', 1)
@@ -134,7 +134,6 @@ class ReportsGenerator:
 
         description = ticket_meta.get('description', None)
         summary = ticket_meta.get('summary', None)
-
         ticket_meta.pop('description', None)
         ticket_meta.pop('summary', None)
 
@@ -143,46 +142,8 @@ class ReportsGenerator:
         md.gen_wrapped_table(header=keys, rows=vals)
         md.gen_line('')
 
-        if description:
-            md.gen_raw_text(md.gen_bold('Description'))
-            md.gen_line('')
-
-            if ticket_id == '3384':
-                description = re.sub('%s}}}', '%s}\n}\n}', description)
-
-            # TODO: Make sure Trac [url description] syntax is on a single line in the generated Markdown
-            # description = re.sub(r"\[([^ ]*) ([^]]*)]", r"[\1](\2)", description)
-
-            description = description.replace('{{{', '```')
-            description = description.replace('}}}', '```')
-
-            markdown_link_format_pattern = '[{}]({})'
-            description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, width=description_width)
-
-            # Two lines after the opening (and after the ending) back-ticks misses up with the text area rendering.
-            description = re.sub('```\n\n', '```\n', description)
-            description = re.sub('\n\n```', '\n```', description)
-
-            # For ticket 2624 where the opening three curly braces are not on a separate line.
-            description = re.sub(r'```(?!\n)', '```\n', description)
-            description = re.sub(r'(?!\n)```', '\n```', description)
-
-            # For ticket 2993 where the defective closing curly brackets miss up with text area rendering.
-            description = re.sub('}}:', '```\n', description)
-
-            # A bit hacky, but resolves the issue of ticket 3771 that contains whitespace-composed lines.
-            description = re.sub(r'[ ]{8,}', ' ', description)
-
-            md.gen_raw_text(description)
-            md.gen_line('')
-
-        if summary:
-            md.gen_raw_text(md.gen_bold('Summary'))
-            md.gen_line('')
-            summary = summary.replace('{{{', '```')
-            summary = summary.replace('}}}', '```')
-            md.gen_raw_text(summary)
-            md.gen_line('')
+        ReportsGenerator._format_description(description, description_width, md, ticket_id)
+        ReportsGenerator._format_summary(md, summary)
 
         # Generate markdown for ticket's comments or attachments
         items = tickets[ticket_id]['comment_attachment']['items']
@@ -190,42 +151,99 @@ class ReportsGenerator:
         comments = ReportsGenerator.remove_unnecessary_columns(comments)
         attachments = items.get('attachments', None)
         attachments = ReportsGenerator.remove_unnecessary_columns(attachments)
-        if len(comments) > 0:
-            comments_header = comments[0].keys()
-            comments_rows = []
-            if fmt == 'markdown':
-                justifier = TextJustifier('<br />', '[{}]({})')
-                for comment in comments:
-                    comment['description'] = justifier.wrap(comment['description'], width=57)
-                md.gen_heading('Comments', 3)
-            else:
-                md.gen_line(md.gen_bold('Comments'))
-            for comment in comments:
-                comments_rows.append(list(comment.values()))
-            md.gen_line('')
-            if fmt == 'markdown':
-                md.gen_table(comments_header, comments_rows, max_col_width=-1)
-            else:
-                for c in comments_rows:
-                    md.gen_comment_card(comments_header, c)
-            md.gen_line('')
 
-        if len(attachments) > 0:
-            attachments_header = attachments[0].keys()
-            attachments_rows = []
-            for attachment in attachments:
-                attachments_rows.append(list(attachment.values()))
-                attachments_rows[-1][3] = '[{}]({})'.format("link", attachments_rows[-1][3])
-
-            if fmt == 'markdown':
-                md.gen_heading('Attachments', 3)
-            else:
-                md.gen_line(md.gen_bold('Attachments'))
-            md.gen_line('')
-            md.gen_table(attachments_header, attachments_rows, max_col_width=-1)
-            md.gen_line('')
+        ReportsGenerator._format_comments(comments, fmt, md)
+        ReportsGenerator._format_attachments(attachments, fmt, md)
 
         return md.content
+
+    @staticmethod
+    def _format_summary(md, summary):
+        if summary is None:
+            return
+        md.gen_raw_text(md.gen_bold('Summary'))
+        md.gen_line('')
+        summary = summary.replace('{{{', '```')
+        summary = summary.replace('}}}', '```')
+        md.gen_raw_text(summary)
+        md.gen_line('')
+
+    @staticmethod
+    def _format_description(description, description_width, md, ticket_id):
+        if description is None:
+            return
+        md.gen_raw_text(md.gen_bold('Description'))
+        md.gen_line('')
+
+        if ticket_id == '3384':
+            description = re.sub('%s}}}', '%s}\n}\n}', description)
+
+        # TODO: Make sure Trac [url description] syntax is on a single line in the generated Markdown
+        # description = re.sub(r"\[([^ ]*) ([^]]*)]", r"[\1](\2)", description)
+
+        description = description.replace('{{{', '```')
+        description = description.replace('}}}', '```')
+
+        markdown_link_format_pattern = '[{}]({})'
+        description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, width=description_width)
+
+        # Two lines after the opening (and after the ending) back-ticks misses up with the text area rendering.
+        description = re.sub('```\n\n', '```\n', description)
+        description = re.sub('\n\n```', '\n```', description)
+
+        # For ticket 2624 where the opening three curly braces are not on a separate line.
+        description = re.sub(r'```(?!\n)', '```\n', description)
+        description = re.sub(r'(?!\n)```', '\n```', description)
+
+        # For ticket 2993 where the defective closing curly brackets miss up with text area rendering.
+        description = re.sub('}}:', '```\n', description)
+
+        # A bit hacky, but resolves the issue of ticket 3771 that contains whitespace-composed lines.
+        description = re.sub(r'[ ]{8,}', ' ', description)
+
+        md.gen_raw_text(description)
+        md.gen_line('')
+
+    @staticmethod
+    def _format_comments(comments, fmt, md):
+        if len(comments) == 0:
+            return
+        comments_header = comments[0].keys()
+        comments_rows = []
+        if fmt == 'markdown':
+            justifier = TextJustifier('<br />', '[{}]({})')
+            for comment in comments:
+                comment['description'] = justifier.wrap(comment['description'], width=57)
+            md.gen_heading('Comments', 3)
+        else:
+            md.gen_line(md.gen_bold('Comments'))
+        for comment in comments:
+            comments_rows.append(list(comment.values()))
+        md.gen_line('')
+        if fmt == 'markdown':
+            md.gen_table(comments_header, comments_rows, max_col_width=-1)
+        else:
+            for c in comments_rows:
+                md.gen_comment_card(comments_header, c)
+        md.gen_line('')
+
+    @staticmethod
+    def _format_attachments(attachments, fmt, md):
+        if len(attachments) == 0:
+            return
+        attachments_header = attachments[0].keys()
+        attachments_rows = []
+        for attachment in attachments:
+            attachments_rows.append(list(attachment.values()))
+            attachments_rows[-1][3] = '[{}]({})'.format("link", attachments_rows[-1][3])
+
+        if fmt == 'markdown':
+            md.gen_heading('Attachments', 3)
+        else:
+            md.gen_line(md.gen_bold('Attachments'))
+        md.gen_line('')
+        md.gen_table(attachments_header, attachments_rows, max_col_width=-1)
+        md.gen_line('')
 
     def gen_individual_tickets_info(self, tickets, description_width):
         self.generator.gen_line_break()
