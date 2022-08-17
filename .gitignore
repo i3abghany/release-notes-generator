@@ -7,3 +7,4 @@ html/*
 gen/tickets.html
 prof/*
 *.pdf
+*.pkl
