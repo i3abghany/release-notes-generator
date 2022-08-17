@@ -2,8 +2,8 @@
 __pycache__/*
 *.pyc
 tickets.md
+tickets.rst
 html/*
 gen/tickets.html
 prof/*
 *.pdf
-
