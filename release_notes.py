@@ -83,10 +83,10 @@ if __name__ == '__main__':
     # t = tickets.tickets(milestone_id=args.milestone_id)
     # t.load()
     # tickets_stats = t.tickets
-    # with open('tickets_5.1.pkl', 'wb') as pf:
+    # with open('tickets.pkl', 'wb') as pf:
     #     pickle.dump(tickets_stats, pf, pickle.HIGHEST_PROTOCOL)
 
-    pickle_file_name = '../tickets_5.1.pkl'
+    pickle_file_name = 'tickets.pkl'
     tickets_stats = pickle.load(open(pickle_file_name, 'rb'))
 
     print('Generating the release notes PDF file')
@@ -117,7 +117,6 @@ if __name__ == '__main__':
     html_gen = HTMLGenerator(css_file)
     with io.open('gen/tickets.html', 'w', encoding='utf-8') as html_file:
         html_file.write(html_gen.from_markdown(gen.generator.content, args.milestone_id))
-    html_output_file = 'gen/tickets.html'
     import pdfkit
 
     wk_options = {
@@ -130,10 +129,17 @@ if __name__ == '__main__':
         '--footer-font-size': '8',
         '--footer-left': f'RTEMS {args.milestone_id} release notes',
         '--footer-right': '[page]',
+        'enable-local-file-access': None,
+        'enable-internal-links': None,
         'disable-smart-shrinking': None,
-        'enable-local-file-access': None
+        'print-media-type': None
     }
 
-    if args.style_format == 'trac':
-        wk_options['print-media-type'] = None
+    try:
+        pdfkit.configuration()
+    except OSError:
+        print('wkhtmltopdf is not present, please install it and then rerun the generator.')
+        sys.exit(1)
+
+    html_output_file = 'gen/tickets.html'
     pdfkit.from_file(html_output_file, args.out_file, options=wk_options)
