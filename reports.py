@@ -124,9 +124,6 @@ class ReportsGenerator:
         if ticket_link is not None:
             md.gen_heading(md.gen_hyperlink(ticket_id, ticket_link), 2)
 
-        if ticket_id == '2460' or ticket_id == '2578':
-            print('here')
-
         description = ticket_meta.get('description', None)
         summary = ticket_meta.get('summary', None)
         ticket_meta.pop('description', None)
@@ -256,13 +253,14 @@ class ReportsGenerator:
         md.gen_table(attachments_header, attachments_rows, max_col_width=-1)
         md.gen_line('')
 
-    def gen_individual_tickets_info(self, tickets, description_width):
+    def gen_individual_tickets_info(self, tickets):
         self.generator.gen_line_break()
         self.generator.gen_heading('Tickets', 1)
+        description_width = 100 if self.format == 'markdown' else 75
 
         generated_content = Parallel(n_jobs=8)(
             delayed(self.get_ticket_md_content)(tickets, ticket_id, description_width, self.format) for ticket_id in tickets)
-        if self.format == 'markdown':
+        if self.format == 'markdown' or self.format == 'trac':
             for ticket_content in generated_content:
                 self.generator.gen_raw_md(ticket_content)
         else:
@@ -280,7 +278,7 @@ class ReportsGenerator:
         return addenda
 
     def gen_top_level_notes(self, top_level_notes_md):
-        if self.format == 'markdown':
+        if self.format == 'markdown' or self.format == 'trac':
             self.generator.gen_raw_md(top_level_notes_md)
             self.generator.gen_page_break()
         else:
