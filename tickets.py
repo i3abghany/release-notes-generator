@@ -27,6 +27,7 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
+from joblib import Parallel, delayed
 
 try:
     import urllib.request as urllib_request
@@ -46,17 +47,39 @@ class tickets:
     def get_ticket_ids(self):
         return self.tickets.keys()
 
+    def _fetch_data_for_ticket(self, ticket):
+        print('Processing ticket {t}...'.format(t=ticket['id']))
+        return self._parse_ticket_data(ticket)
+
     def load(self):
         # Read entire trac table as DictReader (iterator)
         tickets_dict_iter = self._get_tickets_table_as_dict()
         self._pre_process_tickets_stats()
-
-        # Parse ticket data
-        for ticket in tickets_dict_iter:
-            print('processing ticket {t} ...'.format(t=ticket['id']))
-            self.tickets['tickets'][ticket['id']] = self._parse_ticket_data(ticket)
+        tickets_data = Parallel(n_jobs=8)(delayed(self._fetch_data_for_ticket)(ticket) for ticket in tickets_dict_iter)
+        for ticket in tickets_data:
+            self.tickets['tickets'][ticket['meta']['id']] = ticket
+            self._update_stats(ticket)
 
         self._post_process_ticket_stats()
+
+    def _update_stats(self, ticket):
+        self.tickets['overall_progress']['total'] += 1
+        if ticket['meta']['status'] == 'closed':
+            self.tickets['overall_progress']['closed'] += 1
+        if ticket['meta']['status'] == 'assigned':
+            self.tickets['overall_progress']['assigned'] += 1
+        if ticket['meta']['status'] == 'new':
+            self.tickets['overall_progress']['new'] += 1
+        for col in rtems_trac.aggregate_cols:
+            col_value = ticket['meta'][col]
+            self.tickets['by_category'][col][col_value] \
+                = self.tickets['by_category'][col].get(col_value, {})
+            if ticket['meta']['status'] == 'closed':
+                self.tickets['by_category'][col][col_value]['closed'] \
+                    = self.tickets['by_category'][col][col_value] \
+                          .get('closed', 0) + 1
+            self.tickets['by_category'][col][col_value]['total'] \
+                = self.tickets['by_category'][col][col_value].get('total', 0) + 1
 
     def _pre_process_tickets_stats(self):
         self.tickets['overall_progress'] = {}
@@ -89,25 +112,6 @@ class tickets:
         return rtems_trac.parse_csv_as_dict_iter(csv_url)
 
     def _parse_ticket_data(self, ticket):
-        self.tickets['overall_progress']['total'] += 1
-        if ticket['Status'] == 'closed':
-            self.tickets['overall_progress']['closed'] += 1
-        if ticket['Status'] == 'assigned':
-            self.tickets['overall_progress']['assigned'] += 1
-        if ticket['Status'] == 'new':
-            self.tickets['overall_progress']['new'] += 1
-
-        for col in rtems_trac.aggregate_cols:
-            col_value = ticket[col.capitalize()]
-            self.tickets['by_category'][col][col_value] \
-                = self.tickets['by_category'][col].get(col_value, {})
-            if ticket['Status'] == 'closed':
-                self.tickets['by_category'][col][col_value]['closed'] \
-                    = self.tickets['by_category'][col][col_value] \
-                          .get('closed', 0) + 1
-            self.tickets['by_category'][col][col_value]['total'] \
-                = self.tickets['by_category'][col][col_value].get('total', 0) + 1
-
         return {'meta': self._parse_ticket_csv(ticket['id']),
                 'comment_attachment': self._parse_ticket_rss(ticket['id'])}
 
