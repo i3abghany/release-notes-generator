@@ -117,7 +117,6 @@ if __name__ == '__main__':
     html_gen = HTMLGenerator(css_file)
     with io.open('gen/tickets.html', 'w', encoding='utf-8') as html_file:
         html_file.write(html_gen.from_markdown(gen.generator.content, args.milestone_id))
-    import pdfkit
 
     wk_options = {
         'page-size': 'A4',
@@ -135,6 +134,7 @@ if __name__ == '__main__':
         'print-media-type': None
     }
 
+    import pdfkit
     try:
         pdfkit.configuration()
     except OSError:

@@ -63,7 +63,7 @@ class ReportsGenerator:
         level = name.count('#')
         stripped_name = name.replace('#', '').strip()
         if isinstance(generator, MarkdownGenerator):
-            stripped_name = f"**<font size=3>{stripped_name}</font>**"
+            stripped_name = f"**<font size=4.5>{stripped_name}</font>**"
         linked_name = name.lower().replace(' ', '-').replace('-', '', 1).replace('#', '', level - 1)
         if isinstance(generator, MarkdownGenerator):
             linked_name = linked_name.replace('.', '')
