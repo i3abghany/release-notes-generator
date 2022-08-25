@@ -217,7 +217,7 @@ class ReportsGenerator:
             return
         comments_header = comments[0].keys()
         comments_rows = []
-        if fmt == 'markdown':
+        if fmt == 'markdown' or fmt == 'trac':
             justifier = TextJustifier('<br />', '[{}]({})')
             for comment in comments:
                 comment['description'] = justifier.wrap(comment['description'], width=57)
@@ -228,7 +228,7 @@ class ReportsGenerator:
 
         for comment in comments:
             comments_rows.append(list(comment.values()))
-        if fmt == 'markdown':
+        if fmt == 'trac' or fmt == 'markdown':
             md.gen_table(comments_header, comments_rows, max_col_width=-1)
         else:
             for c in comments_rows:
