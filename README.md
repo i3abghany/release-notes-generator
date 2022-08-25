@@ -6,12 +6,21 @@ This project aims to automatically create the RTEMS release notes for a release 
 
 # Usage
 
-To download and install python dependencies, please run `pip install -r requirements.txt`
+To download and install python dependencies, please run `pip install -r
+requirements.txt`
 
-Currently, the generator supports two set of styles that can be used for the final produced PDF file.
-Those are `trac` and `markdown`. The style set to use is an invocation-time parameter.
-An example usage, which produces the release notes PDF file for 4.11.3 milestone using
-GitHub-Markdown-like styles would be:
+For the `markdown` and `trac` styles, `wkhtmltopdf` is used to generate the
+final release notes PDF file. Hence, a `wkhtmltopdf` **with patched qt**
+version is required on the system before attempting to run and generate release
+notes files using those styles. The generator was mainly tested using
+`wkhtmltopdf` version `0.12.5`.
+
+Currently, the generator supports two set of styles that can be used for the
+final produced PDF file. Those are `trac` and `markdown`, and `rst` (which is
+still W.I.P.).
+
+An example usage, which produces the release notes PDF file for 4.11.3
+milestone using GitHub-Markdown-like styles would be:
 
 ```commandline
 python ./release_notes.py --milestone_id=4.11.3 --style=markdown
