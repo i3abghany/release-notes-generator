@@ -66,58 +66,31 @@ def get_notes_file_content(notes_file):
     return open(notes_file, 'r').read() if notes_file != '' else ''
 
 
-if __name__ == '__main__':
-    args = parse_args()
-    css_file = ''
-    if args.style_format == 'trac':
-        css_file = 'rtems_trac.css'
-    elif args.style_format == 'markdown' or args.style_format == 'md':
-        css_file = 'markdown.css'
-    elif args.style_format == 'rst':
-        pass  # TODO: add custom CSS file for rst if needed
-    else:
-        print(f'Unsupported style format: {args.style_format}\n')
+def generate_rst(gen_content):
+    with io.open('tickets.rst', 'w', encoding='utf-8') as ff:
+        try:
+            ff.write(m2r.convert(gen_content).encode('utf-8'))
+        except TypeError:  # For Python 3
+            ff.write(m2r.convert(gen_content))
+    import subprocess, shutil
+    try:
+        shutil.which('rst2pdf')
+    except shutil.Error:
+        print('rst2pdf is not found, please install it and then rerun the generator.')
         sys.exit(1)
+    subprocess.run(['rst2pdf', 'tickets.rst', '-o', args.out_file], stdout=subprocess.DEVNULL,
+                   stderr=subprocess.DEVNULL)
 
-    # Fetch tickets data
-    # t = tickets.tickets(milestone_id=args.milestone_id)
-    # t.load()
-    # tickets_stats = t.tickets
-    # with open('tickets.pkl', 'wb') as pf:
-    #     pickle.dump(tickets_stats, pf, pickle.HIGHEST_PROTOCOL)
 
-    pickle_file_name = 'tickets.pkl'
-    tickets_stats = pickle.load(open(pickle_file_name, 'rb'))
-
-    print('Generating the release notes PDF file')
-    top_level_headings = get_notes_headings(args.notes_file)
-    top_level_notes_md = get_notes_file_content(args.notes_file)
-    # Generate Markdown for data
-    md = MarkdownGenerator()
-    gen = ReportsGenerator(fmt=args.style_format)
-    gen.gen_toc(top_level_headings, tickets_stats['by_category'])
-    gen.gen_top_level_notes(top_level_notes_md)
-    gen.gen_overall_progress(tickets_stats['overall_progress'])
-    gen.gen_tickets_summary(tickets_stats['tickets'])
-    gen.gen_tickets_stats_by_category(tickets_stats['by_category'])
-    gen.gen_individual_tickets_info(tickets_stats['tickets'])
-
-    with io.open('tickets.md', 'w', encoding='utf-8') as file:
+def generate_from_html(gen_content):
+    with io.open('tickets.md', 'w', encoding='utf-8') as ff:
         try:
-            file.write(gen.generator.content.encode('utf-8'))
+            ff.write(gen_content.encode('utf-8'))
         except TypeError:  # For Python 3
-            file.write(gen.generator.content)
-
-    with io.open('tickets.rst', 'w', encoding='utf-8') as file:
-        try:
-            file.write(gen.generator.content.encode('utf-8'))
-        except TypeError:  # For Python 3
-            file.write(m2r.convert(gen.generator.content))
-
+            ff.write(gen_content)
     html_gen = HTMLGenerator(css_file)
     with io.open('gen/tickets.html', 'w', encoding='utf-8') as html_file:
-        html_file.write(html_gen.from_markdown(gen.generator.content, args.milestone_id))
-
+        html_file.write(html_gen.from_markdown(gen_content, args.milestone_id))
     wk_options = {
         'page-size': 'A4',
         'margin-top': '0.40in',
@@ -132,16 +105,55 @@ if __name__ == '__main__':
         'enable-internal-links': None,
         'disable-smart-shrinking': None,
     }
-
     if args.style_format == 'trac':
         wk_options['print-media-type'] = None
-
     import pdfkit
     try:
         pdfkit.configuration()
     except OSError:
         print('wkhtmltopdf is not found, please install it and then rerun the generator.')
         sys.exit(1)
-
     html_output_file = 'gen/tickets.html'
     pdfkit.from_file(html_output_file, args.out_file, options=wk_options)
+
+
+if __name__ == '__main__':
+    args = parse_args()
+    css_file = ''
+    if args.style_format == 'trac':
+        css_file = 'rtems_trac.css'
+    elif args.style_format == 'markdown' or args.style_format == 'md':
+        css_file = 'markdown.css'
+    elif args.style_format == 'rst':
+        pass  # TODO: add custom CSS file for rst if needed
+    else:
+        print(f'Unsupported style format: {args.style_format}\n')
+        sys.exit(1)
+
+    # Fetch tickets data
+    t = tickets.tickets(milestone_id=args.milestone_id)
+    t.load()
+    tickets_stats = t.tickets
+    with open('tickets-5.1.pkl', 'wb') as pf:
+        pickle.dump(tickets_stats, pf, pickle.HIGHEST_PROTOCOL)
+
+    # pickle_file_name = 'tickets-5.1.pkl'
+    # tickets_stats = pickle.load(open(pickle_file_name, 'rb'))
+
+    print('Generating the release notes PDF file...')
+    top_level_headings = get_notes_headings(args.notes_file)
+    top_level_notes_md = get_notes_file_content(args.notes_file)
+    # Generate Markdown for data
+    md = MarkdownGenerator()
+    gen = ReportsGenerator(fmt=args.style_format)
+    gen.gen_toc(top_level_headings, tickets_stats['by_category'])
+    gen.gen_top_level_notes(top_level_notes_md)
+    gen.gen_overall_progress(tickets_stats['overall_progress'])
+    gen.gen_tickets_summary(tickets_stats['tickets'])
+    gen.gen_tickets_stats_by_category(tickets_stats['by_category'])
+    gen.gen_individual_tickets_info(tickets_stats['tickets'])
+
+    if args.style_format == 'rst':
+        generate_rst(gen.generator.content)
+    else:
+        generate_from_html(gen.generator.content)
