@@ -12,6 +12,7 @@ class TextJustifier:
 
     def wrap(self, text, width=50):
         text = text.replace('\r\n', ' \n ').strip()
+        text = text.replace('\n\n', ' \n \n ').strip()
         lines = ['']
         effective_line_lens = [0]
         words = list(map(lambda w: w.replace('\u200b', ''), re.sub(r'(\S)\n(\S)', r'\1 \n \2', text).split(' ')))
@@ -20,7 +21,11 @@ class TextJustifier:
             if is_url:
                 word = word.strip('[.]')
             word_effective_len = len(word)
-            if word == '\n' and effective_line_lens[-1] != width:
+            if '\n' in word and effective_line_lens[-1] != width:
+                if word != '\n':
+                    lines[-1] += (' ' + word.strip())
+                else:
+                    lines[-1] += '\n'
                 lines.append('')
                 effective_line_lens.append(0)
                 continue
