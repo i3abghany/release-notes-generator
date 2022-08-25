@@ -15,7 +15,7 @@ version is required on the system before attempting to run and generate release
 notes files using those styles. The generator was mainly tested using
 `wkhtmltopdf` version `0.12.5`.
 
-Currently, the generator supports two set of styles that can be used for the
+Currently, the generator supports three set of styles that can be used for the
 final produced PDF file. Those are `trac` and `markdown`, and `rst` (which is
 still W.I.P.).
 
