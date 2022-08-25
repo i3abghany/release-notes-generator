@@ -45,7 +45,6 @@ class ReportsGenerator:
     def gen_overall_progress(self, overall_progress):
         self.generator.gen_heading('Overall Progress', 1)
         self.generator.gen_table([k.capitalize() for k in overall_progress.keys()], [overall_progress.values()], align='left')
-        return self.generator.content
 
     def gen_tickets_summary(self, tickets):
         self.generator.gen_line_break()
@@ -56,7 +55,6 @@ class ReportsGenerator:
         cols = ['ID', 'Summary']
         self.generator.gen_table(cols, id_summary_mapping, align='left', max_col_width=-1)
         self.generator.gen_line_break()
-        return self.generator.content
 
     @staticmethod
     def _convert_to_bulleted_link(name: str, generator):
@@ -113,10 +111,9 @@ class ReportsGenerator:
 
             self.generator.gen_table(header, rows, align='left')
             self.generator.gen_line('')
-        return self.generator.content
 
     @staticmethod
-    def get_ticket_md_content(tickets, ticket_id, description_width, fmt='markdown'):
+    def _get_ticket_md_content(tickets, ticket_id, description_width, fmt='markdown'):
         md = MarkdownGenerator()
         ticket_meta = tickets[ticket_id]['meta']
 
@@ -259,7 +256,7 @@ class ReportsGenerator:
         description_width = 100 if self.format == 'markdown' else 75
 
         generated_content = Parallel(n_jobs=8)(
-            delayed(self.get_ticket_md_content)(tickets, ticket_id, description_width, self.format) for ticket_id in tickets)
+            delayed(self._get_ticket_md_content)(tickets, ticket_id, description_width, self.format) for ticket_id in tickets)
         if self.format == 'markdown' or self.format == 'trac':
             for ticket_content in generated_content:
                 self.generator.gen_raw_md(ticket_content)
