@@ -104,7 +104,9 @@ class tickets:
                 closed = self.tickets['by_category'][col][key].get('closed', 0)
                 if closed == 0:
                     self.tickets['by_category'][col][key]['closed'] = 0
-                total = self.tickets['by_category'][col][key]['total']
+                total = self.tickets['by_category'][col][key].get('closed', 0)
+                if total == 0:
+                    self.tickets['by_category'][col][key]['total'] = 0
                 self.tickets['by_category'][col][key]['progress'] \
                     = '{c}/{t}'.format(c=closed, t=total)
 
