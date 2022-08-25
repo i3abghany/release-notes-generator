@@ -177,6 +177,7 @@ class ReportsGenerator:
         description = description.replace('{{{\n', '```\n')
         description = description.replace('\n}}}', '\n```')
 
+        description = re.sub(r"^#(define|include)(.*)$", r"`#\1\2`", description, flags=re.MULTILINE)
         if fmt == 'markdown':
             description = re.sub(r'{{{(?!\n)', '`', description)
             description = re.sub(r'(?!\n)}}}', '`', description)
