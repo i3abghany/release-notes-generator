@@ -160,13 +160,13 @@ class ReportsGenerator:
         md.gen_line('')
 
     @staticmethod
-    def _format_description(description, description_width, fmt, md, ticket_id):
+    def _format_description(description, description_width, fmt, gen, ticket_id):
         if description is None:
             return
         description = description.replace('\r\n', '\n')
 
-        md.gen_raw_text(md.gen_bold('Description'))
-        md.gen_line('')
+        gen.gen_raw_text(gen.gen_bold('Description'))
+        gen.gen_line('')
 
         if ticket_id == '3384':
             description = re.sub('%s}}}', '%s}\n}\n}', description)
@@ -179,7 +179,8 @@ class ReportsGenerator:
         description = description.replace('{{{\n', '```\n')
         description = description.replace('\n}}}', '\n```')
 
-        description = re.sub(r"^#(define|include)(.*)$", r"`#\1\2`", description, flags=re.MULTILINE)
+        description = re.sub(r"^[ \t]*#([ \t]*define|[ \t]*include|[ \t]*endif|[ \t]*ifdef|[ \t]*ifndef|[ \t]*if|[ \t]*else)(.*)$",
+                             r"`#\1\2`", description, flags=re.MULTILINE)
         if fmt == 'markdown':
             description = re.sub(r'{{{(?!\n)', '`', description)
             description = re.sub(r'(?!\n)}}}', '`', description)
@@ -187,8 +188,8 @@ class ReportsGenerator:
             description = re.sub(r'{{{(?!\n)', ':code:`', description)
             description = re.sub(r'(?!\n)}}}', '`', description)
 
-        markdown_link_format_pattern = '[{}]({})'
         if fmt == 'markdown':
+            markdown_link_format_pattern = '[{}]({})'
             description = TextJustifier('\n', markdown_link_format_pattern).wrap(description, width=description_width)
 
         # Two lines after the opening (and after the ending) back-ticks misses up with the text area rendering.
@@ -210,8 +211,13 @@ class ReportsGenerator:
             description = re.sub('Problem facing on writing', '```\nProblem facing on writing', description, count=1)
             description = re.sub(r'[ ]{8,}', ' ', description)
 
-        md.gen_raw_text(description)
-        md.gen_line('')
+        if fmt == 'rst':
+            description = description.replace('=', '\\=')
+            description = description.replace('\n', '\n\n')
+
+        gen.gen_raw_text(description)
+        gen.gen_line('')
+
 
     @staticmethod
     def _format_comments(comments, fmt, md):

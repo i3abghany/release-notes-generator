@@ -27,6 +27,7 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
+from text_justifier import TextJustifier
 
 
 class MarkdownGenerator:
@@ -98,8 +99,10 @@ class MarkdownGenerator:
         self.content += '\n'.join([header_str, split_line, rows_str])
 
     def gen_comment_card(self, comment_headers, comment, horizontal_line=True):
+        just = TextJustifier('\n', "{}({})")
         for i, h in enumerate(comment_headers):
-            self.content += f'**{h.capitalize()}**: {comment[i]}'
+            raw_txt = f"\n```\n{comment[i]}\n```"
+            self.content += f'**{h.capitalize()}**: {comment[i] if h != "description" else just.wrap(raw_txt, 80)}'
             self.gen_line('')
             self.gen_line('')
         if horizontal_line:

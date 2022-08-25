@@ -65,6 +65,7 @@ def get_notes_headings(file_name):
 def get_notes_file_content(notes_file):
     return open(notes_file, 'r').read() if notes_file != '' else ''
 
+
 def dump_gen_content(gen_content, fname):
     with io.open(fname, 'w', encoding='utf-8') as ff:
         try:
