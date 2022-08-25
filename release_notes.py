@@ -131,14 +131,16 @@ if __name__ == '__main__':
         'enable-local-file-access': None,
         'enable-internal-links': None,
         'disable-smart-shrinking': None,
-        'print-media-type': None
     }
+
+    if args.style_format == 'trac':
+        wk_options['print-media-type'] = None
 
     import pdfkit
     try:
         pdfkit.configuration()
     except OSError:
-        print('wkhtmltopdf is not present, please install it and then rerun the generator.')
+        print('wkhtmltopdf is not found, please install it and then rerun the generator.')
         sys.exit(1)
 
     html_output_file = 'gen/tickets.html'
