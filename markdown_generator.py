@@ -97,12 +97,13 @@ class MarkdownGenerator:
         rows_str = '\n'.join(['|' + '|'.join(row) + '|' for row in rows])
         self.content += '\n'.join([header_str, split_line, rows_str])
 
-    def gen_comment_card(self, comment_headers, comment):
+    def gen_comment_card(self, comment_headers, comment, horizontal_line=True):
         for i, h in enumerate(comment_headers):
             self.content += f'**{h.capitalize()}**: {comment[i]}'
             self.gen_line('')
             self.gen_line('')
-        self.gen_horizontal_line()
+        if horizontal_line:
+            self.gen_horizontal_line()
 
     def gen_raw_text(self, formatted_text):
         self.content += '\n' + formatted_text + '\n'

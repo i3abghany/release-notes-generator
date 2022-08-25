@@ -71,6 +71,7 @@ class ReportsGenerator:
         return f"{('    ' * (level - 1)) + '* '}[{stripped_name}]({linked_name})"
 
     def gen_toc(self, top_headings, categories):
+        tmp_gen = MarkdownGenerator()
         toc_headers = [h[1:] for h in top_headings]
         toc_headers.extend([
             '# Overall Progress',
@@ -85,10 +86,11 @@ class ReportsGenerator:
         for c in toc_headers:
             bulleted_links.append(self._convert_to_bulleted_link(c, self.generator))
 
-        self.generator.gen_heading('Table of Content', 1)
+        tmp_gen.gen_heading('Table of Content', 1)
         for b in bulleted_links:
-            self.generator.gen_unwrapped_line(b)
+            tmp_gen.gen_unwrapped_line(b)
 
+        self.generator.gen_raw(tmp_gen.content if isinstance(self.generator, MarkdownGenerator) else m2r.convert(tmp_gen.content))
         self.generator.gen_page_break()
 
     def gen_tickets_stats_by_category(self, by_category):
@@ -231,8 +233,8 @@ class ReportsGenerator:
         if fmt == 'trac' or fmt == 'markdown':
             md.gen_table(comments_header, comments_rows, max_col_width=-1)
         else:
-            for c in comments_rows:
-                md.gen_comment_card(comments_header, c)
+            for i, c in enumerate(comments_rows):
+                md.gen_comment_card(comments_header, c, i != len(comments_rows) - 1)
         md.gen_line('')
 
     @staticmethod
@@ -266,7 +268,7 @@ class ReportsGenerator:
         else:
             for ticket_content in generated_content:
                 rst_content = m2r.convert(ticket_content)
-                self.generator.gen_raw_rst(rst_content)
+                self.generator.gen_raw(rst_content)
 
     @staticmethod
     def _remove_unnecessary_columns(addenda):
@@ -280,7 +282,7 @@ class ReportsGenerator:
     def gen_top_level_notes(self, top_level_notes_md):
         if self.format == 'markdown' or self.format == 'trac':
             self.generator.gen_raw_md(top_level_notes_md)
-            self.generator.gen_page_break()
         else:
             rst_notes = m2r.convert(top_level_notes_md)
-            self.generator.gen_raw_rst(rst_notes)
+            self.generator.gen_raw(rst_notes)
+        self.generator.gen_page_break()

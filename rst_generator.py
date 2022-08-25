@@ -35,6 +35,7 @@ import markdown_generator
 class RstGenerator:
     def __init__(self):
         self.content = ''
+        self.header_symbol = ['X', '=', '-', '^', '“']
 
     def gen_bullet_point(self, txt):
         self.content += f'* {txt}'
@@ -57,16 +58,16 @@ class RstGenerator:
 
     def gen_line_break(self):
         self.content += '\n'
-        self.content += '.. raw:: html\n'
+        self.content += '.. raw:: html\n\n'
         self.content += '    <br>\n'
 
-    def gen_raw_rst(self, txt):
+    def gen_raw(self, txt):
         self.content += txt
 
     def gen_page_break(self):
         self.content += '\n'
-        self.content += '.. raw:: html\n'
-        self.content += '<div style="page-break-after: always"></div>\n'
+        self.content += '.. raw:: html\n\n'
+        self.content += '    <div style="page-break-after: always"></div>\n'
 
     @staticmethod
     def gen_bold(txt):

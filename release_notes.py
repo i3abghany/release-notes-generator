@@ -65,29 +65,28 @@ def get_notes_headings(file_name):
 def get_notes_file_content(notes_file):
     return open(notes_file, 'r').read() if notes_file != '' else ''
 
+def dump_gen_content(gen_content, fname):
+    with io.open(fname, 'w', encoding='utf-8') as ff:
+        try:
+            ff.write(gen_content.encode('utf-8'))
+        except TypeError:  # For Python 3
+            ff.write(gen_content)
+
 
 def generate_from_rst(gen_content):
-    with io.open('tickets.rst', 'w', encoding='utf-8') as ff:
-        try:
-            ff.write(m2r.convert(gen_content).encode('utf-8'))
-        except TypeError:  # For Python 3
-            ff.write(m2r.convert(gen_content))
+    dump_gen_content(gen_content, 'tickets.rst')
     import subprocess, shutil
     try:
         shutil.which('rst2pdf')
     except shutil.Error:
         print('rst2pdf is not found, please install it and then rerun the generator.')
         sys.exit(1)
-    subprocess.run(['rst2pdf', 'tickets.rst', '-o', args.out_file], stdout=subprocess.DEVNULL,
+    subprocess.run(['rst2pdf', 'tickets.rst', '-o', args.out_file, '--raw-html'], stdout=subprocess.DEVNULL,
                    stderr=subprocess.DEVNULL)
 
 
 def generate_from_html(gen_content):
-    with io.open('tickets.md', 'w', encoding='utf-8') as ff:
-        try:
-            ff.write(gen_content.encode('utf-8'))
-        except TypeError:  # For Python 3
-            ff.write(gen_content)
+    dump_gen_content(gen_content, 'tickets.rst')
     html_gen = HTMLGenerator(css_file)
     with io.open('gen/tickets.html', 'w', encoding='utf-8') as html_file:
         html_file.write(html_gen.from_markdown(gen_content, args.milestone_id))
