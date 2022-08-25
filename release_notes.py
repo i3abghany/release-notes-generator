@@ -66,7 +66,7 @@ def get_notes_file_content(notes_file):
     return open(notes_file, 'r').read() if notes_file != '' else ''
 
 
-def generate_rst(gen_content):
+def generate_from_rst(gen_content):
     with io.open('tickets.rst', 'w', encoding='utf-8') as ff:
         try:
             ff.write(m2r.convert(gen_content).encode('utf-8'))
@@ -104,9 +104,9 @@ def generate_from_html(gen_content):
         'enable-local-file-access': None,
         'enable-internal-links': None,
         'disable-smart-shrinking': None,
+        'print-media-type': None
     }
-    if args.style_format == 'trac':
-        wk_options['print-media-type'] = None
+
     import pdfkit
     try:
         pdfkit.configuration()
@@ -154,6 +154,6 @@ if __name__ == '__main__':
     gen.gen_individual_tickets_info(tickets_stats['tickets'])
 
     if args.style_format == 'rst':
-        generate_rst(gen.generator.content)
+        generate_from_rst(gen.generator.content)
     else:
         generate_from_html(gen.generator.content)
