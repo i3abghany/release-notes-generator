@@ -70,7 +70,7 @@ class MarkdownGenerator:
         self.gen_line('')
         self.gen_line('<br />')
 
-    def gen_raw_md(self, content):
+    def gen_raw(self, content):
         self.content += content
 
     def gen_table(self, header, rows, align='left', max_col_width=38):

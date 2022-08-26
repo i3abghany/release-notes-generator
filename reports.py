@@ -270,7 +270,7 @@ class ReportsGenerator:
             delayed(self._get_ticket_md_content)(tickets, ticket_id, description_width, self.format) for ticket_id in tickets)
         if self.format == 'markdown' or self.format == 'trac':
             for ticket_content in generated_content:
-                self.generator.gen_raw_md(ticket_content)
+                self.generator.gen_raw(ticket_content)
         else:
             for ticket_content in generated_content:
                 rst_content = m2r.convert(ticket_content)
@@ -287,7 +287,7 @@ class ReportsGenerator:
 
     def gen_top_level_notes(self, top_level_notes_md):
         if self.format == 'markdown' or self.format == 'trac':
-            self.generator.gen_raw_md(top_level_notes_md)
+            self.generator.gen_raw(top_level_notes_md)
         else:
             rst_notes = m2r.convert(top_level_notes_md)
             self.generator.gen_raw(rst_notes)

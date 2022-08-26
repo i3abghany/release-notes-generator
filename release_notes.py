@@ -39,6 +39,7 @@ import tickets
 from html_generator import HTMLGenerator
 from markdown_generator import MarkdownGenerator
 from reports import ReportsGenerator
+from rst_generator import RstGenerator
 
 
 def parse_args():
@@ -74,7 +75,8 @@ def dump_gen_content(gen_content, fname):
             ff.write(gen_content)
 
 
-def generate_from_rst(gen_content):
+def generate_from_rst(gen_content, milestone_id):
+    gen_content = RstGenerator.prepend_header(gen_content, milestone_id)
     dump_gen_content(gen_content, 'tickets.rst')
     import subprocess, shutil
     try:
@@ -154,6 +156,6 @@ if __name__ == '__main__':
     gen.gen_individual_tickets_info(tickets_stats['tickets'])
 
     if args.style_format == 'rst':
-        generate_from_rst(gen.generator.content)
+        generate_from_rst(gen.generator.content, args.milestone_id)
     else:
         generate_from_html(gen.generator.content)

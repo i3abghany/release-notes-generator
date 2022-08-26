@@ -27,6 +27,8 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
+import datetime
+
 import m2r
 
 import markdown_generator
@@ -73,4 +75,12 @@ class RstGenerator:
     def gen_bold(txt):
         return f'**{txt}**'
 
-
+    @staticmethod
+    def prepend_header(gen_content, milestone_id):
+        header_content = open('gen/heading.html', 'r').read()
+        header_content = '.. raw:: html \n\n' + header_content
+        header_content = header_content.replace('@@@VERSION_PLACEHOLDER@@@', milestone_id)
+        header_content = header_content.replace('@@@GENERATION_DATE_PLACEHOLDER@@@', str(datetime.date.today()))
+        header_content = header_content.replace('./rtems-logo.png', './gen/rtems-logo.png')
+        gen_content = header_content + '\n' + gen_content
+        return gen_content
