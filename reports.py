@@ -44,7 +44,8 @@ class ReportsGenerator:
 
     def gen_overall_progress(self, overall_progress):
         self.generator.gen_heading('Overall Progress', 1)
-        self.generator.gen_table([k.capitalize() for k in overall_progress.keys()], [overall_progress.values()], align='left')
+        self.generator.gen_table([k.capitalize() for k in overall_progress.keys()], [overall_progress.values()],
+                                 align='left')
 
     def gen_tickets_summary(self, tickets):
         self.generator.gen_line_break()
@@ -90,7 +91,8 @@ class ReportsGenerator:
         for b in bulleted_links:
             tmp_gen.gen_unwrapped_line(b)
 
-        self.generator.gen_raw(tmp_gen.content if isinstance(self.generator, MarkdownGenerator) else m2r.convert(tmp_gen.content))
+        self.generator.gen_raw(
+            tmp_gen.content if isinstance(self.generator, MarkdownGenerator) else m2r.convert(tmp_gen.content))
         self.generator.gen_page_break()
 
     def gen_tickets_stats_by_category(self, by_category):
@@ -171,13 +173,13 @@ class ReportsGenerator:
         if ticket_id == '3384':
             description = re.sub('%s}}}', '%s}\n}\n}', description)
 
-        # TODO: Make sure Trac [url description] syntax is on a single line in the generated Markdown
-        # description = re.sub(r"\[([^ ]*) ([^]]*)]", r"[\1](\2)", description)
-
         if fmt == 'markdown':
             description = re.sub(r'{{{(.*)}}}', r'`\1`', description)
         else:
             description = re.sub(r'{{{(.*)}}}', r':code:`\1`', description)
+
+        if fmt == 'rst':
+            description = re.sub(r'(>+) ---', r'\1 \-\-\-', description)
 
         description = re.sub(r'{{{!(.*)\n', '{{{\n', description)
 
@@ -187,8 +189,9 @@ class ReportsGenerator:
         description = description.replace('{{{\n', '```\n')
         description = description.replace('\n}}}', '\n```')
 
-        description = re.sub(r"^[ \t]*#([ \t]*define|[ \t]*include|[ \t]*endif|[ \t]*ifdef|[ \t]*ifndef|[ \t]*if|[ \t]*else)(.*)$",
-                             r"`#\1\2`", description, flags=re.MULTILINE)
+        description = re.sub(
+            r"^[ \t]*#([ \t]*define|[ \t]*include|[ \t]*endif|[ \t]*ifdef|[ \t]*ifndef|[ \t]*if|[ \t]*else)(.*)$",
+            r"`#\1\2`", description, flags=re.MULTILINE)
         if fmt == 'markdown':
             description = re.sub(r'{{{(?!\n)', '`', description)
             description = re.sub(r'(?!\n)}}}', '`', description)
@@ -222,10 +225,10 @@ class ReportsGenerator:
         if fmt == 'rst':
             description = description.replace('=', '\\=')
             description = description.replace('\n', '\n\n')
+            description = re.sub(r'^(#+)', '', description, flags=re.MULTILINE)
 
         gen.gen_raw_text(description)
         gen.gen_line('')
-
 
     @staticmethod
     def _format_comments(comments, fmt, md):
@@ -275,7 +278,8 @@ class ReportsGenerator:
         description_width = 100 if self.format == 'markdown' else 75
 
         generated_content = Parallel(n_jobs=8)(
-            delayed(self._get_ticket_md_content)(tickets, ticket_id, description_width, self.format) for ticket_id in tickets)
+            delayed(self._get_ticket_md_content)(tickets, ticket_id, description_width, self.format) for ticket_id in
+            tickets)
         if self.format == 'markdown' or self.format == 'trac':
             for ticket_content in generated_content:
                 self.generator.gen_raw(ticket_content)
