@@ -136,17 +136,10 @@ if __name__ == '__main__':
     t = tickets.tickets(milestone_id=args.milestone_id)
     t.load()
     tickets_stats = t.tickets
-    with open('tickets-5.1.pkl', 'wb') as pf:
-        pickle.dump(tickets_stats, pf, pickle.HIGHEST_PROTOCOL)
-
-    # pickle_file_name = 'tickets-5.1.pkl'
-    # tickets_stats = pickle.load(open(pickle_file_name, 'rb'))
 
     print('Generating the release notes PDF file...')
     top_level_headings = get_notes_headings(args.notes_file)
     top_level_notes_md = get_notes_file_content(args.notes_file)
-    # Generate Markdown for data
-    md = MarkdownGenerator()
     gen = ReportsGenerator(fmt=args.style_format)
     gen.gen_toc(top_level_headings, tickets_stats['by_category'])
     gen.gen_top_level_notes(top_level_notes_md)
