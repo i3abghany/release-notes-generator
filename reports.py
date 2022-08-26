@@ -207,7 +207,7 @@ class ReportsGenerator:
         # as headers (#define)... Hence, we fix that manually.
 
         if ticket_id == '3771':
-            description = re.sub('#define', '```\n#define', description, count=1)
+            description = re.sub('`#define', '```\n#define', description, count=1)
             description = re.sub('Problem facing on writing', '```\nProblem facing on writing', description, count=1)
             description = re.sub(r'[ ]{8,}', ' ', description)
 
