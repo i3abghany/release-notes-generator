@@ -174,6 +174,14 @@ class ReportsGenerator:
         # TODO: Make sure Trac [url description] syntax is on a single line in the generated Markdown
         # description = re.sub(r"\[([^ ]*) ([^]]*)]", r"[\1](\2)", description)
 
+        if fmt == 'markdown':
+            description = re.sub(r'{{{(.*)}}}', r'`\1`', description)
+        else:
+            description = re.sub(r'{{{(.*)}}}', r':code:`\1`', description)
+
+        description = re.sub(r'{{{!(.*)\n', '{{{\n', description)
+
+        description = re.sub(r'}}}}', '}\n}}}', description)
         description = re.sub(r'{{{[ \t]+\n', '{{{\n', description)
         description = re.sub(r'{{{([#$])', '{{{\n#', description)
         description = description.replace('{{{\n', '```\n')
