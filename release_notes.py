@@ -124,7 +124,7 @@ if __name__ == '__main__':
     css_file = ''
     if args.style_format == 'trac':
         css_file = 'rtems_trac.css'
-    elif args.style_format == 'markdown' or args.style_format == 'md':
+    elif args.style_format == 'markdown':
         css_file = 'markdown.css'
     elif args.style_format == 'rst':
         pass  # TODO: add custom CSS file for rst if needed
