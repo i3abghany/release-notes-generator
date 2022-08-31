@@ -30,7 +30,7 @@ Implementation improvements usually fall into one of the following categories:
   `RTEMS_INVALID_SIZE` instead of `RTEMS_INVALID_NUMBER`.
 
 * If time-of-day argument is `NULL`, then `rtems_timer_fire_when()`,
-  `rtems_timer_server_fire_when(), and `rtems_task_wake_when()` return
+  `rtems_timer_server_fire_when()`, and `rtems_task_wake_when()` return
   `RTEMS_INVALID_ADDRESS` instead of `RTEMS_INVALID_CLOCK`.
 
 * The time-of-day arguments in `rtems_timer_fire_when()`,
