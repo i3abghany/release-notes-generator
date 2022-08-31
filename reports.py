@@ -71,7 +71,7 @@ class ReportsGenerator:
 
         return f"{('    ' * (level - 1)) + '* '}[{stripped_name}]({linked_name})"
 
-    def gen_toc(self, top_headings, categories):
+    def md_toc(self, top_headings, categories):
         tmp_gen = MarkdownGenerator()
         toc_headers = [h[1:] for h in top_headings]
         toc_headers.extend([
@@ -91,8 +91,14 @@ class ReportsGenerator:
         for b in bulleted_links:
             tmp_gen.gen_unwrapped_line(b)
 
-        self.generator.gen_raw(
-            tmp_gen.content if isinstance(self.generator, MarkdownGenerator) else m2r.convert(tmp_gen.content))
+        return tmp_gen.content
+
+    def gen_toc(self, top_headings, categories):
+        if self.format == 'markdown' or self.format == 'trac':
+            self.generator.gen_raw(self.md_toc(top_headings, categories))
+        else:
+            self.generator.gen_heading('Table of Content', 1)
+            self.generator.gen_raw(m2r.convert(self.md_toc(top_headings, categories)))
         self.generator.gen_page_break()
 
     def gen_tickets_stats_by_category(self, by_category):
