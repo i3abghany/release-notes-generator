@@ -55,6 +55,7 @@ class tickets:
         # Read entire trac table as DictReader (iterator)
         tickets_dict_iter = self._get_tickets_table_as_dict()
         self._pre_process_tickets_stats()
+        print(f"Fetching and processing tickets for the {self.tickets_id} milestone.")
         tickets_data = Parallel(n_jobs=8)(delayed(self._fetch_data_for_ticket)(ticket) for ticket in tickets_dict_iter)
         for ticket in tickets_data:
             self.tickets['tickets'][ticket['meta']['id']] = ticket
